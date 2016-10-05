@@ -31,7 +31,7 @@ namespace HopeTherapy.Models
 
         public string OfficePhoneNumber { get; set; }
 
-        public EmailService Email { get; set; }
+        
 
         public string Birthday { get; set; }
 

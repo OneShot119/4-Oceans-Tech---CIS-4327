@@ -8,7 +8,7 @@ namespace HopeTherapy
     {
         public void Configuration(IAppBuilder app)
         {
-            ConfigureAuth(app);
+            
         }
     }
 }
