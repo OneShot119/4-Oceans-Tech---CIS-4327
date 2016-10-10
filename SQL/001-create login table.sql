@@ -1,12 +1,25 @@
 USE [HopeTherapy]
 GO
 
-IF OBJECT_ID('Login') IS NULL
+IF OBJECT_ID('Login') IS NOT NULL
 BEGIN
-	CREATE TABLE dbo.[Login]
-	(
-		Username	NVARCHAR(50),
-		Password	NVARCHAR(50),
-		PRIMARY KEY CLUSTERED(Username)
-	)
+	DROP TABLE dbo.[Login]
 END
+
+CREATE TABLE dbo.[Login]
+(
+	Username	NVARCHAR(50),
+	Password	NVARCHAR(50),
+	PRIMARY KEY CLUSTERED(Username)
+)
+
+INSERT INTO dbo.[Login]
+(
+Username,
+Password
+)
+VALUES
+(
+	'hopetherapy',
+	'hopetherapy!'
+)
