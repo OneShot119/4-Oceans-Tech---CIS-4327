@@ -12,7 +12,7 @@ namespace HopeTherapy.Controllers
         // GET: Demo
         public ActionResult Index()
         {
-            var model = new Login { Username = "test", Password = "password" };
+            var model = Utilities.Sql.ExecuteQuery<Login>("SELECT * FROM dbo.[Login]");
             return View(model);
         }
     }

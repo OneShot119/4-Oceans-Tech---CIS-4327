@@ -1,10 +1,12 @@
-﻿@model HopeTherapy.Models.Login
+﻿@model  IEnumerable<HopeTherapy.Models.Login>
 
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
-
-<p> @Model.Username</p>
-<p> @Model.Password</p>
+@foreach (var login in Model)
+{ 
+    <p> @login.Username</p>
+    <p> @login.Password</p>
+}
