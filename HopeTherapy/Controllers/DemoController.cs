@@ -39,6 +39,8 @@ namespace HopeTherapy.Controllers
                 // Todo: Model is not valid.
                 return View(model);
             }
+
+            // Todo: Check database
             return View(model);
         }
     }
