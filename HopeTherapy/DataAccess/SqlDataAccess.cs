@@ -21,7 +21,7 @@ namespace HopeTherapy.DataAccess
             _connectionString = connectionString;
         }
 
-        public IEnumerable<T> ExecuteQuery<T>(string sql)
+        public IEnumerable<T> ExecuteQuery<T>(string sql, object param = null)
         {
             if (string.IsNullOrWhiteSpace(sql))
             {
@@ -29,16 +29,16 @@ namespace HopeTherapy.DataAccess
             }
             using (var connection = new SqlConnection(_connectionString))
             {
-                return connection.Query<T>(sql);
+                return connection.Query<T>(sql, param);
             }
         }
 
-        public T ExecuteQuerySingleResult<T>(string sql)
+        public T ExecuteQuerySingleResult<T>(string sql, object param = null)
         {
-            return ExecuteQuery<T>(sql).Single();
+            return ExecuteQuery<T>(sql, param).Single();
         }
 
-        public int ExecuteCommand<T>(string sql)
+        public int ExecuteCommand(string sql, object param = null)
         {
             if (string.IsNullOrWhiteSpace(sql))
             {
@@ -46,7 +46,7 @@ namespace HopeTherapy.DataAccess
             }
             using (var connection = new SqlConnection(_connectionString))
             {
-                return connection.Execute(sql);
+                return connection.Execute(sql, param);
             }
         }
     }

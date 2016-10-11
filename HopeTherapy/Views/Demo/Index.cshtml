@@ -1,12 +1,21 @@
-﻿@model  IEnumerable<HopeTherapy.Models.Login>
+﻿@model  HopeTherapy.Models.Login
 
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
-@foreach (var login in Model)
-{ 
-    <p> @login.Username</p>
-    <p> @login.Password</p>
+
+<p> You submitted this:</p>
+<p> Username: @Model.Username</p>
+<p> Password: @Model.Password</p>
+<hr />
+
+@using (Html.BeginForm("Index", "Demo", FormMethod.Post))
+{
+
+    @Html.DisplayNameFor(i => i.Username) @Html.EditorFor(i => i.Username) @Html.ValidationMessageFor(i => i.Username)<br />
+    @Html.DisplayNameFor(i => i.Password) @Html.EditorFor(i => i.Password) @Html.ValidationMessageFor(i => i.Password) <br />
+    
+    <input type="submit" value="Go" />
 }
