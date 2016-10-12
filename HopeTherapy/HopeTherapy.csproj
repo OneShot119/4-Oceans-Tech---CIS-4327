@@ -232,12 +232,6 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Helpers\Helpers.csproj">
-      <Project>{dc7d2b71-6966-43d0-a876-ae251ed14593}</Project>
-      <Name>Helpers</Name>
-    </ProjectReference>
-  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

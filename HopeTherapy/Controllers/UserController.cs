@@ -5,17 +5,15 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 
-namespace Creating_a_custom_user_login_form.Controllers
+namespace HopeTherapy.Controllers
 {
     public class UserController : Controller
     {
-        //
-        // GET: /User/
+        // GET: User
         public ActionResult Index()
         {
             return View();
         }
-
         [HttpGet]
         public ActionResult Login()
         {
