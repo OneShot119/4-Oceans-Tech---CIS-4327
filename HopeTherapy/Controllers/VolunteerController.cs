@@ -24,3 +24,4 @@ namespace HopeTherapy.Controllers
             return View(model);
         }
     }
+}
