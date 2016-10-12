@@ -1,0 +1,21 @@
+﻿@model HopeTherapy.Models.Volunteer
+   
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Volunteer</h2>
+
+<p> You submitted this:</p>
+@*<p> Username: @Model.Username</p>
+    <p> Password: @Model.Password</p>*@
+<hr />
+@using (Html.BeginForm("Index", "Volunteer", FormMethod.Post))
+{
+
+    @Html.DisplayNameFor(i => i.FirstName) @Html.EditorFor(i => i.FirstName) @Html.ValidationMessageFor(i => i.FirstName) <br />
+    @Html.DisplayNameFor(i => i.LastName) @Html.EditorFor(i => i.LastName) @Html.ValidationMessageFor(i => i.LastName) <br />
+
+    <input type="submit" value="Go" />
+}
+
+
