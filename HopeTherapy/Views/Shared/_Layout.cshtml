@@ -23,6 +23,7 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About Us", "About", "Home")</li>
+                    <li>@Html.ActionLink("Volunteers", "Index", "Volunteer")</li>
                     @if (Request.IsAuthenticated)
                     {
                         <li>@Html.ActionLink("Sign Out", "Logout", "User")</li>
@@ -32,7 +33,6 @@
                     {
                         <li>@Html.ActionLink("Register", "Index", "Register")</li>
                         <li>@Html.ActionLink("Sign In", "Login", "User")</li>
-                        <li>@Html.ActionLink("Volunteers", "Index", "Volunteer")</li>
                         }
                 </ul>
             </div>
