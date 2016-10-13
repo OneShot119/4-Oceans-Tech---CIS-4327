@@ -34,8 +34,8 @@ namespace HopeTherapy.Models
         {
             using (var cn = new SqlConnection(ConfigurationManager.ConnectionStrings["HopeTherapyIMS"].ConnectionString))
             {
-                string _sql = @"SELECT [Username] FROM [dbo].[Login] " +
-                       @"WHERE [Username] = @u AND [Password] = @p";
+                string _sql = @"SELECT [UserName] FROM [dbo].[Register] " +
+                       @"WHERE [UserName] = @u AND [Password] = @p";
                 var cmd = new SqlCommand(_sql, cn);
                 cmd.Parameters
                     .Add(new SqlParameter("@u", SqlDbType.NVarChar))
