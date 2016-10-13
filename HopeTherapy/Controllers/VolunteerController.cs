@@ -19,9 +19,9 @@ namespace HopeTherapy.Controllers
         [HttpPost]
         public ActionResult Index(Volunteer model)
         {
-
             // Todo: Check database
             return View(model);
         }
+
     }
 }
