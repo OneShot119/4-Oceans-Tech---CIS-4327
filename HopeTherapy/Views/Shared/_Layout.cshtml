@@ -25,15 +25,14 @@
                     <li>@Html.ActionLink("About Us", "About", "Home")</li>
                     @if (Request.IsAuthenticated)
                     {
-                        <strong>@Html.Encode(User.Identity.Name)</strong>
                         <li>@Html.ActionLink("Sign Out", "Logout", "User")</li>
+                        <li><font color="red">@Html.Encode(User.Identity.Name)</font></li>
                     }
                     else
                     {
                         <li>@Html.ActionLink("Register", "Index", "Register")</li>
                         <li>@Html.ActionLink("Sign In", "Login", "User")</li>
                         }
-<li>Link 3</li>
                 </ul>
             </div>
         </div>
