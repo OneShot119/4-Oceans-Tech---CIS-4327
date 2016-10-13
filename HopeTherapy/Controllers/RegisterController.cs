@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace HopeTherapy.Controllers
 {
@@ -26,7 +27,11 @@ namespace HopeTherapy.Controllers
             }
 
             // Todo: Check database
-            return View(model);
+            var user = new User();
+            user.UserName = model.Username;
+            user.Password = model.Password;
+            FormsAuthentication.SetAuthCookie(user.UserName, true);
+            return RedirectToAction("Index","Home");
         }
     }
 }

@@ -24,6 +24,8 @@ namespace HopeTherapy.Models
         [Required(ErrorMessage = "LastName is required"), DisplayName("LastName")]
         public string LastName { get; set; }
 
+        [Required(ErrorMessage = "AccessKey is required"), DisplayName("AccessKey")]
+        public string AccessKey { get; set; }
 
     }
 }
