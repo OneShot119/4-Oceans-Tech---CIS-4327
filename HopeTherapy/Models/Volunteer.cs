@@ -55,5 +55,18 @@ namespace HopeTherapy.Models
 
         public string VolunteerPosition { get; set; }
 
+        public int HoursVolunteered { get; set; }
+
+        public string AreaOfInterest { get; set; }
+
+        public string Skills { get; set; }
+
+        public string Donor { get; set; }
+
+        public string Board { get; set; }
+
+        public string EmailList { get; set; }
+
+        public string MailList { get; set; }
     }
 }
