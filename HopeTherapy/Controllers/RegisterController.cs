@@ -20,7 +20,7 @@ namespace HopeTherapy.Controllers
             return View();
         }
 
-        [HttpPost]
+        [HttpPost] [ValidateAntiForgeryToken]
         public ActionResult Index(Register model)
         {
             if (!ModelState.IsValid)
@@ -34,9 +34,8 @@ namespace HopeTherapy.Controllers
             //int temp = DataAccess.SqlDataAccess.ExecuteCommand(sql);
             using (var cn = new SqlConnection(ConfigurationManager.ConnectionStrings["HopeTherapyIMS"].ConnectionString))
             {
-                string sql = "INSERT INTO [UserName, Password, Email, FirstName, LastName] FROM [dbo].[Register] VALUES[" + model.Username + ", " + model.Password + ", " + model.Email + ", " + model.FirstName + ", " + model.LastName + "]";
-                //Todo: Not working
-                //int temp = SqlDataAccess.ExecuteCommand(sql, null);
+                string sql = "INSERT INTO [dbo].[Register] (UserName, Password, Email, FirstName, LastName)  VALUES(@Username, @Password, @Email, @FirstName, @LastName)";
+                Utilities.Sql.ExecuteCommand(sql, model);
             }
 
                 var user = new User();

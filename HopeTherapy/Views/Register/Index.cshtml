@@ -9,7 +9,8 @@
 <hr />
 
 @using (Html.BeginForm("Index", "Register", FormMethod.Post))
-{
+{ 
+    @Html.AntiForgeryToken()
 
     @Html.DisplayNameFor(i => i.Username) @Html.EditorFor(i => i.Username) @Html.ValidationMessageFor(i => i.Username)<br />
     @Html.DisplayNameFor(i => i.Password) @Html.EditorFor(i => i.Password) @Html.ValidationMessageFor(i => i.Password) <br />
