@@ -29,6 +29,13 @@ namespace HopeTherapy.Controllers
                 return View(model);
             }
 
+            var regCode = ConfigurationManager.AppSettings["RegCode"];
+            if (!string.Equals(model.AccessKey, regCode))
+            {
+                ModelState.AddModelError("AccessKey", "Incorrect AccessKey.");
+                return View(model);
+            }
+
             // Todo: Check database
             //string sql = "INSERT INTO Register VALUES("+model.Username+ ", " + model.Password + ")";
             //int temp = DataAccess.SqlDataAccess.ExecuteCommand(sql);
