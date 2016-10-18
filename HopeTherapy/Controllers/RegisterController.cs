@@ -42,7 +42,19 @@ namespace HopeTherapy.Controllers
             using (var cn = new SqlConnection(ConfigurationManager.ConnectionStrings["HopeTherapyIMS"].ConnectionString))
             {
                 string sql = "INSERT INTO [dbo].[Register] (UserName, Password, Email, FirstName, LastName)  VALUES(@Username, @Password, @Email, @FirstName, @LastName)";
-                Utilities.Sql.ExecuteCommand(sql, model);
+                try
+                {
+                    Utilities.Sql.ExecuteCommand(sql, model);
+                }
+                catch (SqlException ex)
+                {
+                    if(ex.Number == 2627) // 2627 = unique constraint violation.
+                    {
+                        ModelState.AddModelError("Username", "Username already taken.");
+                        return View(model);
+                    }
+                    throw;
+                }
             }
 
                 var user = new User();

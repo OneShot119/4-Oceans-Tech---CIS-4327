@@ -20,5 +20,10 @@
 input,
 select,
 textarea {
-    max-width: 280px;
+    /*max-width: 280px;*/
+}
+
+.field-validation-error{
+    color: #ff0000;
+    font-weight: bold;
 }
