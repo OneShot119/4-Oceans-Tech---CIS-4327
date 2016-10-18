@@ -222,6 +222,8 @@
     <Content Include="Views\Register\Index.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
     <Content Include="Views\Volunteer\Index.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\String.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Password.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

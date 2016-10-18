@@ -1,0 +1,9 @@
+﻿@model String
+
+<div class="row">
+    <div class="form-group">
+        <div class="col-md-3"><label for="@Model">@Html.DisplayNameFor(i => i)</label></div>
+        <div class="col-md-6"><input type="text" class="form-control" id="@ViewData.ModelMetadata.PropertyName" name="@ViewData.ModelMetadata.PropertyName" value="@Model" placeholder="@Html.DisplayNameFor(i => i)" /></div>
+        <div class="col-md-3"><div>@Html.ValidationMessageFor(i => i)</div></div>
+    </div>
+</div>
