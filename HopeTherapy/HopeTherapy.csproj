@@ -168,7 +168,6 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\Donor.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -177,7 +176,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Donor.cs" />
     <Compile Include="Models\Register.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\Volunteer.cs" />
@@ -224,12 +222,8 @@
     <Content Include="Views\Register\Index.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
     <Content Include="Views\Volunteer\Index.cshtml" />
-<<<<<<< HEAD
-    <Content Include="Views\Donor\Index.cshtml" />
-=======
     <Content Include="Views\Shared\EditorTemplates\String.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Password.cshtml" />
->>>>>>> 70bbef2ef53426c435a65acea2c7f19e819bd648
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
