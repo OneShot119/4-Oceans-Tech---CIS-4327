@@ -19,6 +19,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                 </button>
                
             </div>
@@ -27,6 +28,7 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About Us", "About", "Home")</li>
                     <li>@Html.ActionLink("Volunteers", "Index", "Volunteer")</li>
+                    <li>@Html.ActionLink("Donors", "Index", "Donor")</li>
                     @if (Request.IsAuthenticated)
                     {
                         <li>@Html.ActionLink("Sign Out", "Logout", "User")</li>
