@@ -1,6 +1,3 @@
-USE [HopeTherapy]
-GO
-
 IF OBJECT_ID('Register') IS NOT NULL
 BEGIN
 	DROP TABLE dbo.[Register]

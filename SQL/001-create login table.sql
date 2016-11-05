@@ -1,6 +1,3 @@
-USE [HopeTherapy]
-GO
-
 IF OBJECT_ID('Login') IS NOT NULL
 BEGIN
 	DROP TABLE dbo.[Login]
