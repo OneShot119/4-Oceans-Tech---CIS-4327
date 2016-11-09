@@ -23,6 +23,7 @@
     })<br />
     @Html.DisplayNameFor(i => i.StreetAddress) @Html.EditorFor(i => i.StreetAddress) @Html.ValidationMessageFor(i => i.StreetAddress) <br />
     @Html.DisplayNameFor(i => i.City) @Html.EditorFor(i => i.City) @Html.ValidationMessageFor(i => i.City) <br />
+
     @Html.DisplayNameFor(i => i.ZipCode) @Html.EditorFor(i => i.ZipCode) @Html.ValidationMessageFor(i => i.ZipCode) <br />
     @Html.DisplayNameFor(i => i.County) @Html.EditorFor(i => i.County) @Html.ValidationMessageFor(i => i.County) <br />
     @Html.DisplayNameFor(i => i.CellPhoneNumber) @Html.EditorFor(i => i.CellPhoneNumber) @Html.ValidationMessageFor(i => i.CellPhoneNumber) <br />
@@ -31,6 +32,7 @@
     @Html.DisplayNameFor(i => i.EmailAddress) @Html.EditorFor(i => i.EmailAddress) @Html.ValidationMessageFor(i => i.EmailAddress) <br />
     @Html.DisplayNameFor(i => i.Gender)@Html.DropDownListFor(i => i.Gender, new List<SelectListItem>
     {
+            
                         new SelectListItem() {Text = "M", Value="Male"},
                         new SelectListItem() {Text = "F", Value="Female"},
 
