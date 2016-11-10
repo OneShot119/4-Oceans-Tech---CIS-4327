@@ -11,17 +11,16 @@ using System.Configuration;
 
 namespace HopeTherapy.Controllers
 {
- 
-    public class DonorShow : Controller { }
-    /*
-        // GET: Donor
+    public class EditProfile : Controller
+    {
+/*
         [HttpGet]
-        public ActionResult Index(Donor model)
+        public ActionResult Index(User model)
         {
-        var regCode = ConfigurationManager.AppSettings["RegCode"];
-        using (var cn = new SqlConnection(ConfigurationManager.ConnectionStrings["HopeTherapyIMS"].ConnectionString))
-        {
-        public string sql = "SELECT * FROM [bdo].[DONOR] WHERE D_CODE=@code";
+            var regCode = ConfigurationManager.AppSettings["RegCode"];
+            using (var cn = new SqlConnection(ConfigurationManager.ConnectionStrings["HopeTherapyIMS"].ConnectionString))
+            {
+        public string sql = "SELECT * FROM [dbo].[Register] WHERE D_CODE=@code";
         try
                 {
                     Utilities.Sql.ExecuteCommand(sql, model);
@@ -32,7 +31,7 @@ namespace HopeTherapy.Controllers
                 {
                     ModelState.AddModelError("Username", "Username already taken.");
                     return View(model);
-                }
+}
                 throw;
         }
         return View();
@@ -40,12 +39,12 @@ namespace HopeTherapy.Controllers
         }
         
     [HttpPost]
-    public ActionResult Index(DonorShow model) { }
+public ActionResult Index(User model) { }
         using (var cn = new SqlConnection(ConfigurationManager.ConnectionStrings["HopeTherapyIMS"].ConnectionString))
-            private string sql = "UPDATE [bdo].[DONOR] SET (D_FNAME=@fName, D_LNAME=@lName, D_ADDRESS=@address, D_CITY=@city, D_STATE=@state, D_ZIP=@zip, D_COUNTY=@county, D_BIRTHDAY=@birthday, D_GENDER=@gender, D_CELL_PHONE=@cellPhone, D_HOME_PHONE=@homePhone, D_WORK_PHONE=@workPhone, D_EMAIL=@email, D_CO_NAME=@coName, D_POSITION=@position, D_CO_ADDRESS=@CoAddress, D_CO_CITY=@coCity, D_CO_STATE=@coState, D_CO_ZIP=@coZip, DONATION_CURRENCY=@donationCurrency, DONATION_ITEM=@donationItem, DONATION_SERVICE=@donationService) WHERE (D_CODE = $code)";
+            private string sql = "UPDATE [dbo].[Register] SET (D_FNAME=@fName, D_LNAME=@lName, D_ADDRESS=@address, D_CITY=@city, D_STATE=@state, D_ZIP=@zip, D_COUNTY=@county, D_BIRTHDAY=@birthday, D_GENDER=@gender, D_CELL_PHONE=@cellPhone, D_HOME_PHONE=@homePhone, D_WORK_PHONE=@workPhone, D_EMAIL=@email, D_CO_NAME=@coName, D_POSITION=@position, D_CO_ADDRESS=@CoAddress, D_CO_CITY=@coCity, D_CO_STATE=@coState, D_CO_ZIP=@coZip, DONATION_CURRENCY=@donationCurrency, DONATION_ITEM=@donationItem, DONATION_SERVICE=@donationService) WHERE (D_CODE = $code)";
             try
                 {
-                    Utilities.Sql.ExecuteCommand(sql, model);
+                    Utilities.Sql.ExecuteCommand(sql, modle);
                 }
                 catch (SqlException ex)
                 {
@@ -53,5 +52,6 @@ namespace HopeTherapy.Controllers
                 }
                 DataAccess.SqlDataAccess.ExecuteCommand(sql);            
                 return View(model);
-        */
+    }
+*/
 }
