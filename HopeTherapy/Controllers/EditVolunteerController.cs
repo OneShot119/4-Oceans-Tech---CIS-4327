@@ -9,24 +9,18 @@ using HopeTherapy.DataAccess;
 using System.Data.SqlClient;
 using System.Configuration;
 
+
 namespace HopeTherapy.Controllers
 {
-    public class VolunteerController : Controller
+    public class EditVolunteerController : Controller
     {
-        // GET: Volunteer
-        [HttpGet]
+        // GET: EditVolunteer
         public ActionResult Index()
         {
             return View();
         }
-
-        [HttpPost]
-        public ActionResult Index(Volunteer model)
-        {
-            // Todo: Check database
-            
-
-
+             public ActionResult Index(Volunteer model)
+        { 
             using (var cn2 = new SqlConnection(ConfigurationManager.ConnectionStrings["HopeTherapyIMS"].ConnectionString))
 
             {
@@ -35,7 +29,7 @@ namespace HopeTherapy.Controllers
                 {
                     Utilities.Sql.ExecuteCommand(sql, model);
                 }
-                catch (SqlException ex)
+                catch (SqlException)
                 {
                     /*if(ex.Number == 2627) // 2627 = unique constraint violation.
                     {
@@ -44,11 +38,12 @@ namespace HopeTherapy.Controllers
                     }*/
                     throw;
                 }
-             
+
             }
             var Volunteer = new Volunteer();
-            
+
             return RedirectToAction("Index", "Home");
         }
     }
+    
 }

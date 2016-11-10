@@ -7,10 +7,8 @@ using System.Web;
 
 namespace HopeTherapy.Models
 {
-    public class Volunteer
+    public class EditVolunteer
     {
-        public int VolunterID { get; set; }
-
         [Required(ErrorMessage = "First Name is required"), DisplayName("First Name")]
         public string FirstName { get; set; }
 
@@ -32,13 +30,13 @@ namespace HopeTherapy.Models
         public string County { get; set; }
         //[Required(ErrorMessage = "Cell Phone Number is required"), DisplayName("Cell Phone")]
         public int CellPhoneNumber { get; set; }
-       
+
         public int HomePhoneNumber { get; set; }
 
         public int WorkPhoneNumber { get; set; }
 
-       // [DataType(DataType.EmailAddress)]
-       // [Required(ErrorMessage = "Email is required"), DisplayName("Email")]
+        // [DataType(DataType.EmailAddress)]
+        // [Required(ErrorMessage = "Email is required"), DisplayName("Email")]
         public string Email { get; set; }
 
         public int Birthday { get; set; }
@@ -51,28 +49,28 @@ namespace HopeTherapy.Models
         public int DaysVolunteered { get; set; }
         public int HoursPerMonth { get; set; }
 
-    /*    public string CompanyName { get; set; }
+        /*    public string CompanyName { get; set; }
 
-        public string Position { get; set; }
+            public string Position { get; set; }
 
-        public string CompanyAddress { get; set; }
+            public string CompanyAddress { get; set; }
 
-        public string VolunteerDays { get; set; }
+            public string VolunteerDays { get; set; }
 
-        public string VolunteerPosition { get; set; }
+            public string VolunteerPosition { get; set; }
 
-        public int HoursVolunteered { get; set; }
+            public int HoursVolunteered { get; set; }
 
-        public string AreaOfInterest { get; set; }
+            public string AreaOfInterest { get; set; }
 
-        public string Skills { get; set; }
+            public string Skills { get; set; }
 
-        public string Donor { get; set; }
+            public string Donor { get; set; }
 
-        public string Board { get; set; }
+            public string Board { get; set; }
 
-        public string EmailList { get; set; }
+            public string EmailList { get; set; }
 
-        public string MailList { get; set; }*/
+            public string MailList { get; set; }*/
     }
 }
