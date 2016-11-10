@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Web;
 
 namespace HopeTherapy.Models
 {
@@ -42,6 +42,7 @@ namespace HopeTherapy.Models
         [DisplayName("Date of Birth")]
         public string Birthday { get; set; }
 
+        [DisplayName("Gender")]
         public string Gender { get; set; }
 
         [DisplayName("Cell Phone")]
@@ -51,7 +52,7 @@ namespace HopeTherapy.Models
         public int HomePhoneNumber { get; set; }
 
         [DisplayName("Business Phone")]
-        public int OfficePhoneNumber { get; set; }
+        public int WorkPhoneNumber { get; set; }
 
         [DataType(DataType.EmailAddress)]
 //        [Required(ErrorMessage = "Email is required"), 
@@ -69,6 +70,12 @@ namespace HopeTherapy.Models
         public string CompanyState { get; set; }
 
         public int CompanyZip { get; set; }
+
+        public int CurrencyDonation { get; set; }
+
+        public string ItemDonation { get; set; }
+
+        public string ServiceDonation { get; set; }
 
     }
 
