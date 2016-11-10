@@ -24,26 +24,31 @@ namespace HopeTherapy.Controllers
         public ActionResult Index(Volunteer model)
         {
             // Todo: Check database
-            return View(model);
-        
-                    using (var cn = new SqlConnection(ConfigurationManager.ConnectionStrings["HopeTherapyIMS"].ConnectionString))
+            
+
+
+            using (var cn2 = new SqlConnection(ConfigurationManager.ConnectionStrings["HopeTherapyIMS"].ConnectionString))
+
             {
-                string sql = "INSERT INTO [dbo].[Volunteer] (VolunteerID, FirstName, LastName, Salutation, StreetAddress, City, States, ZipCode, County, CellPhoneNumber, HomePhoneNumber, OfficePhoneNumber, Email, Birthday, Gender, Job, DateOrientation, DateStarted, DaysVolunteered, HoursPerMonth)  VALUES(@VolunteerID, @FirstName, @LastName, @Salutation, @StreetAddress, @City, @States, @ZipCode, @County, @CellPhoneNumber, @HomePhoneNumber, @OfficePhoneNumber, @Email, @Birthday, @Gender, @Job, @DateOrientation, @DateStarted, @DaysVolunteered, @HoursPerMonth)";
+                string sql = "INSERT INTO [dbo].[Volunteer] (FirstName, LastName, Salutation, StreetAddress, City, States, ZipCode, County, CellPhoneNumber, HomePhoneNumber, WorkPhoneNumber, Email, Birthday, Gender, Job)  VALUES(@FirstName, @LastName, @Salutation, @StreetAddress, @City, @States, @ZipCode, @County, @CellPhoneNumber, @HomePhoneNumber, @WorkPhoneNumber, @Email, @Birthday, @Gender, @Job)";
                 try
                 {
                     Utilities.Sql.ExecuteCommand(sql, model);
                 }
                 catch (SqlException ex)
                 {
-                    if(ex.Number == 2627) // 2627 = unique constraint violation.
+                    /*if(ex.Number == 2627) // 2627 = unique constraint violation.
                     {
                         ModelState.AddModelError("VolunteerID", "Volunteer is already in the system.");
                         return View(model);
-                    }
+                    }*/
                     throw;
                 }
-              var volunteer = new Volunteer();
+             
             }
+            var Volunteer = new Volunteer();
+            
+            return RedirectToAction("Index", "Home");
         }
     }
 }

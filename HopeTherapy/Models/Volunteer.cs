@@ -25,26 +25,27 @@ namespace HopeTherapy.Models
         [Required(ErrorMessage = "City is required"), DisplayName("City Name")]
         public string City { get; set; }
 
-        public int State { get; set; }
+        public int States { get; set; }
         [Required(ErrorMessage = "ZipCode is required"), DisplayName("ZipCode")]
-        public string ZipCode { get; set; }
+        public int ZipCode { get; set; }
         [Required(ErrorMessage = "County is required"), DisplayName("County")]
         public string County { get; set; }
         [Required(ErrorMessage = "Cell Phone Number is required"), DisplayName("Cell Phone")]
-        public string CellPhoneNumber { get; set; }
+        public int CellPhoneNumber { get; set; }
        
         public string HomePhoneNumber { get; set; }
 
-        public string OfficePhoneNumber { get; set; }
+        public string WorkPhoneNumber { get; set; }
 
         [DataType(DataType.EmailAddress)]
         [Required(ErrorMessage = "Email is required"), DisplayName("Email")]
-        public string EmailAddress { get; set; }
+        public string Email { get; set; }
 
-        public string Birthday { get; set; }
+        public int Birthday { get; set; }
 
         public string Gender { get; set; }
 
+        public string Job { get; set; }
         public string CompanyName { get; set; }
 
         public string Position { get; set; }

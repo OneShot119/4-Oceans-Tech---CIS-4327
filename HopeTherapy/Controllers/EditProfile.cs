@@ -9,10 +9,10 @@ using HopeTherapy.DataAccess;
 using System.Data.SqlClient;
 using System.Configuration;
 
-namespace HopeTherapy.Controllers
-{
-    public class EditProfile : Controller
-    {
+//namespace HopeTherapy.Controllers
+//{
+    //public class EditProfile : Controller
+    //{
 /*
         [HttpGet]
         public ActionResult Index(User model)
@@ -54,4 +54,4 @@ public ActionResult Index(User model) { }
                 return View(model);
     }
 */
-}
+//}
