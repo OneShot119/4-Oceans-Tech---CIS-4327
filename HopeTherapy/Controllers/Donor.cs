@@ -46,7 +46,7 @@ namespace HopeTherapy.Controllers
                 }
 
             }
-            var Volunteer = new Volunteer();
+            var Donor = new Donor();
 
             return RedirectToAction("Index", "Home");
         }
