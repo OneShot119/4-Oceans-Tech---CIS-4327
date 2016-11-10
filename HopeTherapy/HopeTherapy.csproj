@@ -171,6 +171,7 @@
     <Compile Include="Controllers\Donor.cs" />
     <Compile Include="Controllers\DonorShow.cs" />
     <Compile Include="Controllers\EditProfile.cs" />
+    <Compile Include="Controllers\EditVolunteerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -182,6 +183,7 @@
     <Compile Include="Models\Donor.cs" />
     <Compile Include="Models\DonorShow.cs" />
     <Compile Include="Models\EditProfile.cs" />
+    <Compile Include="Models\EditVolunteer.cs" />
     <Compile Include="Models\Register.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\Volunteer.cs" />
@@ -237,6 +239,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Views\EdiProfile\" />
     <Folder Include="Views\EditProfile\" />
+    <Folder Include="Views\EditVolunteer\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
