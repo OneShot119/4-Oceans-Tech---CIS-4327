@@ -33,8 +33,8 @@
     @Html.DisplayNameFor(i => i.Gender)@Html.DropDownListFor(i => i.Gender, new List<SelectListItem>
     {
             
-                        new SelectListItem() {Text = "M", Value="Male"},
-                        new SelectListItem() {Text = "F", Value="Female"},
+                        new SelectListItem() {Text = "Male", Value="M"},
+                        new SelectListItem() {Text = "Female", Value="F"},
 
     })<br />
     @Html.DisplayNameFor(i => i.Job) @Html.EditorFor(i => i.Job) @Html.ValidationMessageFor(i => i.Job) <br />

@@ -22,11 +22,8 @@
                 <legend>New Donor Registration:</legend>
                 <h2>Personal Information</h2>
 
-                First name:<br>
-                <input type="text" name="firstname"><br><br>
-
-                Last name:<br>
-                <input type="text" name="lastname"><br><br>
+                @Html.EditorFor(i => i.FirstName)
+                @Html.EditorFor(i => i.LastName)
 
                 Street Address:<br>
                 <input type="text" name="streetaddress"><br><br>
