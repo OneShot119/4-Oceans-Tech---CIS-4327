@@ -11,9 +11,9 @@
 @using (Html.BeginForm("Index", "Volunteer", FormMethod.Post))
 {
 
-    @Html.DisplayNameFor(i => i.FirstName) @Html.EditorFor(i => i.FirstName) @Html.ValidationMessageFor(i => i.FirstName) <br />
-    @Html.DisplayNameFor(i => i.LastName) @Html.EditorFor(i => i.LastName) @Html.ValidationMessageFor(i => i.LastName) <br />
-    @Html.DisplayNameFor(i => i.Salutation)@Html.DropDownListFor(i => i.Salutation, new List<SelectListItem>
+    @Html.EditorFor(i => i.FirstName) @Html.ValidationMessageFor(i => i.FirstName) <br />
+    @Html.EditorFor(i => i.LastName) @Html.ValidationMessageFor(i => i.LastName) <br />
+    @Html.DropDownListFor(i => i.Salutation, new List<SelectListItem>
     {
                         new SelectListItem() {Text = "Mr", Value="Mr"},
                         new SelectListItem() {Text = "Mrs", Value="Mrs"},
@@ -21,26 +21,26 @@
                         new SelectListItem() {Text = "Miss", Value="Miss"},
 
     })<br />
-    @Html.DisplayNameFor(i => i.StreetAddress) @Html.EditorFor(i => i.StreetAddress) @Html.ValidationMessageFor(i => i.StreetAddress) <br />
-    @Html.DisplayNameFor(i => i.City) @Html.EditorFor(i => i.City) @Html.ValidationMessageFor(i => i.City) <br />
-    @Html.DisplayNameFor(i => i.States) @Html.EditorFor(i => i.States) @Html.ValidationMessageFor(i => i.States) <br />
-    @Html.DisplayNameFor(i => i.ZipCode) @Html.EditorFor(i => i.ZipCode) @Html.ValidationMessageFor(i => i.ZipCode) <br />
-    @Html.DisplayNameFor(i => i.County) @Html.EditorFor(i => i.County) @Html.ValidationMessageFor(i => i.County) <br />
-    @Html.DisplayNameFor(i => i.CellPhoneNumber) @Html.EditorFor(i => i.CellPhoneNumber) @Html.ValidationMessageFor(i => i.CellPhoneNumber) <br />
-    @Html.DisplayNameFor(i => i.HomePhoneNumber) @Html.EditorFor(i => i.HomePhoneNumber) @Html.ValidationMessageFor(i => i.HomePhoneNumber) <br />
-    @Html.DisplayNameFor(i => i.WorkPhoneNumber) @Html.EditorFor(i => i.WorkPhoneNumber) @Html.ValidationMessageFor(i => i.WorkPhoneNumber) <br />
-    @Html.DisplayNameFor(i => i.Email) @Html.EditorFor(i => i.Email) @Html.ValidationMessageFor(i => i.Email) <br />
-    @Html.DisplayNameFor(i => i.Gender)@Html.DropDownListFor(i => i.Gender, new List<SelectListItem>
+    @Html.EditorFor(i => i.StreetAddress) @Html.ValidationMessageFor(i => i.StreetAddress) <br />
+    @Html.EditorFor(i => i.City) @Html.ValidationMessageFor(i => i.City) <br />
+    @Html.EditorFor(i => i.States) @Html.ValidationMessageFor(i => i.States) <br />
+    @Html.EditorFor(i => i.ZipCode) @Html.ValidationMessageFor(i => i.ZipCode) <br />
+    @Html.EditorFor(i => i.County) @Html.ValidationMessageFor(i => i.County) <br />
+    @Html.EditorFor(i => i.CellPhoneNumber) @Html.ValidationMessageFor(i => i.CellPhoneNumber) <br />
+    @Html.EditorFor(i => i.HomePhoneNumber) @Html.ValidationMessageFor(i => i.HomePhoneNumber) <br />
+    @Html.EditorFor(i => i.WorkPhoneNumber) @Html.ValidationMessageFor(i => i.WorkPhoneNumber) <br />
+    @Html.EditorFor(i => i.Email) @Html.ValidationMessageFor(i => i.Email) <br />
+    @Html.DropDownListFor(i => i.Gender, new List<SelectListItem>
     {
             
                         new SelectListItem() {Text = "Male", Value="M"},
                         new SelectListItem() {Text = "Female", Value="F"},
 
     })<br />
-    @Html.DisplayNameFor(i => i.Job) @Html.EditorFor(i => i.Job) @Html.ValidationMessageFor(i => i.Job) <br />
-    @Html.DisplayNameFor(i => i.DateOrientation) @Html.EditorFor(i => i.DateOrientation) @Html.ValidationMessageFor(i => i.DateOrientation) <br />
-    @Html.DisplayNameFor(i => i.DateStarted) @Html.EditorFor(i => i.DateStarted) @Html.ValidationMessageFor(i => i.DateStarted) <br />
-    @Html.DisplayNameFor(i => i.HoursPerMonth) @Html.EditorFor(i => i.HoursPerMonth) @Html.ValidationMessageFor(i => i.HoursPerMonth) <br />
+    @Html.EditorFor(i => i.Job) @Html.ValidationMessageFor(i => i.Job) <br />
+    @Html.EditorFor(i => i.DateOrientation) @Html.ValidationMessageFor(i => i.DateOrientation) <br />
+    @Html.EditorFor(i => i.DateStarted) @Html.ValidationMessageFor(i => i.DateStarted) <br />
+    @Html.EditorFor(i => i.HoursPerMonth) @Html.ValidationMessageFor(i => i.HoursPerMonth) <br />
     /*  @Html.DisplayNameFor(i => i.CompanyName) @Html.EditorFor(i => i.CompanyName) @Html.ValidationMessageFor(i => i.CompanyName) <br />
       @Html.DisplayNameFor(i => i.Position) @Html.EditorFor(i => i.Position) @Html.ValidationMessageFor(i => i.Position) <br />
       @Html.DisplayNameFor(i => i.CompanyAddress) @Html.EditorFor(i => i.CompanyAddress) @Html.ValidationMessageFor(i => i.CompanyAddress) <br />
