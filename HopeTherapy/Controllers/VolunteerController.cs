@@ -37,11 +37,6 @@ namespace HopeTherapy.Controllers
                 }
                 catch (SqlException ex)
                 {
-                    /*if(ex.Number == 2627) // 2627 = unique constraint violation.
-                    {
-                        ModelState.AddModelError("VolunteerID", "Volunteer is already in the system.");
-                        return View(model);
-                    }*/
                     throw;
                 }
              

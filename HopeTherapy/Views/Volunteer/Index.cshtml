@@ -89,7 +89,7 @@
     @Html.EditorFor(i => i.CellPhoneNumber) @Html.ValidationMessageFor(i => i.CellPhoneNumber) <br />
     @Html.EditorFor(i => i.HomePhoneNumber) @Html.ValidationMessageFor(i => i.HomePhoneNumber) <br />
     @Html.EditorFor(i => i.WorkPhoneNumber) @Html.ValidationMessageFor(i => i.WorkPhoneNumber) <br />
-    @Html.EditorFor(i => i.Email) @Html.ValidationMessageFor(i => i.Email) <br />
+    @Html.DisplayNameFor(i => i.Email)@Html.EditorFor(i => i.Email) @Html.ValidationMessageFor(i => i.Email) <br />
     @Html.DisplayNameFor(i => i.Gender)<br>
     <select>
         <option value="M">Male</option>
