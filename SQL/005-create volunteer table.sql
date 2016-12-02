@@ -2,7 +2,7 @@ CREATE TABLE Volunteer (
 VolunteerID      INTEGER IDENTITY (1,1)     NOT NULL UNIQUE, 
 FirstName     NVARCHAR(35) NOT NULL, 
 LastName     NVARCHAR(35) NOT NULL, 
-Salutation		NVARCHAR(3) NULL,	
+Salutation		NVARCHAR(4) NULL,	
 StreetAddress 	NVARCHAR(50) NULL, 
 City		NVARCHAR(35) NULL, 
 States		NVARCHAR(35) NULL,
