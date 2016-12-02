@@ -1,4 +1,4 @@
-﻿@model SelectList
+﻿@model SelectListItem
 
 @Html.DisplayNameFor(i => i):<br>
-<input type="text" id="@ViewData.ModelMetadata.PropertyName" name="@ViewData.ModelMetadata.PropertyName" value="@(Model.HasValue ? Model.Value.ToString() : "")" placeholder="@Html.DisplayNameFor(i => i)" /><br><br>
+<input type="text" id="@ViewData.ModelMetadata.PropertyName" name="@ViewData.ModelMetadata.PropertyName" value="@Model" placeholder="@Html.DisplayNameFor(i => i)" /><br><br>
