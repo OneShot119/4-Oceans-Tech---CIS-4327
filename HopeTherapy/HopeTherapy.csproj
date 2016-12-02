@@ -187,6 +187,7 @@
     <Compile Include="Models\DonorShow.cs" />
     <Compile Include="Models\EditProfile.cs" />
     <Compile Include="Models\EditVolunteer.cs" />
+    <Compile Include="Models\Email.cs" />
     <Compile Include="Models\Register.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\Volunteer.cs" />
@@ -241,6 +242,7 @@
     <Content Include="Views\VolunteerSearch\Search.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Int32.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Password.cshtml" />
+    <Content Include="Views\Donor\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

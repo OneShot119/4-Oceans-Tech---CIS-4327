@@ -50,6 +50,13 @@ namespace HopeTherapy.Controllers
 
             return RedirectToAction("Index", "Home");
         }
+        [HttpGet]
+        public ActionResult List()
+        {
+            var emails = Utilities.Sql.ExecuteQuery<Donor>("select D_Fname as FirstName, D_Lname as LastName, D_EMAIL as EmailAddress, DONATION_CURRENCY as CurrencyDonation, DONATION_ITEM as ItemDonation, DONATION_SERVICE as ServiceDonation from dbo.DONOR;");
+            return View(emails);
+
+        }
     }
 }
 
