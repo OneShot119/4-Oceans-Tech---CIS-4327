@@ -45,5 +45,12 @@ namespace HopeTherapy.Controllers
             
             return RedirectToAction("Index", "Home");
         }
+        [HttpGet]
+        public ActionResult List()
+        {
+            var Volunteers = Utilities.Sql.ExecuteQuery<Volunteer>("select FirstName as FirstName, LastName as LastName, Email as Email, DaysVolunteered as DaysVolunteered, HoursPerMonth as HoursPerMonth from dbo.Volunteer;");
+            return View(Volunteers);
+
+        }
     }
 }

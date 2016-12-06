@@ -36,6 +36,7 @@
                     @if (Request.IsAuthenticated)
                     {
                         <li>@Html.ActionLink("View Donors", "List", "Donor")</li>
+                        <li>@Html.ActionLink("View Volunteers", "List", "Volunteer")</li>
                         <li>@Html.ActionLink("Sign Out", "Logout", "User")</li>
                         <li><font color="red">@Html.Encode(User.Identity.Name)</font></li>
                     }

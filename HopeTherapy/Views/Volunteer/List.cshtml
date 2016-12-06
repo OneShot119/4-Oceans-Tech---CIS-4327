@@ -1,0 +1,56 @@
+﻿@model IEnumerable<HopeTherapy.Models.Volunteer>
+@{
+    ViewBag.Title = "Volunteers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+@using (Html.BeginForm("Action", "Controller", FormMethod.Post))
+{
+
+
+    <html>
+    <head>
+    </head>
+    <body>
+        <center><h1>Volunteer List</h1></center>
+        <table border="1" style="margin: 0px auto;">
+            <tr>
+                <th>
+                     Name
+                </th>
+                <th>
+                    Donor Email
+                </th>
+                <th>
+                    Days
+                </th>
+                <th>
+                    Hours per Month
+                </th>
+            </tr>
+            @foreach (var Volunteer in Model)
+            {
+                <tr>
+                    <td>
+                        @Volunteer.FirstName @Volunteer.LastName
+                    </td>
+                    <td>
+                        <a href="mailto:@Volunteer.Email">@Volunteer.Email</a>
+                    </td>
+                    <td>
+                        @Volunteer.DaysVolunteered
+                    </td>
+                    <td>
+                        @Volunteer.HoursPerMonth
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </body>
+</html>
+}
+
