@@ -27,12 +27,11 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About Us", "About", "Home")</li>
                     <li>@Html.ActionLink("Volunteers", "Index", "Volunteer")</li>
                     <li>@Html.ActionLink("Donors", "Index", "Donor")</li>
                     <li>@Html.ActionLink("Donor Search", "Search", "DonorSearch")</li>
                     <li>@Html.ActionLink("Volunteer Search", "Search", "VolunteerSearch")</li>
+                    <li>@Html.ActionLink("Calendar", "Calendar", "Calendar")</li>
                     @if (Request.IsAuthenticated)
                     {
                         <li>@Html.ActionLink("View Donors", "List", "Donor")</li>
