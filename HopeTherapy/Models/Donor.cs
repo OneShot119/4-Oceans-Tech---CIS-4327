@@ -32,7 +32,7 @@ namespace HopeTherapy.Models
 
 //        [Required(ErrorMessage = "Zip Code is required"), 
         [DisplayName("Zip Code")]
-        public int ZipCode { get; set; }
+        public string ZipCode { get; set; }
 
 //        [Required(ErrorMessage = "County is required"), 
         [DisplayName("County")]
@@ -46,15 +46,15 @@ namespace HopeTherapy.Models
         public string Gender { get; set; }
 
         [DisplayName("Cell Phone")]
-        public int CellPhoneNumber { get; set; }
+        public string CellPhoneNumber { get; set; }
 
         [DisplayName("Home Phone")]
-        public int HomePhoneNumber { get; set; }
+        public string HomePhoneNumber { get; set; }
 
         [DisplayName("Business Phone")]
-        public int WorkPhoneNumber { get; set; }
+        public string WorkPhoneNumber { get; set; }
 
-        [DataType(DataType.EmailAddress)]
+//        [DataType(DataType.EmailAddress)]
 //        [Required(ErrorMessage = "Email is required"), 
         [DisplayName("Email")]
         public string EmailAddress { get; set; }
@@ -69,9 +69,12 @@ namespace HopeTherapy.Models
 
         public string CompanyState { get; set; }
 
-        public int CompanyZip { get; set; }
+        public string CompanyZip { get; set; }
 
-        public int CurrencyDonation { get; set; }
+        [DisplayName("Donation Date")]
+        public string DonationDate { get; set; }
+
+        public string CurrencyDonation { get; set; }
 
         public string ItemDonation { get; set; }
 

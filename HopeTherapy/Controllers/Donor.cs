@@ -30,10 +30,10 @@ namespace HopeTherapy.Controllers
             {
                 string sql = "INSERT INTO [dbo].[DONOR] (D_FNAME, D_LNAME, D_ADDRESS, D_CITY, D_STATE, D_ZIP, D_COUNTY, D_BIRTHDAY, D_GENDER, D_CELL_PHONE, " +
                 "D_HOME_PHONE, D_WORK_PHONE, D_EMAIL, D_CO_NAME, D_POSITION, D_CO_ADDRESS, D_CO_CITY, D_CO_STATE, D_CO_ZIP, " +
-                "DONATION_CURRENCY, DONATION_ITEM, DONATION_SERVICE )" +
+                "DONATION_DATE, DONATION_CURRENCY, DONATION_ITEM, DONATION_SERVICE )" +
                 "VALUES(@FirstName, @LastName, @StreetAddress, @City, @State, @ZipCode, @County, @Birthday, @Gender, " +
                 "@CellPhoneNumber, @HomePhoneNumber, @WorkPhoneNumber, @EmailAddress, @CompanyName, @Position, @CompanyAddress, @CompanyCity, @CompanyState, " +
-                "@CompanyZip, @CurrencyDonation, @ItemDonation, @ServiceDonation)";
+                "@CompanyZip, @DonationDate, @CurrencyDonation, @ItemDonation, @ServiceDonation)";
 
                 try
                 {
@@ -53,7 +53,7 @@ namespace HopeTherapy.Controllers
         [HttpGet]
         public ActionResult List()
         {
-            var emails = Utilities.Sql.ExecuteQuery<Donor>("select D_Fname as FirstName, D_Lname as LastName, D_EMAIL as EmailAddress, DONATION_CURRENCY as CurrencyDonation, DONATION_ITEM as ItemDonation, DONATION_SERVICE as ServiceDonation from dbo.DONOR;");
+            var emails = Utilities.Sql.ExecuteQuery<Donor>("select D_Fname as FirstName, D_Lname as LastName, D_EMAIL as EmailAddress, DONATION_DATE as DonationDate, DONATION_CURRENCY as CurrencyDonation, DONATION_ITEM as ItemDonation, DONATION_SERVICE as ServiceDonation from dbo.DONOR;");
             return View(emails);
 
         }
