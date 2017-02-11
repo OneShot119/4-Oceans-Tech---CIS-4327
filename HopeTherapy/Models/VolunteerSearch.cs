@@ -9,6 +9,7 @@ namespace HopeTherapy.Models
 {
     public class VolunteerSearch
     {
+
     }
 
 }

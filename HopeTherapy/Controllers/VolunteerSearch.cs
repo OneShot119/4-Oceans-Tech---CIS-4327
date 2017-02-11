@@ -13,12 +13,28 @@ namespace HopeTherapy.Controllers
 {
     public class VolunteerSearchController : Controller
     {
-        // GET: Register
+        // GET: Volunteer
         [HttpGet]
-        public ActionResult Search()
+        public ActionResult Index()
         {
             return View();
         }
 
+        [HttpPost]
+        public ActionResult Index(Volunteer model)
+        {
+
+            var Volunteer = new Volunteer();
+
+            return RedirectToAction("Index", "Home");
+        }
+        [HttpGet]
+        public ActionResult List()
+        {
+            var Volunteers = Utilities.Sql.ExecuteQuery<Volunteer>("select FirstName as FirstName, LastName as LastName");
+            return View(Volunteers);
+
+        }
     }
+
 }

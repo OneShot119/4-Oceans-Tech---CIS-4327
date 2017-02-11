@@ -41,7 +41,8 @@ namespace HopeTherapy.Models
         //[Required(ErrorMessage = "Email is required"), DisplayName("Email")]
         public string Email { get; set; }
 
-        public int Birthday { get; set; }
+        [DataType(DataType.Date)]
+        public string Birthday { get; set; }
 
         public string Gender { get; set; }
 

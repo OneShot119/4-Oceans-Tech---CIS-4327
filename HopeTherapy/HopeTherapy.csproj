@@ -241,7 +241,7 @@
     <Content Include="Views\Donor\Index.cshtml" />
     <Content Include="Views\DonorShow\Index.cshtml" />
     <Content Include="Views\DonorSearch\Search.cshtml" />
-    <Content Include="Views\VolunteerSearch\Search.cshtml" />
+    <Content Include="Views\VolunteerSearch\Index.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Int32.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Password.cshtml" />
     <Content Include="Views\Donor\List.cshtml" />

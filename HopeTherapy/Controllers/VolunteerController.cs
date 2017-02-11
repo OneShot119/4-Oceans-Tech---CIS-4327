@@ -41,9 +41,37 @@ namespace HopeTherapy.Controllers
                 }
              
             }
+           /* using (var cn2 = new SqlConnection(ConfigurationManager.ConnectionStrings["HopeTherapyIMS"].ConnectionString))
+
+            {
+                string sql = "SELECT (FirstName, LastName) FROM [dbo].[Volunteer] WHERE ";
+                try
+                {
+                    Utilities.Sql.ExecuteCommand(sql, model);
+                }
+                catch (SqlException ex)
+                {
+                    throw;
+                }
+                
+            }
+            */
             var Volunteer = new Volunteer();
             
             return RedirectToAction("Index", "Home");
+        }
+        public ActionResult Index(string searchString)
+        {
+            using (var cn2 = new SqlConnection(ConfigurationManager.ConnectionStrings["HopeTherapyIMS"].ConnectionString))
+                var volunteer = from m in [dbo].[Volunteer]
+                         select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                volunteer = volunteer.Where(s => s.Title.Contains(searchString));
+            }
+
+            return View(VolunteerSearch);
         }
         [HttpGet]
         public ActionResult List()
