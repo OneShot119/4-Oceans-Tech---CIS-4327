@@ -60,7 +60,7 @@ namespace HopeTherapy.Controllers
             
             return RedirectToAction("Index", "Home");
         }
-        public ActionResult Index(string searchString)
+    /*    public ActionResult Index(string searchString)
         {
             using (var cn2 = new SqlConnection(ConfigurationManager.ConnectionStrings["HopeTherapyIMS"].ConnectionString))
                 var volunteer = from m in [dbo].[Volunteer]
@@ -72,7 +72,7 @@ namespace HopeTherapy.Controllers
             }
 
             return View(VolunteerSearch);
-        }
+        }*/
         [HttpGet]
         public ActionResult List()
         {
