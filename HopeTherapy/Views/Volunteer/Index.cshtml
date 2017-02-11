@@ -140,8 +140,16 @@
                 {
                 new SelectListItem() {Text = "Yes", Value="Yes"},
                 new SelectListItem() {Text = "No", Value="No"},*/
-
-
+     @Html.EditorFor(i => i.CompanyName) @Html.ValidationMessageFor(i => i.CompanyName) <br />
+     @Html.EditorFor(i => i.Position) @Html.ValidationMessageFor(i => i.Position) <br />
+     @Html.EditorFor(i => i.CompanyAddress) @Html.ValidationMessageFor(i => i.CompanyAddress) <br />
+    @Html.EditorFor(i => i.VolunteerPosition) @Html.ValidationMessageFor(i => i.VolunteerPosition) <br />
+     @Html.EditorFor(i => i.AreaOfInterest) @Html.ValidationMessageFor(i => i.AreaOfInterest) <br />
+    @Html.EditorFor(i => i.Skills) @Html.ValidationMessageFor(i => i.Skills) <br />
+     @Html.EditorFor(i => i.Donor) @Html.ValidationMessageFor(i => i.Donor) <br />
+     @Html.EditorFor(i => i.Board) @Html.ValidationMessageFor(i => i.Board) <br />
+     @Html.EditorFor(i => i.EmailList) @Html.ValidationMessageFor(i => i.EmailList) <br />
+     @Html.EditorFor(i => i.MailList) @Html.ValidationMessageFor(i => i.MailList) <br />
                 <input type="submit" value="Submit" />
                 }
 
