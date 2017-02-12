@@ -68,9 +68,10 @@ namespace HopeTherapy.Controllers
                 }
 
             }
-            return RedirectToAction("Index", "List");
+            return RedirectToAction("Search", "List");
 
         }
+        
     /*    public ActionResult Index(string searchString)
         {
             using (var cn2 = new SqlConnection(ConfigurationManager.ConnectionStrings["HopeTherapyIMS"].ConnectionString))
