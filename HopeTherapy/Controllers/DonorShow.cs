@@ -9,13 +9,13 @@ using HopeTherapy.DataAccess;
 using System.Data.SqlClient;
 using System.Configuration;
 
-namespace HopeTherapy.Controllers
-{
+//namespace HopeTherapy.Controllers
+//{
  
-    public class DonorShow : Controller { }
-    /*
+ //   public class DonorShow : Controller { }
+  
         // GET: Donor
-        [HttpGet]
+/*        [HttpGet]
         public ActionResult Index(Donor model)
         {
         var regCode = ConfigurationManager.AppSettings["RegCode"];
@@ -53,5 +53,5 @@ namespace HopeTherapy.Controllers
                 }
                 DataAccess.SqlDataAccess.ExecuteCommand(sql);            
                 return View(model);
-        */
-}
+   
+} */
