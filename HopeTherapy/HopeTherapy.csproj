@@ -38,6 +38,7 @@
       <Objects>
       </Objects>
     </PublishDatabaseSettings>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -176,7 +177,6 @@
     <Compile Include="Controllers\Donor.cs" />
     <Compile Include="Controllers\DonorShow.cs" />
     <Compile Include="Controllers\EditProfile.cs" />
-    <Compile Include="Controllers\EditVolunteerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -185,10 +185,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Day.cs" />
     <Compile Include="Models\Donor.cs" />
     <Compile Include="Models\DonorShow.cs" />
-    <Compile Include="Models\EditProfile.cs" />
-    <Compile Include="Models\EditVolunteer.cs" />
     <Compile Include="Models\Email.cs" />
     <Compile Include="Models\Register.cs" />
     <Compile Include="Models\User.cs" />
@@ -207,7 +206,9 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <None Include="Properties\PublishProfiles\hopetherapy - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\hopetherapy - Web Deploy.pubxml">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -245,11 +246,18 @@
     <Content Include="Views\Shared\EditorTemplates\DropDown.cshtml" />
     <Content Include="Views\Volunteer\List.cshtml" />
     <Content Include="Views\Calendar\Index.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Donor\DonorInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Scripts\fullcalendar-3.1.0\" />
+=======
+    <Content Include="Views\Volunteer\Not Found.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+>>>>>>> 757dc9e8b3a884d3e546f570211cf43d9e50b7e3
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
