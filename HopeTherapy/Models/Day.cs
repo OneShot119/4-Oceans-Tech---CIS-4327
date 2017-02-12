@@ -12,5 +12,7 @@ namespace HopeTherapy.Models
         public String lname { get; set; }
 
         public String day { get; set; }
+
+        public int dayNum { get; set; }
     }
 }
