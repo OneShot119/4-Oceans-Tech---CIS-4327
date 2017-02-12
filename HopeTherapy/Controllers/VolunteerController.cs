@@ -89,7 +89,12 @@ namespace HopeTherapy.Controllers
         public ActionResult List()
         {
             var Volunteers = Utilities.Sql.ExecuteQuery<Volunteer>("select FirstName as FirstName, LastName as LastName, Email as Email, DaysVolunteered as DaysVolunteered, HoursPerMonth as HoursPerMonth from dbo.Volunteer;");
-            //Utilities.Sql.ExecuteQuery<Volunteer>("");
+            var query = Utilities.Sql.ExecuteQuery < Volunteer > ("FROM dbo.Volunteer WHERE Volunteer.LastName as LastName SELECT FirstName as FirstName, LastName as LastName");
+            var item = query.FirstOrDefault();
+            if (item != null)
+                return View(item);
+            else
+                return View("Not Found");
             return View(Volunteers);
 
             

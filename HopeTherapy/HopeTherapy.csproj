@@ -249,6 +249,7 @@
     <Content Include="Views\Shared\EditorTemplates\DropDown.cshtml" />
     <Content Include="Views\Volunteer\List.cshtml" />
     <Content Include="Views\Calendar\Index.cshtml" />
+    <Content Include="Views\Volunteer\Not Found.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
