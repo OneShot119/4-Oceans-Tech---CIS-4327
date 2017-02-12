@@ -16,27 +16,27 @@
     </head>
     <body>
         <center><h1>Calendar</h1></center>
-        <table border="1" style="margin: 0px auto;" id="Calendar" >
+        <table border="1" style="margin: 0px auto; text-align:center; vertical-align: middle" id="calendartable">
             <tr>
-                <th>
+                <th class="not_mapped_style" style="text-align:center">
                     Sunday
                 </th>
-                <th>
+                <th class="not_mapped_style" style="text-align:center">
                     Monday
                 </th>
-                <th>
+                <th class="not_mapped_style" style="text-align:center">
                     Tuesday
                 </th>
-                <th>
+                <th class="not_mapped_style" style="text-align:center">
                     Wednesday
                 </th>
-                <th>
+                <th class="not_mapped_style" style="text-align:center">
                     Thursday
                 </th>
-                <th>
+                <th class="not_mapped_style" style="text-align:center">
                     Friday
                 </th>
-                <th>
+                <th class="not_mapped_style" style="text-align:center">
                     Saturday
                 </th>
             </tr>
@@ -50,7 +50,7 @@
 
                             if (Day.dayNum() == i)
                             {
-                                @Day.fname  @Day.lname <br />
+                                @Day.fname <span> </span> @Day.lname  <br />
                             }
                         }
                         </td>
