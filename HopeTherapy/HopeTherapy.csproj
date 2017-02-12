@@ -174,7 +174,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CalendarController.cs" />
     <Compile Include="Controllers\Donor.cs" />
-    <Compile Include="Controllers\DonorSearch.cs" />
     <Compile Include="Controllers\DonorShow.cs" />
     <Compile Include="Controllers\EditProfile.cs" />
     <Compile Include="Controllers\EditVolunteerController.cs" />
@@ -182,13 +181,12 @@
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\VolunteerController.cs" />
-    <Compile Include="Controllers\VolunteerSearch.cs" />
     <Compile Include="DataAccess\SqlDataAccess.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Day.cs" />
     <Compile Include="Models\Donor.cs" />
-    <Compile Include="Models\DonorSearch.cs" />
     <Compile Include="Models\DonorShow.cs" />
     <Compile Include="Models\EditProfile.cs" />
     <Compile Include="Models\EditVolunteer.cs" />
@@ -196,7 +194,6 @@
     <Compile Include="Models\Register.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\Volunteer.cs" />
-    <Compile Include="Models\VolunteerSearch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Utilities.cs" />
