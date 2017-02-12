@@ -15,7 +15,7 @@ namespace HopeTherapy.Models
 
         public int dayNum()
         {
-            int daynum=0;
+            int daynum;
             switch (day)
             {
                 case "Sunday":
