@@ -36,13 +36,6 @@
     <WarningLevel>4</WarningLevel>
     <PublishDatabaseSettings>
       <Objects>
-        <ObjectGroup Name="hopetherapy" Order="1" xmlns="">
-          <Destination Path="Server=tcp:hopetherapy.database.windows.net,1433%3bInitial Catalog=HopeTherapy%3bPersist Security Info=False%3bUser ID=hopetherapy%3bPassword=h0peth3r%40py%3bMultipleActiveResultSets=False%3bEncrypt=True%3bTrustServerCertificate=False%3bConnection Timeout=30%3b" />
-          <Object Type="DbFullSql" Enabled="True">
-            <PreSource Path="Data Source=tcp:hopetherapy.database.windows.net,1433%3bInitial Catalog=HopeTherapy%3bPersist Security Info=False%3bUser ID=hopetherapy%3bPassword=h0peth3r%40py%3bMultipleActiveResultSets=False%3bConnect Timeout=30%3bEncrypt=True%3bTrustServerCertificate=False" ScriptSchema="True" ScriptData="True" CopyAllFullTextCatalogs="False" DriDefaults="True" />
-            <Source Path="obj\Debug\AutoScripts\hopetherapy_SchemaAndData.sql" Transacted="True" />
-          </Object>
-        </ObjectGroup>
       </Objects>
     </PublishDatabaseSettings>
     <RunCodeAnalysis>false</RunCodeAnalysis>
@@ -184,7 +177,6 @@
     <Compile Include="Controllers\Donor.cs" />
     <Compile Include="Controllers\DonorShow.cs" />
     <Compile Include="Controllers\EditProfile.cs" />
-    <Compile Include="Controllers\EditVolunteerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -196,8 +188,6 @@
     <Compile Include="Models\Day.cs" />
     <Compile Include="Models\Donor.cs" />
     <Compile Include="Models\DonorShow.cs" />
-    <Compile Include="Models\EditProfile.cs" />
-    <Compile Include="Models\EditVolunteer.cs" />
     <Compile Include="Models\Email.cs" />
     <Compile Include="Models\Register.cs" />
     <Compile Include="Models\User.cs" />
@@ -260,8 +250,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\EditProfile\" />
-    <Folder Include="Views\EditVolunteer\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -270,9 +258,6 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
