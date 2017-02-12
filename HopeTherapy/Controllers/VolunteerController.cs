@@ -24,13 +24,18 @@ namespace HopeTherapy.Controllers
         public ActionResult Index(Volunteer model)
         {
             // Todo: Check database
-            
+
 
 
             using (var cn2 = new SqlConnection(ConfigurationManager.ConnectionStrings["HopeTherapyIMS"].ConnectionString))
 
             {
-                string sql = "INSERT INTO [dbo].[Volunteer] (FirstName, LastName, Salutation, StreetAddress, City, States, ZipCode, County, CellPhoneNumber, HomePhoneNumber, WorkPhoneNumber, Email, Birthday, Gender, Job, DateOrientation, DateStarted, DaysVolunteered, HoursPerMonth, CompanyName, Position, CompanyAddress, VolunteerPosition, AreaOfInterest, Skills, Donor, Board, EmailList, MailList)  VALUES(@FirstName, @LastName, @Salutation, @StreetAddress, @City, @States, @ZipCode, @County, @CellPhoneNumber, @HomePhoneNumber, @WorkPhoneNumber, @Email, @Birthday, @Gender, @Job, @DateOrientation, @DateStarted, @DaysVolunteered, @HoursPerMonth, @CompanyName, @Position, @CompanyAddress, @VolunteerPosition, @AreaOfInterest, @Skills, @Donor, @Board, @EmailList, @MailList)";
+                string sql = "INSERT INTO [dbo].[Volunteer] (FirstName, LastName, Salutation, StreetAddress, City, States, ZipCode, County)" +
+                    "CellPhoneNumber, HomePhoneNumber, WorkPhoneNumber, Email, Birthday, Gender, Job, DateOrientation, DateStarted, DaysVolunteered)" +
+                    "HoursPerMonth, CompanyName, Position, CompanyAddress, VolunteerPosition, AreaOfInterest, Skills, Donor, Board, EmailList, MailList)" +
+                    "VALUES(@FirstName, @LastName, @Salutation, @StreetAddress, @City, @States, @ZipCode, @County, @CellPhoneNumber, @HomePhoneNumber)" +
+                    "@WorkPhoneNumber, @Email, @Birthday, @Gender, @Job, @DateOrientation, @DateStarted, @DaysVolunteered, @HoursPerMonth, @CompanyName)" +
+                    "@Position, @CompanyAddress, @VolunteerPosition, @AreaOfInterest, @Skills, @Donor, @Board, @EmailList, @MailList)";
                 try
                 {
                     Utilities.Sql.ExecuteCommand(sql, model);
@@ -39,12 +44,20 @@ namespace HopeTherapy.Controllers
                 {
                     throw;
                 }
-             
+
             }
-           /* using (var cn2 = new SqlConnection(ConfigurationManager.ConnectionStrings["HopeTherapyIMS"].ConnectionString))
+
+
+            var Volunteer = new Volunteer();
+
+            return RedirectToAction("Index", "Home");
+        }
+        public ActionResult Search(Volunteer model)
+        {
+            using (var cn2 = new SqlConnection(ConfigurationManager.ConnectionStrings["HopeTherapyIMS"].ConnectionString))
 
             {
-                string sql = "SELECT (FirstName, LastName) FROM [dbo].[Volunteer] WHERE ";
+                string sql = "SELECT (FirstName, LastName) FROM [dbo].[Volunteer] WHERE VALUES (@FirstName, @LastName) ";
                 try
                 {
                     Utilities.Sql.ExecuteCommand(sql, model);
@@ -53,12 +66,10 @@ namespace HopeTherapy.Controllers
                 {
                     throw;
                 }
-                
+
             }
-            */
-            var Volunteer = new Volunteer();
-            
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "List");
+
         }
     /*    public ActionResult Index(string searchString)
         {

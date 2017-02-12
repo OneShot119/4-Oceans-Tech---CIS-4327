@@ -10,7 +10,7 @@
 <hr />
 @using (Html.BeginForm("Index", "Volunteer", FormMethod.Post))
 {
-
+    <h2>Personal Information</h2>
     @Html.EditorFor(i => i.FirstName) @Html.ValidationMessageFor(i => i.FirstName) <br />
     @Html.EditorFor(i => i.LastName) @Html.ValidationMessageFor(i => i.LastName) <br />
     @Html.DisplayNameFor(i => i.Salutation)<br>
@@ -86,6 +86,7 @@
     </select><br><br><br />
     @Html.EditorFor(i => i.ZipCode) @Html.ValidationMessageFor(i => i.ZipCode) <br />
     @Html.EditorFor(i => i.County) @Html.ValidationMessageFor(i => i.County) <br />
+    <h2>Contact Information</h2>
     @Html.EditorFor(i => i.CellPhoneNumber) @Html.ValidationMessageFor(i => i.CellPhoneNumber) <br />
     @Html.EditorFor(i => i.HomePhoneNumber) @Html.ValidationMessageFor(i => i.HomePhoneNumber) <br />
     @Html.EditorFor(i => i.WorkPhoneNumber) @Html.ValidationMessageFor(i => i.WorkPhoneNumber) <br />
