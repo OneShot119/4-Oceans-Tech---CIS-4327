@@ -246,18 +246,10 @@
     <Content Include="Views\Shared\EditorTemplates\DropDown.cshtml" />
     <Content Include="Views\Volunteer\List.cshtml" />
     <Content Include="Views\Calendar\Index.cshtml" />
-<<<<<<< HEAD
-    <Content Include="Views\Donor\DonorInfo.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-    <Folder Include="Scripts\fullcalendar-3.1.0\" />
-=======
     <Content Include="Views\Volunteer\Not Found.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
->>>>>>> 757dc9e8b3a884d3e546f570211cf43d9e50b7e3
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

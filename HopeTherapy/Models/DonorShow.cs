@@ -9,10 +9,10 @@ namespace HopeTherapy.Models
 {
     public class DonorShow
     {
-//        [Required(ErrorMessage = "First Name is required"), DisplayName("First Name")]
+        [Required(ErrorMessage = "First Name is required"), DisplayName("First Name")]
         public string FirstName { get; set; }
 
-  //      [Required(ErrorMessage = "Last Name is required"), DisplayName("Last Name")]
+        [Required(ErrorMessage = "Last Name is required"), DisplayName("Last Name")]
         public string LastName { get; set; }
 
     //    [Required(ErrorMessage = "Street Address is required"), DisplayName("Street Address")]
@@ -42,7 +42,7 @@ namespace HopeTherapy.Models
         public string HomePhoneNumber { get; set; }
 
         [DisplayName("Business Phone")]
-        public string WorkPhoneNumber { get; set; }
+        public string OfficePhoneNumber { get; set; }
 
     //    [DataType(DataType.EmailAddress)]
     //    [Required(ErrorMessage = "Email is required"), DisplayName("Email")]
@@ -60,7 +60,6 @@ namespace HopeTherapy.Models
 
         public string CompanyZip { get; set; }
 
-        public string DonationDate { get; set; }
         public string CurrencyDonation { get; set; }
 
         public string ItemDonation { get; set; }

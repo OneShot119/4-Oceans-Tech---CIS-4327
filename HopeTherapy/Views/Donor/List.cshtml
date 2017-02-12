@@ -15,7 +15,7 @@
     <head>
     </head>
     <body>
-        <center><h1>Donor List</h1></center>
+        <center><h1>Donor list</h1></center>
         <table border="1" style="margin: 0px auto;">
             <tr>
                 <th>
@@ -25,7 +25,7 @@
                     Donor Email
                 </th>
                 <th>
-                    Donation Information
+                    Donations
                 </th>
             </tr>
             @foreach (var Donor in Model)
@@ -38,15 +38,15 @@
                         <a href="mailto:@Donor.EmailAddress">@Donor.EmailAddress</a>
                     </td>
                     <td>
-                        Currency Donated: @Donor.CurrencyDonation<br />
-                        Items Donated: @Donor.ItemDonation<br />
-                        Services Donated: @Donor.ServiceDonation
+                       Donation Date: @Donor.DonationDate<br />
+                       Money: @Donor.CurrencyDonation<br />
+                       Inventory: @Donor.ItemDonation<br />
+                       Services: @Donor.ServiceDonation
                     </td>
                 </tr>
             }
 
         </table>
-        <right><h3>Search</h3></right>
     </body>
 </html>
 }
