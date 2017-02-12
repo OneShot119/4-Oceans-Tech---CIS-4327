@@ -52,12 +52,12 @@ namespace HopeTherapy.Controllers
 
             return RedirectToAction("Index", "Home");
         }
-        public ActionResult Search(Volunteer model)
+     /*   public ActionResult Search()
         {
-            using (var cn2 = new SqlConnection(ConfigurationManager.ConnectionStrings["HopeTherapyIMS"].ConnectionString))
+            using (var cn3 = new SqlConnection(ConfigurationManager.ConnectionStrings["HopeTherapyIMS"].ConnectionString))
 
             {
-                string sql = "SELECT (FirstName, LastName) FROM [dbo].[Volunteer] WHERE VALUES (@FirstName, @LastName) ";
+                string sql = "SELECT (FirstName as FirstName) FROM [dbo].[Volunteer] WHERE VALUES (@FirstName, @LastName) ";
                 try
                 {
                     Utilities.Sql.ExecuteCommand(sql, model);
@@ -89,8 +89,12 @@ namespace HopeTherapy.Controllers
         public ActionResult List()
         {
             var Volunteers = Utilities.Sql.ExecuteQuery<Volunteer>("select FirstName as FirstName, LastName as LastName, Email as Email, DaysVolunteered as DaysVolunteered, HoursPerMonth as HoursPerMonth from dbo.Volunteer;");
+            Utilities.Sql.ExecuteQuery<Volunteer>("");
             return View(Volunteers);
 
+            
+           
         }
+
     }
 }

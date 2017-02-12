@@ -240,15 +240,12 @@
     <Content Include="Views\Shared\EditorTemplates\String.cshtml" />
     <Content Include="Views\Donor\Index.cshtml" />
     <Content Include="Views\DonorShow\Index.cshtml" />
-    <Content Include="Views\DonorSearch\Search.cshtml" />
-    <Content Include="Views\VolunteerSearch\Search.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Int32.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Password.cshtml" />
     <Content Include="Views\Donor\List.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\DropDown.cshtml" />
     <Content Include="Views\Volunteer\List.cshtml" />
     <Content Include="Views\Calendar\Index.cshtml" />
-    <Content Include="Views\VolunteerSearch\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
