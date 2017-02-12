@@ -43,14 +43,16 @@
             @foreach (var Day in Model)
             {
                 <tr>
-                    @foreach (var weekday in Model)
+                    @for (var i = 1; i < 8; i++)
                     {
                     <td>
-                        @Day.fname @Day.lname
+                        @if (Day.dayNum()==i) {
+                                @Day.fname @Day.lname
+                                    }
                     </td>
                     }
                 </tr>
-                        
+
                     }
 
         </table>

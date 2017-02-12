@@ -14,7 +14,6 @@ namespace HopeTherapy.Controllers
         public ActionResult Index()
         {
             var days = Utilities.Sql.ExecuteQuery<Day>("SELECT Day as day, FirstName as fname, LastName as lname FROM Days JOIN Volunteer ON Days.Volunteer = Volunteer.VolunteerID");
-
             return View(days);
         }
     }
