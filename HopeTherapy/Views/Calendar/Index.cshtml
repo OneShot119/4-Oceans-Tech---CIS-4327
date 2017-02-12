@@ -16,7 +16,7 @@
     </head>
     <body>
         <center><h1>Donor list</h1></center>
-        <table border="1" style="margin: 0px auto;">
+        <table border="1" style="margin: 0px auto;" id="Calendar">
             <tr>
                 <th>
                     Sunday
@@ -43,11 +43,15 @@
             @foreach (var Day in Model)
             {
                 <tr>
+                    @foreach (var weekday in Model)
+                    {
                     <td>
                         @Day.fname @Day.lname
                     </td>
+                    }
                 </tr>
-            }
+                        
+                    }
 
         </table>
     </body>
