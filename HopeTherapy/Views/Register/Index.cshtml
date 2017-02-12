@@ -3,11 +3,7 @@
 @{
     ViewBag.Title = "Index";
 }
-
-<div class="page-header">
-    <h1>Hope Therapy <small>IMS</small></h1>
-</div>
-
+<legend>Register</legend>
 @using (Html.BeginForm("Index", "Register", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
