@@ -5,7 +5,42 @@
 <div class="jumbotron">
     <h1>Hope Therapy</h1>
     <p class="lead">Hope Therapy IMS Dashboard</p>
-    <p><a href="/User/Login" class="btn btn-primary btn-lg">Log In &raquo;</a></p>
-    <p><a href="/Register/Index" class="btn btn-primary btn-lg">Register &raquo;</a></p>
+    @if (Request.IsAuthenticated)
+
+    {
+        <p>Welcome @Html.Encode(User.Identity.Name)</p>
+        <table text-align:center; width="300" height="400">
+            <tr>
+                <td style="text-align:center">
+                    <p><a href="/Volunteer/Index" class="btn btn-primary btn-lg">Volunteers &raquo;</a></p>
+                </td>
+                <td style="text-align:center">
+                    <p><a href="/Donor/Index" class="btn btn-primary btn-lg">Donors &raquo;</a></p>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align:center">
+                    <p><a href="/Calendar/Index" class="btn btn-primary btn-lg">Calendar &raquo;</a></p>
+                </td>
+                <td style="text-align:center">
+                    <p><a href="/Donor/List" class="btn btn-primary btn-lg">View Donors &raquo;</a></p>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align:center">
+                    <p><a href="/Volunteer/List" class="btn btn-primary btn-lg">View Volunteers &raquo;</a></p>
+                 </td>
+                <td style="text-align:center">
+                    <p><a href='@Url.Action("Logout", "User")' class="btn btn-primary btn-lg">Sign Out &raquo;</a></p>
+                </td>
+            </tr>
+        </table>
+        }
+    else
+    {
+        <p><a href="/User/Login" class="btn btn-primary btn-lg">Log In &raquo;</a></p>
+        <p><a href="/Register/Index" class="btn btn-primary btn-lg">Register &raquo;</a></p>
+    }
+
 </div>
 
