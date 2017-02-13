@@ -28,3 +28,9 @@ textarea {
     color: #ff0000;
     font-weight: bold;
 }
+.body {
+    color: #999999;
+    font: 14px/1.5em "Lucida Grande",Arial,sans-serif;
+    margin: 20px;
+    width: auto;
+}
