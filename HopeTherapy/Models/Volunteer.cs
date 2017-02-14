@@ -17,7 +17,6 @@ namespace HopeTherapy.Models
         //[Required(ErrorMessage = "Last Name is required"), DisplayName("Last Name")]
         public string LastName { get; set; }
 
-        public string Salutation { get; set; }
 
         //[Required(ErrorMessage = "Street Address is required"), DisplayName("Street Address")]
         public string StreetAddress { get; set; }
@@ -41,7 +40,7 @@ namespace HopeTherapy.Models
         //[Required(ErrorMessage = "Email is required"), DisplayName("Email")]
         public string Email { get; set; }
 
-        [DataType(DataType.Date)]
+  //      [DataType(DataType.Date)]
         public string Birthday { get; set; }
 
         public string Gender { get; set; }
@@ -49,7 +48,7 @@ namespace HopeTherapy.Models
         public string Job { get; set; }
         public string DateOrientation { get; set; }
         public string DateStarted { get; set; }
-        public string DaysVolunteered { get; set; }
+//        public string DaysVolunteered { get; set; }
         public string HoursPerMonth { get; set; }
 
         public string CompanyName { get; set; }
