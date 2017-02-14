@@ -34,9 +34,6 @@
                     Donor Email
                 </th>
                 <th>
-                    Days
-                </th>
-                <th>
                     Hours per Month
                 </th>
             </tr>
@@ -44,16 +41,14 @@
             {
                 <tr>
                     <td>
-                        @Volunteer.FirstName @Volunteer.LastName
+                        <a href='@Url.Action("Edit", "Volunteer", new { ID = @Volunteer.VolunteerID})'>@Volunteer.FirstName @Volunteer.LastName</a>
+                       
                     </td>
                     <td>
                         <a href="mailto:@Volunteer.Email">@Volunteer.Email</a>
                     </td>
                     <td>
-                        @Volunteer.DaysVolunteered
-                    </td>
-                    <td>
-                        @Volunteer.HoursPerMonth
+                        @Volunteer.VolunteerID
                     </td>
                 </tr>
             }

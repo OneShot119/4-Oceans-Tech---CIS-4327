@@ -9,7 +9,7 @@ namespace HopeTherapy.Models
 {
     public class Volunteer
     {
-        public int VolunterID { get; set; }
+        public int VolunteerID { get; set; }
 
         //[Required(ErrorMessage = "First Name is required"), DisplayName("First Name")]
         public string FirstName { get; set; }
