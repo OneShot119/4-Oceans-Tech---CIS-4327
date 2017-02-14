@@ -98,24 +98,17 @@
     @Html.EditorFor(i => i.WorkPhoneNumber) @Html.ValidationMessageFor(i => i.WorkPhoneNumber) <br />
     @Html.EditorFor(i => i.Email) @Html.ValidationMessageFor(i => i.Email) <br />
     @Html.DisplayNameFor(i => i.Birthday)<br>
-  //  <input type="date" name="bday"><br><br><br />
-    @Html.DisplayNameFor(i => i.Gender)<br>
-//    <select>
-//        <option value="M">Male</option>
- //      <option value="F">Female</option>
-//    </select><br><br><br />
+    <input type="date" name="Birthday"><br><br><br />
+/*    @Html.DisplayNameFor(i => i.Gender)<br>
+    Gender:<br>
+    <input type="radio" name="Gender" value="Male" checked> Male<br>
+        <input type="radio" name="Gender" value="Female"> Female<br>
+        <input type="radio" name="Gender" value="Other"> Other<br><br><br><br>  */
 
 
-       //@Html.DropDownListFor(i => i.Gender, new List<SelectListItem>
-       //{
-       //
-       //                    new SelectListItem() {Text = "Male", Value="M"},
-       //                    new SelectListItem() {Text = "Female", Value="F"},
-       //
-       //})<br />
             @Html.EditorFor(i => i.Job) @Html.ValidationMessageFor(i => i.Job) <br />
             @Html.DisplayNameFor(i => i.DateOrientation)<br />
-     //       <input type="date" name="OrientationDate"><br><br><br />
+            <input type="date" name="DateOrientation"><br><br><br />
             @Html.DisplayNameFor(i => i.DateStarted)<br />
             <input type="date" name="DateStarted"><br><br><br />
             @Html.EditorFor(i => i.HoursPerMonth) @Html.ValidationMessageFor(i => i.HoursPerMonth) <br />
