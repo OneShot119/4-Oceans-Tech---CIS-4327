@@ -90,17 +90,17 @@ namespace HopeTherapy.Controllers
            [HttpGet]
            public ActionResult Search(string LastName)
            {
-               var Volunteers = Utilities.Sql.ExecuteQuerySingleResult<Volunteer>("SELECT * FROM table WHERE FirstName LIKE '%' + @SearchTerm + '%' OR LastName LIKE '%' + @SearchTerm + '%'");
+               var Volunteers = Utilities.Sql.ExecuteQuerySingleResult<Volunteer>("SELECT * FROM [dbo].[Volunteer] WHERE LastName LIKE '%' + @LastName + '%'");
                return View(Volunteers);
            }
 
-       /*    [HttpPost]
+          [HttpPost]
            public ActionResult SearchVolunteer(Volunteer model)
            {
                using (var cn3 = new SqlConnection(ConfigurationManager.ConnectionStrings["HopeTherapyIMS"].ConnectionString))
 
                {
-                   string sql = "SELECT (FirstName as FirstName AND LastName as LastName) FROM [dbo].[Volunteer] WHERE  ) ";
+                   string sql = "SELECT * FROM dbo.Volunteer";
                    try
                    {
                        Utilities.Sql.ExecuteCommand(sql, model);
