@@ -87,47 +87,47 @@ namespace HopeTherapy.Controllers
 
             return RedirectToAction("Index", "Home");
         }
-     /*   [HttpGet]
-        public ActionResult Search(string LastName)
-        {
-            var Volunteers = Utilities.Sql.ExecuteQuerySingleResult<Volunteer>("SELECT * from dbo.Volunteer WHERE Volunteer.LastName = " + LastName + ";");
-            return View(Volunteers);
-        }
+           [HttpGet]
+           public ActionResult Search(string LastName)
+           {
+               var Volunteers = Utilities.Sql.ExecuteQuerySingleResult<Volunteer>("SELECT * FROM table WHERE FirstName LIKE '%' + @SearchTerm + '%' OR LastName LIKE '%' + @SearchTerm + '%'");
+               return View(Volunteers);
+           }
 
-        [HttpPost]
-    /*    public ActionResult SearchVolunteer(Volunteer model)
-        {
-            using (var cn3 = new SqlConnection(ConfigurationManager.ConnectionStrings["HopeTherapyIMS"].ConnectionString))
+       /*    [HttpPost]
+           public ActionResult SearchVolunteer(Volunteer model)
+           {
+               using (var cn3 = new SqlConnection(ConfigurationManager.ConnectionStrings["HopeTherapyIMS"].ConnectionString))
 
-            {
-                string sql = "SELECT (FirstName as FirstName AND LastName as LastName) FROM [dbo].[Volunteer] WHERE  ) ";
-                try
-                {
-                    Utilities.Sql.ExecuteCommand(sql, model);
-                }
-                catch (SqlException ex)
-                {
-                    throw;
-                }
+               {
+                   string sql = "SELECT (FirstName as FirstName AND LastName as LastName) FROM [dbo].[Volunteer] WHERE  ) ";
+                   try
+                   {
+                       Utilities.Sql.ExecuteCommand(sql, model);
+                   }
+                   catch (SqlException ex)
+                   {
+                       throw;
+                   }
 
-            }
-            return RedirectToAction("List", "Volunteer");
+               }
+               return RedirectToAction("List", "Volunteer");
 
-        }
-        
-    /*    public ActionResult Index(string searchString)
-        {
-            using (var cn2 = new SqlConnection(ConfigurationManager.ConnectionStrings["HopeTherapyIMS"].ConnectionString))
-                var volunteer = from m in [dbo].[Volunteer]
-                         select m;
+           }
 
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                volunteer = volunteer.Where(s => s.Title.Contains(searchString));
-            }
+       /*    public ActionResult Index(string searchString)
+           {
+               using (var cn2 = new SqlConnection(ConfigurationManager.ConnectionStrings["HopeTherapyIMS"].ConnectionString))
+                   var volunteer = from m in [dbo].[Volunteer]
+                            select m;
 
-            return View(VolunteerSearch);
-        }*/
+               if (!String.IsNullOrEmpty(searchString))
+               {
+                   volunteer = volunteer.Where(s => s.Title.Contains(searchString));
+               }
+
+               return View(VolunteerSearch);
+           }*/
         [HttpGet]
         public ActionResult List()
         {
