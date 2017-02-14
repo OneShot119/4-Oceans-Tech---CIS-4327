@@ -1,0 +1,1 @@
+create table Days (Day VARCHAR(50) NULL, Volunteer int FOREIGN KEY REFERENCES Volunteer(VolunteerID) NULL);
