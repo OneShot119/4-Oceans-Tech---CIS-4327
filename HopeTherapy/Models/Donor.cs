@@ -18,27 +18,21 @@ namespace HopeTherapy.Models
         [Required(ErrorMessage = "Last Name is required"), DisplayName("Last Name")]
         public string LastName { get; set; }
 
-//        [Required(ErrorMessage = "Street Address is required"), 
         [DisplayName("Street Address")]
         public string StreetAddress { get; set; }
 
-//        [Required(ErrorMessage = "City is required"), 
         [DisplayName("City Name")]
         public string City { get; set; }
 
-//        [Required(ErrorMessage = "State is required"), 
         [DisplayName("State")]
         public string State { get; set; }
 
-//        [Required(ErrorMessage = "Zip Code is required"), 
         [DisplayName("Zip Code")]
         public string ZipCode { get; set; }
 
-//        [Required(ErrorMessage = "County is required"), 
         [DisplayName("County")]
         public string County { get; set; }
 
-//        [Required(ErrorMessage = "Date of Birth is required"), 
         [DisplayName("Date of Birth")]
         public string Birthday { get; set; }
 
@@ -54,8 +48,6 @@ namespace HopeTherapy.Models
         [DisplayName("Business Phone")]
         public string WorkPhoneNumber { get; set; }
 
-//        [DataType(DataType.EmailAddress)]
-//        [Required(ErrorMessage = "Email is required"), 
         [DisplayName("Email")]
         public string EmailAddress { get; set; }
 

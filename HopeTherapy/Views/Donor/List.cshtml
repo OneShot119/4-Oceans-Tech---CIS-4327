@@ -8,46 +8,81 @@
 
 
 @using (Html.BeginForm("Action", "Controller", FormMethod.Post))
-{
 
+{
+/*<html>
+
+<body>
+@foreach (var Donor in Model)
+{
+    <center><h1>Donor list</h1></center>
+    <center><h3>Send E-mail to <a href="mailto:@Donor.EmailAddress">@Donor.EmailAddress</a></h3></center>
+
+    <table border="1" style="margin: 0px auto;">
+        <tr><td>Last Name:@Donor.LastName First Name:@Donor.FirstName </td></tr>
+        <tr>Street Address: @Donor.StreetAddress</tr>
+        <tr>City: @Donor.City</tr>
+        <tr>State: @Donor.State</tr>
+        <tr>ZipCode: @Donor.ZipCode</tr>
+        <tr>County: @Donor.County</tr>
+        <tr>Date of Birth: @Donor.Birthday</tr>
+        <tr>Gender: @Donor.Gender</tr>
+        <tr>Cell Phone: @Donor.CellPhoneNumber</tr>
+        <tr>Home Phone: @Donor.HomePhoneNumber</tr>
+        <tr>Work Phone: @Donor.WorkPhoneNumber</tr>
+        <tr>Company Name: @Donor.CompanyName</tr>
+        <tr>Position: @Donor.Position</tr>
+        <tr>Company Address: @Donor.CompanyAddress</tr>
+        <tr>City: @Donor.CompanyCity</tr>
+        <tr>State: @Donor.CompanyState</tr>
+        <tr>Zip: @Donor.CompanyZip</tr>
+        <tr>Donation Date: @Donor.DonationDate</tr>
+        <tr>Currency Donation: @Donor.CurrencyDonation</tr>
+        <tr>Inventory Donation: @Donor.ItemDonation</tr>
+        <tr>Services Donation: @Donor.ServiceDonation</tr>
+    </table>
+}
+</body>
+</html> */
 
     <html>
-    <head>
-    </head>
-    <body>
-        <center><h1>Donor list</h1></center>
-        <table border="1" style="margin: 0px auto;">
-            <tr>
-                <th>
-                    Donor Name
-                </th>
-                <th>
-                    Donor Email
-                </th>
-                <th>
-                    Donations
-                </th>
-            </tr>
-            @foreach (var Donor in Model)
-            {
+        <head>
+        </head>
+        <body>
+            <center><h1>Donor list</h1></center>
+            <table border="1" style="margin: 0px auto;">
                 <tr>
-                    <td>
-                        @Donor.FirstName @Donor.LastName
-                    </td>
-                    <td>
-                        <a href="mailto:@Donor.EmailAddress">@Donor.EmailAddress</a>
-                    </td>
-                    <td>
-                       Donation Date: @Donor.DonationDate<br />
-                       Money: @Donor.CurrencyDonation<br />
-                       Inventory: @Donor.ItemDonation<br />
-                       Services: @Donor.ServiceDonation
-                    </td>
+                    <th>
+                        Donor Name
+                    </th>
+                    <th>
+                        Donor Email
+                    </th>
+                    <th>
+                        Donations
+                    </th>
                 </tr>
-            }
+                @foreach (var Donor in Model)
+                {
+                    <tr>
+                        <td>
+                            <a href='@Url.Action("Edit", "Donor", new { ID = Donor.DonorID})'>@Donor.FirstName @Donor.LastName</a>
+                            
+                        </td>
+                        <td>
+                            <a href="mailto:@Donor.EmailAddress">@Donor.EmailAddress</a>
+                        </td>
+                        <td>
+                           Donation Date: @Donor.DonationDate<br />
+                           Money: @Donor.CurrencyDonation<br />
+                           Inventory: @Donor.ItemDonation<br />
+                           Services: @Donor.ServiceDonation
+                        </td>
+                    </tr>
+                }
 
-        </table>
-    </body>
-</html>
+            </table>
+        </body>
+    </html> 
 }
 

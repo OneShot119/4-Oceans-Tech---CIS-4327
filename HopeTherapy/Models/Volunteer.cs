@@ -9,7 +9,7 @@ namespace HopeTherapy.Models
 {
     public class Volunteer
     {
-        public int VolunterID { get; set; }
+        public int VolunteerID { get; set; }
 
         //[Required(ErrorMessage = "First Name is required"), DisplayName("First Name")]
         public string FirstName { get; set; }
@@ -17,7 +17,6 @@ namespace HopeTherapy.Models
         //[Required(ErrorMessage = "Last Name is required"), DisplayName("Last Name")]
         public string LastName { get; set; }
 
-        public string Salutation { get; set; }
 
         //[Required(ErrorMessage = "Street Address is required"), DisplayName("Street Address")]
         public string StreetAddress { get; set; }
@@ -27,30 +26,31 @@ namespace HopeTherapy.Models
 
         public string States { get; set; }
         //[Required(ErrorMessage = "ZipCode is required"), DisplayName("ZipCode")]
-        public int ZipCode { get; set; }
+        public string ZipCode { get; set; }
         //[Required(ErrorMessage = "County is required"), DisplayName("County")]
         public string County { get; set; }
        // [Required(ErrorMessage = "Cell Phone Number is required"), DisplayName("Cell Phone")]
-        public int CellPhoneNumber { get; set; }
+        public string CellPhoneNumber { get; set; }
        
-        public int HomePhoneNumber { get; set; }
+        public string HomePhoneNumber { get; set; }
 
-        public int WorkPhoneNumber { get; set; }
+        public string WorkPhoneNumber { get; set; }
 
         //[DataType(DataType.EmailAddress)]
         //[Required(ErrorMessage = "Email is required"), DisplayName("Email")]
         public string Email { get; set; }
 
-        [DataType(DataType.Date)]
+  //      [DataType(DataType.Date)]
         public string Birthday { get; set; }
 
+        [DisplayName("Gender")]
         public string Gender { get; set; }
 
         public string Job { get; set; }
-        public int DateOrientation { get; set; }
-        public int DateStarted { get; set; }
-        public string DaysVolunteered { get; set; }
-        public int HoursPerMonth { get; set; }
+        public string DateOrientation { get; set; }
+        public string DateStarted { get; set; }
+//        public string DaysVolunteered { get; set; }
+        public string HoursPerMonth { get; set; }
 
         public string CompanyName { get; set; }
 

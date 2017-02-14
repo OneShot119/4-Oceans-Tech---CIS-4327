@@ -20,6 +20,41 @@ namespace HopeTherapy.Controllers
             return View();
         }
 
+        [HttpGet]
+        public ActionResult Edit(int ID)
+        {
+            var Volunteers = Utilities.Sql.ExecuteQuerySingleResult<Volunteer>("select * from dbo.Volunteer WHERE Volunteer.VolunteerID = " +ID+";");
+            return View(Volunteers);
+        }
+
+        [HttpPost]
+        public ActionResult EditVolunteer(Volunteer model)
+        {
+            // Todo: Check database
+
+
+
+            using (var cn2 = new SqlConnection(ConfigurationManager.ConnectionStrings["HopeTherapyIMS"].ConnectionString))
+
+            {
+                string sql = "UPDATE [dbo].[Volunteer] SET FirstName=@FirstName, LastName=@LastName, StreetAddress=@StreetAddress, City=@City, States=@States, ZipCode=@ZipCode, County=@County," +
+                    "CellPhoneNumber=@CellPhoneNumber, HomePhoneNumber=@HomePhoneNumber, WorkPhoneNumber=@WorkPhoneNumber, Email=@Email, Birthday=@Birthday, Gender=@Gender, Job=@Job, DateOrientation=@DateOrientation, DateStarted=@DateStarted, " +
+                    "HoursPerMonth=@HoursPerMonth, CompanyName=@CompanyName, Position=@Position, CompanyAddress=@CompanyAddress, VolunteerPosition=@VolunteerPosition, AreaOfInterest=@AreaOfInterest, Skills=@Skills, Donor=@Donor, Board=@Board, EmailList=@EmailList, MailList=@MailList " +
+                    "WHERE VolunteerID = @VolunteerID;";
+                try
+                {
+                    Utilities.Sql.ExecuteCommand(sql, model);
+                }
+                catch (SqlException ex)
+                {
+                    throw;
+                }
+
+            }
+
+            return RedirectToAction("List", "Volunteer");
+        }
+
         [HttpPost]
         public ActionResult Index(Volunteer model)
         {
@@ -30,11 +65,11 @@ namespace HopeTherapy.Controllers
             using (var cn2 = new SqlConnection(ConfigurationManager.ConnectionStrings["HopeTherapyIMS"].ConnectionString))
 
             {
-                string sql = "INSERT INTO [dbo].[Volunteer] (FirstName, LastName, Salutation, StreetAddress, City, States, ZipCode, County," +
-                    "CellPhoneNumber, HomePhoneNumber, WorkPhoneNumber, Email, Birthday, Gender, Job, DateOrientation, DateStarted, DaysVolunteered," +
+                string sql = "INSERT INTO [dbo].[Volunteer] (FirstName, LastName, StreetAddress, City, States, ZipCode, County," +
+                    "CellPhoneNumber, HomePhoneNumber, WorkPhoneNumber, Email, Birthday, Gender, Job, DateOrientation, DateStarted, " +
                     "HoursPerMonth, CompanyName, Position, CompanyAddress, VolunteerPosition, AreaOfInterest, Skills, Donor, Board, EmailList, MailList)" +
-                    "VALUES(@FirstName, @LastName, @Salutation, @StreetAddress, @City, @States, @ZipCode, @County, @CellPhoneNumber, @HomePhoneNumber," +
-                    "@WorkPhoneNumber, @Email, @Birthday, @Gender, @Job, @DateOrientation, @DateStarted, @DaysVolunteered, @HoursPerMonth, @CompanyName," +
+                    "VALUES(@FirstName, @LastName, @StreetAddress, @City, @States, @ZipCode, @County, @CellPhoneNumber, @HomePhoneNumber," +
+                    "@WorkPhoneNumber, @Email, @Birthday, @Gender, @Job, @DateOrientation, @DateStarted,  @HoursPerMonth, @CompanyName," +
                     "@Position, @CompanyAddress, @VolunteerPosition, @AreaOfInterest, @Skills, @Donor, @Board, @EmailList, @MailList)";
                 try
                 {
@@ -88,7 +123,7 @@ namespace HopeTherapy.Controllers
         [HttpGet]
         public ActionResult List()
         {
-            var Volunteers = Utilities.Sql.ExecuteQuery<Volunteer>("select FirstName as FirstName, LastName as LastName, Email as Email, DaysVolunteered as DaysVolunteered, HoursPerMonth as HoursPerMonth from dbo.Volunteer;");
+            var Volunteers = Utilities.Sql.ExecuteQuery<Volunteer>("select FirstName as FirstName, LastName as LastName, Email as Email, HoursPerMonth as HoursPerMonth, VolunteerID as VolunteerID from dbo.Volunteer;");
             return View(Volunteers);
 
             
