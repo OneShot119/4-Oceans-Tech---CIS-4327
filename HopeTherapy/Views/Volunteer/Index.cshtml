@@ -13,13 +13,19 @@
     <h2>Personal Information</h2>
     @Html.EditorFor(i => i.FirstName) @Html.ValidationMessageFor(i => i.FirstName) <br />
     @Html.EditorFor(i => i.LastName) @Html.ValidationMessageFor(i => i.LastName) <br />
-    @Html.DisplayNameFor(i => i.Salutation)<br>
-    <select>
-        <option value="Mr">Mr</option>
-        <option value="Mrs">Mrs</option>
-        <option value="Ms">Ms</option>
-        <option value="Miss">Miss</option>
-    </select><br><br><br />
+ //   @Html.DisplayNameFor(i => i.Salutation)<br>
+
+/*        Salutation:
+        <br>
+        <input type="radio" name="Salutation" value="Mr" checked> Mr
+        <br>
+        <input type="radio" name="Salutation" value="Mrs"> Mrs
+        <br>
+        <input type="radio" name="Salutation" value="Ms"> Ms
+        <br>
+        <input type="radio" name="Salutation" value="Miss"> Miss 
+        <br> */
+
    /* @Html.DropDownListFor(i => i.Salutation, new List<SelectListItem>
     {
                         new SelectListItem() {Text = "Mr", Value="Mr"},
@@ -96,15 +102,17 @@
     @Html.DisplayNameFor(i => i.Gender)<br>
     <select>
         <option value="M">Male</option>
-        <option value="F">Female</option>
+       <option value="F">Female</option>
     </select><br><br><br />
-    //@Html.DropDownListFor(i => i.Gender, new List<SelectListItem>
-            //{
-            //
-            //                    new SelectListItem() {Text = "Male", Value="M"},
-            //                    new SelectListItem() {Text = "Female", Value="F"},
-            //
-            //})<br />
+
+
+       //@Html.DropDownListFor(i => i.Gender, new List<SelectListItem>
+       //{
+       //
+       //                    new SelectListItem() {Text = "Male", Value="M"},
+       //                    new SelectListItem() {Text = "Female", Value="F"},
+       //
+       //})<br />
             @Html.EditorFor(i => i.Job) @Html.ValidationMessageFor(i => i.Job) <br />
             @Html.DisplayNameFor(i => i.DateOrientation)<br />
             <input type="date" name="OrientationDate"><br><br><br />
