@@ -125,17 +125,17 @@
      @Html.EditorFor(i => i.AreaOfInterest) @Html.ValidationMessageFor(i => i.AreaOfInterest) <br />
     @Html.EditorFor(i => i.Skills) @Html.ValidationMessageFor(i => i.Skills) <br />
      @Html.DisplayNameFor(i => i.Donor)<br>
-    <input type="radio" name="Donor" value="Yes" checked text="Yes"> <br>
-    <input type="radio" name="Donor" value="No" text="No"> <br><br>
+    @Html.RadioButtonFor(model => model.Donor, "Y", false)@Html.Label("Yes")<br />
+    @Html.RadioButtonFor(model => model.Donor, "N", false)@Html.Label("No")<br /><br />
     @Html.DisplayNameFor(i => i.Board)<br>
-    <input type="radio" name="Board" value="Yes" checked text="Yes"> <br>
-    <input type="radio" name="Board" value="No" text="No"> <br><br>
+    @Html.RadioButtonFor(model => model.Board, "Y", false)@Html.Label("Yes")<br />
+    @Html.RadioButtonFor(model => model.Board, "N", false)@Html.Label("No")<br /><br />
     @Html.DisplayNameFor(i => i.EmailList)<br>
-    <input type="radio" name="EmailList" value="Yes" checked text="Yes"> <br>
-    <input type="radio" name="EmailList" value="No" text="No"> <br><br>
+    @Html.RadioButtonFor(model => model.EmailList, "Y", false)@Html.Label("Yes")<br />
+    @Html.RadioButtonFor(model => model.EmailList, "N", false)@Html.Label("No")<br /><br />
     @Html.DisplayNameFor(i => i.MailList)<br>
-    <input type="radio" name="MailList" value="Yes" checked text="Yes"> <br>
-    <input type="radio" name="MailList" value="No" text="No"> <br><br>
+    @Html.RadioButtonFor(model => model.MailList, "Y", false)@Html.Label("Yes")<br />
+    @Html.RadioButtonFor(model => model.MailList, "N", false)@Html.Label("No")<br /><br />
 
                 <input type="submit" value="Submit" />
                 }

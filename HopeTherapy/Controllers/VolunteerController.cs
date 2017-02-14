@@ -87,7 +87,7 @@ namespace HopeTherapy.Controllers
 
             return RedirectToAction("Index", "Home");
         }
-        [HttpGet]
+     /*   [HttpGet]
         public ActionResult Search(string LastName)
         {
             var Volunteers = Utilities.Sql.ExecuteQuerySingleResult<Volunteer>("SELECT * from dbo.Volunteer WHERE Volunteer.LastName = " + LastName + ";");
