@@ -66,7 +66,8 @@
                 {
                     <tr>
                         <td>
-                            @Donor.FirstName @Donor.LastName
+                            <a href='@Url.Action("Edit", "Donor", new { ID = Donor.DonorID})'>@Donor.FirstName @Donor.LastName</a>
+                            
                         </td>
                         <td>
                             <a href="mailto:@Donor.EmailAddress">@Donor.EmailAddress</a>
