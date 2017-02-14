@@ -43,7 +43,7 @@ namespace HopeTherapy.Models
   //      [DataType(DataType.Date)]
         public string Birthday { get; set; }
 
-        [DisplayName("Gender")]
+        //[DisplayName("Gender")]
         public string Gender { get; set; }
 
         public string Job { get; set; }
