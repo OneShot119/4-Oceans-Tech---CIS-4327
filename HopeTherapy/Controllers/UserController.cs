@@ -62,15 +62,8 @@ namespace HopeTherapy.Controllers
 
         public ActionResult Logout()
         {
-            if (Request.IsAuthenticated)
-            {
-                return RedirectToAction("Index", "Home");
-            }
-            else
-            {
                 FormsAuthentication.SignOut();
                 return RedirectToAction("Index", "Home");
-            }
         }
     }
 }
