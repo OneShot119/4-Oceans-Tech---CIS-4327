@@ -87,10 +87,10 @@ namespace HopeTherapy.Controllers
 
             return RedirectToAction("Index", "Home");
         }
-           [HttpGet]
-           public ActionResult Search(string LastName)
+           [HttpPost]
+           public ActionResult List(string LastName)
            {
-               var Volunteers = Utilities.Sql.ExecuteQuerySingleResult<Volunteer>("SELECT * FROM [dbo].[Volunteer] WHERE LastName LIKE '%' + @LastName + '%'");
+               var Volunteers = Utilities.Sql.ExecuteQuery<Volunteer>("SELECT * FROM [dbo].[Volunteer] WHERE LastName LIKE '%' + @LastName + '%'");
                return View(Volunteers);
            }
 
@@ -127,16 +127,13 @@ namespace HopeTherapy.Controllers
                }
 
                return View(VolunteerSearch);
-           }*/
+       
+            }*/
         [HttpGet]
         public ActionResult List()
         {
-            var Volunteers = Utilities.Sql.ExecuteQuery<Volunteer>("select FirstName as FirstName, LastName as LastName, Email as Email, HoursPerMonth as HoursPerMonth, VolunteerID as VolunteerID from dbo.Volunteer;");
-            return View(Volunteers);
-
-            
-           
+            var volunteers = Utilities.Sql.ExecuteQuery<Volunteer>("select FirstName as FirstName, LastName as LastName, Email as Email, HoursPerMonth as HoursPerMonth, VolunteerID as VolunteerID from dbo.Volunteer;");
+            return View(volunteers);
         }
-
     }
 }

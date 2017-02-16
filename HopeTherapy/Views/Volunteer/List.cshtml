@@ -19,46 +19,48 @@
         <p><a href='@Url.Action("Logout", "User")' class="btn btn-primary btn-lg">Sign Out &raquo;</a></p><br>
 
         <center><h1>Volunteer List</h1></center>
-        
+        @using (Html.BeginForm("List", "Volunteer", FormMethod.Post))
+        {
         <label for="Search">Last Name</label>
-        <input type="text" name="search" id="search" />
+        <input type="text" name="LastName" id="LastName" />
         <button type="submit">Search</button><br /><br />
-        
-            <label for="Search2">County</label>
+        }
+
+            <label for="Search2">
+            County</label>
             <input type="text" name="search" id="search2" />
             <button type="submit">Search</button><br /><br />
-        
-        <table border="1" style="margin: 0px auto;">
-            <tr>
-                <th>
-                     Name
-                </th>
-                <th>
-                    Donor Email
-                </th>
-                <th>
-                    Hours per Month
-                </th>
-            </tr>
-            @foreach (var Volunteer in Model)
-            {
+
+            <table border="1" style="margin: 0px auto;">
                 <tr>
-                    <td>
-                        <a href='@Url.Action("Edit", "Volunteer", new { ID = @Volunteer.VolunteerID})'>@Volunteer.FirstName @Volunteer.LastName</a>
-                       
-                    </td>
-                    <td>
-                        <a href="mailto:@Volunteer.Email">@Volunteer.Email</a>
-                    </td>
-                    <td>
-                        @Volunteer.HoursPerMonth
-                    </td>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Donor Email
+                    </th>
+                    <th>
+                        Hours per Month
+                    </th>
                 </tr>
-            }
+                @foreach (var Volunteer in Model)
+                {
+                    <tr>
+                        <td>
+                            <a href='@Url.Action("Edit", "Volunteer", new { ID = @Volunteer.VolunteerID})'>@Volunteer.FirstName @Volunteer.LastName</a>
 
-        </table>
+                        </td>
+                        <td>
+                            <a href="mailto:@Volunteer.Email">@Volunteer.Email</a>
+                        </td>
+                        <td>
+                            @Volunteer.HoursPerMonth
+                        </td>
+                    </tr>
+                }
+            </table>
 
-    </body>
+</body>
 </html>
 }
 
