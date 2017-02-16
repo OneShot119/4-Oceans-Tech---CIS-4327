@@ -176,7 +176,6 @@
     <Compile Include="Controllers\CalendarController.cs" />
     <Compile Include="Controllers\Donor.cs" />
     <Compile Include="Controllers\DonorShow.cs" />
-    <Compile Include="Controllers\EditProfile.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\UserController.cs" />

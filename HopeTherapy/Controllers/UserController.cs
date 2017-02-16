@@ -12,35 +12,65 @@ namespace HopeTherapy.Controllers
         // GET: User
         public ActionResult Index()
         {
-            return View();
+            if (Request.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return View();
+            }
         }
+
         [HttpGet]
         public ActionResult Login()
         {
-            return View();
+            if (Request.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return View();
+            }
         }
 
         [HttpPost]
         public ActionResult Login(Models.User user)
         {
-            if (ModelState.IsValid)
+            if (Request.IsAuthenticated)
             {
-                if (user.IsValid(user.UserName, user.Password))
-                {
-                    FormsAuthentication.SetAuthCookie(user.UserName, user.RememberMe);
-                    return RedirectToAction("Index", "Home");
-                }
-                else
-                {
-                    ModelState.AddModelError("", "Login data is incorrect!");
-                }
+                return RedirectToAction("Index", "Home");
             }
-            return View(user);
+            else
+            {
+                if (ModelState.IsValid)
+                {
+                    if (user.IsValid(user.UserName, user.Password))
+                    {
+                        FormsAuthentication.SetAuthCookie(user.UserName, user.RememberMe);
+                        return RedirectToAction("Index", "Home");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Login data is incorrect!");
+                    }
+                }
+                return View(user);
+            }
         }
+
         public ActionResult Logout()
         {
-            FormsAuthentication.SignOut();
-            return RedirectToAction("Index", "Home");
+            if (Request.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                FormsAuthentication.SignOut();
+                return RedirectToAction("Index", "Home");
+            }
         }
     }
 }

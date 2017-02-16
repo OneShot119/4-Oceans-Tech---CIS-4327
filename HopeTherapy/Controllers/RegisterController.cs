@@ -17,51 +17,66 @@ namespace HopeTherapy.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            return View();
+            if (Request.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return View();
+            }
         }
 
-        [HttpPost] [ValidateAntiForgeryToken]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Index(Register model)
         {
-            if (!ModelState.IsValid)
+            if (Request.IsAuthenticated)
             {
-                // Todo: Model is not valid.
-                return View(model);
+                return RedirectToAction("Index", "Home");
             }
-
-            var regCode = ConfigurationManager.AppSettings["RegCode"];
-            if (!string.Equals(model.AccessKey, regCode))
+            else
             {
-                ModelState.AddModelError("AccessKey", "Incorrect AccessKey.");
-                return View(model);
-            }
-
-            // Todo: Check database
-            //string sql = "INSERT INTO Register VALUES("+model.Username+ ", " + model.Password + ")";
-            //int temp = DataAccess.SqlDataAccess.ExecuteCommand(sql);
-            using (var cn = new SqlConnection(ConfigurationManager.ConnectionStrings["HopeTherapyIMS"].ConnectionString))
-            {
-                string sql = "INSERT INTO [dbo].[Register] (UserName, Password, Email, FirstName, LastName)  VALUES(@Username, @Password, @Email, @FirstName, @LastName)";
-                try
+                if (!ModelState.IsValid)
                 {
-                    Utilities.Sql.ExecuteCommand(sql, model);
+                    // Todo: Model is not valid.
+                    return View(model);
                 }
-                catch (SqlException ex)
+
+                var regCode = ConfigurationManager.AppSettings["RegCode"];
+                if (!string.Equals(model.AccessKey, regCode))
                 {
-                    if(ex.Number == 2627) // 2627 = unique constraint violation.
+                    ModelState.AddModelError("AccessKey", "Incorrect AccessKey.");
+                    return View(model);
+                }
+
+                // Todo: Check database
+                //string sql = "INSERT INTO Register VALUES("+model.Username+ ", " + model.Password + ")";
+                //int temp = DataAccess.SqlDataAccess.ExecuteCommand(sql);
+                using (var cn = new SqlConnection(ConfigurationManager.ConnectionStrings["HopeTherapyIMS"].ConnectionString))
+                {
+                    string sql = "INSERT INTO [dbo].[Register] (UserName, Password, Email, FirstName, LastName)  VALUES(@Username, @Password, @Email, @FirstName, @LastName)";
+                    try
                     {
-                        ModelState.AddModelError("Username", "Username already taken.");
-                        return View(model);
+                        Utilities.Sql.ExecuteCommand(sql, model);
                     }
-                    throw;
+                    catch (SqlException ex)
+                    {
+                        if (ex.Number == 2627) // 2627 = unique constraint violation.
+                        {
+                            ModelState.AddModelError("Username", "Username already taken.");
+                            return View(model);
+                        }
+                        throw;
+                    }
                 }
-            }
 
                 var user = new User();
-            user.UserName = model.Username;
-            user.Password = model.Password;
-            FormsAuthentication.SetAuthCookie(user.UserName, true);
-            return RedirectToAction("Index","Home");
+                user.UserName = model.Username;
+                user.Password = model.Password;
+                FormsAuthentication.SetAuthCookie(user.UserName, true);
+                return RedirectToAction("Index", "Home");
+            }
         }
     }
 }

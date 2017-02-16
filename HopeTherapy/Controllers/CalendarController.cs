@@ -13,8 +13,15 @@ namespace HopeTherapy.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            var days = Utilities.Sql.ExecuteQuery<Day>("SELECT Day as day, FirstName as fname, LastName as lname FROM Days JOIN Volunteer ON Days.Volunteer = Volunteer.VolunteerID");
-            return View(days);
+            if (!Request.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                var days = Utilities.Sql.ExecuteQuery<Day>("SELECT Day as day, FirstName as fname, LastName as lname FROM Days JOIN Volunteer ON Days.Volunteer = Volunteer.VolunteerID");
+                return View(days);
+            }
         }
     }
 }
