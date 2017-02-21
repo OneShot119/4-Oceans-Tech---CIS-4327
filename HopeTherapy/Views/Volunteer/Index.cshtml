@@ -13,7 +13,7 @@
 <hr />
 @using (Html.BeginForm("Index", "Volunteer", FormMethod.Post))
 {
-    <h2>Personal Information</h2>
+    <h4>Personal Information</h4>
     @Html.EditorFor(i => i.FirstName) @Html.ValidationMessageFor(i => i.FirstName) <br />
     @Html.EditorFor(i => i.LastName) @Html.ValidationMessageFor(i => i.LastName) <br />
     @Html.EditorFor(i => i.StreetAddress) @Html.ValidationMessageFor(i => i.StreetAddress) <br />
@@ -74,7 +74,7 @@
     </select><br><br><br />
     @Html.EditorFor(i => i.ZipCode) @Html.ValidationMessageFor(i => i.ZipCode) <br />
     @Html.EditorFor(i => i.County) @Html.ValidationMessageFor(i => i.County) <br />
-    <h2>Contact Information</h2>
+    <h4>Contact Information</h4>
     @Html.EditorFor(i => i.CellPhoneNumber) @Html.ValidationMessageFor(i => i.CellPhoneNumber) <br />
     @Html.EditorFor(i => i.HomePhoneNumber) @Html.ValidationMessageFor(i => i.HomePhoneNumber) <br />
     @Html.EditorFor(i => i.WorkPhoneNumber) @Html.ValidationMessageFor(i => i.WorkPhoneNumber) <br />
@@ -91,43 +91,13 @@
     @Html.DisplayNameFor(i => i.DateStarted)<br />
     <input type="date" name="DateStarted"><br><br><br />
     @Html.EditorFor(i => i.HoursPerMonth) @Html.ValidationMessageFor(i => i.HoursPerMonth) <br />
-            /*  @Html.DisplayNameFor(i => i.CompanyName) @Html.EditorFor(i => i.CompanyName) @Html.ValidationMessageFor(i => i.CompanyName) <br />
-            @Html.DisplayNameFor(i => i.Position) @Html.EditorFor(i => i.Position) @Html.ValidationMessageFor(i => i.Position) <br />
-            @Html.DisplayNameFor(i => i.CompanyAddress) @Html.EditorFor(i => i.CompanyAddress) @Html.ValidationMessageFor(i => i.CompanyAddress) <br />
-            @Html.DisplayNameFor(i => i.VolunteerDays) @Html.EditorFor(i => i.VolunteerDays) @Html.ValidationMessageFor(i => i.VolunteerDays) <br />
-            @Html.DisplayNameFor(i => i.VolunteerPosition) @Html.EditorFor(i => i.VolunteerPosition) @Html.ValidationMessageFor(i => i.VolunteerPosition) <br />
-            //@Html.DisplayNameFor(i => i.HoursVolunteered) @Html.EditorFor(i => i.HoursVolunteered) @Html.ValidationMessageFor(i => i.HoursVolunteered) <br />
-            @Html.DisplayNameFor(i => i.AreaOfInterest) @Html.EditorFor(i => i.AreaOfInterest) @Html.ValidationMessageFor(i => i.AreaOfInterest) <br />
-            @Html.DisplayNameFor(i => i.Skills) @Html.EditorFor(i => i.Skills) @Html.ValidationMessageFor(i => i.Skills) <br />
-            @Html.DisplayNameFor(i => i.Donor)@Html.DropDownListFor(i => i.Donor, new List<SelectListItem>
-      {
-          new SelectListItem() { Text = "Yes", Value = "Yes" },
-                          new SelectListItem() { Text = "No", Value = "No" },
-
-      })<br />
-            @Html.DisplayNameFor(i => i.Board)@Html.DropDownListFor(i => i.Board, new List<SelectListItem>
-      {
-                          new SelectListItem() {Text = "Yes", Value="Yes"},
-                          new SelectListItem() {Text = "No", Value="No"},
-
-      })<br />
-            @Html.DisplayNameFor(i => i.EmailList)@Html.DropDownListFor(i => i.EmailList, new List<SelectListItem>
-      {
-                          new SelectListItem() {Text = "Yes", Value="Yes"},
-                          new SelectListItem() {Text = "No", Value="No"},
-
-      })<br />
-            @Html.DisplayNameFor(i => i.MailList)@Html.DropDownListFor(i => i.MailList, new List<SelectListItem>
-                {
-                new SelectListItem() {Text = "Yes", Value="Yes"},
-                new SelectListItem() {Text = "No", Value="No"},*/
-     @Html.EditorFor(i => i.CompanyName) @Html.ValidationMessageFor(i => i.CompanyName) <br />
-     @Html.EditorFor(i => i.Position) @Html.ValidationMessageFor(i => i.Position) <br />
-     @Html.EditorFor(i => i.CompanyAddress) @Html.ValidationMessageFor(i => i.CompanyAddress) <br />
+    @Html.EditorFor(i => i.CompanyName) @Html.ValidationMessageFor(i => i.CompanyName) <br />
+    @Html.EditorFor(i => i.Position) @Html.ValidationMessageFor(i => i.Position) <br />
+    @Html.EditorFor(i => i.CompanyAddress) @Html.ValidationMessageFor(i => i.CompanyAddress) <br />
     @Html.EditorFor(i => i.VolunteerPosition) @Html.ValidationMessageFor(i => i.VolunteerPosition) <br />
-     @Html.EditorFor(i => i.AreaOfInterest) @Html.ValidationMessageFor(i => i.AreaOfInterest) <br />
+    @Html.EditorFor(i => i.AreaOfInterest) @Html.ValidationMessageFor(i => i.AreaOfInterest) <br />
     @Html.EditorFor(i => i.Skills) @Html.ValidationMessageFor(i => i.Skills) <br />
-     @Html.DisplayNameFor(i => i.Donor)<br>
+    @Html.DisplayNameFor(i => i.Donor)<br>
     @Html.RadioButtonFor(model => model.Donor, "Y", false)@Html.Label("Yes")<br />
     @Html.RadioButtonFor(model => model.Donor, "N", false)@Html.Label("No")<br /><br />
     @Html.DisplayNameFor(i => i.Board)<br>
@@ -139,8 +109,7 @@
     @Html.DisplayNameFor(i => i.MailList)<br>
     @Html.RadioButtonFor(model => model.MailList, "Y", false)@Html.Label("Yes")<br />
     @Html.RadioButtonFor(model => model.MailList, "N", false)@Html.Label("No")<br /><br />
-
-                <input type="submit" value="Submit" />
-                }
+        <input type="submit" value="Submit" />
+    }
 
 
