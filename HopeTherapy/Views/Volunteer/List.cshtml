@@ -32,17 +32,19 @@
             <button type="submit">Search</button><br /><br />
 
             <table border="1" style="margin: 0px auto;">
-                <tr>
-                    <th>
-                        Name
-                    </th>
-                    <th>
-                        Donor Email
-                    </th>
-                    <th>
-                        Hours per Month
-                    </th>
-                </tr>
+                <thead style="font-size:23px">
+                    <tr>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Donor Email
+                        </th>
+                        <th>
+                            Hours per Month
+                        </th>
+                    </tr>
+                </thead>
                 @foreach (var Volunteer in Model)
                 {
                     <tr>

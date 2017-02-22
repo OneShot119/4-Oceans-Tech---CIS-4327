@@ -9,8 +9,16 @@
         @if (Request.IsAuthenticated)
 
         {
-            <p>Welcome @Html.Encode(User.Identity.Name)</p>
+            
             <table width="300" height="300">
+                <thead>
+                    <tr>
+                        <th colspan="2">
+                            <p style="font-size:30px">Welcome @Html.Encode(User.Identity.Name)</p>
+                        </th>
+                            
+                    </tr>
+                </thead>
                 <tr>
                     <td>
                         <p><a href="/Volunteer/Index" class="btn btn-primary btn-lg">Volunteers &raquo;</a></p>
