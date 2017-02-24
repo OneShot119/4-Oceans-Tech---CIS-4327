@@ -113,33 +113,6 @@ namespace HopeTherapy.Controllers
         }
 
 
-        [HttpPost]
-        public ActionResult SearchVolunteer(Volunteer model)
-        {
-            if (!Request.IsAuthenticated)
-            {
-                return RedirectToAction("Index", "Home");
-            }
-            else
-            {
-                using (var cn3 = new SqlConnection(ConfigurationManager.ConnectionStrings["HopeTherapyIMS"].ConnectionString))
-
-                {
-                    string sql = "SELECT * FROM dbo.Volunteer";
-                    try
-                    {
-                        Utilities.Sql.ExecuteCommand(sql, model);
-                    }
-                    catch (SqlException ex)
-                    {
-                        throw;
-                    }
-
-                }
-                return RedirectToAction("List", "Volunteer");
-
-            }
-        }
 
         /*    public ActionResult Index(string searchString)
             {
@@ -163,7 +136,7 @@ namespace HopeTherapy.Controllers
              }
              }*/
         [HttpGet]
-        public ActionResult List()
+        public ActionResult List(String Search, String Type)
         {
             if (!Request.IsAuthenticated)
             {
@@ -171,12 +144,26 @@ namespace HopeTherapy.Controllers
             }
             else
             {
-                var volunteers = Utilities.Sql.ExecuteQuery<Volunteer>("select FirstName as FirstName, LastName as LastName, Email as Email, HoursPerMonth as HoursPerMonth, VolunteerID as VolunteerID from dbo.Volunteer;");
-                return View(volunteers);
+                IEnumerable<Volunteer> Volunteers=null;
+                if (Type=="LastName")
+                {
+                    Volunteers = Utilities.Sql.ExecuteQuery<Volunteer>("SELECT FirstName as FirstName, LastName as LastName, Email as Email, HoursPerMonth as HoursPerMonth, VolunteerID as VolunteerID from [dbo].[Volunteer] WHERE LastName LIKE '%" + Search + "%';");
+
+                }
+                else if (Type == "County")
+                {
+                    Volunteers = Utilities.Sql.ExecuteQuery<Volunteer>("SELECT FirstName as FirstName, LastName as LastName, Email as Email, HoursPerMonth as HoursPerMonth, VolunteerID as VolunteerID from [dbo].[Volunteer] WHERE County LIKE '%" + Search + "%';");
+
+                }
+                else
+                {
+                Volunteers = Utilities.Sql.ExecuteQuery<Volunteer>("select FirstName as FirstName, LastName as LastName, Email as Email, HoursPerMonth as HoursPerMonth, VolunteerID as VolunteerID from dbo.Volunteer;");
+                }
+                return View(Volunteers);
             }
         }
         [HttpPost]
-        public ActionResult List(string LastName)
+        public ActionResult ListByLastName(string LastName)
         {
             if (!Request.IsAuthenticated)
             {
@@ -184,8 +171,19 @@ namespace HopeTherapy.Controllers
             }
             else
             {
-                var Volunteers = Utilities.Sql.ExecuteQuery<Volunteer>("SELECT FirstName as FirstName, LastName as LastName, Email as Email, HoursPerMonth as HoursPerMonth, VolunteerID as VolunteerID from [dbo].[Volunteer] WHERE LastName LIKE '%" + LastName + "%';");
-                return View(Volunteers);
+                return RedirectToAction("List",new {Search=LastName, Type="LastName" });
+            }
+        }
+        [HttpPost]
+        public ActionResult ListByCounty(string County)
+        {
+            if (!Request.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return RedirectToAction("List", new { Search = County, Type = "County" });
             }
         }
     }

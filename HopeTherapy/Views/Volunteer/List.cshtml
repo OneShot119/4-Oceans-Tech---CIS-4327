@@ -18,7 +18,7 @@
         <p><a href='@Url.Action("Logout", "User")' class="btn btn-primary btn-lg">Sign Out &raquo;</a></p><br>
 
         <center><h1>Volunteer List</h1></center>
-        @using (Html.BeginForm("List", "Volunteer", FormMethod.Post))
+        @using (Html.BeginForm("ListByLastName", "Volunteer", FormMethod.Post))
         {
         <label for="Search">Last Name</label>
         <input type="text" name="LastName" id="LastName" />
