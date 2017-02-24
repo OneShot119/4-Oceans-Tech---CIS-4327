@@ -13,6 +13,18 @@ namespace HopeTherapy.Controllers
 {
     public class VolunteerController : Controller
     {
+
+        private static readonly IEnumerable<SelectListItem> _VolunteerPositions = new List<SelectListItem>
+        {
+            new SelectListItem {Text="Lessons", Value="Lessons" },
+            new SelectListItem { Text = "Horse Show", Value = "Horse Show" },
+            new SelectListItem { Text = "Special Event", Value = "Special Event" },
+            new SelectListItem {Text = "Fundraising", Value="Fundraising" },
+            new SelectListItem { Text = "Facility Maintenance", Value = "Facility Maintenance" },
+            new SelectListItem { Text = "Special Project", Value = "Special Project" },
+            new SelectListItem { Text = "Computer Work", Value = "Computer Work" },
+            new SelectListItem { Text = "Mailings", Value = "Mailings" }
+        };
         // GET: Volunteer
         [HttpGet]
         public ActionResult Index()
@@ -21,10 +33,9 @@ namespace HopeTherapy.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
-            else
-            {
-                return View();
-            }
+            var model = new Volunteer();
+            model.VolunteerPositions = _VolunteerPositions;
+            return View(model);
         }
 
         [HttpGet]
@@ -81,9 +92,6 @@ namespace HopeTherapy.Controllers
             }
             else
             {
-                using (var cn2 = new SqlConnection(ConfigurationManager.ConnectionStrings["HopeTherapyIMS"].ConnectionString))
-
-                {
                     string sql = "INSERT INTO [dbo].[Volunteer] (FirstName, LastName, StreetAddress, City, States, ZipCode, County," +
                         "CellPhoneNumber, HomePhoneNumber, WorkPhoneNumber, Email, Birthday, Gender, Job, DateOrientation, DateStarted, " +
                         "HoursPerMonth, CompanyName, Position, CompanyAddress, VolunteerPosition, AreaOfInterest, Skills, Donor, Board, EmailList, MailList)" +
@@ -98,7 +106,6 @@ namespace HopeTherapy.Controllers
                     {
                         throw;
                     }
-                }
                 var Volunteer = new Volunteer();
                 return RedirectToAction("Index", "Home");
             }

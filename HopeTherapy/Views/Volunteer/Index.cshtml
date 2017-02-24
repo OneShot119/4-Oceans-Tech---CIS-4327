@@ -102,8 +102,9 @@
         @Html.EditorFor(i => i.CompanyName) @Html.ValidationMessageFor(i => i.CompanyName) <br />
         @Html.EditorFor(i => i.Position) @Html.ValidationMessageFor(i => i.Position) <br />
         @Html.EditorFor(i => i.CompanyAddress) @Html.ValidationMessageFor(i => i.CompanyAddress) <br />
-        @Html.EditorFor(i => i.VolunteerPosition) @Html.ValidationMessageFor(i => i.VolunteerPosition) <br />
-        //    @Html.DropDownList("VolunteerPosition", "IEnumerable<SelectListItem>") <br />
+    //@Html.EditorFor(i => i.VolunteerPosition) @Html.ValidationMessageFor(i => i.VolunteerPosition) <br />
+        @Html.DisplayNameFor(i => i.VolunteerPosition)<text>:</text><br>
+        @Html.DropDownListFor(i => i.VolunteerPosition, Model.VolunteerPositions) @Html.ValidationMessageFor(i => i.VolunteerPosition) <br><br><br />
         @Html.EditorFor(i => i.AreaOfInterest) @Html.ValidationMessageFor(i => i.AreaOfInterest) <br />
         @Html.EditorFor(i => i.Skills) @Html.ValidationMessageFor(i => i.Skills) <br />
         @Html.DisplayNameFor(i => i.Donor)<br>

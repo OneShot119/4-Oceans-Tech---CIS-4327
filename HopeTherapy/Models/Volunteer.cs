@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace HopeTherapy.Models
 {
@@ -59,6 +60,7 @@ namespace HopeTherapy.Models
         public string CompanyAddress { get; set; }
 
         public string VolunteerPosition { get; set; }
+        public IEnumerable<SelectListItem> VolunteerPositions { get; set; }
 
         public string AreaOfInterest { get; set; }
 
