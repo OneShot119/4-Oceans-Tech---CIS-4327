@@ -113,7 +113,7 @@ namespace HopeTherapy.Controllers
             }
             else
             {
-                var Volunteers = Utilities.Sql.ExecuteQuery<Volunteer>("SELECT * FROM [dbo].[Volunteer] WHERE LastName LIKE '%' + @LastName + '%'");
+                var Volunteers = Utilities.Sql.ExecuteQuery<Volunteer>("SELECT FirstName as FirstName, LastName as LastName, Email as Email, HoursPerMonth as HoursPerMonth, VolunteerID as VolunteerID from [dbo].[Volunteer] WHERE LastName LIKE '%" + LastName + "%';");
                 return View(Volunteers);
             }
         }
