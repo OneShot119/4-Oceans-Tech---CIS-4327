@@ -48,6 +48,7 @@ namespace HopeTherapy.Controllers
             else
             {
                 var Volunteers = Utilities.Sql.ExecuteQuerySingleResult<Volunteer>("select * from dbo.Volunteer WHERE Volunteer.VolunteerID = " + ID + ";");
+                Volunteers.VolunteerPositions = _VolunteerPositions;
                 return View(Volunteers);
             }
         }
