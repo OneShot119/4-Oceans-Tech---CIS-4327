@@ -123,6 +123,20 @@ namespace HopeTherapy.Controllers
 
             }
         }
+        [HttpPost]
+        public ActionResult List(String LastName)
+        {
+            if (!Request.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                var emails = Utilities.Sql.ExecuteQuery<Donor>("select D_CODE as DonorID, D_Fname as FirstName, D_Lname as LastName, D_EMAIL as EmailAddress, DONATION_DATE as DonationDate, DONATION_CURRENCY as CurrencyDonation, DONATION_ITEM as ItemDonation, DONATION_SERVICE as ServiceDonation from dbo.DONOR WHERE D_LNAME like '%" + LastName + "%';");
+                return View(emails);
+
+            }
+        }
     }
 }
 

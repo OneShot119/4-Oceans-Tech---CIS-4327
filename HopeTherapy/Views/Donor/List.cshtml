@@ -5,10 +5,6 @@
 }
 
 
-
-
-@using (Html.BeginForm("Action", "Controller", FormMethod.Post))
-
 {
     <html>
         <head>
@@ -18,10 +14,12 @@
             <p><a href='@Url.Action("Logout", "User")' class="btn btn-primary btn-lg">Sign Out &raquo;</a></p><br>
 
             <center><h1>Donor list</h1></center>
-
+            @using (Html.BeginForm("List", "Donor", FormMethod.Post))
+            {
             <label for="Search">Last Name</label>
-            <input type="text" name="search" id="search" />
+            <input type="text" name="LastName" id="LastName" />
             <button type="submit">Search</button><br /><br />
+            }
 
             <label for="Search2">County</label>
             <input type="text" name="search" id="search2" />
