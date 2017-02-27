@@ -110,7 +110,7 @@ namespace HopeTherapy.Controllers
             }
         }
         [HttpGet]
-        public ActionResult List()
+        public ActionResult List(String Search, String Type)
         {
             if (!Request.IsAuthenticated)
             {
@@ -118,13 +118,26 @@ namespace HopeTherapy.Controllers
             }
             else
             {
-                var emails = Utilities.Sql.ExecuteQuery<Donor>("select D_CODE as DonorID, D_Fname as FirstName, D_Lname as LastName, D_EMAIL as EmailAddress, DONATION_DATE as DonationDate, DONATION_CURRENCY as CurrencyDonation, DONATION_ITEM as ItemDonation, DONATION_SERVICE as ServiceDonation from dbo.DONOR;");
-                return View(emails);
+                IEnumerable<Donor> Donors = null;
+                if (Type == "LastName")
+                {
+                    Donors = Utilities.Sql.ExecuteQuery<Donor>("select D_CODE as DonorID, D_Fname as FirstName, D_Lname as LastName, D_EMAIL as EmailAddress, DONATION_DATE as DonationDate, DONATION_CURRENCY as CurrencyDonation, DONATION_ITEM as ItemDonation, DONATION_SERVICE as ServiceDonation from dbo.DONOR WHERE D_LName LIKE '%" + Search + "%';");
 
+                }
+                else if (Type == "County")
+                {
+                    Donors = Utilities.Sql.ExecuteQuery<Donor>("select D_CODE as DonorID, D_Fname as FirstName, D_Lname as LastName, D_EMAIL as EmailAddress, DONATION_DATE as DonationDate, DONATION_CURRENCY as CurrencyDonation, DONATION_ITEM as ItemDonation, DONATION_SERVICE as ServiceDonation from dbo.DONOR WHERE D_COUNTY LIKE '%" + Search + "%';");
+
+                }
+                else
+                {
+                    Donors = Utilities.Sql.ExecuteQuery<Donor>("select D_CODE as DonorID, D_Fname as FirstName, D_Lname as LastName, D_EMAIL as EmailAddress, DONATION_DATE as DonationDate, DONATION_CURRENCY as CurrencyDonation, DONATION_ITEM as ItemDonation, DONATION_SERVICE as ServiceDonation from dbo.DONOR;");
+                }
+                return View(Donors);
             }
         }
         [HttpPost]
-        public ActionResult List(String LastName)
+        public ActionResult ListByLastName(string LastName)
         {
             if (!Request.IsAuthenticated)
             {
@@ -132,13 +145,24 @@ namespace HopeTherapy.Controllers
             }
             else
             {
-                var emails = Utilities.Sql.ExecuteQuery<Donor>("select D_CODE as DonorID, D_Fname as FirstName, D_Lname as LastName, D_EMAIL as EmailAddress, DONATION_DATE as DonationDate, DONATION_CURRENCY as CurrencyDonation, DONATION_ITEM as ItemDonation, DONATION_SERVICE as ServiceDonation from dbo.DONOR WHERE D_LNAME like '%" + LastName + "%';");
-                return View(emails);
-
+                return RedirectToAction("List", new { Search = LastName, Type = "LastName" });
+            }
+        }
+        [HttpPost]
+        public ActionResult ListByCounty(string County)
+        {
+            if (!Request.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return RedirectToAction("List", new { Search = County, Type = "County" });
             }
         }
     }
 }
+
 
 
     
