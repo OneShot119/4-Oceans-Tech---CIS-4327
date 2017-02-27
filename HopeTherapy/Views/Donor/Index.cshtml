@@ -13,201 +13,203 @@
 </head>
 
     <body>
-                    <p><a href="/Home/Index" class="btn btn-primary btn-lg">Go Back &laquo;</a></p><br>
-                    <p><a href='@Url.Action("Logout", "User")' class="btn btn-primary btn-lg">Sign Out &raquo;</a></p><br>
+    <p><a href="/Home/Index" class="btn btn-primary btn-lg">Go Back &laquo;</a></p><br>
+    <p><a href='@Url.Action("Logout", "User")' class="btn btn-primary btn-lg">Sign Out &raquo;</a></p><br>
 
-        <center><h1>New Donor Registration</h1></center>
+    <center><h1>New Donor Registration</h1></center>
 
-        <form>
-            <fieldset>
-                <legend>New Donor Registration:</legend>
-                <h2>Personal Information</h2>
+    <form>
+        <fieldset>
+            <legend>New Donor Registration:</legend>
+            <h2>Personal Information</h2>
 
-                @Html.EditorFor(i => i.FirstName)
-                @Html.EditorFor(i => i.LastName)
+            <div>
+                <div class="col-sm-1">@Html.EditorFor(i => i.FirstName)</div>
+                <div class="col-sm-offset-3"> @Html.EditorFor(i => i.LastName)</div>
+            </div><br/>
 
-                Street Address:<br>
-                <input type="text" name="StreetAddress"><br><br>
+            Street Address:<br>
+            <input type = "text" name = "StreetAddress" ><br><br>
 
-                City:<br>
-                <input type="text" name="City"><br><br>
+            City:<br>
+            <input type = "text" name = "City" ><br><br>
 
-                State:<br>
-                <select>
-                    <option value="AL"name="Alabama">Alabama</option>
-                    <option value="AK"name="Alaska">Alaska</option>
-                    <option value="AZ"name="Arizona">Arizona</option>
-                    <option value="AR"name="Arkansas">Arkansas</option>
-                    <option value="CA"name="State">California</option>
-                    <option value="CO"name="State">Colorado</option>
-                    <option value="CT"name="State">Connecticut</option>
-                    <option value="DE"name="State">Delaware</option>
-                    <option value="DC"name="State">District Of Columbia</option>
-                    <option value="FL"name="State">Florida</option>
-                    <option value="GA"name="State">Georgia</option>
-                    <option value="HI"name="State">Hawaii</option>
-                    <option value="ID"name="State">Idaho</option>
-                    <option value="IL"name="State">Illinois</option>
-                    <option value="IN"name="State">Indiana</option>
-                    <option value="IA"name="State">Iowa</option>
-                    <option value="KS"name="State">Kansas</option>
-                    <option value="KY"name="State">Kentucky</option>
-                    <option value="LA"name="State">Louisiana</option>
-                    <option value="ME"name="State">Maine</option>
-                    <option value="MD"name="State">Maryland</option>
-                    <option value="MA"name="State">Massachusetts</option>
-                    <option value="MI"name="State">Michigan</option>
-                    <option value="MN"name="State">Minnesota</option>
-                    <option value="MS"name="State">Mississippi</option>
-                    <option value="MO"name="State">Missouri</option>
-                    <option value="MT"name="State">Montana</option>
-                    <option value="NE"name="State">Nebraska</option>
-                    <option value="NV"name="State">Nevada</option>
-                    <option value="NH"name="State">New Hampshire</option>
-                    <option value="NJ"name="State">New Jersey</option>
-                    <option value="NM"name="State">New Mexico</option>
-                    <option value="NY"name="State">New York</option>
-                    <option value="NC"name="State">North Carolina</option>
-                    <option value="ND"name="State">North Dakota</option>
-                    <option value="OH"name="State">Ohio</option>
-                    <option value="OK"name="State">Oklahoma</option>
-                    <option value="OR"name="State">Oregon</option>
-                    <option value="PA"name="State">Pennsylvania</option>
-                    <option value="RI"name="State">Rhode Island</option>
-                    <option value="SC"name="State">South Carolina</option>
-                    <option value="SD"name="State">South Dakota</option>
-                    <option value="TN"name="State">Tennessee</option>
-                    <option value="TX"name="State">Texas</option>
-                    <option value="UT"name="State">Utah</option>
-                    <option value="VT"name="State">Vermont</option>
-                    <option value="VA"name="State">Virginia</option>
-                    <option value="WA"name="State">Washington</option>
-                    <option value="WV"name="State">West Virginia</option>
-                    <option value="WI"name="State">Wisconsin</option>
-                    <option value="WY"name="State">Wyoming</option>
-                </select><br><br>
+            State:< br >
+            <select>
+                <option value="AL"> Alabama </option>
+                <option value="AK"> Alaska </option>
+                <option value="AZ"> Arizona </option>
+                <option value="AR"> Arkansas </option>
+                <option value="CA"> California </option>
+                <option value="CO"> Colorado </option>
+                <option value="CT"> Connecticut </option>
+                <option value="DE"> Delaware </option>
+                <option value="DC"> District Of Columbia</option>
+                <option value="FL"> Florida </option>
+                <option value="GA"> Georgia </option>
+                <option value="HI"> Hawaii </option>
+                <option value="ID"> Idaho </option>
+                <option value="IL"> Illinois </option>
+                <option value="IN"> Indiana </option>
+                <option value="IA"> Iowa </option>
+                <option value="KS"> Kansas </option>
+                <option value="KY"> Kentucky </option>
+                <option value="LA"> Louisiana </option>
+                <option value="ME"> Maine </option>
+                <option value="MD"> Maryland </option>
+                <option value="MA"> Massachusetts </option>
+                <option value="MI"> Michigan </option>
+                <option value="MN"> Minnesota </option>
+                <option value="MS"> Mississippi </option>
+                <option value="MO"> Missouri </option>
+                <option value="MT"> Montana </option>
+                <option value="NE"> Nebraska </option>
+                <option value="NV"> Nevada </option>
+                <option value="NH"> New Hampshire </option>
+                <option value="NJ"> New Jersey </option>
+                <option value="NM"> New Mexico </option>
+                <option value="NY"> New York </option>
+                <option value="NC"> North Carolina </option>
+                <option value="ND"> North Dakota </option>
+                <option value="OH"> Ohio </option>
+                <option value="OK"> Oklahoma </option>
+                <option value="OR"> Oregon </option>
+                <option value="PA"> Pennsylvania </option>
+                <option value="RI"> Rhode Island </option>
+                <option value="SC"> South Carolina </option>
+                <option value="SD"> South Dakota </option>
+                <option value="TN"> Tennessee </option>
+                <option value="TX"> Texas </option>
+                <option value="UT"> Utah </option>
+                <option value="VT"> Vermont </option>
+                <option value="VA"> Virginia </option>
+                <option value="WA"> Washington </option>
+                <option value="WV"> West Virginia </option>
+                <option value="WI"> Wisconsin </option>
+                <option value="WY"> Wyoming </option>
+            </select><br><br>
 
-                Zip:<br>
-                <input type="text" name="ZipCode"><br><br>
+            Zip:<br>
+            <input type = "text" name = "ZipCode" ><br><br>
 
-                County:<br>
-                <input type="text" name="County"><br><br>
+            County:<br>
+            <input type = "text" name = "County" ><br><br>
 
-                Date of Birth:<br>
-                <input type="date" name="Birthday"><br><br>
+            Date of Birth:<br>
+            <input type = "date" name = "Birthday" ><br><br>
 
-                Gender:<br>
-                <input type="radio" name="Gender" value="Male" checked> Male<br>
-                <input type="radio" name="Gender" value="Female"> Female<br>
-                <input type="radio" name="Gender" value="Other"> Other<br><br><br><br>
-
-
-                <h2>Contact Information</h2>
-
-                Cell Phone:<br>
-                <input type="text" name="CellPhoneNumber"><br><br>
-
-                Home Phone:<br>
-                <input type="text" name="HomePhoneNumber"><br><br>
-
-                Business Phone:<br>
-                <input type="text" name="WorkPhoneNumber"><br><br>
-
-                Email:<br>
-                <input type="text" name="EmailAddress"><br><br><br>
+            Gender:<br>
+            <input type = "radio" name = "Gender" value = "Male" checked> Male <br>
+            <input type = "radio" name = "Gender" value = "Female" > Female <br>
+            <input type = "radio" name = "Gender" value = "Other" > Other <br><br><br><br>
 
 
-                <h2>Employment Information</h2>
+            <h2> Contact Information </h2>
 
-                Company Name:<br>
-                <input type="text" name="CompanyName"><br><br>
+            Cell Phone:<br>
+            <input type = "text" name = "CellPhoneNumber" ><br><br>
 
-                Position:<br>
-                <input type="text" name="Position"><br><br>
+            Home Phone:<br>
+            <input type = "text" name = "HomePhoneNumber" ><br><br>
 
-                Business Address:<br>
-                <input type="text" name="CompanyAddress"><br><br>
+            Business Phone:<br>
+            <input type = "text" name = "WorkPhoneNumber" ><br><br>
 
-                Business City:<br>
-                <input type="text" name="CompanyCity"><br><br>
+            Email:<br>
+            <input type = "text" name = "EmailAddress"><br><br><br>
 
-                Business State:<br>
-                <select>
-                    <option value="AL">Alabama</option>
-                    <option value="AK">Alaska</option>
-                    <option value="AZ">Arizona</option>
-                    <option value="AR">Arkansas</option>
-                    <option value="CA">California</option>
-                    <option value="CO">Colorado</option>
-                    <option value="CT">Connecticut</option>
-                    <option value="DE">Delaware</option>
-                    <option value="DC">District Of Columbia</option>
-                    <option value="FL">Florida</option>
-                    <option value="GA">Georgia</option>
-                    <option value="HI">Hawaii</option>
-                    <option value="ID">Idaho</option>
-                    <option value="IL">Illinois</option>
-                    <option value="IN">Indiana</option>
-                    <option value="IA">Iowa</option>
-                    <option value="KS">Kansas</option>
-                    <option value="KY">Kentucky</option>
-                    <option value="LA">Louisiana</option>
-                    <option value="ME">Maine</option>
-                    <option value="MD">Maryland</option>
-                    <option value="MA">Massachusetts</option>
-                    <option value="MI">Michigan</option>
-                    <option value="MN">Minnesota</option>
-                    <option value="MS">Mississippi</option>
-                    <option value="MO">Missouri</option>
-                    <option value="MT">Montana</option>
-                    <option value="NE">Nebraska</option>
-                    <option value="NV">Nevada</option>
-                    <option value="NH">New Hampshire</option>
-                    <option value="NJ">New Jersey</option>
-                    <option value="NM">New Mexico</option>
-                    <option value="NY">New York</option>
-                    <option value="NC">North Carolina</option>
-                    <option value="ND">North Dakota</option>
-                    <option value="OH">Ohio</option>
-                    <option value="OK">Oklahoma</option>
-                    <option value="OR">Oregon</option>
-                    <option value="PA">Pennsylvania</option>
-                    <option value="RI">Rhode Island</option>
-                    <option value="SC">South Carolina</option>
-                    <option value="SD">South Dakota</option>
-                    <option value="TN">Tennessee</option>
-                    <option value="TX">Texas</option>
-                    <option value="UT">Utah</option>
-                    <option value="VT">Vermont</option>
-                    <option value="VA">Virginia</option>
-                    <option value="WA">Washington</option>
-                    <option value="WV">West Virginia</option>
-                    <option value="WI">Wisconsin</option>
-                    <option value="WY">Wyoming</option>
-                </select><br><br>
+            <h2> Employment Information </h2>
 
-                Business Zip:<br>
-                <input type="text" name="CompanyZip"><br><br><br><br>
+            Company Name:<br>
+            <input type = "text" name = "CompanyName"><br><br>
+
+            Position:<br>
+            <input type = "text" name = "Position"><br><br>
+
+            Business Address:<br>
+            <input type = "text" name = "CompanyAddress"><br><br>
+
+            Business City:<br>
+            <input type = "text" name = "CompanyCity"><br><br>
+
+            Business State:<br>
+            <select>
+                <option value = "AL" > Alabama </option>
+                <option value="AK"> Alaska </option>
+                <option value="AZ"> Arizona </option>
+                <option value="AR"> Arkansas </option>
+                <option value="CA"> California </option>
+                <option value="CO"> Colorado </option>
+                <option value="CT"> Connecticut </option>
+                <option value="DE"> Delaware </option>
+                <option value="DC"> District Of Columbia</option>
+                <option value="FL"> Florida </option>
+                <option value="GA"> Georgia </option>
+                <option value="HI"> Hawaii </option>
+                <option value="ID"> Idaho </option>
+                <option value="IL"> Illinois </option>
+                <option value="IN"> Indiana </option>
+                <option value="IA"> Iowa </option>
+                <option value="KS"> Kansas </option>
+                <option value="KY"> Kentucky </option>
+                <option value="LA"> Louisiana </option>
+                <option value="ME"> Maine </option>
+                <option value="MD"> Maryland </option>
+                <option value="MA"> Massachusetts </option>
+                <option value="MI"> Michigan </option>
+                <option value="MN"> Minnesota </option>
+                <option value="MS"> Mississippi </option>
+                <option value="MO"> Missouri </option>
+                <option value="MT"> Montana </option>
+                <option value="NE"> Nebraska </option>
+                <option value="NV"> Nevada </option>
+                <option value="NH"> New Hampshire </option>
+                <option value="NJ"> New Jersey </option>
+                <option value="NM"> New Mexico </option>
+                <option value="NY"> New York </option>
+                <option value="NC"> North Carolina </option>
+                <option value="ND"> North Dakota </option>
+                <option value="OH"> Ohio </option>
+                <option value="OK"> Oklahoma </option>
+                <option value="OR"> Oregon </option>
+                <option value="PA"> Pennsylvania </option>
+                <option value="RI"> Rhode Island </option>
+                <option value="SC"> South Carolina </option>
+                <option value="SD"> South Dakota </option>
+                <option value="TN"> Tennessee </option>
+                <option value="TX"> Texas </option>
+                <option value="UT"> Utah </option>
+                <option value="VT"> Vermont </option>
+                <option value="VA"> Virginia </option>
+                <option value="WA"> Washington </option>
+                <option value="WV"> West Virginia </option>
+                <option value = "WI" > Wisconsin </option>
+                <option value = "WY" > Wyoming </option>
+            </select ><br><br>
+
+            Business Zip:<br>
+            <input type = "text" name = "CompanyZip" ><br><br><br><br>
 
 
-                <h2>Donation Information</h2>
+            <h2> Donation Information </h2>
+            
+            Donation Date:<br>
+            <input type = "date" name = "DonationDate" ><br><br>
 
-                Donation Date:<br>
-                <input type="date" name="DonationDate"><br><br>
+            Currency Donated:<br>
+            <input type = "text" name = "CurrencyDonation" ><br><br>
 
-                Currency Donated:<br>
-                <input type="text" name="CurrencyDonation"><br><br>
+            Items Donated:<br>
+            <input type = "text" name = "ItemDonation" ><br><br>
 
-                Items Donated:<br>
-                <input type="text" name="ItemDonation"><br><br>
+            Services Donated:<br>
+            <input type = "text" name = "ServiceDonation" ><br><br>
 
-                Services Donated:<br>
-                <input type="text" name="ServiceDonation"><br><br>
+            <button type = "submit" class="btn btn-default">Submit</button>
 
-                <button type="submit" class="btn btn-default">Submit</button>
-            </fieldset>
-        </form>
+        </fieldset>
+    </form>
 
-    </body>
+</body>
 </html>
 }
