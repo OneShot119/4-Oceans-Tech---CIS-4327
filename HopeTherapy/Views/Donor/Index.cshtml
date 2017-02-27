@@ -10,6 +10,20 @@
 
 <html>
 <head>
+    <style>
+        textarea {
+            width: 40%;
+            height: 90px;
+            padding: 12px 20px;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            background-color: #f8f8f8;
+            font-size: 16px;
+            resize: none;
+        }
+    </style>
+
 </head>
 
     <body>
@@ -20,21 +34,21 @@
 
     <form>
         <fieldset>
-            <legend>New Donor Registration:</legend>
-            <h2>Personal Information</h2>
+            <legend>Personal Information</legend>
 
-            <div>
-                <div class="col-sm-1">First Name:<input type="text" name="FirstName"></div>
-                <div class="col-sm-offset-3">Last Name:<input type="text" name="LastName"></div>
-            </div><br>
+            First Name: <br>
+            <input type="text" name="FirstName"><br><br>
 
+            Last Name: <br>
+            <input type="text" name="LastName"><br><br>
 
-            Street Address: <input type = "text" name = "StreetAddress" ><br><br>
+            Street Address: <br> 
+            <input type = "text" name = "StreetAddress"><br><br>
 
-            City:
+            City: <br>
             <input type = "text" name = "City" ><br><br>
 
-            State:
+            State: <br>
             <select>
                 <option value="AL"> Alabama </option>
                 <option value="AK"> Alaska </option>
@@ -104,7 +118,7 @@
             <input type = "radio" name = "Gender" value = "Other" > Other <br><br><br><br>
 
 
-            <h2> Contact Information </h2>
+            <legend>Contact Information</legend>
 
             Cell Phone:<br>
             <input type = "text" name = "CellPhoneNumber" ><br><br>
@@ -118,7 +132,7 @@
             Email:<br>
             <input type = "text" name = "EmailAddress"><br><br><br>
 
-            <h2> Employment Information </h2>
+            <legend>Employment Information</legend>
 
             Company Name:<br>
             <input type = "text" name = "CompanyName"><br><br>
@@ -191,19 +205,17 @@
             <input type = "text" name = "CompanyZip" ><br><br><br><br>
 
 
-            <h2> Donation Information </h2>
+            <legend>Donation Information</legend>
             
             Donation Date:<br>
             <input type = "date" name = "DonationDate" ><br><br>
 
             Currency Donated:<br>
             <input type = "text" name = "CurrencyDonation" ><br><br>
+         
+            Items Donated: <br><textarea type="text" name="ItemDonation"></textarea><br><br>
 
-            Items Donated:<br>
-            <input type = "text" name = "ItemDonation" ><br><br>
-
-            Services Donated:<br>
-            <input type = "text" name = "ServiceDonation" ><br><br>
+            Services Donated: <br><textarea type ="text" name ="ServiceDonation"></textarea><br><br>
 
             <button type = "submit" class="btn btn-default">Submit</button>
 
