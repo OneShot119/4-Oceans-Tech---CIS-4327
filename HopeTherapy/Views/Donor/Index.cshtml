@@ -24,17 +24,17 @@
             <h2>Personal Information</h2>
 
             <div>
-                <div class="col-sm-1">@Html.EditorFor(i => i.FirstName)</div>
-                <div class="col-sm-offset-3"> @Html.EditorFor(i => i.LastName)</div>
-            </div><br/>
+                <div class="col-sm-1">First Name:<input type="text" name="FirstName"></div>
+                <div class="col-sm-offset-3">Last Name:<input type="text" name="LastName"></div>
+            </div><br>
 
-            Street Address:<br>
-            <input type = "text" name = "StreetAddress" ><br><br>
 
-            City:<br>
+            Street Address: <input type = "text" name = "StreetAddress" ><br><br>
+
+            City:
             <input type = "text" name = "City" ><br><br>
 
-            State:< br >
+            State:
             <select>
                 <option value="AL"> Alabama </option>
                 <option value="AK"> Alaska </option>
