@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace HopeTherapy.Models
 {
@@ -26,6 +27,7 @@ namespace HopeTherapy.Models
 
         [DisplayName("State")]
         public string State { get; set; }
+        public IEnumerable<SelectListItem> StatesList { get; set; }
 
         [DisplayName("Zip Code")]
         public string ZipCode { get; set; }

@@ -42,14 +42,17 @@
             Last Name: <br>
             <input type="text" name="LastName"><br><br>
 
-            Street Address: <br> 
+            Street Address: <br>
             <input type = "text" name = "StreetAddress"><br><br>
 
             City: <br>
             <input type = "text" name = "City" ><br><br>
 
-            State: <br>
+            @Html.DisplayNameFor(i => i.State)<text>:</text><br>
+            @Html.DropDownListFor(i => i.State, Model.StatesList) @Html.ValidationMessageFor(i => i.State) <br><br><br />
+            @*State: <br>
             <select>
+                DropDownListFor(i => i.State, Model.States)
                 <option value="AL"> Alabama </option>
                 <option value="AK"> Alaska </option>
                 <option value="AZ"> Arizona </option>
@@ -101,7 +104,7 @@
                 <option value="WV"> West Virginia </option>
                 <option value="WI"> Wisconsin </option>
                 <option value="WY"> Wyoming </option>
-            </select><br><br>
+            </select><br><br>*@
 
             Zip:<br>
             <input type = "text" name = "ZipCode" ><br><br>
@@ -206,19 +209,19 @@
 
 
             <legend>Donation Information</legend>
-            
+
             Donation Date:<br>
             <input type = "date" name = "DonationDate" ><br><br>
 
             Currency Donated:<br>
             <input type = "text" name = "CurrencyDonation" ><br><br>
-         
+
             Items Donated: <br><textarea type="text" name="ItemDonation"></textarea><br><br>
 
             Services Donated: <br><textarea type ="text" name ="ServiceDonation"></textarea><br><br>
 
             <button type = "submit" class="btn btn-default">Submit</button>
-
+        
         </fieldset>
     </form>
 
