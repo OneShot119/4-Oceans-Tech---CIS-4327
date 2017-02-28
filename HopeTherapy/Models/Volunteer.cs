@@ -26,6 +26,8 @@ namespace HopeTherapy.Models
         public string City { get; set; }
 
         public string States { get; set; }
+        public IEnumerable<SelectListItem> StatesList { get; set; }
+
         //[Required(ErrorMessage = "ZipCode is required"), DisplayName("ZipCode")]
         public string ZipCode { get; set; }
         //[Required(ErrorMessage = "County is required"), DisplayName("County")]
