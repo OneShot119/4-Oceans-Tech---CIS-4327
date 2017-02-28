@@ -16,6 +16,7 @@ namespace HopeTherapy.Controllers
 
         private static readonly IEnumerable<SelectListItem> _StatesList = new List<SelectListItem>
         {
+            new SelectListItem {Text="", Value=""},
             new SelectListItem {Text="Alabama", Value="Alabama"},
             new SelectListItem {Text="Alaska", Value="Alaska"},
             new SelectListItem {Text="Arizona", Value="Arizona"},
@@ -80,6 +81,7 @@ namespace HopeTherapy.Controllers
             var model = new Donor();
             model.StatesList = _StatesList;
             return View(model);
+
         }
 
         [HttpGet]
