@@ -12,27 +12,27 @@ namespace HopeTherapy.Models
     {
         public int VolunteerID { get; set; }
 
-        //[Required(ErrorMessage = "First Name is required"), DisplayName("First Name")]
+        //[Required(ErrorMessage = "First Name is required")]
         public string FirstName { get; set; }
 
-        //[Required(ErrorMessage = "Last Name is required"), DisplayName("Last Name")]
+        //[Required(ErrorMessage = "Last Name is required")]
         public string LastName { get; set; }
 
 
-        //[Required(ErrorMessage = "Street Address is required"), DisplayName("Street Address")]
+        //[Required(ErrorMessage = "Street Address is required")]
         public string StreetAddress { get; set; }
 
-        //[Required(ErrorMessage = "City is required"), DisplayName("City Name")]
+        //[Required(ErrorMessage = "City is required")]
         public string City { get; set; }
 
         public string States { get; set; }
         public IEnumerable<SelectListItem> StatesList { get; set; }
 
-        //[Required(ErrorMessage = "ZipCode is required"), DisplayName("ZipCode")]
+        //[Required(ErrorMessage = "ZipCode is required")]
         public string ZipCode { get; set; }
-        //[Required(ErrorMessage = "County is required"), DisplayName("County")]
+        //[Required(ErrorMessage = "County is required")]
         public string County { get; set; }
-       // [Required(ErrorMessage = "Cell Phone Number is required"), DisplayName("Cell Phone")]
+       // [Required(ErrorMessage = "Cell Phone Number is required")]
         public string CellPhoneNumber { get; set; }
        
         public string HomePhoneNumber { get; set; }
@@ -40,13 +40,11 @@ namespace HopeTherapy.Models
         public string WorkPhoneNumber { get; set; }
 
         //[DataType(DataType.EmailAddress)]
-        //[Required(ErrorMessage = "Email is required"), DisplayName("Email")]
+        //[Required(ErrorMessage = "Email is required")]
         public string Email { get; set; }
 
-  //      [DataType(DataType.Date)]
         public string Birthday { get; set; }
 
-        //[DisplayName("Gender")]
         public string Gender { get; set; }
 
         public string CompanyName { get; set; }
