@@ -9,8 +9,8 @@
         <head>
         </head>
         <body>
-            <p><a href="/Home/Index" class="btn btn-primary btn-lg">Go Back &raquo;</a></p><br>
-            <p><a href='@Url.Action("Logout", "User")' class="btn btn-primary btn-lg">Sign Out &raquo;</a></p><br>
+            <p><a href="/Home/Index" class="btn btn-primary btn-lg">Go Back &raquo;</a></p>
+            <p><a href='@Url.Action("Logout", "User")' class="btn btn-primary btn-lg">Sign Out &raquo;</a></p>
 
             <center><h1>Donor list</h1></center>
             @using (Html.BeginForm("ListByLastName", "Donor", FormMethod.Post))

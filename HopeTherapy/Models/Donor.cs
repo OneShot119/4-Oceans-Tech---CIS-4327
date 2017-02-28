@@ -61,6 +61,7 @@ namespace HopeTherapy.Models
 
         public string CompanyCity { get; set; }
 
+        [DisplayName("Company State")]
         public string CompanyState { get; set; }
 
         public string CompanyZip { get; set; }
