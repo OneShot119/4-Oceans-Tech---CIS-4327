@@ -49,7 +49,6 @@ namespace HopeTherapy.Models
         //[DisplayName("Gender")]
         public string Gender { get; set; }
 
-        public string Job { get; set; }
         public string DateOrientation { get; set; }
         public string DateStarted { get; set; }
 //        public string DaysVolunteered { get; set; }
