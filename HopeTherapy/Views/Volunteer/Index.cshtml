@@ -14,40 +14,40 @@
         <fieldset>
             <legend>Personal Information</legend>
 
-            <div class="1">
-                <div class="col-sm-1">@Html.EditorFor(i => i.FirstName) @Html.ValidationMessageFor(i => i.FirstName)</div>
-                <div class="col-sm-offset-3"> @Html.EditorFor(i => i.LastName) @Html.ValidationMessageFor(i => i.LastName) </div>
+            <div class="row">
+                <div class="col-sm-3">@Html.EditorFor(i => i.FirstName) @Html.ValidationMessageFor(i => i.FirstName)</div>
+                <div class="col-sm-3"> @Html.EditorFor(i => i.LastName) @Html.ValidationMessageFor(i => i.LastName) </div>
             </div><br />
 
-            <div class="2">
-                <div class="col-sm-1">@Html.EditorFor(i => i.StreetAddress) @Html.ValidationMessageFor(i => i.StreetAddress)</div>
-                <div class="col-sm-offset-3">@Html.EditorFor(i => i.City) @Html.ValidationMessageFor(i => i.City)</div>
+            <div class="row">
+                <div class="col-sm-3">@Html.EditorFor(i => i.StreetAddress) @Html.ValidationMessageFor(i => i.StreetAddress)</div>
+                <div class="col-sm-3">@Html.EditorFor(i => i.City) @Html.ValidationMessageFor(i => i.City)</div>
             </div><br />
 
-            <div class="3">
-                <div class="col-sm-1">
-                    @Html.DisplayNameFor(i => i.States)
+            <div class="row">
+                <div class="col-sm-3">
+                    @Html.DisplayNameFor(i => i.States)<br />
                     @Html.DropDownListFor(i => i.States, Model.StatesList) @Html.ValidationMessageFor(i => i.States)
                 </div>
 
-                <div class="col-sm-offset-3">
+                <div class="col-sm-3">
                     @Html.EditorFor(i => i.ZipCode) @Html.ValidationMessageFor(i => i.ZipCode)
                 </div>
             </div><br />
 
-            <div class="4">
-                <div class="col-sm-1">
+            <div class="row">
+                <div class="col-sm-3">
                     @Html.EditorFor(i => i.County) @Html.ValidationMessageFor(i => i.County)
                 </div>
 
-                <div class="col-sm-offset-3">
+                <div class="col-sm-3">
                     @Html.DisplayNameFor(i => i.Birthday)<br>
                     <input type="date" name="Birthday">
                 </div>
             </div><br />
 
-            <div class="7">
-                <div class="col-sm-1">
+            <div class="row">
+                <div class="col-sm-3">
                     @Html.DisplayNameFor(i => i.Gender)<br>
                     @Html.RadioButtonFor(model => model.Gender, "M", false)@Html.Label("Male")<br />
                     @Html.RadioButtonFor(model => model.Gender, "F", false)@Html.Label("Female")<br />
@@ -57,20 +57,20 @@
 
             <legend>Contact Information</legend>
 
-            <div class="5">
-                <div class="col-sm-1">
+            <div class="row">
+                <div class="col-sm-3">
                     @Html.EditorFor(i => i.CellPhoneNumber) @Html.ValidationMessageFor(i => i.CellPhoneNumber)
                 </div>
-                <div class="col-sm-offset-3">
+                <div class="col-sm-3">
                     @Html.EditorFor(i => i.HomePhoneNumber) @Html.ValidationMessageFor(i => i.HomePhoneNumber)
                 </div>
             </div><br />
 
-            <div class="6">
-                <div class="col-sm-1">
+            <div class="row">
+                <div class="col-sm-3">
                     @Html.EditorFor(i => i.WorkPhoneNumber) @Html.ValidationMessageFor(i => i.WorkPhoneNumber)
                 </div>
-                <div class="col-sm-offset-3">
+                <div class="col-sm-3">
                     @Html.EditorFor(i => i.Email) @Html.ValidationMessageFor(i => i.Email)
                 </div>
             </div><br />
@@ -78,25 +78,46 @@
 
             <legend>Employment Information</legend>
             
+            <div class="row">
+                <div class="col-sm-3">
+                    @Html.EditorFor(i => i.CompanyName) @Html.ValidationMessageFor(i => i.CompanyName)
+                </div>
+                <div class="col-sm-3">
+                    @Html.EditorFor(i => i.Position) @Html.ValidationMessageFor(i => i.Position)
+                </div>
+            </div><br />
 
-                    @Html.DisplayNameFor(i => i.DateOrientation)
-                    <input type="date" name="DateOrientation"><br /><br />
-
-                    @Html.DisplayNameFor(i => i.DateStarted)
-                    <input type="date" name="DateStarted"><br /><br />
-
-                    @Html.EditorFor(i => i.HoursPerMonth) @Html.ValidationMessageFor(i => i.HoursPerMonth)<br /><br /> 
-
-                    @Html.EditorFor(i => i.CompanyName) @Html.ValidationMessageFor(i => i.CompanyName) <br /><br />
-
-                    @Html.EditorFor(i => i.Position) @Html.ValidationMessageFor(i => i.Position)<br /><br />
-  
-                    @Html.EditorFor(i => i.CompanyAddress) @Html.ValidationMessageFor(i => i.CompanyAddress)<br /><br />
-
+            <div class="row">
+                <div class="col-sm-3">
+                    @Html.EditorFor(i => i.CompanyAddress) @Html.ValidationMessageFor(i => i.CompanyAddress)
+                </div>
+                <div class="col-sm-3">
+                    @Html.EditorFor(i => i.CompanyZip) @Html.ValidationMessageFor(i => i.CompanyZip)
+                </div>
+            </div><br />
 
                 <legend>Volunteer Information</legend>
-                @Html.DisplayNameFor(i => i.VolunteerPosition)<text>:</text><br>
-                @Html.DropDownListFor(i => i.VolunteerPosition, Model.VolunteerPositions) @Html.ValidationMessageFor(i => i.VolunteerPosition) <br><br><br />
+
+            <div class="row">
+                <div class="col-sm-3">
+                    @Html.DisplayNameFor(i => i.DateOrientation)
+                    <input type="date" name="DateOrientation">
+                </div>
+                <div class="col-sm-3">
+                    @Html.DisplayNameFor(i => i.DateStarted)
+                    <input type="date" name="DateStarted">
+                </div>
+            </div><br />
+
+            <div class="row">
+                <div class="col-sm-3">
+                    @Html.EditorFor(i => i.HoursPerMonth) @Html.ValidationMessageFor(i => i.HoursPerMonth)
+                </div>
+                <div class="col-sm-3">
+                    @Html.DisplayNameFor(i => i.VolunteerPosition)<text>:</text><br>
+                    @Html.DropDownListFor(i => i.VolunteerPosition, Model.VolunteerPositions) @Html.ValidationMessageFor(i => i.VolunteerPosition)
+                </div>
+            </div><br />
                 @Html.EditorFor(i => i.AreaOfInterest) @Html.ValidationMessageFor(i => i.AreaOfInterest) <br />
                 @Html.EditorFor(i => i.Skills) @Html.ValidationMessageFor(i => i.Skills) <br />
                 @Html.DisplayNameFor(i => i.Donor)<br>

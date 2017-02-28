@@ -121,8 +121,9 @@ namespace HopeTherapy.Controllers
 
                 {
                     string sql = "UPDATE [dbo].[Volunteer] SET FirstName=@FirstName, LastName=@LastName, StreetAddress=@StreetAddress, City=@City, States=@States, ZipCode=@ZipCode, County=@County," +
-                        "CellPhoneNumber=@CellPhoneNumber, HomePhoneNumber=@HomePhoneNumber, WorkPhoneNumber=@WorkPhoneNumber, Email=@Email, Birthday=@Birthday, Gender=@Gender, DateOrientation=@DateOrientation, DateStarted=@DateStarted, " +
-                        "HoursPerMonth=@HoursPerMonth, CompanyName=@CompanyName, Position=@Position, CompanyAddress=@CompanyAddress, VolunteerPosition=@VolunteerPosition, AreaOfInterest=@AreaOfInterest, Skills=@Skills, Donor=@Donor, Board=@Board, EmailList=@EmailList, MailList=@MailList " +
+                        "CellPhoneNumber=@CellPhoneNumber, HomePhoneNumber=@HomePhoneNumber, WorkPhoneNumber=@WorkPhoneNumber, Email=@Email, Birthday=@Birthday, Gender=@Gender, " +
+                        "CompanyName=@CompanyName, Position=@Position, CompanyAddress=@CompanyAddress, CompanyZip=@CompanyZip, DateOrientation=@DateOrientation, DateStarted=@DateStarted, HoursPerMonth=@HoursPerMonth,"+
+                        "VolunteerPosition=@VolunteerPosition, AreaOfInterest=@AreaOfInterest, Skills=@Skills, Donor=@Donor, Board=@Board, EmailList=@EmailList, MailList=@MailList " +
                         "WHERE VolunteerID = @VolunteerID;";
                     try
                     {
@@ -149,11 +150,11 @@ namespace HopeTherapy.Controllers
             else
             {
                     string sql = "INSERT INTO [dbo].[Volunteer] (FirstName, LastName, StreetAddress, City, States, ZipCode, County," +
-                        "CellPhoneNumber, HomePhoneNumber, WorkPhoneNumber, Email, Birthday, Gender, Job, DateOrientation, DateStarted, " +
-                        "HoursPerMonth, CompanyName, Position, CompanyAddress, VolunteerPosition, AreaOfInterest, Skills, Donor, Board, EmailList, MailList)" +
+                        "CellPhoneNumber, HomePhoneNumber, WorkPhoneNumber, Email, Birthday, Gender, CompanyName, Position, CompanyAddress, CompanyZip, " +
+                        "DateOrientation, DateStarted, HoursPerMonth, VolunteerPosition, AreaOfInterest, Skills, Donor, Board, EmailList, MailList)" +
                         "VALUES(@FirstName, @LastName, @StreetAddress, @City, @States, @ZipCode, @County, @CellPhoneNumber, @HomePhoneNumber," +
-                        "@WorkPhoneNumber, @Email, @Birthday, @Gender, @DateOrientation, @DateStarted,  @HoursPerMonth, @CompanyName," +
-                        "@Position, @CompanyAddress, @VolunteerPosition, @AreaOfInterest, @Skills, @Donor, @Board, @EmailList, @MailList)";
+                        "@WorkPhoneNumber, @Email, @Birthday, @Gender, @CompanyName, @Position, @CompanyAddress, @CompanyZip," +
+                        "@DateOrientation, @DateStarted,  @HoursPerMonth, @VolunteerPosition, @AreaOfInterest, @Skills, @Donor, @Board, @EmailList, @MailList)";
                     try
                     {
                         Utilities.Sql.ExecuteCommand(sql, model);

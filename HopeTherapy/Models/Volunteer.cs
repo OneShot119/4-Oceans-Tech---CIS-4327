@@ -49,17 +49,19 @@ namespace HopeTherapy.Models
         //[DisplayName("Gender")]
         public string Gender { get; set; }
 
-        public string DateOrientation { get; set; }
-        public string DateStarted { get; set; }
-//        public string DaysVolunteered { get; set; }
-        public string HoursPerMonth { get; set; }
-
         public string CompanyName { get; set; }
 
         public string Position { get; set; }
 
         public string CompanyAddress { get; set; }
 
+        public string CompanyZip { get; set; }
+
+        public string DateOrientation { get; set; }
+
+        public string DateStarted { get; set; }
+        //        public string DaysVolunteered { get; set; }
+        public string HoursPerMonth { get; set; }
         public string VolunteerPosition { get; set; }
         public IEnumerable<SelectListItem> VolunteerPositions { get; set; }
 
