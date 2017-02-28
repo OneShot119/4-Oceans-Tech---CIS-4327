@@ -16,18 +16,34 @@
             height: 90px;
             padding: 12px 20px;
             box-sizing: border-box;
-            border: 2px solid #ccc;
-            border-radius: 4px;
-            background-color: #f8f8f8;
+            border: 2px solid #555555;
+            border-radius: 6px;
+            background-color: white;
             font-size: 16px;
             resize: none;
         }
     </style>
+
+    <style>
+        .button {
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
+    border-radius: 6px;
+    font-size: 24px;
+    padding: 2px 8px;
+        }
+        .button:hover {
+    background-color: #555555;
+    color: white;
+        }
+    </style>
+
 </head>
 
     <body>
-    <p><a href="/Home/Index" class="btn btn-primary btn-lg">Go Back &laquo;</a></p><br>
-    <p><a href='@Url.Action("Logout", "User")' class="btn btn-primary btn-lg">Sign Out &raquo;</a></p><br>
+    <p><a href="/Home/Index" class="btn btn-primary btn-lg">Go Back &laquo;</a></p>
+    <p><a href='@Url.Action("Logout", "User")' class="btn btn-primary btn-lg">Sign Out &raquo;</a></p>
 
     <center><h1>New Donor Registration</h1></center>
 
@@ -156,15 +172,21 @@
                 </div><br />
 
             <div class="12">
+                <div class="col-sm-12">
                     Items Donated: <br><textarea type="text" name="ItemDonation"></textarea>
-            </div><br />
-
-                <div class="13">
+                </div>
+            </div><br />                
+            
+            <div class="13">
+                    <div class="col-sm-12">
                         Services Donated: <br><textarea type="text" name="ServiceDonation"></textarea>
+                    </div>
                 </div><br />
 
-            <button type="submit" class="btn btn-default">Submit</button>
-
+            <div class="14">
+                <div class="col-sm-2">
+                    <button type="submit" class="button button">Submit</button></div>
+                </div><br />
 </fieldset>
 </form>
 
