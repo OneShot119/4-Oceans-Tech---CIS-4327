@@ -15,13 +15,13 @@
             <center><h1>Donor list</h1></center>
             @using (Html.BeginForm("ListByLastName", "Donor", FormMethod.Post))
             {
-                <label for="Search">Last Name</label>
+                <label for="Search">Last Name</label><br />
                 <input type="text" name="LastName" id="LastName" />
                 <button type="submit">Search</button><br /><br />
             }
             @using (Html.BeginForm("ListByCounty", "Donor", FormMethod.Post))
             {
-                <label for="Search2">County</label>
+                <label for="Search2">County</label><br />
                 <input type="text" name="County" id="County" />
                 <button type="submit">Search</button><br /><br />
             }  
