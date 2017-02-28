@@ -23,7 +23,6 @@
             resize: none;
         }
     </style>
-
 </head>
 
     <body>
@@ -79,14 +78,13 @@
                         <input type="date" name="Birthday"></div>
                     </div><br />
 
-            <div class="5">
+
                 <div class="col-sm-2">
                     Gender:<br>
                     <input type="radio" name="Gender" value="Male" checked> Male <br>
                     <input type="radio" name="Gender" value="Female"> Female <br>
-                    <input type="radio" name="Gender" value="Other"> Other <br> </div>
+                    <input type="radio" name="Gender" value="Other"> Other <br><br><br>
                 </div><br />
-                <br /><br />
 
                 <legend>Contact Information</legend>
 
@@ -112,42 +110,63 @@
                 <br /><br />
 
                     <legend>Employment Information</legend>
-
+        
+            <div class="8">
+                <div class="col-sm-2">
                     Company Name:<br>
-                    <input type="text" name="CompanyName"><br><br>
+                    <input type="text" name="CompanyName"></div>
 
+                <div class="col-sm-offset-3">
                     Position:<br>
-                    <input type="text" name="Position"><br><br>
+                    <input type="text" name="Position"></div>
+                </div><br />
 
+            <div class="9">
+                <div class="col-sm-2">
                     Business Address:<br>
-                    <input type="text" name="CompanyAddress"><br><br>
+                    <input type="text" name="CompanyAddress"></div>
 
+                <div class="col-sm-offset-3">
                     Business City:<br>
-                    <input type="text" name="CompanyCity"><br><br>
+                    <input type="text" name="CompanyCity"></div>
+                </div><br />
 
+            <div class="10">
+                <div class="col-sm-2">
                     @Html.DisplayNameFor(i => i.CompanyState)<text>:</text><br>
-                    @Html.DropDownListFor(i => i.CompanyState, Model.StatesList) @Html.ValidationMessageFor(i => i.CompanyState) <br><br>
+                    @Html.DropDownListFor(i => i.CompanyState, Model.StatesList) @Html.ValidationMessageFor(i => i.CompanyState) </div>
 
+                <div class="col-sm-offset-3">
                     Business Zip:<br>
-                    <input type="text" name="CompanyZip"><br><br><br><br>
+                    <input type="text" name="CompanyZip"></div>
+                </div><br />
+                <br /><br />
 
+                <legend>Donation Information</legend>
 
-                    <legend>Donation Information</legend>
-
+            <div class="11">
+                <div class="col-sm-2">
                     Donation Date:<br>
-                    <input type="date" name="DonationDate"><br><br>
+                    <input type="date" name="DonationDate"></div>
 
+                <div class="col-sm-offset-3">
                     Currency Donated:<br>
-                    <input type="text" name="CurrencyDonation"><br><br>
+                    <input type="text" name="CurrencyDonation">
+                </div>
+                </div><br />
 
-                    Items Donated: <br><textarea type="text" name="ItemDonation"></textarea><br><br>
+            <div class="12">
+                    Items Donated: <br><textarea type="text" name="ItemDonation"></textarea>
+            </div><br />
 
-                    Services Donated: <br><textarea type="text" name="ServiceDonation"></textarea><br><br>
+                <div class="13">
+                        Services Donated: <br><textarea type="text" name="ServiceDonation"></textarea>
+                </div><br />
 
-                    <button type="submit" class="btn btn-default">Submit</button>
+            <button type="submit" class="btn btn-default">Submit</button>
 
 </fieldset>
-    </form>
+</form>
 
 </body>
 </html>
