@@ -39,6 +39,17 @@
         }
     </style>
 
+    <style>
+        input[type=text] {
+            height: 30px;
+            width: 200px;
+            padding: 2px 6px;
+            box-sizing: border-box;
+            border: 2px solid #555555;
+            border-radius: 3px;
+        }
+    </style>
+
 </head>
 
     <body>
@@ -75,7 +86,7 @@
 
             <div class="3">
                 <div class="col-sm-2">
-                    @Html.DisplayNameFor(i => i.State)<text>:</text><br>
+                    @Html.DisplayNameFor(i => i.State)
                     @Html.DropDownListFor(i => i.State, Model.StatesList) @Html.ValidationMessageFor(i => i.State)
                 </div>
 
@@ -91,7 +102,8 @@
 
                     <div class="col-sm-offset-3">
                         Date of Birth:<br>
-                        <input type="date" name="Birthday"></div>
+                        <input type="date" name="Birthday" style="padding: 2px 6px; box-sizing: border-box; border: 2px solid #555555;
+            border-radius: 3px; width: 200px; height: 30px;"></div>
                     </div><br />
 
 
@@ -149,7 +161,7 @@
 
             <div class="10">
                 <div class="col-sm-2">
-                    @Html.DisplayNameFor(i => i.CompanyState)<text>:</text><br>
+                    @Html.DisplayNameFor(i => i.CompanyState)<br>
                     @Html.DropDownListFor(i => i.CompanyState, Model.StatesList) @Html.ValidationMessageFor(i => i.CompanyState) </div>
 
                 <div class="col-sm-offset-3">
@@ -163,7 +175,8 @@
             <div class="11">
                 <div class="col-sm-2">
                     Donation Date:<br>
-                    <input type="date" name="DonationDate"></div>
+                    <input type="date" name="DonationDate" style="padding: 2px 6px; box-sizing: border-box; border: 2px solid #555555;
+            border-radius: 3px; width: 200px; height: 30px;"></div>
 
                 <div class="col-sm-offset-3">
                     Currency Donated:<br>

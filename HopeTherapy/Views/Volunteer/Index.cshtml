@@ -1,125 +1,121 @@
 ﻿@model HopeTherapy.Models.Volunteer
-   
+
 @{
     ViewBag.Title = "Index";
 }
-<p><a href="/Home/Index" class="btn btn-primary btn-lg">Go Back &laquo;</a></p><br>
-<p><a href='@Url.Action("Logout", "User")' class="btn btn-primary btn-lg">Sign Out &raquo;</a></p><br>
+<p><a href="/Home/Index" class="btn btn-primary btn-lg">Go Back &laquo;</a></p>
+<p><a href='@Url.Action("Logout", "User")' class="btn btn-primary btn-lg">Sign Out &raquo;</a></p>
 
 <center><h1>New Volunteer Registration</h1></center>
 
-<h3> Volunteer Information:</h3>
-
-<hr />
 @using (Html.BeginForm("Index", "Volunteer", FormMethod.Post))
 {
+    <form>
+        <fieldset>
+            <legend>Personal Information</legend>
 
-    <h4>Personal Information</h4>
+            <div class="1">
+                <div class="col-sm-1">@Html.EditorFor(i => i.FirstName) @Html.ValidationMessageFor(i => i.FirstName)</div>
+                <div class="col-sm-offset-3"> @Html.EditorFor(i => i.LastName) @Html.ValidationMessageFor(i => i.LastName) </div>
+            </div><br />
 
-<div class="Name">
-    <div class="col-sm-1">@Html.EditorFor(i => i.FirstName) @Html.ValidationMessageFor(i => i.FirstName)</div> 
-    <div class="col-sm-offset-3"> @Html.EditorFor(i => i.LastName) @Html.ValidationMessageFor(i => i.LastName) </div>
-</div><br />
-<div class="Address">
-    <div class="col-sm-1">@Html.EditorFor(i => i.StreetAddress) @Html.ValidationMessageFor(i => i.StreetAddress)</div>
-    <div class="col-sm-offset-3">@Html.EditorFor(i => i.City) @Html.ValidationMessageFor(i => i.City)</div>
-</div><br />
-<div class="Address2">
-    <div class="col-sm-1">@Html.DisplayNameFor(i => i.States)
-    <select>
-        <option value="AL">Alabama</option>
-        <option value="AK">Alaska</option>
-        <option value="AZ">Arizona</option>
-        <option value="AR">Arkansas</option>
-        <option value="CA">California</option>
-        <option value="CO">Colorado</option>
-        <option value="CT">Connecticut</option>
-        <option value="DE">Delaware</option>
-        <option value="DC">District Of Columbia</option>
-        <option value="FL">Florida</option>
-        <option value="GA">Georgia</option>
-        <option value="HI">Hawaii</option>
-        <option value="ID">Idaho</option>
-        <option value="IL">Illinois</option>
-        <option value="IN">Indiana</option>
-        <option value="IA">Iowa</option>
-        <option value="KS">Kansas</option>
-        <option value="KY">Kentucky</option>
-        <option value="LA">Louisiana</option>
-        <option value="ME">Maine</option>
-        <option value="MD">Maryland</option>
-        <option value="MA">Massachusetts</option>
-        <option value="MI">Michigan</option>
-        <option value="MN">Minnesota</option>
-        <option value="MS">Mississippi</option>
-        <option value="MO">Missouri</option>
-        <option value="MT">Montana</option>
-        <option value="NE">Nebraska</option>
-        <option value="NV">Nevada</option>
-        <option value="NH">New Hampshire</option>
-        <option value="NJ">New Jersey</option>
-        <option value="NM">New Mexico</option>
-        <option value="NY">New York</option>
-        <option value="NC">North Carolina</option>
-        <option value="ND">North Dakota</option>
-        <option value="OH">Ohio</option>
-        <option value="OK">Oklahoma</option>
-        <option value="OR">Oregon</option>
-        <option value="PA">Pennsylvania</option>
-        <option value="RI">Rhode Island</option>
-        <option value="SC">South Carolina</option>
-        <option value="SD">South Dakota</option>
-        <option value="TN">Tennessee</option>
-        <option value="TX">Texas</option>
-        <option value="UT">Utah</option>
-        <option value="VT">Vermont</option>
-        <option value="VA">Virginia</option>
-        <option value="WA">Washington</option>
-        <option value="WV">West Virginia</option>
-        <option value="WI">Wisconsin</option>
-        <option value="WY">Wyoming</option>
-    </select></div>
-    <div class="col-sm-offset-3">@Html.EditorFor(i => i.ZipCode) @Html.ValidationMessageFor(i => i.ZipCode) </div>
-    </div><br />
-        @Html.EditorFor(i => i.County) @Html.ValidationMessageFor(i => i.County) <br />
-        <h4>Contact Information</h4>
-        @Html.EditorFor(i => i.CellPhoneNumber) @Html.ValidationMessageFor(i => i.CellPhoneNumber) <br />
-        @Html.EditorFor(i => i.HomePhoneNumber) @Html.ValidationMessageFor(i => i.HomePhoneNumber) <br />
-        @Html.EditorFor(i => i.WorkPhoneNumber) @Html.ValidationMessageFor(i => i.WorkPhoneNumber) <br />
-        @Html.EditorFor(i => i.Email) @Html.ValidationMessageFor(i => i.Email) <br />
-        @Html.DisplayNameFor(i => i.Birthday)<br>
-        <input type="date" name="Birthday"><br><br><br />
-        @Html.DisplayNameFor(i => i.Gender)<br>
-        @Html.RadioButtonFor(model => model.Gender, "M", false)@Html.Label("Male")<br />
-        @Html.RadioButtonFor(model => model.Gender, "F", false)@Html.Label("Female")<br />
-        @Html.RadioButtonFor(model => model.Gender, "Other", false)@Html.Label("Other")<br /><br />
-        @Html.EditorFor(i => i.Job) @Html.ValidationMessageFor(i => i.Job) <br />
-        @Html.DisplayNameFor(i => i.DateOrientation)<br />
-        <input type="date" name="DateOrientation"><br><br><br />
-        @Html.DisplayNameFor(i => i.DateStarted)<br />
-        <input type="date" name="DateStarted"><br><br><br />
-        @Html.EditorFor(i => i.HoursPerMonth) @Html.ValidationMessageFor(i => i.HoursPerMonth) <br />
-        @Html.EditorFor(i => i.CompanyName) @Html.ValidationMessageFor(i => i.CompanyName) <br />
-        @Html.EditorFor(i => i.Position) @Html.ValidationMessageFor(i => i.Position) <br />
-        @Html.EditorFor(i => i.CompanyAddress) @Html.ValidationMessageFor(i => i.CompanyAddress) <br />
-    //@Html.EditorFor(i => i.VolunteerPosition) @Html.ValidationMessageFor(i => i.VolunteerPosition) <br />
-        @Html.DisplayNameFor(i => i.VolunteerPosition)<text>:</text><br>
-        @Html.DropDownListFor(i => i.VolunteerPosition, Model.VolunteerPositions) @Html.ValidationMessageFor(i => i.VolunteerPosition) <br><br><br />
-        @Html.EditorFor(i => i.AreaOfInterest) @Html.ValidationMessageFor(i => i.AreaOfInterest) <br />
-        @Html.EditorFor(i => i.Skills) @Html.ValidationMessageFor(i => i.Skills) <br />
-        @Html.DisplayNameFor(i => i.Donor)<br>
-        @Html.RadioButtonFor(model => model.Donor, "Y", false)@Html.Label("Yes")<br />
-        @Html.RadioButtonFor(model => model.Donor, "N", false)@Html.Label("No")<br /><br />
-        @Html.DisplayNameFor(i => i.Board)<br>
-        @Html.RadioButtonFor(model => model.Board, "Y", false)@Html.Label("Yes")<br />
-        @Html.RadioButtonFor(model => model.Board, "N", false)@Html.Label("No")<br /><br />
-        @Html.DisplayNameFor(i => i.EmailList)<br>
-        @Html.RadioButtonFor(model => model.EmailList, "Y", false)@Html.Label("Yes")<br />
-        @Html.RadioButtonFor(model => model.EmailList, "N", false)@Html.Label("No")<br /><br />
-        @Html.DisplayNameFor(i => i.MailList)<br>
-        @Html.RadioButtonFor(model => model.MailList, "Y", false)@Html.Label("Yes")<br />
-        @Html.RadioButtonFor(model => model.MailList, "N", false)@Html.Label("No")<br /><br />
-        <input type="submit" value="Submit" />
-        }
+            <div class="2">
+                <div class="col-sm-1">@Html.EditorFor(i => i.StreetAddress) @Html.ValidationMessageFor(i => i.StreetAddress)</div>
+                <div class="col-sm-offset-3">@Html.EditorFor(i => i.City) @Html.ValidationMessageFor(i => i.City)</div>
+            </div><br />
+
+            <div class="3">
+                <div class="col-sm-1">
+                    @Html.DisplayNameFor(i => i.States)
+                    @Html.DropDownListFor(i => i.States, Model.StatesList) @Html.ValidationMessageFor(i => i.States)
+                </div>
+
+                <div class="col-sm-offset-3">
+                    @Html.EditorFor(i => i.ZipCode) @Html.ValidationMessageFor(i => i.ZipCode)
+                </div>
+            </div><br />
+
+            <div class="4">
+                <div class="col-sm-1">
+                    @Html.EditorFor(i => i.County) @Html.ValidationMessageFor(i => i.County)
+                </div>
+
+                <div class="col-sm-offset-3">
+                    @Html.DisplayNameFor(i => i.Birthday)<br>
+                    <input type="date" name="Birthday">
+                </div>
+            </div><br />
+
+            <div class="7">
+                <div class="col-sm-1">
+                    @Html.DisplayNameFor(i => i.Gender)<br>
+                    @Html.RadioButtonFor(model => model.Gender, "M", false)@Html.Label("Male")<br />
+                    @Html.RadioButtonFor(model => model.Gender, "F", false)@Html.Label("Female")<br />
+                    @Html.RadioButtonFor(model => model.Gender, "Other", false)@Html.Label("Other")<br /><br />
+                </div>
+            </div><br />
+
+            <legend>Contact Information</legend>
+
+            <div class="5">
+                <div class="col-sm-1">
+                    @Html.EditorFor(i => i.CellPhoneNumber) @Html.ValidationMessageFor(i => i.CellPhoneNumber)
+                </div>
+                <div class="col-sm-offset-3">
+                    @Html.EditorFor(i => i.HomePhoneNumber) @Html.ValidationMessageFor(i => i.HomePhoneNumber)
+                </div>
+            </div><br />
+
+            <div class="6">
+                <div class="col-sm-1">
+                    @Html.EditorFor(i => i.WorkPhoneNumber) @Html.ValidationMessageFor(i => i.WorkPhoneNumber)
+                </div>
+                <div class="col-sm-offset-3">
+                    @Html.EditorFor(i => i.Email) @Html.ValidationMessageFor(i => i.Email)
+                </div>
+            </div><br />
+
+
+            <legend>Employment Information</legend>
+            
+
+                    @Html.EditorFor(i => i.Job) @Html.ValidationMessageFor(i => i.Job)<br /><br />
+
+                    @Html.DisplayNameFor(i => i.DateOrientation)
+                    <input type="date" name="DateOrientation"><br /><br />
+
+                    @Html.DisplayNameFor(i => i.DateStarted)
+                    <input type="date" name="DateStarted"><br /><br />
+
+                    @Html.EditorFor(i => i.HoursPerMonth) @Html.ValidationMessageFor(i => i.HoursPerMonth)<br /><br /> 
+
+                    @Html.EditorFor(i => i.CompanyName) @Html.ValidationMessageFor(i => i.CompanyName) <br /><br />
+
+                    @Html.EditorFor(i => i.Position) @Html.ValidationMessageFor(i => i.Position)<br /><br />
+  
+                    @Html.EditorFor(i => i.CompanyAddress) @Html.ValidationMessageFor(i => i.CompanyAddress)<br /><br />
+
+
+                <legend>Volunteer Information</legend>
+                @Html.DisplayNameFor(i => i.VolunteerPosition)<text>:</text><br>
+                @Html.DropDownListFor(i => i.VolunteerPosition, Model.VolunteerPositions) @Html.ValidationMessageFor(i => i.VolunteerPosition) <br><br><br />
+                @Html.EditorFor(i => i.AreaOfInterest) @Html.ValidationMessageFor(i => i.AreaOfInterest) <br />
+                @Html.EditorFor(i => i.Skills) @Html.ValidationMessageFor(i => i.Skills) <br />
+                @Html.DisplayNameFor(i => i.Donor)<br>
+                @Html.RadioButtonFor(model => model.Donor, "Y", false)@Html.Label("Yes")<br />
+                @Html.RadioButtonFor(model => model.Donor, "N", false)@Html.Label("No")<br /><br />
+                @Html.DisplayNameFor(i => i.Board)<br>
+                @Html.RadioButtonFor(model => model.Board, "Y", false)@Html.Label("Yes")<br />
+                @Html.RadioButtonFor(model => model.Board, "N", false)@Html.Label("No")<br /><br />
+                @Html.DisplayNameFor(i => i.EmailList)<br>
+                @Html.RadioButtonFor(model => model.EmailList, "Y", false)@Html.Label("Yes")<br />
+                @Html.RadioButtonFor(model => model.EmailList, "N", false)@Html.Label("No")<br /><br />
+                @Html.DisplayNameFor(i => i.MailList)<br>
+                @Html.RadioButtonFor(model => model.MailList, "Y", false)@Html.Label("Yes")<br />
+                @Html.RadioButtonFor(model => model.MailList, "N", false)@Html.Label("No")<br /><br />
+                <input type="submit" value="Submit" />
+</fieldset>
+    </form>
+}
 
 
