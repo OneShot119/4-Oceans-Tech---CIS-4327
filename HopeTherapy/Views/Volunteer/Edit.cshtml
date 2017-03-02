@@ -7,14 +7,14 @@
 <p><a href="/Home/Index" class="btn btn-primary btn-lg">Go Back &laquo;</a></p>
 <p><a href='@Url.Action("Logout", "User")' class="btn btn-primary btn-lg">Sign Out &raquo;</a></p>
 
-<h2>Edit</h2>
+<h2>Edit Volunteer</h2>
 
 @using (Html.BeginForm("EditVolunteer", "Volunteer", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Volunteer</h4>
+        <h4></h4>
         @Html.HiddenFor(model => model.VolunteerID)
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
