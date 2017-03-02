@@ -63,51 +63,51 @@
             <legend>Personal Information</legend>
 
             <div class="1">
-                <div class="col-sm-2">
+                <div class="col-sm-3">
                     First Name: <br>
                     <input type="text" name="FirstName">
                 </div>
 
-                <div class="col-sm-offset-3">
+                <div class="col-sm-3">
                     Last Name: <br>
                     <input type="text" name="LastName"></div>
              </div><br />
 
             <div class="2">
-                <div class="col-sm-2">
+                <div class="col-sm-3">
                     Street Address: <br>
                     <input type="text" name="StreetAddress">
                 </div>
-                <div class="col-sm-offset-3">
+                <div class="col-sm-3">
                     City: <br>
                     <input type="text" name="City">
                 </div>
             </div><br />
 
             <div class="3">
-                <div class="col-sm-2">
+                <div class="col-sm-3">
                     @Html.DisplayNameFor(i => i.State)
                     @Html.DropDownListFor(i => i.State, Model.StatesList) @Html.ValidationMessageFor(i => i.State)
                 </div>
 
-                <div class="col-sm-offset-3">
+                <div class="col-sm-3">
                     Zip:<br>
                     <input type="text" name="ZipCode"> </div>
                 </div><br />
 
             <div class="4">
-                <div class="col-sm-2">
+                <div class="col-sm-3">
                     County:<br>
                     <input type="text" name="County"></div>
 
-                    <div class="col-sm-offset-3">
+                    <div class="col-sm-3">
                         Date of Birth:<br>
                         <input type="date" name="Birthday" style="padding: 2px 6px; box-sizing: border-box; border: 2px solid #555555;
             border-radius: 3px; width: 200px; height: 30px;"></div>
                     </div><br />
 
 
-                <div class="col-sm-2">
+                <div class="col-sm-3">
                     Gender:<br>
                     <input type="radio" name="Gender" value="Male" checked> Male <br>
                     <input type="radio" name="Gender" value="Female"> Female <br>
@@ -117,21 +117,21 @@
                 <legend>Contact Information</legend>
 
             <div class="6">
-                <div class="col-sm-2">
+                <div class="col-sm-3">
                     Cell Phone:<br>
                     <input type="text" name="CellPhoneNumber"></div>
 
-                <div class="col-sm-offset-3">
+                <div class="col-sm-3">
                     Home Phone:<br>
                     <input type="text" name="HomePhoneNumber"></div>
                 </div><br />   
              
             <div class="7">
-                <div class="col-sm-2">
+                <div class="col-sm-3">
                     Business Phone:<br>
                     <input type="text" name="WorkPhoneNumber"></div>
 
-                <div class="col-sm-offset-3">
+                <div class="col-sm-3">
                     Email:<br>
                     <input type="text" name="EmailAddress"></div>
                 </div><br />
@@ -140,31 +140,31 @@
                     <legend>Employment Information</legend>
         
             <div class="8">
-                <div class="col-sm-2">
+                <div class="col-sm-3">
                     Company Name:<br>
                     <input type="text" name="CompanyName"></div>
 
-                <div class="col-sm-offset-3">
+                <div class="col-sm-3">
                     Position:<br>
                     <input type="text" name="Position"></div>
                 </div><br />
 
             <div class="9">
-                <div class="col-sm-2">
+                <div class="col-sm-3">
                     Business Address:<br>
                     <input type="text" name="CompanyAddress"></div>
 
-                <div class="col-sm-offset-3">
+                <div class="col-sm-3">
                     Business City:<br>
                     <input type="text" name="CompanyCity"></div>
                 </div><br />
 
             <div class="10">
-                <div class="col-sm-2">
+                <div class="col-sm-3">
                     @Html.DisplayNameFor(i => i.CompanyState)<br>
                     @Html.DropDownListFor(i => i.CompanyState, Model.StatesList) @Html.ValidationMessageFor(i => i.CompanyState) </div>
 
-                <div class="col-sm-offset-3">
+                <div class="col-sm-3">
                     Business Zip:<br>
                     <input type="text" name="CompanyZip"></div>
                 </div><br />
@@ -173,31 +173,31 @@
                 <legend>Donation Information</legend>
 
             <div class="11">
-                <div class="col-sm-2">
+                <div class="col-sm-3">
                     Donation Date:<br>
                     <input type="date" name="DonationDate" style="padding: 2px 6px; box-sizing: border-box; border: 2px solid #555555;
             border-radius: 3px; width: 200px; height: 30px;"></div>
 
-                <div class="col-sm-offset-3">
+                <div class="col-sm-3">
                     Currency Donated:<br>
                     <input type="text" name="CurrencyDonation">
                 </div>
                 </div><br />
 
             <div class="12">
-                <div class="col-sm-12">
+                <div class="col-sm-3">
                     Items Donated: <br><textarea type="text" name="ItemDonation"></textarea>
                 </div>
             </div><br />                
             
             <div class="13">
-                    <div class="col-sm-12">
+                    <div class="col-sm-3">
                         Services Donated: <br><textarea type="text" name="ServiceDonation"></textarea>
                     </div>
                 </div><br />
 
             <div class="14">
-                <div class="col-sm-2">
+                <div class="col-sm-3">
                     <button type="submit" class="button button">Submit</button></div>
                 </div><br />
 </fieldset>
