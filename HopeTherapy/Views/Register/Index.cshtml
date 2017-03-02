@@ -1,5 +1,4 @@
 ﻿@model HopeTherapy.Models.Register
-
 @{
     ViewBag.Title = "Index";
 }
@@ -7,17 +6,30 @@
 @using (Html.BeginForm("Index", "Register", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
-    @Html.EditorFor(i => i.Username)
-    @Html.EditorFor(i => i.Password)
-    @Html.EditorFor(i => i.Email, "String")
-    @Html.EditorFor(i => i.FirstName)
-    @Html.EditorFor(i => i.LastName)
-    @Html.EditorFor(i => i.AccessKey)
 
-    <button type="submit" class="btn btn-default">Register</button>
-
-    <div>
-        <p></p>
-        <p><a href="/User/Login" class="btn btn-primary btn-lg">Log In &raquo;</a></p>
-    </div>
-}
+    <form>
+        <fieldset>
+            <div>
+            <div class="row">
+                <div class="col-sm-3">@Html.EditorFor(i => i.FirstName) @Html.ValidationMessageFor(i => i.FirstName)</div>
+                <div class="col-sm-3"> @Html.EditorFor(i => i.LastName) @Html.ValidationMessageFor(i => i.LastName) </div> 
+            </div class="row">
+            <div class="row">
+                <div class="col-sm-3"> @Html.EditorFor(i => i.Email, "String") @Html.ValidationMessageFor(i => i.Email) </div>
+            </div><br />
+            <div class="row">
+                <div class="col-sm-3">@Html.EditorFor(i => i.Username) @Html.ValidationMessageFor(i => i.Username)</div>
+                <div class="col-sm-3"> @Html.EditorFor(i => i.Password) @Html.ValidationMessageFor(i => i.Password) </div>
+            </div><br />
+            <div class="row">
+                <div class="col-sm-3"> @Html.EditorFor(i => i.AccessKey) @Html.ValidationMessageFor(i => i.AccessKey) </div>
+            </div><br />      
+            <button type="submit" class="btn btn-default">Register</button>
+            </div><br />
+        </fieldset>
+   </form>
+                    <div>
+                        <p></p>
+                        <p><a href="/User/Login" class="btn btn-primary btn-lg">Log In &raquo;</a></p>
+                    </div>
+                    }
