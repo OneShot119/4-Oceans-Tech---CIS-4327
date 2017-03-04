@@ -62,7 +62,7 @@
         <fieldset>
             <legend>Personal Information</legend>
 
-            <div class="1">
+            <div class="row">
                 <div class="col-sm-3">
                     First Name: <br>
                     <input type="text" name="FirstName">
@@ -73,7 +73,7 @@
                     <input type="text" name="LastName"></div>
              </div><br />
 
-            <div class="2">
+            <div class="row">
                 <div class="col-sm-3">
                     Street Address: <br>
                     <input type="text" name="StreetAddress">
@@ -84,7 +84,7 @@
                 </div>
             </div><br />
 
-            <div class="3">
+            <div class="row">
                 <div class="col-sm-3">
                     @Html.DisplayNameFor(i => i.State)
                     @Html.DropDownListFor(i => i.State, Model.StatesList) @Html.ValidationMessageFor(i => i.State)
@@ -95,7 +95,7 @@
                     <input type="text" name="ZipCode"> </div>
                 </div><br />
 
-            <div class="4">
+            <div class="row">
                 <div class="col-sm-3">
                     County:<br>
                     <input type="text" name="County"></div>
@@ -103,20 +103,21 @@
                     <div class="col-sm-3">
                         Date of Birth:<br>
                         <input type="date" name="Birthday" style="padding: 2px 6px; box-sizing: border-box; border: 2px solid #555555;
-            border-radius: 3px; width: 200px; height: 30px;"></div>
-                    </div><br />
+                    border-radius: 3px; width: 200px; height: 30px;"></div>
+             </div><br />
 
-
+            <div class="row">
                 <div class="col-sm-3">
                     Gender:<br>
                     <input type="radio" name="Gender" value="Male" checked> Male <br>
                     <input type="radio" name="Gender" value="Female"> Female <br>
                     <input type="radio" name="Gender" value="Other"> Other <br><br><br>
                 </div><br />
+            </div>
 
                 <legend>Contact Information</legend>
 
-            <div class="6">
+            <div class="row">
                 <div class="col-sm-3">
                     Cell Phone:<br>
                     <input type="text" name="CellPhoneNumber"></div>
@@ -126,7 +127,7 @@
                     <input type="text" name="HomePhoneNumber"></div>
                 </div><br />   
              
-            <div class="7">
+            <div class="row">
                 <div class="col-sm-3">
                     Business Phone:<br>
                     <input type="text" name="WorkPhoneNumber"></div>
@@ -139,7 +140,7 @@
 
                     <legend>Employment Information</legend>
         
-            <div class="8">
+            <div class="row">
                 <div class="col-sm-3">
                     Company Name:<br>
                     <input type="text" name="CompanyName"></div>
@@ -149,7 +150,7 @@
                     <input type="text" name="Position"></div>
                 </div><br />
 
-            <div class="9">
+            <div class="row">
                 <div class="col-sm-3">
                     Business Address:<br>
                     <input type="text" name="CompanyAddress"></div>
@@ -159,7 +160,7 @@
                     <input type="text" name="CompanyCity"></div>
                 </div><br />
 
-            <div class="10">
+            <div class="row">
                 <div class="col-sm-3">
                     @Html.DisplayNameFor(i => i.CompanyState)<br>
                     @Html.DropDownListFor(i => i.CompanyState, Model.StatesList) @Html.ValidationMessageFor(i => i.CompanyState) </div>
@@ -172,11 +173,11 @@
 
                 <legend>Donation Information</legend>
 
-            <div class="11">
+            <div class="row">
                 <div class="col-sm-3">
                     Donation Date:<br>
                     <input type="date" name="DonationDate" style="padding: 2px 6px; box-sizing: border-box; border: 2px solid #555555;
-            border-radius: 3px; width: 200px; height: 30px;"></div>
+                    border-radius: 3px; width: 200px; height: 30px;"></div>
 
                 <div class="col-sm-3">
                     Currency Donated:<br>
@@ -184,20 +185,20 @@
                 </div>
                 </div><br />
 
-            <div class="12">
-                <div class="col-sm-3">
+            <div class="row">
+                <div class="col-sm-12">
                     Items Donated: <br><textarea type="text" name="ItemDonation"></textarea>
                 </div>
             </div><br />                
             
-            <div class="13">
-                    <div class="col-sm-3">
+            <div class="row">
+                    <div class="col-sm-12">
                         Services Donated: <br><textarea type="text" name="ServiceDonation"></textarea>
                     </div>
                 </div><br />
 
-            <div class="14">
-                <div class="col-sm-3">
+            <div class="row">
+                <div class="col-sm-12">
                     <button type="submit" class="button button">Submit</button></div>
                 </div><br />
 </fieldset>
