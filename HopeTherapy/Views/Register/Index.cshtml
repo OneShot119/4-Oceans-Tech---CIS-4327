@@ -2,34 +2,78 @@
 @{
     ViewBag.Title = "Index";
 }
-<legend>Register</legend>
-@using (Html.BeginForm("Index", "Register", FormMethod.Post))
-{
-    @Html.AntiForgeryToken()
 
-    <form>
-        <fieldset>
-            <div>
-            <div class="row">
-                <div class="col-sm-3">@Html.EditorFor(i => i.FirstName) @Html.ValidationMessageFor(i => i.FirstName)</div>
-                <div class="col-sm-3"> @Html.EditorFor(i => i.LastName) @Html.ValidationMessageFor(i => i.LastName) </div> 
-            </div class="row">
-            <div class="row">
-                <div class="col-sm-3"> @Html.EditorFor(i => i.Email, "String") @Html.ValidationMessageFor(i => i.Email) </div>
-            </div><br />
-            <div class="row">
-                <div class="col-sm-3">@Html.EditorFor(i => i.Username) @Html.ValidationMessageFor(i => i.Username)</div>
-                <div class="col-sm-3"> @Html.EditorFor(i => i.Password) @Html.ValidationMessageFor(i => i.Password) </div>
-            </div><br />
-            <div class="row">
-                <div class="col-sm-3"> @Html.EditorFor(i => i.AccessKey) @Html.ValidationMessageFor(i => i.AccessKey) </div>
-            </div><br />      
-            <button type="submit" class="btn btn-default">Register</button>
-            </div><br />
-        </fieldset>
-   </form>
-                    <div>
-                        <p></p>
-                        <p><a href="/User/Login" class="btn btn-primary btn-lg">Log In &raquo;</a></p>
+<head>
+    <style>
+        textarea {
+            width: 40%;
+            height: 90px;
+            padding: 12px 20px;
+            box-sizing: border-box;
+            border: 2px solid #555555;
+            border-radius: 6px;
+            background-color: white;
+            font-size: 16px;
+            resize: none;
+        }
+    </style>
+
+    <style>
+        .button {
+            background-color: white;
+            color: black;
+            border: 2px solid #555555;
+            border-radius: 6px;
+            font-size: 24px;
+            padding: 2px 8px;
+        }
+
+            .button:hover {
+                background-color: #555555;
+                color: white;
+            }
+    </style>
+
+    <style>
+        input[type=text] {
+            height: 30px;
+            width: 200px;
+            padding: 2px 6px;
+            box-sizing: border-box;
+            border: 2px solid #555555;
+            border-radius: 3px;
+        }
+    </style>
+    </head>
+
+    <legend>Register</legend>
+    @using (Html.BeginForm("Index", "Register", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <form>
+            <fieldset>
+                <div>
+                    <div class="row">
+                        <div class="col-sm-3">@Html.EditorFor(i => i.FirstName) @Html.ValidationMessageFor(i => i.FirstName)</div>
+                        <div class="col-sm-3"> @Html.EditorFor(i => i.LastName) @Html.ValidationMessageFor(i => i.LastName) </div>
                     </div>
-                    }
+                    <div class="row">
+                        <div class="col-sm-3"> @Html.EditorFor(i => i.Email, "String") @Html.ValidationMessageFor(i => i.Email) </div>
+                    </div><br />
+                    <div class="row">
+                        <div class="col-sm-3">@Html.EditorFor(i => i.Username) @Html.ValidationMessageFor(i => i.Username)</div>
+                        <div class="col-sm-3"> @Html.EditorFor(i => i.Password) @Html.ValidationMessageFor(i => i.Password) </div>
+                    </div><br />
+                    <div class="row">
+                        <div class="col-sm-3"> @Html.EditorFor(i => i.AccessKey) @Html.ValidationMessageFor(i => i.AccessKey) </div>
+                    </div><br />
+                    <button type="submit" class="btn btn-default">Register</button>
+                </div><br />
+            </fieldset>
+        </form>
+        <div>
+            <p></p>
+            <p><a href="/User/Login" class="btn btn-primary btn-lg">Log In &raquo;</a></p>
+        </div>
+    }
