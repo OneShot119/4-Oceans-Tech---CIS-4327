@@ -153,3 +153,37 @@ btn-primary {
   border-color: #357ebd;
 }
 
+textarea {
+        width: 40%;
+        height: 90px;
+        padding: 12px 20px;
+        box-sizing: border-box;
+        border: 2px solid #555555;
+        border-radius: 6px;
+        background-color: white;
+        font-size: 16px;
+        resize: none;
+    }
+
+.button {
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
+    border-radius: 6px;
+    font-size: 24px;
+    padding: 2px 8px;
+}
+
+.button:hover {
+    background-color: #555555;
+    color: white;
+}
+
+input[type=text],input[type=password] {
+    height: 30px;
+    width: 200px;
+    padding: 2px 6px;
+    box-sizing: border-box;
+    border: 2px solid #555555;
+    border-radius: 3px;
+}
