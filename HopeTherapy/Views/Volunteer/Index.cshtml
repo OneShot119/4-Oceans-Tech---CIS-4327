@@ -157,6 +157,25 @@
                         @Html.RadioButtonFor(model => model.MailList, "N", false)@Html.Label("No")
                     </div>
                 </div><br />
+                <div class="row">
+                    <div class="col-sm-3">
+                        <p><b>Weekly Schedule:</b></p>
+                        @Html.DisplayNameFor(i => i.Monday)<text>:</text>
+                        @Html.CheckBoxFor(m => m.Monday, new { @checked = "checked" })<br />
+                        @Html.DisplayNameFor(i => i.Tuesday)<text>:</text>
+                        @Html.CheckBoxFor(m => m.Tuesday, new { @checked = "checked" })<br />
+                        @Html.DisplayNameFor(i => i.Wednesday)<text>:</text>
+                        @Html.CheckBoxFor(m => m.Wednesday, new { @checked = "checked" })<br />
+                        @Html.DisplayNameFor(i => i.Thursday)<text>:</text>
+                        @Html.CheckBoxFor(m => m.Thursday, new { @checked = "checked" })<br />
+                        @Html.DisplayNameFor(i => i.Friday)<text>:</text>
+                        @Html.CheckBoxFor(m => m.Friday, new { @checked = "checked" })<br />
+                        @Html.DisplayNameFor(i => i.Saturday)<text>:</text>
+                        @Html.CheckBoxFor(m => m.Saturday, new { @checked = "checked" })<br />
+                        @Html.DisplayNameFor(i => i.Sunday)<text>:</text>
+                        @Html.CheckBoxFor(m => m.Sunday, new { @checked = "checked" })<br />
+                    </div>
+                </div><br />
                 <input type="submit" value="Submit" />
             </fieldset>
         </form>

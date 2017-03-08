@@ -23,9 +23,9 @@ HoursPerMonth		INTEGER NULL,
 VolunteerPosition	NVARCHAR(20) NULL,
 AreaOfInterest NVARCHAR(20) NULL,
 Skills NVARCHAR(20) NULL,
-Donor NVARCHAR(3) NULL,
-Board NVARCHAR(3) NULL,
-EmailList NVARCHAR(3) NULL,
-MailList NVARCHAR(3) NULL,
+Donor Bit NULL,
+Board Bit NULL,
+EmailList Bit NULL,
+MailList Bit NULL,
 
 PRIMARY KEY (VolunteerID))

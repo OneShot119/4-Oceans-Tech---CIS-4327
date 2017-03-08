@@ -149,6 +149,7 @@ namespace HopeTherapy.Controllers
             }
             else
             {
+                    List<String> Schedule = model.Schedule();
                     string sql = "INSERT INTO [dbo].[Volunteer] (FirstName, LastName, StreetAddress, City, States, ZipCode, County," +
                         "CellPhoneNumber, HomePhoneNumber, WorkPhoneNumber, Email, Birthday, Gender, CompanyName, Position, CompanyAddress, CompanyZip, " +
                         "DateOrientation, DateStarted, HoursPerMonth, VolunteerPosition, AreaOfInterest, Skills, Donor, Board, EmailList, MailList)" +
@@ -163,7 +164,21 @@ namespace HopeTherapy.Controllers
                     {
                         throw;
                     }
-                var Volunteer = new Volunteer();
+                string sql2 = "Select [VolunteerID] from [dbo].[Volunteer] where email='"+model.Email+"' and FirstName='"+model.FirstName+"' and LastName='"+model.LastName+"'";
+                IEnumerable<int> IDs = Utilities.Sql.ExecuteQuery<int>(sql2, model);
+                foreach (var Day in Schedule)
+                {
+                string sql3 = "INSERT INTO [dbo].[Days] Values ('"+Day+"','"+IDs.First()+"');";
+                try
+                {
+                    Utilities.Sql.ExecuteCommand(sql3, model);
+                }
+                catch (SqlException ex)
+                {
+                    throw;
+                }
+                }
+
                 return RedirectToAction("Index", "Home");
             }
         }
