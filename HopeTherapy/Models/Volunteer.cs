@@ -71,7 +71,8 @@ namespace HopeTherapy.Models
 
         [DisplayName("Start Date")]
         public string DateStarted { get; set; }
-        //        public string DaysVolunteered { get; set; }
+ 
+
         [DisplayName("Volunteer Hours/Month")]
         public string HoursPerMonth { get; set; }
 
@@ -93,5 +94,26 @@ namespace HopeTherapy.Models
 
         [DisplayName("Mailing List")]
         public string MailList { get; set; }
+
+        public Boolean Sunday { get; set; } = false;
+        public Boolean Monday { get; set; } = false;
+        public Boolean Tuesday { get; set; } = false;
+        public Boolean Wednesday { get; set; } = false;
+        public Boolean Thursday { get; set; } = false;
+        public Boolean Friday { get; set; } = false;
+        public Boolean Saturday { get; set; } = false;
+        //Need collection of these ^ 
+        public List<String> Schedule()
+        {
+            List<String> schedule = new List<String>();
+            if (Sunday) { schedule.Add("Sunday"); }
+            if (Monday) { schedule.Add("Monday"); }
+            if (Tuesday) { schedule.Add("Tuesday"); }
+            if (Wednesday) { schedule.Add("Wednesday"); }
+            if (Thursday) { schedule.Add("Thursday"); }
+            if (Friday) { schedule.Add("Friday"); }
+            if (Saturday) { schedule.Add("Saturday"); }
+            return schedule;
+        }
     }
 }

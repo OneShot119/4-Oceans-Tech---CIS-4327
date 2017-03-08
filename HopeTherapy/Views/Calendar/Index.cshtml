@@ -90,10 +90,12 @@
                     Saturday
                 </th>
             </tr>
+            @for (var y = 1; y < 6; y++)
+            {
             <tr>
                 
                 @for (var i = 1; i < 8; i++)
-                    {
+                {
                         <td>
                         @foreach (var Day in Model)
                         {
@@ -104,9 +106,9 @@
                             }
                         }
                         </td>
-                    }
+                }
                 </tr>
-
+            }
 </table>
     </body>
 </html>
