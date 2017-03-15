@@ -94,6 +94,8 @@ namespace HopeTherapy.Models
 
         [DisplayName("Mailing List")]
         public string MailList { get; set; }
+        public Boolean Active { get; set; }
+
 
         public Boolean Sunday { get; set; } = false;
         public Boolean Monday { get; set; } = false;
@@ -115,5 +117,6 @@ namespace HopeTherapy.Models
             if (Saturday) { schedule.Add("Saturday"); }
             return schedule;
         }
+    
     }
 }
