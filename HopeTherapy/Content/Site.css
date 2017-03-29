@@ -180,6 +180,11 @@ textarea {
 }
 
 .dropdown {
+    position:relative;
+    display:inline-block;
+}
+
+.dropdown-content {
     height: 30px;
     width: 200px;
     padding: 2px 6px;
