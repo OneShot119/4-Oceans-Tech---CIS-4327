@@ -257,6 +257,18 @@ namespace HopeTherapy.Controllers
                 return RedirectToAction("List", new { Search = County, Type = "County" });
             }
         }
+        public ActionResult Profile(int ID)
+        {
+            if (!Request.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                var Volunteer = Utilities.Sql.ExecuteQuerySingleResult<Volunteer>("select * from dbo.Volunteer WHERE Volunteer.VolunteerID = " + ID + ";");
+                return View(Volunteer);
+            }
+        }
         public ActionResult Delete(int id)
         {
             String sql = "Delete from dbo.Volunteer where volunteerId =" + id;

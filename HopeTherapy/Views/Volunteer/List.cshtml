@@ -42,7 +42,9 @@
                 {
                     <tr>
                         <td>
-                            <a href='@Url.Action("Edit", "Volunteer", new { ID = @Volunteer.VolunteerID})'>@Volunteer.FirstName @Volunteer.LastName</a>
+                            <a href='@Url.Action("Profile", "Volunteer", new { ID = @Volunteer.VolunteerID})'>@Volunteer.FirstName @Volunteer.LastName</a>
+                            <a href='@Url.Action("Edit", "Volunteer", new { ID = @Volunteer.VolunteerID})'>Edit</a>
+
 
                         </td>
                         <td>
