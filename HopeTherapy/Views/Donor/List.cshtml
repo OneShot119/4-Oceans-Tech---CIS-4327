@@ -43,7 +43,8 @@
                 {
                     <tr>
                         <td>
-                            <a href='@Url.Action("Edit", "Donor", new { ID = Donor.DonorID})'>@Donor.FirstName @Donor.LastName</a>
+                            <a href='@Url.Action("Profile", "Donor", new { ID = Donor.DonorID})'>@Donor.FirstName @Donor.LastName</a>
+                            <a href='@Url.Action("Edit", "Donor", new { ID = Donor.DonorID})'><Font color="Green">Edit</Font></a>
                             
                         </td>
                         <td>
