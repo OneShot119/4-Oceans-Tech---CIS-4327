@@ -52,7 +52,7 @@
                             @Volunteer.HoursPerMonth
                         </td>
                         <td>
-                            <button id="@Volunteer.VolunteerID">Remove</button>
+                            <p><a href="@Url.Action("Delete", "Volunteer", new { ID = @Volunteer.VolunteerID})" class="btn btn-primary btn-lg">Delete &raquo;</a></p>
                         </td>
                     </tr>
                 }

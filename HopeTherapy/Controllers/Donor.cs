@@ -229,6 +229,12 @@ namespace HopeTherapy.Controllers
                 return View(Donor);
             }
         }
+        public ActionResult Delete(int id)
+        {
+            String sql = "Delete from dbo.DONOR where D_CODE =" + id;
+            Utilities.Sql.ExecuteCommand(sql);
+            return RedirectToAction("List", "Donor");
+        }
     }
 }
 
