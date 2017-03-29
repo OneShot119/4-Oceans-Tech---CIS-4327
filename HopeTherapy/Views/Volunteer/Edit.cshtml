@@ -175,29 +175,29 @@
 
             <div class="row">
                 <div class="col-sm-3">
-                    @* Make Radio Buttons*@
-                    @Html.EditorFor(model => model.Donor, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Donor, "", new { @class = "text-danger" })
+                    @Html.DisplayNameFor(i => i.Donor)<text>:</text><br>
+                    @Html.RadioButtonFor(model => model.Donor, "Y", false)@Html.Label("Yes")<br />
+                    @Html.RadioButtonFor(model => model.Donor, "N", false)@Html.Label("No")
                 </div>
 
                 <div class="col-sm-3">
-                    @* Make Radio Buttons*@
-                    @Html.EditorFor(model => model.Board, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Board, "", new { @class = "text-danger" })
+                    @Html.DisplayNameFor(i => i.Board)<text>:</text><br>
+                    @Html.RadioButtonFor(model => model.Board, "Y", false)@Html.Label("Yes")<br />
+                    @Html.RadioButtonFor(model => model.Board, "N", false)@Html.Label("No")
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-sm-3">
-                    @* Make Radio Buttons*@
-                    @Html.EditorFor(model => model.EmailList, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.EmailList, "", new { @class = "text-danger" })
+                    @Html.DisplayNameFor(i => i.EmailList)<text>:</text><br>
+                    @Html.RadioButtonFor(model => model.EmailList, "Y", false)@Html.Label("Yes")<br />
+                    @Html.RadioButtonFor(model => model.EmailList, "N", false)@Html.Label("No")
                 </div>
 
                 <div class="col-sm-3">
-                    @* Make Radio Buttons*@
-                    @Html.EditorFor(model => model.MailList, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.MailList, "", new { @class = "text-danger" })
+                    @Html.DisplayNameFor(i => i.MailList)<text>:</text><br>
+                    @Html.RadioButtonFor(model => model.MailList, "Y", false)@Html.Label("Yes")<br />
+                    @Html.RadioButtonFor(model => model.MailList, "N", false)@Html.Label("No")
                 </div>
             </div>
 
