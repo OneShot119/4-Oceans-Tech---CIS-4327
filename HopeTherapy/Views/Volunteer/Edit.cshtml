@@ -68,15 +68,17 @@
                 </div>
 
                 <div class="col-sm-3">
-                    @Html.EditorFor(model => model.Birthday, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Birthday, "", new { @class = "text-danger" })
+                    @Html.DisplayNameFor(i => i.Birthday)<text>:</text><br>
+                    <input type="date" name="Birthday">
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-sm-3">
-                    @Html.EditorFor(model => model.Gender, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                    @Html.DisplayNameFor(i => i.Gender)<text>:</text><br>
+                    @Html.RadioButtonFor(model => model.Gender, "M", false)@Html.Label("Male")<br />
+                    @Html.RadioButtonFor(model => model.Gender, "F", false)@Html.Label("Female")<br />
+                    @Html.RadioButtonFor(model => model.Gender, "Other", false)@Html.Label("Other")<br /><br />
                 </div>
             </div>
 
@@ -136,13 +138,13 @@
 
             <div class="row">
                 <div class="col-sm-3">
-                    @Html.EditorFor(model => model.DateOrientation, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.DateOrientation, "", new { @class = "text-danger" })
+                    @Html.DisplayNameFor(i => i.DateOrientation)<text>:</text><br />
+                    <input type="date" name="DateOrientation"><br><br />
                 </div>
 
                 <div class="col-sm-3">
-                    @Html.EditorFor(model => model.DateStarted, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.DateStarted, "", new { @class = "text-danger" })
+                    @Html.DisplayNameFor(i => i.DateStarted)<text>:</text><br />
+                    <input type="date" name="DateStarted"><br><br />
                 </div>
             </div>
 
@@ -154,7 +156,7 @@
 
                 <div class="col-sm-3">
                     @Html.DisplayNameFor(i => i.VolunteerPosition)<text>:</text><br>
-                    @Html.DropDownListFor(i => i.VolunteerPosition, Model.VolunteerPositions) @Html.ValidationMessageFor(i => i.VolunteerPosition) <br><br><br />
+                    @Html.DropDownListFor(i => i.VolunteerPosition, Model.VolunteerPositions) @Html.ValidationMessageFor(i => i.VolunteerPosition) <br><br />
 
                 </div>
             </div>
