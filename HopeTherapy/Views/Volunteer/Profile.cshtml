@@ -1,0 +1,154 @@
+﻿@model HopeTherapy.Models.Volunteer
+
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<html>
+
+<body>
+    <p><a href="/Home/Index" class="btn btn-primary btn-lg">Go Back &laquo;</a></p>
+    <p><a href='@Url.Action("Logout", "User")' class="btn btn-primary btn-lg">Sign Out &raquo;</a></p>
+
+    <h1>Donor Profile - <Font color="Blue">@Model.FirstName @Model.LastName</Font></h1>
+
+    <form>
+        <fieldset>
+            <legend>Personal Information</legend><br />
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <font size="4"><b>Address:</b></font> @Model.StreetAddress
+                </div>
+                <div class="col-sm-3">
+                    <font size="4"><b>City:</b></font> @Model.City
+                </div>
+            </div><br />
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <font size="4"><b>State:</b></font> @Model.States
+                </div>
+
+                <div class="col-sm-3">
+                    <font size="4"><b>Zip:</b></font> @Model.ZipCode
+                </div>
+            </div><br />
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <font size="4"><b>County:</b></font> @Model.County
+                </div>
+
+                <div class="col-sm-3">
+                    <font size="4"><b>Birthday:</b></font> @Model.Birthday
+                </div>
+            </div><br />
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <font size="4"><b>Gender:</b></font> @Model.Gender
+                </div><br />
+            </div>
+            <br />
+            <legend>Contact Information</legend>
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <font size="4"><b>Cell Phone Number:</b></font> @Model.CellPhoneNumber
+                </div>
+
+                <div class="col-sm-3">
+                    <font size="4"><b>Home Phone:</b></font> @Model.HomePhoneNumber
+                </div>
+            </div><br />
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <font size="4"><b>Work Phone:</b></font> @Model.WorkPhoneNumber
+                </div>
+
+                <div class="col-sm-3">
+                    <font size="4"><b>Email:</b></font> @Model.Email
+                </div>
+            </div><br />
+            <br /><br />
+
+            <legend>Employment Information</legend>
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <font size="4"><b>Company Name:</b></font> @Model.CompanyName
+                </div>
+
+                <div class="col-sm-3">
+                    <font size="4"><b>Position:</b></font> @Model.Position
+                </div>
+            </div><br />
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <font size="4"><b>Company Address:</b></font> @Model.CompanyAddress
+                </div>
+
+                <div class="col-sm-3">
+                    <font size="4"><b>Company Zip:</b></font> @Model.CompanyZip
+                </div>
+            </div><br />
+            <br /><br />
+            <legend>Volunteer Information</legend>
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <font size="4"><b>Orientation Date:</b></font> @Model.DateOrientation
+                </div>
+                <div class="col-sm-3">
+                    <font size="4"><b>Start Date:</b></font> @Model.DateStarted
+                </div>
+            </div><br />
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <font size="4"><b>Hours Per Month:</b></font> @Model.HoursPerMonth
+                </div>
+                <div class="col-sm-3">
+                    <font size="4"><b>Volunteer Position:</b></font> @Model.VolunteerPosition
+                </div>
+            </div><br />
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <font size="4"><b>Area of interest:</b></font> @Model.AreaOfInterest
+                </div>
+                <div class="col-sm-3">
+                    <font size="4"><b>Skills:</b></font> @Model.Skills
+                </div>
+            </div><br />
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <font size="4"><b>Donor?:</b></font> @Model.Donor
+                </div>
+                <div class="col-sm-3">
+                    <font size="4"><b>Board?:</b></font> @Model.Board
+                </div>
+            </div><br />
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <font size="4"><b>Email List?:</b></font> @Model.EmailList
+
+
+                </div>
+                <div class="col-sm-3">
+                    <font size="4"><b>Mail List?:</b></font> @Model.MailList
+
+
+                </div>
+            </div><br />
+        </fieldset>
+    </form>
+
+</body>
+</html>
+
