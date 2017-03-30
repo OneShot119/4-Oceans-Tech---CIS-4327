@@ -156,8 +156,8 @@
                         @Html.RadioButtonFor(model => model.MailList, "Y", true)@Html.Label("Yes")<br />
                         @Html.RadioButtonFor(model => model.MailList, "N", false)@Html.Label("No")
                     </div>
-                </div><br />
-                <div class="row">
+                </div>
+                @*<div class="row">
                     <div class="col-sm-3">
                         <p><b>Weekly Schedule:</b></p>
                         @Html.DisplayNameFor(i => i.Monday)<text>:</text>
@@ -175,8 +175,12 @@
                         @Html.DisplayNameFor(i => i.Sunday)<text>:</text>
                         @Html.CheckBoxFor(m => m.Sunday, new { @checked = "checked" })<br />
                     </div>
+                </div><br />*@
+                <div class="row">
+                    <div class="col-sm-12">
+                        <button type="submit" class="button button">Submit</button>
+                    </div>
                 </div><br />
-                <input type="submit" value="Submit" />
             </fieldset>
         </form>
     }

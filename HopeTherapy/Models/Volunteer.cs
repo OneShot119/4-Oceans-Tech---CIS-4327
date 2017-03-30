@@ -51,6 +51,7 @@ namespace HopeTherapy.Models
         //[Required(ErrorMessage = "Email is required")]
         public string Email { get; set; }
 
+        [DataType(DataType.Date)]
         public string Birthday { get; set; }
 
         public string Gender { get; set; }
@@ -70,6 +71,7 @@ namespace HopeTherapy.Models
         public string DateOrientation { get; set; }
 
         [DisplayName("Start Date")]
+        
         public string DateStarted { get; set; }
  
 
