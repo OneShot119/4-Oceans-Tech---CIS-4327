@@ -29,7 +29,8 @@ namespace HopeTherapy.Models
         public string State { get; set; }
         public IEnumerable<SelectListItem> StatesList { get; set; }
 
-        [DisplayName("Zip Code")]
+        [DisplayName("Zip Code (5 digit)")]
+        [RegularExpression("^[0 - 9]{5}(-[0-9]{4})?$", ErrorMessage = "Minimum 5 characters required")]
         public string ZipCode { get; set; }
 
         [DisplayName("County")]

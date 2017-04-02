@@ -199,6 +199,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\HTlogo.png" />
+    <Content Include="Scripts\jquery.formatCurrency-1.4.0.js" />
     <Content Include="Scripts\jquery.maskedinput.js" />
     <Content Include="Views\favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />

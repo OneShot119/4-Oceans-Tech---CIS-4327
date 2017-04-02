@@ -9,7 +9,21 @@
 
 
 <html>
+    <head>
+        <script type="text/javascript" src="~/scripts/jquery.formatCurrency-1.4.0.js"></script>
+        <script type="text/javascript" src="~/scripts/jquery.validate.js"></script>
 
+        <script type="text/javascript">
+            $(document).ready(function()
+            {
+                $('.currency').blur(function()
+                {
+                    $('.currency').formatCurrency();
+                });
+            });
+        </script>
+
+    </head>
     <body>
     <p><a href="/Home/Index" class="btn btn-primary btn-lg">Go Back &laquo;</a></p>
     <p><a href='@Url.Action("Logout", "User")' class="btn btn-primary btn-lg">Sign Out &raquo;</a></p>
@@ -49,8 +63,9 @@
                 </div>
 
                 <div class="col-sm-3">
-                    Zip:<br>
-                    <input type="text" name="ZipCode"> </div>
+                    @Html.EditorFor(i => i.ZipCode)<br />
+                    @Html.ValidationMessageFor(i => i.ZipCode)
+                </div>
                 </div><br />
 
             <div class="row">
@@ -139,7 +154,8 @@
 
                 <div class="col-sm-3">
                     Currency Donated:<br>
-                    <input type="text" name="CurrencyDonation">
+                    <input type="text" id="currencyField" class='currency' value="$0.00" />
+
                 </div>
                 </div><br />
 
@@ -161,7 +177,7 @@
                 </div><br />
 </fieldset>
 </form>
-
+        
 </body>
 </html>
 }
