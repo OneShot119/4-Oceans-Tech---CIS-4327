@@ -12,10 +12,11 @@ namespace HopeTherapy.Models
     {
         public int VolunteerID { get; set; }
 
-        [DisplayName("First Name")]        //[Required(ErrorMessage = "First Name is required")]
+        [DisplayName("First Name")]
+        [Required(ErrorMessage = "First Name is required")]
         public string FirstName { get; set; }
 
-        //[Required(ErrorMessage = "Last Name is required")]
+        [Required(ErrorMessage = "Last Name is required")]
         [DisplayName("Last Name")]
         public string LastName { get; set; }
 
