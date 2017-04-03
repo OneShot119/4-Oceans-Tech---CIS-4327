@@ -13,10 +13,12 @@ namespace HopeTherapy.Models
 
         public int DonorID { get; set; }
 
-        [Required(ErrorMessage = "First Name is required"), DisplayName("First Name")]
+        [Required(ErrorMessage = "First Name is required")]
+        [DisplayName("First Name")]
         public string FirstName { get; set; }
 
-        [Required(ErrorMessage = "Last Name is required"), DisplayName("Last Name")]
+        [Required(ErrorMessage = "Last Name is required")]
+        [DisplayName("Last Name")]
         public string LastName { get; set; }
 
         [DisplayName("Street Address")]
@@ -30,7 +32,7 @@ namespace HopeTherapy.Models
         public IEnumerable<SelectListItem> StatesList { get; set; }
 
         [DisplayName("Zip Code (5 digit)")]
-        [RegularExpression("^[0 - 9]{5}(-[0-9]{4})?$", ErrorMessage = "Minimum 5 characters required")]
+        [RegularExpression("^[0 - 9]{5}(-[0-9]{4})?$", ErrorMessage = "5 characters required")]
         public string ZipCode { get; set; }
 
         [DisplayName("County")]

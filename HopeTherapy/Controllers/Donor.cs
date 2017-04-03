@@ -141,8 +141,6 @@ namespace HopeTherapy.Controllers
             }
             else
             {
-                using (var cn3 = new SqlConnection(ConfigurationManager.ConnectionStrings["HopeTherapyIMS"].ConnectionString))
-                {
                     string sql = "INSERT INTO [dbo].[DONOR] (D_FNAME, D_LNAME, D_ADDRESS, D_CITY, D_STATE, D_ZIP, D_COUNTY, D_BIRTHDAY, D_GENDER, D_CELL_PHONE, " +
                     "D_HOME_PHONE, D_WORK_PHONE, D_EMAIL, D_CO_NAME, D_POSITION, D_CO_ADDRESS, D_CO_CITY, D_CO_STATE, D_CO_ZIP, " +
                     "DONATION_DATE, DONATION_CURRENCY, DONATION_ITEM, DONATION_SERVICE )" +
@@ -160,8 +158,7 @@ namespace HopeTherapy.Controllers
                         throw;
                     }
 
-                }
-                var Donor = new Donor();
+                
 
                 return RedirectToAction("Index", "Home");
             }

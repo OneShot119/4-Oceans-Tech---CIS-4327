@@ -2,16 +2,15 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@using (Html.BeginForm())
-{
 
 
 <html>
     <head>
         <script type="text/javascript" src="~/scripts/jquery.formatCurrency-1.4.0.js"></script>
         <script type="text/javascript" src="~/scripts/jquery.validate.js"></script>
+        <script src="~/scripts/jquery-1.10.2.js" type="text/javascript"></script>
+
 
         <script type="text/javascript">
             $(document).ready(function()
@@ -24,160 +23,177 @@
         </script>
 
     </head>
-    <body>
+
     <p><a href="/Home/Index" class="btn btn-primary btn-lg">Go Back &laquo;</a></p>
     <p><a href='@Url.Action("Logout", "User")' class="btn btn-primary btn-lg">Sign Out &raquo;</a></p>
-
+<body>
     <center><h1>New Donor Registration</h1></center>
+    @using (Html.BeginForm("Index", "Donor", FormMethod.Post))
+    {
+        <form>
+            <fieldset>
+                <legend>Personal Information</legend>
 
-    <form>
-        <fieldset>
-            <legend>Personal Information</legend>
-
-            <div class="row">
-                <div class="col-sm-3">
-                    First Name: <br>
-                    <input type="text" name="FirstName">
-                </div>
-
-                <div class="col-sm-3">
-                    Last Name: <br>
-                    <input type="text" name="LastName"></div>
-             </div><br />
-
-            <div class="row">
-                <div class="col-sm-3">
-                    Street Address: <br>
-                    <input type="text" name="StreetAddress">
-                </div>
-                <div class="col-sm-3">
-                    City: <br>
-                    <input type="text" name="City">
-                </div>
-            </div><br />
-
-            <div class="row">
-                <div class="col-sm-3">
-                    @Html.DisplayNameFor(i => i.State)<br />
-                    @Html.DropDownListFor(i => i.State, Model.StatesList) @Html.ValidationMessageFor(i => i.State)
-                </div>
-
-                <div class="col-sm-3">
-                    @Html.EditorFor(i => i.ZipCode)<br />
-                    @Html.ValidationMessageFor(i => i.ZipCode)
-                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        First Name: <br>
+                        @Html.TextBoxFor(i => i.FirstName, new { @class = "form-control", placeholder = "First Name", required = "required" })
+                    </div>
+                    @Html.ValidationMessageFor(i => i.FirstName)
+                    <div class="col-sm-3">
+                        Last Name: <br>
+                        @Html.TextBoxFor(i => i.LastName, new { @class = "form-control", placeholder = "Last Name", required = "required" })
+                        @Html.ValidationMessageFor(i => i.LastName)
+                    </div>
                 </div><br />
 
-            <div class="row">
-                <div class="col-sm-3">
-                    County:<br>
-                    <input type="text" name="County"></div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        Street Address: <br>
+                        <input type="text" name="StreetAddress">
+                    </div>
+                    <div class="col-sm-3">
+                        City: <br>
+                        <input type="text" name="City">
+                    </div>
+                </div><br />
+
+                <div class="row">
+                    <div class="col-sm-3">
+                        @Html.DisplayNameFor(i => i.State)<br />
+                        @Html.DropDownListFor(i => i.State, Model.StatesList) @Html.ValidationMessageFor(i => i.State)
+                    </div>
+
+                    <div class="col-sm-3">
+                        @Html.TextBoxFor(m => m.ZipCode)<br />
+                        @Html.ValidationMessageFor(m => m.ZipCode)
+                    </div>
+                </div><br />
+
+                <div class="row">
+                    <div class="col-sm-3">
+                        County:<br>
+                        <input type="text" name="County">
+                    </div>
 
                     <div class="col-sm-3">
                         Date of Birth:<br>
                         <input type="date" name="Birthday" style="padding: 2px 6px; box-sizing: border-box; border: 2px solid #555555;
-                    border-radius: 3px; width: 200px; height: 30px;"></div>
-             </div><br />
-
-            <div class="row">
-                <div class="col-sm-3">
-                    Gender:<br>
-                    <input type="radio" name="Gender" value="Male" checked> Male <br>
-                    <input type="radio" name="Gender" value="Female"> Female <br>
-                    <input type="radio" name="Gender" value="Other"> Other <br><br><br>
+                    border-radius: 3px; width: 200px; height: 30px;">
+                    </div>
                 </div><br />
-            </div>
+
+                <div class="row">
+                    <div class="col-sm-3">
+                        Gender:<br>
+                        <input type="radio" name="Gender" value="Male" checked> Male <br>
+                        <input type="radio" name="Gender" value="Female"> Female <br>
+                        <input type="radio" name="Gender" value="Other"> Other <br><br><br>
+                    </div><br />
+                </div>
 
                 <legend>Contact Information</legend>
 
-            <div class="row">
-                <div class="col-sm-3">
-                    Cell Phone:<br>
-                    <input type="text" name="CellPhoneNumber"></div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        Cell Phone:<br>
+                        <input type="text" name="CellPhoneNumber">
+                    </div>
 
-                <div class="col-sm-3">
-                    Home Phone:<br>
-                    <input type="text" name="HomePhoneNumber"></div>
-                </div><br />   
-             
-            <div class="row">
-                <div class="col-sm-3">
-                    Business Phone:<br>
-                    <input type="text" name="WorkPhoneNumber"></div>
+                    <div class="col-sm-3">
+                        Home Phone:<br>
+                        <input type="text" name="HomePhoneNumber">
+                    </div>
+                </div><br />
 
-                <div class="col-sm-3">
-                    Email:<br>
-                    <input type="text" name="EmailAddress"></div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        Business Phone:<br>
+                        <input type="text" name="WorkPhoneNumber">
+                    </div>
+
+                    <div class="col-sm-3">
+                        Email:<br>
+                        <input type="text" name="EmailAddress">
+                    </div>
                 </div><br />
                 <br /><br />
 
-                    <legend>Employment Information</legend>
-        
-            <div class="row">
-                <div class="col-sm-3">
-                    Company Name:<br>
-                    <input type="text" name="CompanyName"></div>
+                <legend>Employment Information</legend>
 
-                <div class="col-sm-3">
-                    Position:<br>
-                    <input type="text" name="Position"></div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        Company Name:<br>
+                        <input type="text" name="CompanyName">
+                    </div>
+
+                    <div class="col-sm-3">
+                        Position:<br>
+                        <input type="text" name="Position">
+                    </div>
                 </div><br />
 
-            <div class="row">
-                <div class="col-sm-3">
-                    Business Address:<br>
-                    <input type="text" name="CompanyAddress"></div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        Business Address:<br>
+                        <input type="text" name="CompanyAddress">
+                    </div>
 
-                <div class="col-sm-3">
-                    Business City:<br>
-                    <input type="text" name="CompanyCity"></div>
+                    <div class="col-sm-3">
+                        Business City:<br>
+                        <input type="text" name="CompanyCity">
+                    </div>
                 </div><br />
 
-            <div class="row">
-                <div class="col-sm-3">
-                    @Html.DisplayNameFor(i => i.CompanyState)<br>
-                    @Html.DropDownListFor(i => i.CompanyState, Model.StatesList) @Html.ValidationMessageFor(i => i.CompanyState) </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        @Html.DisplayNameFor(i => i.CompanyState)<br>
+                        @Html.DropDownListFor(i => i.CompanyState, Model.StatesList) @Html.ValidationMessageFor(i => i.CompanyState)
+                    </div>
 
-                <div class="col-sm-3">
-                    Business Zip:<br>
-                    <input type="text" name="CompanyZip"></div>
+                    <div class="col-sm-3">
+                        Business Zip:<br>
+                        <input type="text" name="CompanyZip">
+                    </div>
                 </div><br />
                 <br /><br />
 
                 <legend>Donation Information</legend>
 
-            <div class="row">
-                <div class="col-sm-3">
-                    Donation Date:<br>
-                    <input type="date" name="DonationDate" style="padding: 2px 6px; box-sizing: border-box; border: 2px solid #555555;
-                    border-radius: 3px; width: 200px; height: 30px;"></div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        Donation Date:<br>
+                        <input type="date" name="DonationDate" style="padding: 2px 6px; box-sizing: border-box; border: 2px solid #555555;
+                    border-radius: 3px; width: 200px; height: 30px;">
+                    </div>
 
-                <div class="col-sm-3">
-                    Currency Donated:<br>
-                    <input type="text" id="currencyField" class='currency' value="$0.00" />
+                    <div class="col-sm-3">
+                        Currency Donated:<br>
+                        <input type="text" id="currencyField" class='currency' value="$0.00" />
 
-                </div>
+                    </div>
                 </div><br />
 
-            <div class="row">
-                <div class="col-sm-12">
-                    Items Donated: <br><textarea type="text" name="ItemDonation"></textarea>
-                </div>
-            </div><br />                
-            
-            <div class="row">
+                <div class="row">
+                    <div class="col-sm-12">
+                        Items Donated: <br><textarea type="text" name="ItemDonation"></textarea>
+                    </div>
+                </div><br />
+
+                <div class="row">
                     <div class="col-sm-12">
                         Services Donated: <br><textarea type="text" name="ServiceDonation"></textarea>
                     </div>
                 </div><br />
 
-            <div class="row">
-                <div class="col-sm-12">
-                    <button type="submit" class="button button">Submit</button></div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <button type="submit" class="button button">Submit</button>
+                    </div>
                 </div><br />
-</fieldset>
-</form>
-        
+            </fieldset>
+        </form>
+    }
 </body>
+
 </html>
-}
