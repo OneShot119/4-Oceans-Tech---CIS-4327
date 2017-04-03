@@ -18,5 +18,9 @@ namespace HopeTherapy
             var combined = encoder.GetBytes(value ?? "");
             return BitConverter.ToString(hash.ComputeHash(combined)).ToLower().Replace("-", "");
         }
+        public static bool IsNullOrEmpty<T>(IEnumerable<T> enumerable)
+        {
+            return enumerable == null || !enumerable.Any();
+        }
     }
 }

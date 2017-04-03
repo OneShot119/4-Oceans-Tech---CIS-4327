@@ -12,18 +12,45 @@
         <p><a href='@Url.Action("Logout", "User")' class="btn btn-primary btn-lg">Sign Out &raquo;</a></p>
 
         <center><h1>Volunteer List</h1></center>
-        @using (Html.BeginForm("ListByLastName", "Volunteer", FormMethod.Post))
+        <center>
+            <div class="row">
+                <div class="col-sm-3">
+                    @using (Html.BeginForm("ListByLastName", "Volunteer", FormMethod.Post))
+                    {
+                        <label for="Search">Last Name</label><br />
+                        <input type="text" name="LastName" id="LastName" />
+                        <button type="submit">Search</button><br /><br />
+                    }
+                </div>
+                <div class="col-sm-3">
+                    @using (Html.BeginForm("ListByCounty", "Volunteer", FormMethod.Post))
+                    {
+                        <label for="Search2">County</label><br />
+                        <input type="text" name="County" id="County" />
+                        <button type="submit">Search</button><br /><br />
+                    }
+                </div>
+                <div class="col-sm-3">
+                    @using (Html.BeginForm("ListByAll", "Volunteer", FormMethod.Post))
+                    {
+                        <label for="Search2">Anything</label><br />
+                        <input type="text" name="All" id="All" />
+                        <button type="submit">Search</button><br /><br />
+                    }
+                </div>
+            </div>
+        </center>
+        
+        
+        <center><p><a href="/Volunteer/List" class="btn btn-primary btn-lg">View All Volunteers &raquo;</a></p></center>
+
+        @if (Utilities.IsNullOrEmpty(Model))
         {
-            <label for="Search">Last Name</label><br />
-            <input type="text" name="LastName" id="LastName" />
-            <button type="submit">Search</button><br /><br />
+            <center><h1>Sorry but there aren't any results.</h1></center>
         }
-        @using (Html.BeginForm("ListByCounty", "Volunteer", FormMethod.Post))
+        else
         {
-            <label for="Search2">County</label><br />
-            <input type="text" name="County" id="County" />
-            <button type="submit">Search</button><br /><br />
-        }
+
             <table border="1" style="margin: 0px auto;">
                 <thead style="font-size:23px">
                     <tr>
@@ -42,8 +69,8 @@
                 {
                     <tr>
                         <td>
-                            <a href='@Url.Action("Profile", "Volunteer", new { ID = @Volunteer.VolunteerID})'>@Volunteer.FirstName @Volunteer.LastName</a>
-                            <a href='@Url.Action("Edit", "Volunteer", new { ID = @Volunteer.VolunteerID})'>Edit</a>
+                            <a href='@Url.Action("Profile", "Volunteer", new { ID = @Volunteer.VolunteerID })'>@Volunteer.FirstName @Volunteer.LastName</a>
+                            <a href='@Url.Action("Edit", "Volunteer", new { ID = @Volunteer.VolunteerID })'><Font color="Green">Edit</Font></a>
 
 
                         </td>
@@ -54,12 +81,12 @@
                             @Volunteer.HoursPerMonth
                         </td>
                         <td>
-                            <p><a href="@Url.Action("Delete", "Volunteer", new { ID = @Volunteer.VolunteerID})" class="btn btn-primary btn-lg">Delete &raquo;</a></p>
+                            <p><a href="@Url.Action("Delete", "Volunteer", new { ID = @Volunteer.VolunteerID })" class="btn btn-primary btn-lg">Delete &raquo;</a></p>
                         </td>
                     </tr>
                 }
             </table>
-
+        }
 </body>
 </html>
 
