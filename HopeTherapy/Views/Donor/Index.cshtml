@@ -38,8 +38,8 @@
                     <div class="col-sm-3">
                         First Name: <br>
                         @Html.TextBoxFor(i => i.FirstName, new { @class = "form-control", placeholder = "First Name", required = "required" })
+                        @Html.ValidationMessageFor(i => i.FirstName)
                     </div>
-                    @Html.ValidationMessageFor(i => i.FirstName)
                     <div class="col-sm-3">
                         Last Name: <br>
                         @Html.TextBoxFor(i => i.LastName, new { @class = "form-control", placeholder = "Last Name", required = "required" })
