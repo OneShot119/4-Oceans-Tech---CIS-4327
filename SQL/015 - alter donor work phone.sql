@@ -1,0 +1,2 @@
+ALTER TABLE donor
+ALTER COLUMN D_WORK_PHONE nvarchar(14);

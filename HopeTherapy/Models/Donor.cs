@@ -14,11 +14,11 @@ namespace HopeTherapy.Models
         public int DonorID { get; set; }
 
         [Required(ErrorMessage = "First Name is required")]
-        [DisplayName("First Name")]
+        [DisplayName("First Name - Required")]
         public string FirstName { get; set; }
 
         [Required(ErrorMessage = "Last Name is required")]
-        [DisplayName("Last Name")]
+        [DisplayName("Last Name - Required")]
         public string LastName { get; set; }
 
         [DisplayName("Street Address")]
@@ -35,7 +35,7 @@ namespace HopeTherapy.Models
         [RegularExpression("^[0 - 9]{5}(-[0-9]{4})?$", ErrorMessage = "5 characters required")]
         public string ZipCode { get; set; }
 
-        [DisplayName("County")]
+        [DisplayName("County - Required")]
         public string County { get; set; }
 
         [DisplayName("Date of Birth")]

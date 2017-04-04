@@ -6,8 +6,9 @@
 }
 
 <head>
+            <script src="~/scripts/jquery.maskedinput.js" type="text/javascript"></script>
 </head>
-
+<body>
     <p><a href="/Volunteer/List" class="btn btn-primary btn-lg">Go Back &laquo;</a></p>
     <p><a href='@Url.Action("Logout", "User")' class="btn btn-primary btn-lg">Sign Out &raquo;</a></p>
 
@@ -25,17 +26,17 @@
 
             <legend>Personal Information</legend>
             <div class="row">
-
                 <div class="col-sm-3">
-                    @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                    @Html.DisplayNameFor(i => i.FirstName)<text>:</text><br>
+                    @Html.TextBoxFor(i => i.FirstName, new { @class = "form-control", placeholder = "First Name", required = "required" })
+                    @Html.ValidationMessageFor(i => i.FirstName)
                 </div>
-
                 <div class="col-sm-3">
-                    @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                    @Html.DisplayNameFor(i => i.LastName)<text>:</text><br>
+                    @Html.TextBoxFor(i => i.LastName, new { @class = "form-control", placeholder = "Last Name", required = "required" })
+                    @Html.ValidationMessageFor(i => i.LastName)
                 </div>
-            </div>
+            </div><br />
 
             <div class="row">
                 <div class="col-sm-3">
@@ -86,27 +87,24 @@
 
             <div class="row">
                 <div class="col-sm-3">
-                    @Html.EditorFor(model => model.CellPhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.CellPhoneNumber, "", new { @class = "text-danger" })
+                    @Html.DisplayNameFor(i => i.CellPhoneNumber)<text>:</text><br />
+                    <input id="cphone" name="CellPhoneNumber" type="text">
                 </div>
-
                 <div class="col-sm-3">
-                    @Html.EditorFor(model => model.HomePhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.HomePhoneNumber, "", new { @class = "text-danger" })
+                    @Html.DisplayNameFor(i => i.HomePhoneNumber)<text>:</text><br />
+                    <input id="hphone" name="HomePhoneNumber" type="text">
                 </div>
-            </div>
+            </div><br />
 
             <div class="row">
                 <div class="col-sm-3">
-                    @Html.EditorFor(model => model.WorkPhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.WorkPhoneNumber, "", new { @class = "text-danger" })
+                    @Html.DisplayNameFor(i => i.WorkPhoneNumber)<text>:</text><br />
+                    <input id="wphone" name="WorkPhoneNumber" type="text">
                 </div>
-
                 <div class="col-sm-3">
-                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    @Html.EditorFor(i => i.Email) @Html.ValidationMessageFor(i => i.Email)
                 </div>
-            </div>
+            </div><br />
 
             <legend>Employment Information</legend>
 
@@ -202,28 +200,37 @@
             </div>
 
             @*<div class="row">
-                <div class="col-sm-3">
-                    <p><b>Weekly Schedule:</b></p>
-                    @Html.DisplayNameFor(i => i.Monday)<text>:</text>
-                    @Html.CheckBoxFor(m => m.Monday, new { @checked = "checked" })<br />
-                    @Html.DisplayNameFor(i => i.Tuesday)<text>:</text>
-                    @Html.CheckBoxFor(m => m.Tuesday, new { @checked = "checked" })<br />
-                    @Html.DisplayNameFor(i => i.Wednesday)<text>:</text>
-                    @Html.CheckBoxFor(m => m.Wednesday, new { @checked = "checked" })<br />
-                    @Html.DisplayNameFor(i => i.Thursday)<text>:</text>
-                    @Html.CheckBoxFor(m => m.Thursday, new { @checked = "checked" })<br />
-                    @Html.DisplayNameFor(i => i.Friday)<text>:</text>
-                    @Html.CheckBoxFor(m => m.Friday, new { @checked = "checked" })<br />
-                    @Html.DisplayNameFor(i => i.Saturday)<text>:</text>
-                    @Html.CheckBoxFor(m => m.Saturday, new { @checked = "checked" })<br />
-                    @Html.DisplayNameFor(i => i.Sunday)<text>:</text>
-                    @Html.CheckBoxFor(m => m.Sunday, new { @checked = "checked" })<br />
-                </div>
-            </div>*@
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" value="Save" class="btn btn-default" />
-                        </div>
+                    <div class="col-sm-3">
+                        <p><b>Weekly Schedule:</b></p>
+                        @Html.DisplayNameFor(i => i.Monday)<text>:</text>
+                        @Html.CheckBoxFor(m => m.Monday, new { @checked = "checked" })<br />
+                        @Html.DisplayNameFor(i => i.Tuesday)<text>:</text>
+                        @Html.CheckBoxFor(m => m.Tuesday, new { @checked = "checked" })<br />
+                        @Html.DisplayNameFor(i => i.Wednesday)<text>:</text>
+                        @Html.CheckBoxFor(m => m.Wednesday, new { @checked = "checked" })<br />
+                        @Html.DisplayNameFor(i => i.Thursday)<text>:</text>
+                        @Html.CheckBoxFor(m => m.Thursday, new { @checked = "checked" })<br />
+                        @Html.DisplayNameFor(i => i.Friday)<text>:</text>
+                        @Html.CheckBoxFor(m => m.Friday, new { @checked = "checked" })<br />
+                        @Html.DisplayNameFor(i => i.Saturday)<text>:</text>
+                        @Html.CheckBoxFor(m => m.Saturday, new { @checked = "checked" })<br />
+                        @Html.DisplayNameFor(i => i.Sunday)<text>:</text>
+                        @Html.CheckBoxFor(m => m.Sunday, new { @checked = "checked" })<br />
                     </div>
+                </div>*@
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
                 </div>
-                }
+            </div>
+        </div>
+    }
+    <script type="text/javascript">
+                jQuery(function ($) {
+                    $("#cphone").mask("(999) 999-9999");
+                    $("#hphone").mask("(999) 999-9999");
+                    $("#wphone").mask("(999) 999-9999");
+
+                });
+    </script>
+</body>

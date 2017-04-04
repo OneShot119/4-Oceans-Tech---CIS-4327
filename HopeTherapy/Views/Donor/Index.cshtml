@@ -10,7 +10,7 @@
         <script type="text/javascript" src="~/scripts/jquery.formatCurrency-1.4.0.js"></script>
         <script type="text/javascript" src="~/scripts/jquery.validate.js"></script>
         <script src="~/scripts/jquery-1.10.2.js" type="text/javascript"></script>
-
+        <script src="~/scripts/jquery.maskedinput.js" type="text/javascript"></script>
 
         <script type="text/javascript">
             $(document).ready(function()
@@ -65,6 +65,7 @@
                     </div>
 
                     <div class="col-sm-3">
+                        @Html.DisplayNameFor(i => i.ZipCode)<br />
                         @Html.TextBoxFor(m => m.ZipCode)<br />
                         @Html.ValidationMessageFor(m => m.ZipCode)
                     </div>
@@ -97,19 +98,19 @@
                 <div class="row">
                     <div class="col-sm-3">
                         Cell Phone:<br>
-                        <input type="text" name="CellPhoneNumber">
+                        <input id="cphone" type="text" name="CellPhoneNumber">
                     </div>
 
                     <div class="col-sm-3">
                         Home Phone:<br>
-                        <input type="text" name="HomePhoneNumber">
+                        <input id="hphone" type="text" name="HomePhoneNumber">
                     </div>
                 </div><br />
 
                 <div class="row">
                     <div class="col-sm-3">
                         Business Phone:<br>
-                        <input type="text" name="WorkPhoneNumber">
+                        <input id="wphone" type="text" name="WorkPhoneNumber">
                     </div>
 
                     <div class="col-sm-3">
@@ -194,6 +195,14 @@
             </fieldset>
         </form>
     }
+    <script type="text/javascript">
+                jQuery(function ($) {
+                    $("#cphone").mask("(999) 999-9999");
+                    $("#hphone").mask("(999) 999-9999");
+                    $("#wphone").mask("(999) 999-9999");
+
+                });
+    </script>
 </body>
 
 </html>

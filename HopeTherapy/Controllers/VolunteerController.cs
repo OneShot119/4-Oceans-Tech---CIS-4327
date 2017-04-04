@@ -164,20 +164,6 @@ namespace HopeTherapy.Controllers
                     {
                         throw;
                     }
-                string sql2 = "Select [VolunteerID] from [dbo].[Volunteer] where email='"+model.Email+"' and FirstName='"+model.FirstName+"' and LastName='"+model.LastName+"'";
-                int ID = Utilities.Sql.ExecuteQuerySingleResult<int>(sql2, model);
-                foreach (var Day in Schedule)
-                {
-                string sql3 = "INSERT INTO [dbo].[Days] Values ('"+Day+"','"+ID+"');";
-                try
-                {
-                    Utilities.Sql.ExecuteCommand(sql3, model);
-                }
-                catch (SqlException ex)
-                {
-                    throw;
-                }
-                }
 
                 return RedirectToAction("Index", "Home");
             }

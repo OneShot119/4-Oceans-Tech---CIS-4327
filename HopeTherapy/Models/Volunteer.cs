@@ -12,12 +12,12 @@ namespace HopeTherapy.Models
     {
         public int VolunteerID { get; set; }
 
-        [DisplayName("First Name")]
+        [DisplayName("First Name - Required")]
         [Required(ErrorMessage = "First Name is required")]
         public string FirstName { get; set; }
 
         [Required(ErrorMessage = "Last Name is required")]
-        [DisplayName("Last Name")]
+        [DisplayName("Last Name - Required")]
         public string LastName { get; set; }
 
 
@@ -36,7 +36,8 @@ namespace HopeTherapy.Models
         //[Required(ErrorMessage = "ZipCode is required")]
         [DisplayName("Zip Code")]
         public string ZipCode { get; set; }
-        //[Required(ErrorMessage = "County is required")]
+        [Required(ErrorMessage = "County is required")]
+        [DisplayName("County - Required")]
         public string County { get; set; }
         // [Required(ErrorMessage = "Cell Phone Number is required")]
         [DisplayName("Cell Phone Number")]
