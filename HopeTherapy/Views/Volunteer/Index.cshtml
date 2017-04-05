@@ -72,22 +72,22 @@
                 </div><br />
 
                 <legend>Contact Information</legend>
-
                 <div class="row">
                     <div class="col-sm-3">
-                        @Html.DisplayNameFor(i => i.CellPhoneNumber)<text>:</text><br />
-                        <input id="cphone" name="CellPhoneNumber" type="text">
+                        Cell Phone:<br>
+                        <input id="cphone" type="text" name="CellPhoneNumber" value="@Model.CellPhoneNumber">
                     </div>
+
                     <div class="col-sm-3">
-                        @Html.DisplayNameFor(i => i.HomePhoneNumber)<text>:</text><br />
-                        <input id="hphone" name="HomePhoneNumber" type="text">                    
+                        Home Phone:<br>
+                        <input id="hphone" type="text" name="HomePhoneNumber" value="@Model.HomePhoneNumber">
                     </div>
                 </div><br />
 
                 <div class="row">
                     <div class="col-sm-3">
-                        @Html.DisplayNameFor(i => i.WorkPhoneNumber)<text>:</text><br />
-                        <input id="wphone" name="WorkPhoneNumber" type="text">
+                        Business Phone:<br>
+                        <input id="wphone" type="text" name="WorkPhoneNumber" value="@Model.WorkPhoneNumber">
                     </div>
                     <div class="col-sm-3">
                         @Html.EditorFor(i => i.Email) @Html.ValidationMessageFor(i => i.Email)
