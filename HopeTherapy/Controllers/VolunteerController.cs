@@ -151,10 +151,10 @@ namespace HopeTherapy.Controllers
             {
                     List<String> Schedule = model.Schedule();
                     string sql = "INSERT INTO [dbo].[Volunteer] (FirstName, LastName, StreetAddress, City, States, ZipCode, County," +
-                        "CellPhoneNumber, HomePhoneNumber, WorkPhoneNumber, Email, Birthday, Gender, CompanyName, Position, CompanyAddress, CompanyZip, " +
+                        "CellPhoneNumber, HomePhoneNumber, WorkPhoneNumber, Email, Birthday, Gender, CompanyName, Position, CompanyAddress, " +
                         "DateOrientation, DateStarted, HoursPerMonth, VolunteerPosition, AreaOfInterest, Skills, Donor, Board, EmailList, MailList)" +
                         "VALUES(@FirstName, @LastName, @StreetAddress, @City, @States, @ZipCode, @County, @CellPhoneNumber, @HomePhoneNumber," +
-                        "@WorkPhoneNumber, @Email, @Birthday, @Gender, @CompanyName, @Position, @CompanyAddress, @CompanyZip," +
+                        "@WorkPhoneNumber, @Email, @Birthday, @Gender, @CompanyName, @Position, @CompanyAddress," +
                         "@DateOrientation, @DateStarted,  @HoursPerMonth, @VolunteerPosition, @AreaOfInterest, @Skills, @Donor, @Board, @EmailList, @MailList)";
                     try
                     {
