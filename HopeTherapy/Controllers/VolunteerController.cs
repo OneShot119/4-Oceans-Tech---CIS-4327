@@ -14,17 +14,13 @@ namespace HopeTherapy.Controllers
     public class VolunteerController : Controller
     {
 
-        private static readonly IEnumerable<SelectListItem> _VolunteerPositions = new List<SelectListItem>
-        {
-            new SelectListItem {Text="Lessons", Value="Lessons" },
-            new SelectListItem { Text = "Horse Show", Value = "Horse Show" },
-            new SelectListItem { Text = "Special Event", Value = "Special Event" },
-            new SelectListItem {Text = "Fundraising", Value="Fundraising" },
-            new SelectListItem { Text = "Facility Maintenance", Value = "Facility Maintenance" },
-            new SelectListItem { Text = "Special Project", Value = "Special Project" },
-            new SelectListItem { Text = "Computer Work", Value = "Computer Work" },
-            new SelectListItem { Text = "Mailings", Value = "Mailings" }
-        };
+        private static readonly IEnumerable<SelectListItem> _VolunteerPositions = new SelectList(poslist());
+
+        private static IEnumerable<string> poslist(){
+            var Position = Utilities.Sql.ExecuteQuery<String>("select positions from dbo.position;");
+            return Position;
+        }
+
         private static readonly IEnumerable<SelectListItem> _StatesList = new List<SelectListItem>
         {
             new SelectListItem {Text="", Value=""},
@@ -151,7 +147,7 @@ namespace HopeTherapy.Controllers
             {
                     List<String> Schedule = model.Schedule();
                     string sql = "INSERT INTO [dbo].[Volunteer] (FirstName, LastName, StreetAddress, City, States, ZipCode, County," +
-                        "CellPhoneNumber, HomePhoneNumber, WorkPhoneNumber, Email, Birthday, Gender, CompanyName, Position, CompanyAddress, " +
+                        "CellPhoneNumber, HomePhoneNumber, WorkPhoneNumber, Email, Birthday, Gender, CompanyName, Position, CompanyAddress," +
                         "DateOrientation, DateStarted, HoursPerMonth, VolunteerPosition, AreaOfInterest, Skills, Donor, Board, EmailList, MailList)" +
                         "VALUES(@FirstName, @LastName, @StreetAddress, @City, @States, @ZipCode, @County, @CellPhoneNumber, @HomePhoneNumber," +
                         "@WorkPhoneNumber, @Email, @Birthday, @Gender, @CompanyName, @Position, @CompanyAddress," +
@@ -169,29 +165,6 @@ namespace HopeTherapy.Controllers
             }
         }
 
-
-
-        /*    public ActionResult Index(string searchString)
-            {
-             if (!Request.IsAuthenticated)
-             {
-                 return RedirectToAction("Index", "Home");
-             }
-             else
-             {
-                using (var cn2 = new SqlConnection(ConfigurationManager.ConnectionStrings["HopeTherapyIMS"].ConnectionString))
-                    var volunteer = from m in [dbo].[Volunteer]
-                             select m;
-
-                if (!String.IsNullOrEmpty(searchString))
-                {
-                    volunteer = volunteer.Where(s => s.Title.Contains(searchString));
-                }
-
-                return View(VolunteerSearch);
-
-             }
-             }*/
         [HttpGet]
         public ActionResult List(String Search, String Type)
         {
