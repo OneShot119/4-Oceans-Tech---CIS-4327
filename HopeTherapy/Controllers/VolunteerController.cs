@@ -118,7 +118,7 @@ namespace HopeTherapy.Controllers
                 {
                     string sql = "UPDATE [dbo].[Volunteer] SET FirstName=@FirstName, LastName=@LastName, StreetAddress=@StreetAddress, City=@City, States=@States, ZipCode=@ZipCode, County=@County," +
                         "CellPhoneNumber=@CellPhoneNumber, HomePhoneNumber=@HomePhoneNumber, WorkPhoneNumber=@WorkPhoneNumber, Email=@Email, Birthday=@Birthday, Gender=@Gender, " +
-                        "CompanyName=@CompanyName, Position=@Position, CompanyAddress=@CompanyAddress, CompanyZip=@CompanyZip, DateOrientation=@DateOrientation, DateStarted=@DateStarted, HoursPerMonth=@HoursPerMonth,"+
+                        "CompanyName=@CompanyName, Position=@Position, CompanyAddress=@CompanyAddress, DateOrientation=@DateOrientation, DateStarted=@DateStarted, HoursPerMonth=@HoursPerMonth," +
                         "VolunteerPosition=@VolunteerPosition, AreaOfInterest=@AreaOfInterest, Skills=@Skills, Donor=@Donor, Board=@Board, EmailList=@EmailList, MailList=@MailList " +
                         "WHERE VolunteerID = @VolunteerID;";
                     try
