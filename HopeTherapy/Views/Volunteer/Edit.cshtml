@@ -70,7 +70,8 @@
 
                 <div class="col-sm-3">
                     @Html.DisplayNameFor(i => i.Birthday)<text>:</text><br>
-                    <input type="date" name="Birthday" value="@Model.Birthday">
+                    @Html.EditorFor(i => i.Birthday, new { @class = "form-control", placeholder = "Birthday", required = "required" })<br />
+                    @Html.ValidationMessageFor(i => i.Birthday)
                 </div>
             </div>
 

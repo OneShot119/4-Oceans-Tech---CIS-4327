@@ -54,8 +54,12 @@ namespace HopeTherapy.Models
         public string Email { get; set; }
 
         [DataType(DataType.Date)]
+        [Required(ErrorMessage = "Birthday is required")]
+        [DisplayName("Birthday - Required")]
         public string Birthday { get; set; }
 
+        [Required(ErrorMessage = "Gender is required")]
+        [DisplayName("Gender - Required")]
         public string Gender { get; set; }
 
         [DisplayName("Company Name")]
@@ -69,15 +73,18 @@ namespace HopeTherapy.Models
         [DisplayName("Company Zip")]
         public string CompanyZip { get; set; }
 
-        [DisplayName("Orientation Date")]
+        [DataType(DataType.Date)]
+        [Required(ErrorMessage = "Orientation Date is required")]
+        [DisplayName("Orientation Date - Required")]
         public string DateOrientation { get; set; }
 
-        [DisplayName("Start Date")]
-        
+        [DataType(DataType.Date)]
+        [Required(ErrorMessage = "Orientation Date is required")]
+        [DisplayName("Start Date - Required")]
         public string DateStarted { get; set; }
- 
 
-        [DisplayName("Volunteer Hours/Month")]
+        [Required(ErrorMessage = "Hour Volunteered is required")]
+        [DisplayName("Volunteer Hours/Month - Required")]
         public string HoursPerMonth { get; set; }
 
         [DisplayName("Volunteer Position")]
@@ -89,14 +96,20 @@ namespace HopeTherapy.Models
 
         public string Skills { get; set; }
 
+        [Required(ErrorMessage = "Donor is required")]
+        [DisplayName("Donor? - Required")]
         public string Donor { get; set; }
 
+        [Required(ErrorMessage = "Board is required")]
+        [DisplayName("Board? - Required")]
         public string Board { get; set; }
 
-        [DisplayName("Email List")]
+        [Required(ErrorMessage = "Email List is required")]
+        [DisplayName("Email List? - Required")]
         public string EmailList { get; set; }
 
-        [DisplayName("Mailing List")]
+        [Required(ErrorMessage = "Mail List is required")]
+        [DisplayName("Mail List? - Required")]
         public string MailList { get; set; }
         public Boolean Active { get; set; }
 
