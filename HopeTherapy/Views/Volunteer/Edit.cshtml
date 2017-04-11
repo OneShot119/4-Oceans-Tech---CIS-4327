@@ -52,8 +52,9 @@
 
             <div class="row">
                 <div class="col-sm-3">
-                    @Html.EditorFor(model => model.States, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.States, "", new { @class = "text-danger" })
+                   @* @Html.DisplayNameFor(i => i.States)<text>:</text><br>*@
+                    @Html.EditorFor(model => model.States, new { htmlAttributes = new { @class = "form-control" } }) @Html.ValidationMessageFor(i => i.States) <br />
+
                 </div>
 
                 <div class="col-sm-3">
@@ -144,8 +145,9 @@
 
             <div class="row">
                 <div class="col-sm-3">
-                    @Html.EditorFor(model => model.HoursPerMonth, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.HoursPerMonth, "", new { @class = "text-danger" })
+                    @Html.DisplayNameFor(i => i.HoursPerMonth)<text>:</text><br>
+                    @Html.TextBoxFor(i => i.HoursPerMonth, new { @class = "form-control", placeholder = "Hours Per Month", required = "required" })
+                    @Html.ValidationMessageFor(i => i.HoursPerMonth)
                 </div>
 
                 <div class="col-sm-3">
