@@ -17,7 +17,7 @@ namespace HopeTherapy.Controllers
         private static readonly IEnumerable<SelectListItem> _VolunteerPositions = new SelectList(poslist());
 
         private static IEnumerable<string> poslist(){
-            var Position = Utilities.Sql.ExecuteQuery<String>("select positions from dbo.Position;");
+            var Position = Utilities.Sql.ExecuteQuery<String>("select Positions from dbo.Position;");
             return Position;
         }
 
