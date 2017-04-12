@@ -52,9 +52,8 @@
 
             <div class="row">
                 <div class="col-sm-3">
-                   @* @Html.DisplayNameFor(i => i.States)<text>:</text><br>*@
-                    @Html.EditorFor(model => model.States, new { htmlAttributes = new { @class = "form-control" } }) @Html.ValidationMessageFor(i => i.States) <br />
-
+                    @*@Html.DisplayNameFor(i => i.States)<br />*@
+                    @Html.EditorFor(i => i.States) @Html.ValidationMessageFor(i => i.States)
                 </div>
 
                 <div class="col-sm-3">
@@ -104,7 +103,9 @@
                     <input id="wphone" type="text" name="WorkPhoneNumber" value="@Model.WorkPhoneNumber">
                 </div>
                 <div class="col-sm-3">
-                    @Html.EditorFor(i => i.Email) @Html.ValidationMessageFor(i => i.Email)
+                    @Html.DisplayNameFor(i => i.Email)<text>:</text><br>
+                    @Html.EditorFor(i => i.Email, new { @class = "form-control", placeholder = "Email", required = "required" })<br />
+                    @Html.ValidationMessageFor(i => i.Email)
                 </div>
             </div><br />
 
@@ -216,11 +217,11 @@
                         @Html.CheckBoxFor(m => m.Sunday, new { @checked = "checked" })<br />
                     </div>
                 </div>*@
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Save" class="btn btn-default" />
+            <div class="row">
+                <div class="col-sm-12">
+                    <button type="submit" class="button button">Save</button>
                 </div>
-            </div>
+            </div><br />
         </div>
     }
     <script type="text/javascript">

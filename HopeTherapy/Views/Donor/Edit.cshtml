@@ -6,7 +6,7 @@
 }
 <head>
     <script type="text/javascript" src="~/scripts/jquery.formatCurrency-1.4.0.js"></script>
-    <script type="text/javascript" src="~/scripts/jquery.validate.js"></script>
+    @*<script type="text/javascript" src="~/scripts/jquery.validate.js"></script>*@
     <script src="~/scripts/jquery-1.10.2.js" type="text/javascript"></script>
     <script src="~/scripts/jquery.maskedinput.js" type="text/javascript"></script>
     <script type="text/javascript">
@@ -63,8 +63,7 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-3">
-                        @Html.EditorFor(model => model.State, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.State, "", new { @class = "text-danger" })
+                        @Html.EditorFor(i => i.State, Model) @Html.ValidationMessageFor(i => i.State)
                     </div>
 
                     <div class="col-sm-3">
@@ -79,23 +78,17 @@
                     </div>
 
                     <div class="col-sm-3">
-                        @Html.EditorFor(model => model.Birthday, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Birthday, "", new { @class = "text-danger" })
+                        @Html.DisplayNameFor(i => i.Birthday)<text>:</text><br>
+                        @Html.EditorFor(i => i.Birthday, new { @class = "form-control", placeholder = "Birthday", required = "required" })<br />
+                        @Html.ValidationMessageFor(i => i.Birthday)
                     </div>
                 </div>
                 <div class="row">
-                    @*
-                            Make radio buttons for gender
-                            <div class="col-sm-3">
-                            Gender:<br>
-                            <input type="radio" name="Gender" value="Male"> Male <br>
-                            <input type="radio" name="Gender" value="Female"> Female <br>
-                            <input type="radio" name="Gender" value="Other"> Other <br><br><br>
-                        </div><br />
-                    *@
                     <div class="col-sm-3">
-                        @Html.EditorFor(model => model.Gender, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                        @Html.DisplayNameFor(i => i.Gender)<text>:</text><br>
+                        @Html.RadioButtonFor(model => model.Gender, "M", false)@Html.Label("Male")<br />
+                        @Html.RadioButtonFor(model => model.Gender, "F", false)@Html.Label("Female")<br />
+                        @Html.RadioButtonFor(model => model.Gender, "Other", false)@Html.Label("Other")<br /><br />
                     </div>
                 </div>
 
@@ -165,15 +158,16 @@
                 <legend>Donation Information</legend>
                 <div class="row">
                     <div class="col-sm-3">
-                        @Html.EditorFor(model => model.DonationDate, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.DonationDate, "", new { @class = "text-danger" })
+                        @Html.DisplayNameFor(i => i.DonationDate)<text>:</text><br>
+                        @Html.EditorFor(i => i.DonationDate, new { @class = "form-control", placeholder = "Donation Date", required = "required" })<br />
+                        @Html.ValidationMessageFor(i => i.DonationDate)
                     </div>
 
                     <div class="col-sm-3">
                         Currency Donated:<br>
                         <input type="text" id="currencyField" class='currency' value="$0.00" />
                     </div>
-                </div>
+                </div><br />
 
                 <div class="row">
                     <div class="col-sm-12">

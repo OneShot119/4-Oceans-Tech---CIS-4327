@@ -114,8 +114,9 @@
                     </div>
 
                     <div class="col-sm-3">
-                        Email:<br>
-                        <input type="text" name="EmailAddress">
+                        @Html.DisplayNameFor(i => i.EmailAddress)<text>:</text><br>
+                        @Html.EditorFor(i => i.EmailAddress, new { @class = "form-control", placeholder = "Email", required = "required" })<br />
+                        @Html.ValidationMessageFor(i => i.EmailAddress)
                     </div>
                 </div><br />
                 <br /><br />

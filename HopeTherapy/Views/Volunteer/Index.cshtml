@@ -93,7 +93,9 @@
                         <input id="wphone" type="text" name="WorkPhoneNumber" value="@Model.WorkPhoneNumber">
                     </div>
                     <div class="col-sm-3">
-                        @Html.EditorFor(i => i.Email) @Html.ValidationMessageFor(i => i.Email)
+                        @Html.DisplayNameFor(i => i.Email)<text>:</text><br>
+                        @Html.EditorFor(i => i.Email, new { @class = "form-control", placeholder = "Email", required = "required" })<br />
+                        @Html.ValidationMessageFor(i => i.Email)
                     </div>
                 </div><br />
 

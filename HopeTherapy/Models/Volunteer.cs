@@ -12,12 +12,12 @@ namespace HopeTherapy.Models
     {
         public int VolunteerID { get; set; }
 
-        [DisplayName("First Name - Required")]
+        [DisplayName("First Name *")]
         [Required(ErrorMessage = "First Name is required")]
         public string FirstName { get; set; }
 
         [Required(ErrorMessage = "Last Name is required")]
-        [DisplayName("Last Name - Required")]
+        [DisplayName("Last Name *")]
         public string LastName { get; set; }
 
 
@@ -37,7 +37,7 @@ namespace HopeTherapy.Models
         [DisplayName("Zip Code")]
         public string ZipCode { get; set; }
         [Required(ErrorMessage = "County is required")]
-        [DisplayName("County - Required")]
+        [DisplayName("County *")]
         public string County { get; set; }
         // [Required(ErrorMessage = "Cell Phone Number is required")]
         [DisplayName("Cell Phone Number")]
@@ -49,16 +49,17 @@ namespace HopeTherapy.Models
         [DisplayName("Work Phone Number")]
         public string WorkPhoneNumber { get; set; }
 
-        //[DataType(DataType.EmailAddress)]
-        //[Required(ErrorMessage = "Email is required")]
+        [DataType(DataType.EmailAddress)]
+        [Required(ErrorMessage = "Email is required")]
+        [DisplayName("Email")]
         public string Email { get; set; }
 
         [DataType(DataType.Date)]
         [Required(ErrorMessage = "Birthday is required")]
-        [DisplayName("Birthday - Required")]
+        [DisplayName("Birthday *")]
         public string Birthday { get; set; }
 
-        [Required(ErrorMessage = "Gender is required")]
+        [Required(ErrorMessage = "Gender *")]
         [DisplayName("Gender - Required")]
         public string Gender { get; set; }
 
@@ -75,12 +76,12 @@ namespace HopeTherapy.Models
 
         [DataType(DataType.Date)]
         [Required(ErrorMessage = "Orientation Date is required")]
-        [DisplayName("Orientation Date - Required")]
+        [DisplayName("Orientation *")]
         public string DateOrientation { get; set; }
 
         [DataType(DataType.Date)]
         [Required(ErrorMessage = "Orientation Date is required")]
-        [DisplayName("Start Date - Required")]
+        [DisplayName("Start Date *")]
         public string DateStarted { get; set; }
 
         [Required(ErrorMessage = "Hours Volunteered is required")]
@@ -97,19 +98,19 @@ namespace HopeTherapy.Models
         public string Skills { get; set; }
 
         [Required(ErrorMessage = "Donor is required")]
-        [DisplayName("Donor? - Required")]
+        [DisplayName("Donor? -*")]
         public string Donor { get; set; }
 
         [Required(ErrorMessage = "Board is required")]
-        [DisplayName("Board? - Required")]
+        [DisplayName("Board? *")]
         public string Board { get; set; }
 
         [Required(ErrorMessage = "Email List is required")]
-        [DisplayName("Email List? - Required")]
+        [DisplayName("Email List? *")]
         public string EmailList { get; set; }
 
         [Required(ErrorMessage = "Mail List is required")]
-        [DisplayName("Mail List? - Required")]
+        [DisplayName("Mail List? *")]
         public string MailList { get; set; }
         public Boolean Active { get; set; }
 
