@@ -35,16 +35,17 @@ namespace HopeTherapy.Models
        // [RegularExpression("^[0 - 9]{5}(-[0-9]{4})?$", ErrorMessage = "5 characters required")]
         public string ZipCode { get; set; }
 
-        [DisplayName("County - Required")]
+        [Required(ErrorMessage = "County is required")]
+        [DisplayName("County *")]
         public string County { get; set; }
 
         [DataType(DataType.Date)]
-        [Required(ErrorMessage = "Donation Date is required")]
+        [Required(ErrorMessage = "Date of Birth is required")]
         [DisplayName("Date of Birth *")]
         public string Birthday { get; set; }
 
-        [Required(ErrorMessage = "Gender *")]
-        [DisplayName("Gender - Required")]
+        [Required(ErrorMessage = "Gender is required")]
+        [DisplayName("Gender *")]
         public string Gender { get; set; }
 
         [DisplayName("Cell Phone")]
@@ -57,7 +58,7 @@ namespace HopeTherapy.Models
         public string WorkPhoneNumber { get; set; }
 
         [DataType(DataType.EmailAddress)]
-        [Required(ErrorMessage = "Email is required")]
+        //[Required(ErrorMessage = "Email is required")]
         [DisplayName("Email")]
         public string EmailAddress { get; set; }
 
@@ -75,7 +76,7 @@ namespace HopeTherapy.Models
         public string CompanyZip { get; set; }
 
         [DataType(DataType.Date)]
-       // [Required(ErrorMessage = "Donation Date is required")]
+        [Required(ErrorMessage = "Donation Date is required")]
         [DisplayName("Donation Date *")]
         public string DonationDate { get; set; }
 

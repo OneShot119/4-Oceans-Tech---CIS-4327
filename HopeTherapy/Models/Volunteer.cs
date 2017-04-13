@@ -50,7 +50,7 @@ namespace HopeTherapy.Models
         public string WorkPhoneNumber { get; set; }
 
         [DataType(DataType.EmailAddress)]
-        [Required(ErrorMessage = "Email is required")]
+       // [Required(ErrorMessage = "Email is required")]
         [DisplayName("Email")]
         public string Email { get; set; }
 
@@ -85,7 +85,7 @@ namespace HopeTherapy.Models
         public string DateStarted { get; set; }
 
         [Required(ErrorMessage = "Hours Volunteered is required")]
-        //[DisplayName("Volunteer Hours/Month - Required")]
+        [DisplayName("Volunteer Hours/Month *")]
         public int HoursPerMonth { get; set; }
 
         [DisplayName("Volunteer Position")]

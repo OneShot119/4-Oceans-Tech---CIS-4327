@@ -100,6 +100,7 @@ namespace HopeTherapy.Controllers
             {
                 var Volunteers = Utilities.Sql.ExecuteQuerySingleResult<Volunteer>("select * from dbo.Volunteer WHERE Volunteer.VolunteerID = " + ID + ";");
                 Volunteers.VolunteerPositions = _VolunteerPositions;
+                Volunteers.StatesList = _StatesList;
                 return View(Volunteers);
             }
         }
