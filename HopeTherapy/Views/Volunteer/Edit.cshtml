@@ -49,11 +49,11 @@
                     @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
                 </div>
-            </div>
+            </div><br/>
 
             <div class="row">
                 <div class="col-sm-3">
-                    @*@Html.DisplayNameFor(i => i.States)<br />*@
+                    @Html.DisplayNameFor(i => i.States)<br />
                     @Html.DropDownListFor(i => i.States, Model.StatesList) @Html.ValidationMessageFor(i => i.States)
                 </div>
 
