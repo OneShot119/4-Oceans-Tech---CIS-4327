@@ -80,6 +80,7 @@ namespace HopeTherapy.Models
         [DisplayName("Donation Date *")]
         public string DonationDate { get; set; }
 
+        [DataType(DataType.Currency)]
         public string CurrencyDonation { get; set; }
 
         public string ItemDonation { get; set; }
