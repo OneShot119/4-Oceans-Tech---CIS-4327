@@ -170,8 +170,8 @@
                     </div>
 
                     <div class="col-sm-3">
-                        Currency Donated:<br>
-                        <input type="text" id="currencyField" class='currency' value="$0.00" />
+                        @Html.EditorFor(i => i.CurrencyDonation, new { @class = "form-control", placeholder = "Donation Date", required = "required" })<br />
+                        @Html.ValidationMessageFor(i => i.CurrencyDonation)
 
                     </div>
                 </div><br />
