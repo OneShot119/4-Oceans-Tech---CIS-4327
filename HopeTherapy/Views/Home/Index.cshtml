@@ -18,7 +18,7 @@
                     <thead>
                         <tr>
                             <th colspan="2">
-                                <p style="font-size:30px">Welcome @Html.Encode(User.Identity.Name)</p>
+                                <p style="font-size:30px">Welcome User</p>
                             </th>
 
                         </tr>
@@ -44,7 +44,7 @@
                         @*<td>
                             <p><a href="/Calendar/Index" class="btn btn-primary btn-lg">Calendar &raquo;</a></p>
                         </td>*@
-                        <td>
+                        <td colspan="2">
                             <p><a href='@Url.Action("Logout", "User")' class="btn btn-primary btn-lg">Sign Out &raquo;</a></p>
                         </td>
                     </tr>
