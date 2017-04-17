@@ -65,8 +65,9 @@
 
             <div class="row">
                 <div class="col-sm-3">
-                    @Html.EditorFor(model => model.County, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.County, "", new { @class = "text-danger" })
+                    @Html.DisplayNameFor(i => i.County)<text>:</text><br>
+                    @Html.TextBoxFor(i => i.County, new { @class = "form-control", placeholder = "County", required = "required" })
+                    @Html.ValidationMessageFor(i => i.County)
                 </div>
 
                 <div class="col-sm-3">
@@ -136,13 +137,15 @@
 
             <div class="row">
                 <div class="col-sm-3">
-                    @Html.DisplayNameFor(i => i.DateOrientation)<text>:</text><br />
-                    <input type="date" name="DateOrientation"><br><br />
+                    @Html.DisplayNameFor(i => i.DateOrientation)<text>:</text><br>
+                    @Html.EditorFor(i => i.DateOrientation, new { @class = "form-control", placeholder = "Orientation Date", required = "required" })<br />
+                    @Html.ValidationMessageFor(i => i.DateOrientation)
                 </div>
 
                 <div class="col-sm-3">
-                    @Html.DisplayNameFor(i => i.DateStarted)<text>:</text><br />
-                    <input type="date" name="DateStarted"><br><br />
+                    @Html.DisplayNameFor(i => i.DateStarted)<text>:</text><br>
+                    @Html.EditorFor(i => i.DateStarted, new { @class = "form-control", placeholder = "Date Started", required = "required" })<br />
+                    @Html.ValidationMessageFor(i => i.DateStarted)
                 </div>
             </div>
 
@@ -177,12 +180,14 @@
                     @Html.DisplayNameFor(i => i.Donor)<text>:</text><br>
                     @Html.RadioButtonFor(model => model.Donor, "Y", false)@Html.Label("Yes")<br />
                     @Html.RadioButtonFor(model => model.Donor, "N", false)@Html.Label("No")
+                    @Html.ValidationMessageFor(i => i.Donor)
                 </div>
 
                 <div class="col-sm-3">
                     @Html.DisplayNameFor(i => i.Board)<text>:</text><br>
                     @Html.RadioButtonFor(model => model.Board, "Y", false)@Html.Label("Yes")<br />
                     @Html.RadioButtonFor(model => model.Board, "N", false)@Html.Label("No")
+                    @Html.ValidationMessageFor(i => i.Board)
                 </div>
             </div>
 
@@ -191,12 +196,14 @@
                     @Html.DisplayNameFor(i => i.EmailList)<text>:</text><br>
                     @Html.RadioButtonFor(model => model.EmailList, "Y", false)@Html.Label("Yes")<br />
                     @Html.RadioButtonFor(model => model.EmailList, "N", false)@Html.Label("No")
+                    @Html.ValidationMessageFor(i => i.EmailList)
                 </div>
 
                 <div class="col-sm-3">
                     @Html.DisplayNameFor(i => i.MailList)<text>:</text><br>
                     @Html.RadioButtonFor(model => model.MailList, "Y", false)@Html.Label("Yes")<br />
                     @Html.RadioButtonFor(model => model.MailList, "N", false)@Html.Label("No")
+                    @Html.ValidationMessageFor(i => i.MailList)
                 </div>
             </div>
 
