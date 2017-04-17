@@ -116,13 +116,13 @@ namespace HopeTherapy.Models
         public Boolean Active { get; set; }
 
 
-        public Boolean Sunday { get; set; } = false;
-        public Boolean Monday { get; set; } = false;
-        public Boolean Tuesday { get; set; } = false;
-        public Boolean Wednesday { get; set; } = false;
-        public Boolean Thursday { get; set; } = false;
-        public Boolean Friday { get; set; } = false;
-        public Boolean Saturday { get; set; } = false;
+        public Boolean Sunday { get; set; }
+        public Boolean Monday { get; set; }
+        public Boolean Tuesday { get; set; }
+        public Boolean Wednesday { get; set; }
+        public Boolean Thursday { get; set; }
+        public Boolean Friday { get; set; }
+        public Boolean Saturday { get; set; }
         //Need collection of these ^ 
         public List<String> Schedule()
         {
@@ -136,6 +136,20 @@ namespace HopeTherapy.Models
             if (Saturday) { schedule.Add("Saturday"); }
             return schedule;
         }
-    
+        public IEnumerable<String> dayList { get; set; }
+        public void setDays()
+        {
+            foreach(var day in dayList)
+            {
+                if (day=="Sunday") { this.Sunday=true; }
+                if (day == "Monday") { this.Monday = true; }
+                if (day == "Tuesday") { this.Tuesday = true; }
+                if (day == "Wednesday") { this.Wednesday = true; }
+                if (day == "Thursday") { this.Thursday = true; }
+                if (day == "Friday") { this.Friday = true; }
+                if (day == "Saturday") { this.Saturday = true; }
+
+            }
+        }
     }
 }

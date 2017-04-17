@@ -99,6 +99,10 @@ namespace HopeTherapy.Controllers
             else
             {
                 var Volunteers = Utilities.Sql.ExecuteQuerySingleResult<Volunteer>("select * from dbo.Volunteer WHERE Volunteer.VolunteerID = " + ID + ";");
+                IEnumerable<String> schedule = Utilities.Sql.ExecuteQuery<String>("select * from dbo.Days WHERE Days.Volunteer = " + ID + ";");
+                Volunteers.VolunteerID = ID;
+                Volunteers.dayList = schedule;
+                Volunteers.setDays();
                 Volunteers.VolunteerPositions = _VolunteerPositions;
                 Volunteers.StatesList = _StatesList;
                 return View(Volunteers);
@@ -132,7 +136,32 @@ namespace HopeTherapy.Controllers
                     }
 
                 }
+                
+                int ID = model.VolunteerID;
+                string sql3 = "DELETE FROM Days WHERE Volunteer = " + ID + ";";
+                try
+                {
+                    Utilities.Sql.ExecuteCommand(sql3, model);
+                }
+                catch (SqlException ex)
+                {
+                    throw;
+                }
 
+                List<String> Schedule = model.Schedule();
+                foreach (var Day in Schedule)
+                {
+                    string sql2 = "INSERT INTO [dbo].[Days] Values ('" + Day + "','" + ID + "');";
+                    try
+                    {
+                        Utilities.Sql.ExecuteCommand(sql2, model);
+                    }
+                    catch (SqlException ex)
+                    {
+                        throw;
+                    }
+
+                }
                 return RedirectToAction("List", "Volunteer");
             }
         }
@@ -146,22 +175,37 @@ namespace HopeTherapy.Controllers
             }
             else
             {
-                    string sql = "INSERT INTO [dbo].[Volunteer] (FirstName, LastName, StreetAddress, City, States, ZipCode, County," +
-                        "CellPhoneNumber, HomePhoneNumber, WorkPhoneNumber, Email, Birthday, Gender, CompanyName, Position, CompanyAddress," +
-                        "DateOrientation, DateStarted, HoursPerMonth, VolunteerPosition, AreaOfInterest, Skills, Donor, Board, EmailList, MailList)" +
-                        "VALUES(@FirstName, @LastName, @StreetAddress, @City, @States, @ZipCode, @County, @CellPhoneNumber, @HomePhoneNumber," +
-                        "@WorkPhoneNumber, @Email, @Birthday, @Gender, @CompanyName, @Position, @CompanyAddress," +
-                        "@DateOrientation, @DateStarted,  @HoursPerMonth, @VolunteerPosition, @AreaOfInterest, @Skills, @Donor, @Board, @EmailList, @MailList)";
+                List<String> Schedule = model.Schedule();
+                string sql = "INSERT INTO [dbo].[Volunteer] (FirstName, LastName, StreetAddress, City, States, ZipCode, County," +
+                    "CellPhoneNumber, HomePhoneNumber, WorkPhoneNumber, Email, Birthday, Gender, CompanyName, Position, CompanyAddress," +
+                    "DateOrientation, DateStarted, HoursPerMonth, VolunteerPosition, AreaOfInterest, Skills, Donor, Board, EmailList, MailList)" +
+                    "VALUES(@FirstName, @LastName, @StreetAddress, @City, @States, @ZipCode, @County, @CellPhoneNumber, @HomePhoneNumber," +
+                    "@WorkPhoneNumber, @Email, @Birthday, @Gender, @CompanyName, @Position, @CompanyAddress," +
+                    "@DateOrientation, @DateStarted,  @HoursPerMonth, @VolunteerPosition, @AreaOfInterest, @Skills, @Donor, @Board, @EmailList, @MailList)";
+                try
+                {
+                    Utilities.Sql.ExecuteCommand(sql, model);
+                }
+                catch (SqlException ex)
+                {
+                    throw;
+                }
+                string sql3 = "SELECT VolunteerID FROM Volunteer WHERE VolunteerID = (SELECT max(VolunteerID) FROM Volunteer)";
+                int ID = Utilities.Sql.ExecuteQuerySingleResult<int>(sql3, model);
+                foreach (var Day in Schedule)
+                {
+                    string sql2 = "INSERT INTO [dbo].[Days] Values ('" + Day + "','" + ID + "');";
                     try
                     {
-                        Utilities.Sql.ExecuteCommand(sql, model);
+                        Utilities.Sql.ExecuteCommand(sql2, model);
                     }
                     catch (SqlException ex)
                     {
                         throw;
                     }
-
-                return RedirectToAction("Index", "Home");
+                    
+                }
+            return RedirectToAction("Index", "Home");
             }
         }
 
@@ -240,6 +284,9 @@ namespace HopeTherapy.Controllers
             else
             {
                 var Volunteer = Utilities.Sql.ExecuteQuerySingleResult<Volunteer>("select * from dbo.Volunteer WHERE Volunteer.VolunteerID = " + ID + ";");
+                IEnumerable<String> schedule = Utilities.Sql.ExecuteQuery<String>("select * from dbo.Days WHERE Days.Volunteer = " + ID + ";");
+                Volunteer.dayList = schedule;
+                Volunteer.setDays();
                 return View(Volunteer);
             }
         }
