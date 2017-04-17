@@ -89,10 +89,11 @@
                 <div class="row">
                     <div class="col-sm-3">
                         Gender:<br>
-                        <input type="radio" name="Gender" value="M"> Male <br>
-                        <input type="radio" name="Gender" value="F"> Female <br>
-                        <input type="radio" name="Gender" value="Other"> Other <br>
-                        @Html.ValidationMessageFor(i => i.Gender)<br><br />
+                        @Html.DisplayNameFor(i => i.Gender)<text>:</text><br>
+                        @Html.RadioButtonFor(model => model.Gender, "M", false)@Html.Label("Male")<br />
+                        @Html.RadioButtonFor(model => model.Gender, "F", false)@Html.Label("Female")<br />
+                        @Html.RadioButtonFor(model => model.Gender, "Other", false)@Html.Label("Other")<br /><br />
+                        @Html.ValidationMessageFor(i => i.Gender)
                     </div><br />
                 </div>
 

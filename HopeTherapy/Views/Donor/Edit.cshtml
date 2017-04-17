@@ -124,7 +124,6 @@
                 <legend>Employment Information</legend>
                 <div class="row">
                     <div class="col-sm-3">
-                        @Html.DisplayNameFor(i => i.CompanyState)<text>:</text><br>
                         @Html.EditorFor(model => model.CompanyName, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.CompanyName, "", new { @class = "text-danger" })
                     </div>

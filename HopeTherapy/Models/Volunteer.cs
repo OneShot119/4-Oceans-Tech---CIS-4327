@@ -60,8 +60,8 @@ namespace HopeTherapy.Models
         [DisplayName("Birthday *")]
         public string Birthday { get; set; }
 
-        [Required(ErrorMessage = "Gender *")]
-        [DisplayName("Gender - Required")]
+        [Required(ErrorMessage = "Gender is required")]
+        [DisplayName("Gender *")]
         public string Gender { get; set; }
 
         [DisplayName("Company Name")]
@@ -99,7 +99,7 @@ namespace HopeTherapy.Models
         public string Skills { get; set; }
 
         [Required(ErrorMessage = "Donor is required")]
-        [DisplayName("Donor? -*")]
+        [DisplayName("Donor? *")]
         public string Donor { get; set; }
 
         [Required(ErrorMessage = "Board is required")]
