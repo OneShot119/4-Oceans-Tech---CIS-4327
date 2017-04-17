@@ -41,7 +41,7 @@
 
                 <div class="row">
                     <div class="col-sm-3">
-                        @Html.DisplayNameFor(i => i.States)<br />
+                        @Html.DisplayNameFor(i => i.States)<text>:</text><br>
                         @Html.DropDownListFor(i => i.States, Model.StatesList) @Html.ValidationMessageFor(i => i.States)
                     </div>
 
@@ -134,8 +134,7 @@
 
                 <div class="row">
                     <div class="col-sm-3">
-                        @Html.DisplayNameFor(i => i.HoursPerMonth)<text>:</text><br>
-                        @Html.TextBoxFor(i => i.HoursPerMonth, new { @class = "form-control", placeholder = "Hours Per Month", required = "required" })
+                        @Html.EditorFor(i => i.HoursPerMonth, new { @class = "form-control", placeholder = "Hours Per Month", required = "required" })
                         @Html.ValidationMessageFor(i => i.HoursPerMonth)
                     </div>
                     <div class="col-sm-3">
