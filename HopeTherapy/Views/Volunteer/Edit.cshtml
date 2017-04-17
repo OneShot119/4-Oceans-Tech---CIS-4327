@@ -82,7 +82,7 @@
                     @Html.DisplayNameFor(i => i.Gender)<text>:</text><br>
                     @Html.RadioButtonFor(model => model.Gender, "M", false)@Html.Label("Male")<br />
                     @Html.RadioButtonFor(model => model.Gender, "F", false)@Html.Label("Female")<br />
-                    @Html.RadioButtonFor(model => model.Gender, "Other", false)@Html.Label("Other")<br /><br />
+                    @Html.RadioButtonFor(model => model.Gender, "Other", false)@Html.Label("Other")<br />
                     @Html.ValidationMessageFor(i => i.Gender)
                 </div>
             </div>
@@ -179,14 +179,14 @@
                 <div class="col-sm-3">
                     @Html.DisplayNameFor(i => i.Donor)<text>:</text><br>
                     @Html.RadioButtonFor(model => model.Donor, "Y", false)@Html.Label("Yes")<br />
-                    @Html.RadioButtonFor(model => model.Donor, "N", false)@Html.Label("No")
+                    @Html.RadioButtonFor(model => model.Donor, "N", false)@Html.Label("No")<br />
                     @Html.ValidationMessageFor(i => i.Donor)
                 </div>
 
                 <div class="col-sm-3">
                     @Html.DisplayNameFor(i => i.Board)<text>:</text><br>
                     @Html.RadioButtonFor(model => model.Board, "Y", false)@Html.Label("Yes")<br />
-                    @Html.RadioButtonFor(model => model.Board, "N", false)@Html.Label("No")
+                    @Html.RadioButtonFor(model => model.Board, "N", false)@Html.Label("No")<br />
                     @Html.ValidationMessageFor(i => i.Board)
                 </div>
             </div>
@@ -195,14 +195,14 @@
                 <div class="col-sm-3">
                     @Html.DisplayNameFor(i => i.EmailList)<text>:</text><br>
                     @Html.RadioButtonFor(model => model.EmailList, "Y", false)@Html.Label("Yes")<br />
-                    @Html.RadioButtonFor(model => model.EmailList, "N", false)@Html.Label("No")
+                    @Html.RadioButtonFor(model => model.EmailList, "N", false)@Html.Label("No")<br />
                     @Html.ValidationMessageFor(i => i.EmailList)
                 </div>
 
                 <div class="col-sm-3">
                     @Html.DisplayNameFor(i => i.MailList)<text>:</text><br>
                     @Html.RadioButtonFor(model => model.MailList, "Y", false)@Html.Label("Yes")<br />
-                    @Html.RadioButtonFor(model => model.MailList, "N", false)@Html.Label("No")
+                    @Html.RadioButtonFor(model => model.MailList, "N", false)@Html.Label("No")<br />
                     @Html.ValidationMessageFor(i => i.MailList)
                 </div>
             </div>
