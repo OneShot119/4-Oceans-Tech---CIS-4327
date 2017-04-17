@@ -39,8 +39,8 @@ namespace HopeTherapy.Models
         [DisplayName("County *")]
         public string County { get; set; }
 
-        [DataType(DataType.Date)]
         [Required(ErrorMessage = "Date of Birth is required")]
+        [DataType(DataType.Date)]
         [DisplayName("Date of Birth *")]
         public string Birthday { get; set; }
 

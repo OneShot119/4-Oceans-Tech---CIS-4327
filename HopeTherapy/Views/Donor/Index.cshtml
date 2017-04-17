@@ -75,21 +75,25 @@
                     <div class="col-sm-3">
                         County:<br>
                         <input type="text" name="County">
+                        @Html.ValidationMessageFor(i => i.County)
                     </div>
 
                     <div class="col-sm-3">
                         Date of Birth:<br>
                         <input type="date" name="Birthday" style="padding: 2px 6px; box-sizing: border-box; border: 2px solid #555555;
                     border-radius: 3px; width: 200px; height: 30px;">
+
                     </div>
+                    @Html.ValidationMessageFor(i => i.Birthday)
                 </div><br />
 
                 <div class="row">
                     <div class="col-sm-3">
                         Gender:<br>
-                        <input type="radio" name="Gender" value="M" checked> Male <br>
+                        <input type="radio" name="Gender" value="M"> Male <br>
                         <input type="radio" name="Gender" value="F"> Female <br>
-                        <input type="radio" name="Gender" value="Other"> Other <br><br><br>
+                        <input type="radio" name="Gender" value="Other"> Other <br>
+                        @Html.ValidationMessageFor(i => i.Gender)<br><br />
                     </div><br />
                 </div>
 
@@ -167,6 +171,7 @@
                         Donation Date:<br>
                         <input type="date" name="DonationDate" style="padding: 2px 6px; box-sizing: border-box; border: 2px solid #555555;
                     border-radius: 3px; width: 200px; height: 30px;">
+                        @Html.ValidationMessageFor(i => i.DonationDate)
                     </div>
 
                     <div class="col-sm-3">
