@@ -36,16 +36,16 @@ namespace HopeTherapy.Models
         public string ZipCode { get; set; }
 
         [Required(ErrorMessage = "County is required")]
-        [DisplayName("County *")]
+        [DisplayName("County - Required")]
         public string County { get; set; }
 
         [Required(ErrorMessage = "Date of Birth is required")]
         [DataType(DataType.Date)]
-        [DisplayName("Date of Birth *")]
+        [DisplayName("Date of Birth - Required")]
         public string Birthday { get; set; }
 
         [Required(ErrorMessage = "Gender is required")]
-        [DisplayName("Gender *")]
+        [DisplayName("Gender - Required")]
         public string Gender { get; set; }
 
         [DisplayName("Cell Phone")]

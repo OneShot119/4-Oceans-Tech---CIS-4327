@@ -8,7 +8,6 @@
 <html>
     <head>
         <script type="text/javascript" src="~/scripts/jquery.formatCurrency-1.4.0.js"></script>
-        @*<script type="text/javascript" src="~/scripts/jquery.validate.js"></script>*@
         <script src="~/scripts/jquery-1.10.2.js" type="text/javascript"></script>
         <script src="~/scripts/jquery.maskedinput.js" type="text/javascript"></script>
 
@@ -73,8 +72,8 @@
 
                 <div class="row">
                     <div class="col-sm-3">
-                        County:<br>
-                        <input type="text" name="County">
+                        @Html.DisplayNameFor(i => i.County)<text>:</text><br>
+                        @Html.TextBoxFor(i => i.County, new { @class = "form-control", placeholder = "County", required = "required" })
                         @Html.ValidationMessageFor(i => i.County)
                     </div>
 
