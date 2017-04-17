@@ -1,0 +1,213 @@
+﻿@model HopeTherapy.Models.Donor
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<html>
+    <head>
+        <script type="text/javascript" src="~/scripts/jquery.formatCurrency-1.4.0.js"></script>
+        <script src="~/scripts/jquery-1.10.2.js" type="text/javascript"></script>
+        <script src="~/scripts/jquery.maskedinput.js" type="text/javascript"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function()
+            {
+                $('.currency').blur(function()
+                {
+                    $('.currency').formatCurrency();
+                });
+            });
+        </script>
+
+    </head>
+
+    <p><a href="/Home/Index" class="btn btn-primary btn-lg">Go Back &laquo;</a></p>
+    <p><a href='@Url.Action("Logout", "User")' class="btn btn-primary btn-lg">Sign Out &raquo;</a></p>
+<body>
+    <center><h1>New Donor Registration</h1></center>
+    @using (Html.BeginForm("Index", "Donor", FormMethod.Post))
+    {
+        <form>
+            <fieldset>
+                <legend>Personal Information</legend>
+
+                <div class="row">
+                    <div class="col-sm-3">
+                        @Html.DisplayNameFor(i => i.FirstName)<text>:</text><br>
+                        @Html.TextBoxFor(i => i.FirstName, new { @class = "form-control", placeholder = "First Name", required = "required" })
+                        @Html.ValidationMessageFor(i => i.FirstName)
+                    </div>
+                    <div class="col-sm-3">
+                        @Html.DisplayNameFor(i => i.LastName)<text>:</text><br>
+                        @Html.TextBoxFor(i => i.LastName, new { @class = "form-control", placeholder = "Last Name", required = "required" })
+                        @Html.ValidationMessageFor(i => i.LastName)
+                    </div>
+                </div><br />
+
+                <div class="row">
+                    <div class="col-sm-3">
+                        Street Address: <br>
+                        <input type="text" name="StreetAddress">
+                    </div>
+                    <div class="col-sm-3">
+                        City: <br>
+                        <input type="text" name="City">
+                    </div>
+                </div><br />
+
+                <div class="row">
+                    <div class="col-sm-3">
+                        @Html.DisplayNameFor(i => i.State)<br />
+                        @Html.DropDownListFor(i => i.State, Model.StatesList) @Html.ValidationMessageFor(i => i.State)
+                    </div>
+
+                    <div class="col-sm-3">
+                        @Html.DisplayNameFor(i => i.ZipCode)<br />
+                        @Html.TextBoxFor(m => m.ZipCode)<br />
+                        @Html.ValidationMessageFor(m => m.ZipCode)
+                    </div>
+                </div><br />
+
+                <div class="row">
+                    <div class="col-sm-3">
+                        @Html.DisplayNameFor(i => i.County)<text>:</text><br>
+                        @Html.TextBoxFor(i => i.County, new { @class = "form-control", placeholder = "County", required = "required" })
+                        @Html.ValidationMessageFor(i => i.County)
+                    </div>
+
+                    <div class="col-sm-3">
+                        Date of Birth:<br>
+                        <input type="date" name="Birthday" style="padding: 2px 6px; box-sizing: border-box; border: 2px solid #555555;
+                    border-radius: 3px; width: 200px; height: 30px;">
+
+                    </div>
+                    @Html.ValidationMessageFor(i => i.Birthday)
+                </div><br />
+
+                <div class="row">
+                    <div class="col-sm-3">
+                        Gender:<br>
+                        <input type="radio" name="Gender" value="M"> Male <br>
+                        <input type="radio" name="Gender" value="F"> Female <br>
+                        <input type="radio" name="Gender" value="Other"> Other <br>
+                        @Html.ValidationMessageFor(i => i.Gender)<br><br />
+                    </div><br />
+                </div>
+
+                <legend>Contact Information</legend>
+
+                <div class="row">
+                    <div class="col-sm-3">
+                        Cell Phone:<br>
+                        <input id="cphone" type="text" name="CellPhoneNumber">
+                    </div>
+
+                    <div class="col-sm-3">
+                        Home Phone:<br>
+                        <input id="hphone" type="text" name="HomePhoneNumber">
+                    </div>
+                </div><br />
+
+                <div class="row">
+                    <div class="col-sm-3">
+                        Business Phone:<br>
+                        <input id="wphone" type="text" name="WorkPhoneNumber">
+                    </div>
+
+                    <div class="col-sm-3">
+                        @Html.DisplayNameFor(i => i.EmailAddress)<text>:</text><br>
+                        @Html.EditorFor(i => i.EmailAddress, new { @class = "form-control", placeholder = "Email", required = "required" })<br />
+                        @Html.ValidationMessageFor(i => i.EmailAddress)
+                    </div>
+                </div><br />
+                <br /><br />
+
+                <legend>Employment Information</legend>
+
+                <div class="row">
+                    <div class="col-sm-3">
+                        Company Name:<br>
+                        <input type="text" name="CompanyName">
+                    </div>
+
+                    <div class="col-sm-3">
+                        Position:<br>
+                        <input type="text" name="Position">
+                    </div>
+                </div><br />
+
+                <div class="row">
+                    <div class="col-sm-3">
+                        Business Address:<br>
+                        <input type="text" name="CompanyAddress">
+                    </div>
+
+                    <div class="col-sm-3">
+                        Business City:<br>
+                        <input type="text" name="CompanyCity">
+                    </div>
+                </div><br />
+
+                <div class="row">
+                    <div class="col-sm-3">
+                        @Html.DisplayNameFor(i => i.CompanyState)<br>
+                        @Html.DropDownListFor(i => i.CompanyState, Model.StatesList) @Html.ValidationMessageFor(i => i.CompanyState)
+                    </div>
+
+                    <div class="col-sm-3">
+                        Business Zip:<br>
+                        <input type="text" name="CompanyZip">
+                    </div>
+                </div><br />
+                <br /><br />
+
+                <legend>Donation Information</legend>
+
+                <div class="row">
+                    <div class="col-sm-3">
+                        Donation Date:<br>
+                        <input type="date" name="DonationDate" style="padding: 2px 6px; box-sizing: border-box; border: 2px solid #555555;
+                    border-radius: 3px; width: 200px; height: 30px;">
+                        @Html.ValidationMessageFor(i => i.DonationDate)
+                    </div>
+
+                    <div class="col-sm-3">
+                        @Html.EditorFor(i => i.CurrencyDonation, new { @class = "form-control", placeholder = "Donation Date", required = "required" })<br />
+                        @Html.ValidationMessageFor(i => i.CurrencyDonation)
+
+                    </div>
+                </div><br />
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        Items Donated: <br><textarea type="text" name="ItemDonation"></textarea>
+                    </div>
+                </div><br />
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        Services Donated: <br><textarea type="text" name="ServiceDonation"></textarea>
+                    </div>
+                </div><br />
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <button type="submit" class="button button">Submit</button>
+                    </div>
+                </div><br />
+            </fieldset>
+        </form>
+    }
+    <script type="text/javascript">
+                jQuery(function ($) {
+                    $("#cphone").mask("(999) 999-9999");
+                    $("#hphone").mask("(999) 999-9999");
+                    $("#wphone").mask("(999) 999-9999");
+
+                });
+    </script>
+</body>
+
+</html>
