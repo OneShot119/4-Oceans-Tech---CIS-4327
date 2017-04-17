@@ -74,16 +74,16 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-3">
-                        @Html.EditorFor(model => model.County, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.County, "", new { @class = "text-danger" })
+                        @Html.DisplayNameFor(i => i.County)<text>:</text><br>
+                        @Html.TextBoxFor(i => i.County, new { @class = "form-control", placeholder = "County", required = "required" })
                         @Html.ValidationMessageFor(i => i.County)
                     </div>
 
-                    <div class="col-sm-3">
+                    @*<div class="col-sm-3">
                         @Html.DisplayNameFor(i => i.Birthday)<text>:</text><br>
                         @Html.EditorFor(i => i.Birthday, new { @class = "form-control", placeholder = "Birthday", required = "required" })<br />
                         @Html.ValidationMessageFor(i => i.Birthday)
-                    </div>
+                    </div>*@
                 </div>
 
                 @*
