@@ -1,12 +1,15 @@
 @import url(http://fonts.googleapis.com/css?family=Patua+One|Open+Sans);
 body {
-    background-color: white;
+    background-color: #184B20;
     padding-top: 50px;
     padding-bottom: 20px;
 }
 
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
+    background-color: white;
+    font-family:Georgia;
     padding-left: 15px;
     padding-right: 15px;
 }
@@ -30,6 +33,7 @@ textarea {
     font-weight: bold;
 }
 .body {
+    background-color: whitesmoke;
     color: #999999;
     font: 14px/1.5em "Lucida Grande",Arial,sans-serif;
     margin: 20px;
@@ -164,7 +168,6 @@ textarea {
     }
 
 .button {
-    background-color: white;
     color: black;
     border: 2px solid #555555;
     border-radius: 6px;
