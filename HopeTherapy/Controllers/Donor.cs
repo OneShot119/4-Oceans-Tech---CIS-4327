@@ -93,7 +93,7 @@ namespace HopeTherapy.Controllers
             }
             else
             {
-                var Donor = Utilities.Sql.ExecuteQuerySingleResult<Donor>("select D_CODE as DonorID, D_Fname as FirstName, D_Lname as LastName, D_address as StreetAddress, D_CITY as City, D_STATE as State, D_ZIP as ZipCode, D_County as County, D_BIRTHDAY as Birthday, D_GENDER as Gender, D_CELL_PHONE as CellPhoneNumber, D_HOME_PHONE as HomePhoneNumber, D_WORK_PHONE as WorkPhoneNumber, D_EMAIL as EmailAddress, D_CO_NAME as CompanyName, D_POSITION as Position, D_CO_ADDRESS as CompanyAddress, D_CO_STATE as CompanyState, D_CO_CITY as CompanyCity, D_CO_ZIP as CompanyZip, DONATION_DATE as DonationDate, DONATION_CURRENCY as CurrencyDonation, DONATION_ITEM as ItemDonation, DONATION_SERVICE as ServiceDonation from dbo.DONOR Where D_CODE = " + ID + ";");
+                var Donor = Utilities.Sql.ExecuteQuerySingleResult<Donor>("select D_CODE as DonorID, D_Fname as FirstName, D_Lname as LastName, D_address as StreetAddress, D_CITY as City, D_STATE as State, D_ZIP as ZipCode, D_County as County, D_CELL_PHONE as CellPhoneNumber, D_HOME_PHONE as HomePhoneNumber, D_WORK_PHONE as WorkPhoneNumber, D_EMAIL as EmailAddress, D_CO_NAME as CompanyName, D_POSITION as Position, D_CO_ADDRESS as CompanyAddress, D_CO_STATE as CompanyState, D_CO_CITY as CompanyCity, D_CO_ZIP as CompanyZip, DONATION_DATE as DonationDate, DONATION_CURRENCY as CurrencyDonation, DONATION_ITEM as ItemDonation, DONATION_SERVICE as ServiceDonation from dbo.DONOR Where D_CODE = " + ID + ";");
                 Donor.StatesList = _StatesList;
                 return View(Donor);
             }
@@ -112,8 +112,8 @@ namespace HopeTherapy.Controllers
 
                 {
                     string sql = "UPDATE [dbo].[DONOR] SET D_Fname = @FirstName, D_Lname = @LastName, " +
-                        "D_address = @StreetAddress, D_CITY = @City, D_STATE = @State, D_ZIP = @ZipCode, D_County = @County, D_BIRTHDAY = @Birthday, " +
-                        "D_GENDER = @Gender, D_CELL_PHONE = @CellPhoneNumber, D_HOME_PHONE = @HomePhoneNumber, D_WORK_PHONE = @WorkPhoneNumber, " +
+                        "D_address = @StreetAddress, D_CITY = @City, D_STATE = @State, D_ZIP = @ZipCode, D_County = @County, " +
+                        "D_CELL_PHONE = @CellPhoneNumber, D_HOME_PHONE = @HomePhoneNumber, D_WORK_PHONE = @WorkPhoneNumber, " +
                         "D_EMAIL = @EmailAddress, D_CO_NAME = @CompanyName, D_POSITION = @Position, D_CO_ADDRESS = @CompanyAddress, " +
                         "D_CO_STATE = @CompanyState, D_CO_CITY = @CompanyCity, D_CO_ZIP = @CompanyZip, DONATION_DATE = @DonationDate, " +
                         "DONATION_CURRENCY = @CurrencyDonation, DONATION_ITEM = @ItemDonation, DONATION_SERVICE = @ServiceDonation " +
@@ -142,10 +142,10 @@ namespace HopeTherapy.Controllers
             }
             else
             {
-                    string sql = "INSERT INTO [dbo].[DONOR] (D_FNAME, D_LNAME, D_ADDRESS, D_CITY, D_STATE, D_ZIP, D_COUNTY, D_BIRTHDAY, D_GENDER, D_CELL_PHONE, " +
+                    string sql = "INSERT INTO [dbo].[DONOR] (D_FNAME, D_LNAME, D_ADDRESS, D_CITY, D_STATE, D_ZIP, D_COUNTY, D_CELL_PHONE, " +
                     "D_HOME_PHONE, D_WORK_PHONE, D_EMAIL, D_CO_NAME, D_POSITION, D_CO_ADDRESS, D_CO_CITY, D_CO_STATE, D_CO_ZIP, " +
                     "DONATION_DATE, DONATION_CURRENCY, DONATION_ITEM, DONATION_SERVICE )" +
-                    "VALUES(@FirstName, @LastName, @StreetAddress, @City, @State, @ZipCode, @County, @Birthday, @Gender, " +
+                    "VALUES(@FirstName, @LastName, @StreetAddress, @City, @State, @ZipCode, @County, " +
                     "@CellPhoneNumber, @HomePhoneNumber, @WorkPhoneNumber, @EmailAddress, @CompanyName, @Position, @CompanyAddress, @CompanyCity, @CompanyState, " +
                     "@CompanyZip, @DonationDate, @CurrencyDonation, @ItemDonation, @ServiceDonation)";
 
@@ -241,7 +241,7 @@ namespace HopeTherapy.Controllers
             }
             else
             {
-                var Donor = Utilities.Sql.ExecuteQuerySingleResult<Donor>("select D_CODE as DonorID, D_Fname as FirstName, D_Lname as LastName, D_address as StreetAddress, D_CITY as City, D_STATE as State, D_ZIP as ZipCode, D_County as County, D_BIRTHDAY as Birthday, D_GENDER as Gender, D_CELL_PHONE as CellPhoneNumber, D_HOME_PHONE as HomePhoneNumber, D_WORK_PHONE as WorkPhoneNumber, D_EMAIL as EmailAddress, D_CO_NAME as CompanyName, D_POSITION as Position, D_CO_ADDRESS as CompanyAddress, D_CO_STATE as CompanyState, D_CO_CITY as CompanyCity, D_CO_ZIP as CompanyZip, DONATION_DATE as DonationDate, DONATION_CURRENCY as CurrencyDonation, DONATION_ITEM as ItemDonation, DONATION_SERVICE as ServiceDonation from dbo.DONOR Where D_CODE = " + ID + ";");
+                var Donor = Utilities.Sql.ExecuteQuerySingleResult<Donor>("select D_CODE as DonorID, D_Fname as FirstName, D_Lname as LastName, D_address as StreetAddress, D_CITY as City, D_STATE as State, D_ZIP as ZipCode, D_County as County, D_CELL_PHONE as CellPhoneNumber, D_HOME_PHONE as HomePhoneNumber, D_WORK_PHONE as WorkPhoneNumber, D_EMAIL as EmailAddress, D_CO_NAME as CompanyName, D_POSITION as Position, D_CO_ADDRESS as CompanyAddress, D_CO_STATE as CompanyState, D_CO_CITY as CompanyCity, D_CO_ZIP as CompanyZip, DONATION_DATE as DonationDate, DONATION_CURRENCY as CurrencyDonation, DONATION_ITEM as ItemDonation, DONATION_SERVICE as ServiceDonation from dbo.DONOR Where D_CODE = " + ID + ";");
                 return View(Donor);
             }
         }
