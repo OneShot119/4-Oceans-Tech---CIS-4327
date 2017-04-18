@@ -250,6 +250,7 @@
     <Content Include="Views\Donor\Profile.cshtml" />
     <Content Include="Views\Volunteer\Profile.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Double.cshtml" />
+    <Content Include="Views\Shared\User\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
