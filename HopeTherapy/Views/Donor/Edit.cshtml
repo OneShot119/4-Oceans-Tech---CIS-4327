@@ -79,7 +79,7 @@
                         @Html.ValidationMessageFor(i => i.County)
                     </div>
 
-                </div>
+                </div><br/>
 
                 <legend>Contact Information</legend>
                 <div class="row">
@@ -105,7 +105,7 @@
                         <input type="text" name="EmailAddress" value="@Model.EmailAddress">
                     </div>
                 </div><br />
-                <br /><br />
+                <br />
 
                 <legend>Employment Information</legend>
                 <div class="row">
@@ -174,9 +174,9 @@
                     </div>
                 </div><br />
 
-                <div class="form-group">
+                <div class="row">
                     <div class="col-sm-12">
-                        <input type="submit" value="Save" class="btn btn-default" />
+                        <button type="submit" class="button button">Save</button>
                     </div>
                 </div>
             </fieldset>
