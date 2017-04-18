@@ -87,7 +87,7 @@ namespace HopeTherapy.Models
         [DisplayName("Start Date *")]
         public DateTime DateStarted { get; set; }
 
-        [Required(ErrorMessage = "Hours Volunteered is required")]
+        //[Required(ErrorMessage = "Hours Volunteered is required")]
         [DisplayName("Volunteer Hours/Month *")]
         public int HoursPerMonth { get; set; }
 

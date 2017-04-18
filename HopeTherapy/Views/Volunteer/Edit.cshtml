@@ -10,6 +10,7 @@
     <script src="~/scripts/jquery.maskedinput.js" type="text/javascript"></script>
 </head>
 <body>
+    <br />
     <p><a href="/Volunteer/List" class="btn btn-primary btn-lg">Go Back &laquo;</a></p>
     <p><a href='@Url.Action("Logout", "User")' class="btn btn-primary btn-lg">Sign Out &raquo;</a></p>
 
@@ -85,7 +86,7 @@
                     @Html.RadioButtonFor(model => model.Gender, "Other", false)@Html.Label("Other")<br />
                     @Html.ValidationMessageFor(i => i.Gender)
                 </div>
-            </div>
+            </div><br />
 
             <legend>Contact Information</legend>
             <div class="row">
@@ -152,7 +153,7 @@
             <div class="row">
                 <div class="col-sm-3">
                     @Html.DisplayNameFor(i => i.HoursPerMonth)<text>:</text><br>
-                    @Html.TextBoxFor(i => i.HoursPerMonth, new { @class = "form-control", placeholder = "Hours Per Month", required = "required" })
+                    @Html.TextBoxFor(i => i.HoursPerMonth, new { @class = "form-control", placeholder = "Hours Per Month" })
                     @Html.ValidationMessageFor(i => i.HoursPerMonth)
                 </div>
 
@@ -189,7 +190,7 @@
                     @Html.RadioButtonFor(model => model.Board, "N", false)@Html.Label("No")<br />
                     @Html.ValidationMessageFor(i => i.Board)
                 </div>
-            </div>
+            </div><br />
 
             <div class="row">
                 <div class="col-sm-3">
@@ -225,7 +226,7 @@
                         @Html.DisplayNameFor(i => i.Sunday)<text>:</text>
                         @Html.CheckBoxFor(m => m.Sunday, new { @checked = "checked" })<br />
                     </div>
-                </div>
+                </div><br />
             <div class="row">
                 <div class="col-sm-12">
                     <button type="submit" class="button button">Save</button>

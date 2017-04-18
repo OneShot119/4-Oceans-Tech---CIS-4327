@@ -77,7 +77,7 @@ namespace HopeTherapy.Models
         public DateTime DonationDate { get; set; }
 
         //[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:c}")]
-        [DisplayName("Donation Currency")]
+        //[DisplayName("Donation Currency")]
         public Double CurrencyDonation { get; set; }
 
         public string ItemDonation { get; set; }
