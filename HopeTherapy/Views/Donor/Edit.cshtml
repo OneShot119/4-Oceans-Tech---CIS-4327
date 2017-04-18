@@ -20,6 +20,7 @@
     </script>
 </head>
 <body>
+    <br />
     <p><a href="/Donor/List" class="btn btn-primary btn-lg">Go Back &laquo;</a></p>
     <p><a href='@Url.Action("Logout", "User")' class="btn btn-primary btn-lg">Sign Out &raquo;</a></p>
 
@@ -153,7 +154,7 @@
                     </div>
 
                     <div class="col-sm-3">
-                        @Html.EditorFor(i => i.CurrencyDonation, new { @class = "form-control", placeholder = "Donation Date", required = "required" })<br />
+                        @Html.EditorFor(i => i.CurrencyDonation)<br />
                         @Html.ValidationMessageFor(i => i.CurrencyDonation)
                     </div>
                 </div><br />

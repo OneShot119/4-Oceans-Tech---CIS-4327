@@ -9,6 +9,7 @@
     <head>
     </head>
         <body>
+            <br />
             <p><a href="/Home/Index" class="btn btn-primary btn-lg">Go Back &raquo;</a></p>
             <p><a href='@Url.Action("Logout", "User")' class="btn btn-primary btn-lg">Sign Out &raquo;</a></p>
 
@@ -77,8 +78,8 @@
                                     <a href="mailto:@Donor.EmailAddress">@Donor.EmailAddress</a>
                                 </td>
                                 <td>
-                                    Donation Date: @Donor.DonationDate<br />
-                                    Money: @Donor.CurrencyDonation<br />
+                                    Donation Date: @Donor.DonationDate.Date.Month <text>/</text> @Donor.DonationDate.Date.Day <text>/</text> @Donor.DonationDate.Date.Year <br />
+                                    Money: <text>$</text>@Donor.CurrencyDonation<br />
                                     Inventory: @Donor.ItemDonation<br />
                                     Services: @Donor.ServiceDonation
                                 </td>

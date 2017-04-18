@@ -32,7 +32,7 @@ namespace HopeTherapy.Models
         public IEnumerable<SelectListItem> StatesList { get; set; }
 
         [DisplayName("Zip Code (5 digit)")]
-       // [RegularExpression("^[0 - 9]{5}(-[0-9]{4})?$", ErrorMessage = "5 characters required")]
+        // [RegularExpression("^[0 - 9]{5}(-[0-9]{4})?$", ErrorMessage = "5 characters required")]
         public string ZipCode { get; set; }
 
         [Required(ErrorMessage = "County is required")]
@@ -76,8 +76,9 @@ namespace HopeTherapy.Models
         [DisplayName("Donation Date *")]
         public DateTime DonationDate { get; set; }
 
-        [DataType(DataType.Currency)]
-        public double CurrencyDonation { get; set; }
+        //[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:c}")]
+        //[DisplayName("Donation Currency")]
+        public Double CurrencyDonation { get; set; }
 
         public string ItemDonation { get; set; }
 
