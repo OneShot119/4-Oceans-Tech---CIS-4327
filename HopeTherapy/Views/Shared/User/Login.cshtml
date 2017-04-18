@@ -1,0 +1,42 @@
+﻿
+@model HopeTherapy.Models.User
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+</head>
+
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true, "Login failed. Check your login details.");
+        <div>
+            <fieldset>
+                <center><h1>Login</h1></center>
+                <div class="editor-label">
+                    @Html.LabelFor(u => u.UserName)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(u => u.UserName)
+                    @Html.ValidationMessageFor(u => u.UserName)
+                </div><br /><br />
+
+                <div class="editor-label">
+                    @Html.LabelFor(u => u.Password)
+                </div>
+                <div class="editor-field">
+                    @Html.PasswordFor(u => u.Password)
+                    @Html.ValidationMessageFor(u => u.Password)
+                </div><br />
+                <div class="editor-label">
+                    @Html.CheckBoxFor(u => u.RememberMe)
+                    @Html.LabelFor(u => u.RememberMe)
+                </div><br />
+                <input class="btn btn-primary btn-lg" type="submit" value="Log In &raquo;" />
+            </fieldset>
+        </div><br /><br />
+        <div>
+            <p></p>
+            <p><a href="/Register/Index" class="btn btn-primary btn-lg">Register &laquo;</a></p>
+        </div>
+    }

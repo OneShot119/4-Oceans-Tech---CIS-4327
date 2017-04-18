@@ -54,10 +54,9 @@ namespace HopeTherapy.Models
         [DisplayName("Email")]
         public string Email { get; set; }
 
-
         [DataType(DataType.Date)]
         [Required(ErrorMessage = "Birthday is required")]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+    //  [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [DisplayName("Birthday *")]
         public string Birthday { get; set; }
 
