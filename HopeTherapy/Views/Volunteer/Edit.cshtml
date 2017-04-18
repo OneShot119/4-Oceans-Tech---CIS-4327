@@ -72,11 +72,7 @@
 
                 <div class="col-sm-3">
                     @Html.DisplayNameFor(i => i.Birthday)<text>:</text><br>
-<<<<<<< HEAD
-                    @Html.EditorFor(i => i.Birthday, new { type = "date", @Id = "Birthday", @readonly = "readonly", @Value = @Model.Birthday })<br />
-=======
                     @Html.EditorFor(i => i.Birthday, new { @class = "form-control", required = "required" })<br />
->>>>>>> 41634fb4e0ef278c1d089611f4aa258528c7486b
                     @Html.ValidationMessageFor(i => i.Birthday)
                 </div>
             </div>

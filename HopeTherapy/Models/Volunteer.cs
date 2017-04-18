@@ -56,7 +56,7 @@ namespace HopeTherapy.Models
 
         [DataType(DataType.Date)]
         [Required(ErrorMessage = "Birthday is required")]
-    //  [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [DisplayName("Birthday *")]
         public DateTime Birthday { get; set; }
 
