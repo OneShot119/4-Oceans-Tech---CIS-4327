@@ -10,6 +10,9 @@ namespace HopeTherapy.Models
 {
     public class Volunteer
     {
+        private DateTime _date = DateTime.Now;
+
+
         public int VolunteerID { get; set; }
 
         [DisplayName("First Name *")]
@@ -36,9 +39,11 @@ namespace HopeTherapy.Models
         //[Required(ErrorMessage = "ZipCode is required")]
         [DisplayName("Zip Code")]
         public string ZipCode { get; set; }
+
         [Required(ErrorMessage = "County is required")]
         [DisplayName("County *")]
         public string County { get; set; }
+
         // [Required(ErrorMessage = "Cell Phone Number is required")]
         [DisplayName("Cell Phone Number")]
         public string CellPhoneNumber { get; set; }
@@ -50,7 +55,7 @@ namespace HopeTherapy.Models
         public string WorkPhoneNumber { get; set; }
 
         [DataType(DataType.EmailAddress)]
-       // [Required(ErrorMessage = "Email is required")]
+        // [Required(ErrorMessage = "Email is required")]
         [DisplayName("Email")]
         public string Email { get; set; }
 
@@ -58,7 +63,11 @@ namespace HopeTherapy.Models
         [Required(ErrorMessage = "Birthday is required")]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [DisplayName("Birthday *")]
-        public DateTime Birthday { get; set; }
+        public DateTime Birthday
+        {
+            get { return _date; }
+            set { _date = value; }
+        }
 
         [Required(ErrorMessage = "Gender is required")]
         [DisplayName("Gender *")]
@@ -79,13 +88,21 @@ namespace HopeTherapy.Models
         [Required(ErrorMessage = "Orientation Date is required")]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [DisplayName("Orientation *")]
-        public DateTime DateOrientation { get; set; }
+        public DateTime DateOrientation
+        {
+            get { return _date; }
+            set { _date = value; }
+        }
 
         [DataType(DataType.Date)]
         [Required(ErrorMessage = "Orientation Date is required")]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [DisplayName("Start Date *")]
-        public DateTime DateStarted { get; set; }
+        public DateTime DateStarted
+        {
+            get { return _date; }
+            set { _date = value; }
+        }
 
         //[Required(ErrorMessage = "Hours Volunteered is required")]
         [DisplayName("Volunteer Hours/Month")]
