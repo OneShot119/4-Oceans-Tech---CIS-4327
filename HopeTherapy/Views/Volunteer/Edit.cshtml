@@ -152,8 +152,7 @@
 
             <div class="row">
                 <div class="col-sm-3">
-                    @Html.DisplayNameFor(i => i.HoursPerMonth)<text>:</text><br>
-                    @Html.TextBoxFor(i => i.HoursPerMonth, new { @class = "form-control", placeholder = "Hours Per Month" })
+                    @Html.EditorFor(i => i.HoursPerMonth)
                     @Html.ValidationMessageFor(i => i.HoursPerMonth)
                 </div>
 
