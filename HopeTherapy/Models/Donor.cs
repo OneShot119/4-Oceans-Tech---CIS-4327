@@ -77,8 +77,9 @@ namespace HopeTherapy.Models
 
         [DataType(DataType.Date)]
         [Required(ErrorMessage = "Donation Date is required")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [DisplayName("Donation Date *")]
-        public string DonationDate { get; set; }
+        public DateTime DonationDate { get; set; }
 
         [DataType(DataType.Currency)]
         public double CurrencyDonation { get; set; }

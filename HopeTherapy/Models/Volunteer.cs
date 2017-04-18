@@ -58,7 +58,7 @@ namespace HopeTherapy.Models
         [Required(ErrorMessage = "Birthday is required")]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [DisplayName("Birthday *")]
-        public string Birthday { get; set; }
+        public DateTime Birthday { get; set; }
 
         [Required(ErrorMessage = "Gender is required")]
         [DisplayName("Gender *")]
@@ -77,13 +77,15 @@ namespace HopeTherapy.Models
 
         [DataType(DataType.Date)]
         [Required(ErrorMessage = "Orientation Date is required")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [DisplayName("Orientation *")]
-        public string DateOrientation { get; set; }
+        public DateTime DateOrientation { get; set; }
 
         [DataType(DataType.Date)]
         [Required(ErrorMessage = "Orientation Date is required")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [DisplayName("Start Date *")]
-        public string DateStarted { get; set; }
+        public DateTime DateStarted { get; set; }
 
         [Required(ErrorMessage = "Hours Volunteered is required")]
         [DisplayName("Volunteer Hours/Month *")]
