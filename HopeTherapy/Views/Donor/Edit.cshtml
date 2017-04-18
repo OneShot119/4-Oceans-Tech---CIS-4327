@@ -153,7 +153,8 @@
                     </div>
 
                     <div class="col-sm-3">
-                        @Html.EditorFor(i => i.CurrencyDonation, new { @class = "form-control", placeholder = "Donation Date", required = "required" })<br />
+                        @Html.DisplayNameFor(i => i.CurrencyDonation)<text>:</text><br />
+                        <text>$</text>@Html.EditorFor(i => i.CurrencyDonation)<br />
                         @Html.ValidationMessageFor(i => i.CurrencyDonation)
                     </div>
                 </div><br />
