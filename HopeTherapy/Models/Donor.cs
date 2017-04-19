@@ -10,6 +10,8 @@ namespace HopeTherapy.Models
 {
     public class Donor
     {
+        private DateTime _date = DateTime.Now;
+
 
         public int DonorID { get; set; }
 
@@ -74,7 +76,11 @@ namespace HopeTherapy.Models
         [Required(ErrorMessage = "Donation Date is required")]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [DisplayName("Donation Date *")]
-        public DateTime DonationDate { get; set; }
+        public DateTime DonationDate
+        {
+            get { return _date; }
+            set { _date = value; }
+        }
 
         //[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:c}")]
         //[DisplayName("Donation Currency")]
