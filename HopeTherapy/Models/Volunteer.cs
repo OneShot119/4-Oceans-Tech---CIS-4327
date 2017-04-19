@@ -158,5 +158,37 @@ namespace HopeTherapy.Models
 
             }
         }
+        public int dayNum(String day)
+        {
+            int daynum;
+            switch (day)
+            {
+                case "Sunday":
+                    daynum = 1;
+                    break;
+                case "Saturday":
+                    daynum = 7;
+                    break;
+                case "Monday":
+                    daynum = 2;
+                    break;
+                case "Tuesday":
+                    daynum = 3;
+                    break;
+                case "Wednesday":
+                    daynum = 4;
+                    break;
+                case "Thursday":
+                    daynum = 5;
+                    break;
+                case "Friday":
+                    daynum = 6;
+                    break;
+                default:
+                    daynum = 0;
+                    break;
+            }
+            return daynum;
+        }
     }
 }
