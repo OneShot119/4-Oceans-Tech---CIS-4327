@@ -43,7 +43,7 @@
         </center>
         
         
-        <center><p><a href="/Volunteer/List" class="btn btn-primary btn-lg">View All Volunteers &raquo;</a></p></center>
+        <center><p><a href="/Volunteer/List" style="width:200px" class="btn btn-primary btn-lg" >View All Volunteers &raquo;</a></p></center>
 
         @if (Utilities.IsNullOrEmpty(Model))
         {
@@ -79,10 +79,7 @@
                             <a href="mailto:@Volunteer.Email">@Volunteer.Email</a>
                         </td>
                         <td>
-                            @Volunteer.HoursPerMonth
-                        </td>
-                        <td>
-                            <p><a href="@Url.Action("Delete", "Volunteer", new { ID = @Volunteer.VolunteerID })" class="btn btn-primary btn-lg">Delete &raquo;</a></p>
+                            @Volunteer.HoursPerMonth <a href="@Url.Action("Delete", "Volunteer", new { ID = @Volunteer.VolunteerID })" class="btn btn-primary">Delete &raquo;</a>
                         </td>
                     </tr>
                 }

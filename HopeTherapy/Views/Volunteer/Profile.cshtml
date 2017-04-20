@@ -145,16 +145,17 @@
                     <font size="4"><b>Mail List?:</b></font> @Model.MailList
                 </div>
             </div><br />
+
             <table cellpadding="8" border="1">
-                <tr><th colspan="7"><font size="4"><b>Volunteer Schedule:</b></font></th></tr>
+                <thead><tr><th colspan="7">Volunteer Schedule:</th></tr></thead>
                 <tr>
-                <th align="center">Sunday</th>
-                <th align="center">Monday</th>
-                <th align="center">Tuesday</th>
-                <th align="center">Wednesday</th>
-                <th align="center">Thursday</th>
-                <th align="center">Friday</th>
-                <th align="center">Saturday</th>
+                <th style="text-align:center">Sunday</th>
+                <th style="text-align:center">Monday</th>
+                <th style="text-align:center">Tuesday</th>
+                <th style="text-align:center">Wednesday</th>
+                <th style="text-align:center">Thursday</th>
+                <th style="text-align:center">Friday</th>
+                <th style="text-align:center">Saturday</th>
                 </tr>
                 <tr>
 
@@ -166,7 +167,7 @@
 
                                 if (Model.dayNum(Day)==i)
                                 {
-                                    <p>Yes</p>
+                                    <p>✔</p>
                                 }
                             }
                         </td>
