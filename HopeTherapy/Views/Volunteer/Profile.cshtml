@@ -143,10 +143,37 @@
                 </div>
                 <div class="col-sm-3">
                     <font size="4"><b>Mail List?:</b></font> @Model.MailList
-
-
                 </div>
             </div><br />
+
+            <table cellpadding="8" border="1">
+                <thead><tr><th colspan="7">Volunteer Schedule:</th></tr></thead>
+                <tr>
+                <th style="text-align:center">Sunday</th>
+                <th style="text-align:center">Monday</th>
+                <th style="text-align:center">Tuesday</th>
+                <th style="text-align:center">Wednesday</th>
+                <th style="text-align:center">Thursday</th>
+                <th style="text-align:center">Friday</th>
+                <th style="text-align:center">Saturday</th>
+                </tr>
+                <tr>
+
+                    @for (var i = 1; i < 8; i++)
+                    {
+                        <td>
+                            @foreach (var Day in Model.dayList)
+                            {
+
+                                if (Model.dayNum(Day)==i)
+                                {
+                                    <p>✔</p>
+                                }
+                            }
+                        </td>
+                    }
+                </tr>
+            </table>
         </fieldset>
     </form>
 
