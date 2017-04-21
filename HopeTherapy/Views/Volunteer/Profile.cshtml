@@ -11,7 +11,7 @@
     <p><a href="/Volunteer/List" class="btn btn-primary btn-lg">Go Back &laquo;</a></p>
     <p><a href='@Url.Action("Logout", "User")' class="btn btn-primary btn-lg">Sign Out &raquo;</a></p>
 
-    <h1>Volunteer Profile - <Font color="Blue">@Model.FirstName @Model.LastName</Font></h1>
+    <h1>Volunteer Profile - <Font color="#856046">@Model.FirstName @Model.LastName</Font></h1>
 
     <form>
         <fieldset>
@@ -145,7 +145,7 @@
                     <font size="4"><b>Mail List?:</b></font> @Model.MailList
                 </div>
             </div><br />
-
+            <p><a href="/Volunteer/List" class="btn btn-primary btn-lg">Go Back &laquo;</a></p>
             <table cellpadding="8" border="1">
                 <thead><tr><th colspan="7">Volunteer Schedule:</th></tr></thead>
                 <tr>
@@ -167,7 +167,7 @@
 
                                 if (Model.dayNum(Day)==i)
                                 {
-                                    <p>✔</p>
+                                    <p style="color:#856046">✔</p>
                                 }
                             }
                         </td>

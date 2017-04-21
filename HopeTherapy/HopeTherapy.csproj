@@ -239,7 +239,7 @@
     <Content Include="Views\User\Login.cshtml" />
     <Content Include="Views\Volunteer\Index.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\String.cshtml" />
-    <Content Include="Views\Donor\Index.cshtml" />
+    <Content Include="Views\Donor\NewDonor.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Int32.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Password.cshtml" />
     <Content Include="Views\Donor\List.cshtml" />

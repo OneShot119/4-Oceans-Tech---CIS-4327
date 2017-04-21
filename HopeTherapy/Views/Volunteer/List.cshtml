@@ -18,24 +18,24 @@
                 <div class="col-sm-4">
                     @using (Html.BeginForm("ListByLastName", "Volunteer", FormMethod.Post))
                     {
-                        <label for="Search">Last Name</label><br />
-                        <input type="text" name="LastName" id="LastName" />
+                        <label for="Search">Last Name:</label><br />
+                        <input type="text" name="LastName" id="LastName" /><br />
                         <button type="submit" class="btn btn-primary">Search</button><br /><br />
                     }
                 </div>
                 <div class="col-sm-4">
                     @using (Html.BeginForm("ListByCounty", "Volunteer", FormMethod.Post))
                     {
-                        <label for="Search2">County</label><br />
-                        <input type="text" name="County" id="County" />
+                        <label for="Search2">County:</label><br />
+                        <input type="text" name="County" id="County" /><br />
                         <button type="submit" class="btn btn-primary">Search</button><br /><br />
                     }
                 </div>
                 <div class="col-sm-4">
                     @using (Html.BeginForm("ListByAll", "Volunteer", FormMethod.Post))
                     {
-                        <label for="Search2">Anything</label><br />
-                        <input type="text" name="All" id="All" />
+                        <label for="Search2">Anything:</label><br />
+                        <input type="text" name="All" id="All" /><br />
                         <button type="submit" class="btn btn-primary">Search</button><br /><br />
                     }
                 </div>
@@ -73,18 +73,40 @@
                             <a href='@Url.Action("Profile", "Volunteer", new { ID = @Volunteer.VolunteerID })' style="color:#935347">@Volunteer.FirstName @Volunteer.LastName</a>
                             <a href='@Url.Action("Edit", "Volunteer", new { ID = @Volunteer.VolunteerID })'><Font color="#30231d">Edit</Font></a>
 
-
                         </td>
                         <td>
-                            <a href="mailto:@Volunteer.Email">@Volunteer.Email</a>
+                            <a href="mailto:@Volunteer.Email" style="color:#935347">@Volunteer.Email</a>
                         </td>
                         <td>
-                            <p style="color:#30231d">@Volunteer.HoursPerMonth <a href="@Url.Action("Delete", "Volunteer", new { ID = @Volunteer.VolunteerID })" class="btn btn-primary">Delete &raquo;</a></p>
+                            <p style="color:#30231d">@Volunteer.HoursPerMonth</p>
+                            <p><center><button class="btn btn-primary btn-lg" id="alertbtn" onclick="showAlert()">Delete &raquo;</button></center></p>
+                            <div class="alert" style="display:none" id="alert">
+                                <center><a href="@Url.Action("Delete", "Volunteer", new { ID = @Volunteer.VolunteerID })" class="btn btn-primary btn-lg" style="align-self:center">Delete &raquo;</a></center> <span class="closebtn">&times;</span><br />
+                                This can not be undone!<br />
+                            </div>
                         </td>
                     </tr>
                 }
             </table>
         }
+        <script>
+            var close = document.getElementsByClassName("closebtn");
+            var i;
+
+            for (i = 0; i < close.length; i++)
+            {
+                close[i].onclick = function ()
+                {
+                    var div = this.parentElement;
+                    setTimeout(function () { div.style.display = "none"; }, 600);
+                    setTimeout(function () { document.getElementById("alertbtn").style.display = "block"; }, 600);
+                }        
+            }
+            function showAlert() {
+                document.getElementById("alert").style.display = "block";
+                document.getElementById("alertbtn").style.display = "none";
+            }
+        </script>
 </body>
 </html>
 

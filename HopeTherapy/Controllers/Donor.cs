@@ -72,7 +72,7 @@ namespace HopeTherapy.Controllers
 
         // GET: Register
            [HttpGet]
-        public ActionResult Index()
+        public ActionResult NewDonor()
         {
             if (!Request.IsAuthenticated)
             {
