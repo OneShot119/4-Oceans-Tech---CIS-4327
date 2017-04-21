@@ -10,7 +10,9 @@ namespace HopeTherapy.Models
 {
     public class Volunteer
     {
-        private DateTime _date = DateTime.Now;
+        private DateTime _date1 = DateTime.Now;
+        private DateTime _date2 = DateTime.Now;
+        private DateTime _date3 = DateTime.Now;
 
 
         public int VolunteerID { get; set; }
@@ -63,7 +65,11 @@ namespace HopeTherapy.Models
         [Required(ErrorMessage = "Birthday is required")]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [DisplayName("Birthday ")]
-        public DateTime Birthday { get; set; }
+        public DateTime Birthday
+        {
+            get { return _date1; }
+            set { _date1 = value; }
+        }
 
         [Required(ErrorMessage = "Gender is required")]
         [DisplayName("Gender ")]
@@ -84,13 +90,21 @@ namespace HopeTherapy.Models
         [Required(ErrorMessage = "Orientation Date is required")]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [DisplayName("Orientation ")]
-        public DateTime DateOrientation { get; set; }
+        public DateTime DateOrientation
+        {
+            get { return _date2; }
+            set { _date2 = value; }
+        }
 
         [DataType(DataType.Date)]
         [Required(ErrorMessage = "Start Date is required")]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [DisplayName("Start Date ")]
-        public DateTime DateStarted { get; set; }
+        public DateTime DateStarted
+        {
+            get { return _date3; }
+            set { _date3 = value; }
+        }
 
         //[Required(ErrorMessage = "Hours Volunteered is required")]
         [DisplayName("Volunteer Hours/Month")]
