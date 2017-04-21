@@ -150,6 +150,9 @@ a:active {
   background-color: #935347;
   border-color: #7d4627;
 }
+.btn-md{
+    width:125px;
+}
 
 .btn-lg{
     width:175px;
@@ -225,7 +228,7 @@ select{
     color: white;
     opacity: 1;
     margin-bottom: 5px;
-    border-radius: 5px;
+    border-radius: 3px;
 }
 
 .alert.success {background-color: #4CAF50;}

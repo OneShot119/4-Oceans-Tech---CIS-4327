@@ -81,10 +81,12 @@
                                     <p style="color:#30231d">
                                         Donation Date: @Donor.DonationDate.Date.Month <text>/</text> @Donor.DonationDate.Date.Day <text>/</text> @Donor.DonationDate.Date.Year <br />
                                     </p>
-                                    <center><p><button class="btn btn-primary btn-lg" id="alertbtn" onclick="showAlert()">Delete &raquo;</button></p></center>
+                                    <p><center><button class="btn btn-primary btn-lg" id="alertbtn" onclick="showAlert()">Delete &raquo;</button></center></p>
                                     <div class="alert" style="display:none" id="alert">
-                                        <a href="@Url.Action("Delete", "Donor", new { ID = @Donor.DonorID })" class="btn btn-primary btn-lg">Delete &raquo;</a> <span class="closebtn">&times;</span><br />
                                         This can not be undone!<br />
+                                        <a href="@Url.Action("Delete", "Donor", new { ID = @Donor.DonorID })" class="btn btn-primary btn-md">Delete</a>
+                                        <button class="btn btn-primary btn-md" id="closebtn" onclick="hideAlert()">Cancel</button><br />
+
                                     </div>
                                 </td>
                             </tr>
@@ -93,17 +95,9 @@
                     </table>
                 }
             <script>
-            var close = document.getElementsByClassName("closebtn");
-            var i;
-
-            for (i = 0; i < close.length; i++)
-            {
-                close[i].onclick = function ()
-                {
-                    var div = this.parentElement;
-                    setTimeout(function () { div.style.display = "none"; }, 600);
-                    setTimeout(function () { document.getElementById("alertbtn").style.display = "block"; }, 600);
-                }
+            function hideAlert() {
+                document.getElementById("alert").style.display = "none";
+                document.getElementById("alertbtn").style.display = "block";
             }
             function showAlert() {
                 document.getElementById("alert").style.display = "block";
