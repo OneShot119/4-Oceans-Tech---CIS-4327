@@ -79,13 +79,14 @@
                         </td>
                         <td>
                             <p style="color:#30231d">@Volunteer.HoursPerMonth</p>
-                            <p><center><button class="btn btn-primary btn-lg" id="alertbtn" onclick="showAlert()">Delete &raquo;</button></center></p>
+                            <a href="@Url.Action("Delete", "Volunteer", new { ID = @Volunteer.VolunteerID })" class="btn btn-primary btn-md">Delete</a>
+                            @*<p><center><button class="btn btn-primary btn-lg" id="alertbtn" onclick="showAlert()">Delete &raquo;</button></center></p>
                             <div class="alert" style="display:none" id="alert">
                                 This can not be undone!<br />
                                 <a href="@Url.Action("Delete", "Volunteer", new { ID = @Volunteer.VolunteerID })" class="btn btn-primary btn-md">Delete</a>
                                 <button class="btn btn-primary btn-md" id="closebtn" onclick="hideAlert()">Cancel</button><br />
                                 
-                            </div>
+                            </div>*@
                         </td>
                     </tr>
                 }

@@ -81,13 +81,14 @@
                                     <p style="color:#30231d">
                                         Donation Date: @Donor.DonationDate.Date.Month <text>/</text> @Donor.DonationDate.Date.Day <text>/</text> @Donor.DonationDate.Date.Year <br />
                                     </p>
-                                    <p><center><button class="btn btn-primary btn-lg" id="alertbtn" onclick="showAlert()">Delete &raquo;</button></center></p>
+                                    <a href="@Url.Action("Delete", "Donor", new { ID = @Donor.DonorID })" class="btn btn-primary btn-md">Delete</a>
+                                    @*<p><center><button class="btn btn-primary btn-lg" id="alertbtn" onclick="showAlert()">Delete &raquo;</button></center></p>
                                     <div class="alert" style="display:none" id="alert">
                                         This can not be undone!<br />
                                         <a href="@Url.Action("Delete", "Donor", new { ID = @Donor.DonorID })" class="btn btn-primary btn-md">Delete</a>
                                         <button class="btn btn-primary btn-md" id="closebtn" onclick="hideAlert()">Cancel</button><br />
 
-                                    </div>
+                                    </div>*@
                                 </td>
                             </tr>
                         }
