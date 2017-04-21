@@ -20,7 +20,7 @@
                     {
                         <label for="Search">Last Name</label><br />
                         <input type="text" name="LastName" id="LastName" />
-                        <button type="submit">Search</button><br /><br />
+                        <button type="submit" class="btn btn-primary">Search</button><br /><br />
                     }
                 </div>
                 <div class="col-sm-4">
@@ -28,7 +28,7 @@
                     {
                         <label for="Search2">County</label><br />
                         <input type="text" name="County" id="County" />
-                        <button type="submit">Search</button><br /><br />
+                        <button type="submit" class="btn btn-primary">Search</button><br /><br />
                     }
                 </div>
                 <div class="col-sm-4">
@@ -36,7 +36,7 @@
                     {
                         <label for="Search2">Anything</label><br />
                         <input type="text" name="All" id="All" />
-                        <button type="submit">Search</button><br /><br />
+                        <button type="submit" class="btn btn-primary">Search</button><br /><br />
                     }
                 </div>
             </div>
@@ -70,8 +70,8 @@
                 {
                     <tr>
                         <td>
-                            <a href='@Url.Action("Profile", "Volunteer", new { ID = @Volunteer.VolunteerID })'>@Volunteer.FirstName @Volunteer.LastName</a>
-                            <a href='@Url.Action("Edit", "Volunteer", new { ID = @Volunteer.VolunteerID })'><Font color="Green">Edit</Font></a>
+                            <a href='@Url.Action("Profile", "Volunteer", new { ID = @Volunteer.VolunteerID })' style="color:#935347">@Volunteer.FirstName @Volunteer.LastName</a>
+                            <a href='@Url.Action("Edit", "Volunteer", new { ID = @Volunteer.VolunteerID })'><Font color="#30231d">Edit</Font></a>
 
 
                         </td>
@@ -79,7 +79,7 @@
                             <a href="mailto:@Volunteer.Email">@Volunteer.Email</a>
                         </td>
                         <td>
-                            @Volunteer.HoursPerMonth <a href="@Url.Action("Delete", "Volunteer", new { ID = @Volunteer.VolunteerID })" class="btn btn-primary">Delete &raquo;</a>
+                            <p style="color:#30231d">@Volunteer.HoursPerMonth <a href="@Url.Action("Delete", "Volunteer", new { ID = @Volunteer.VolunteerID })" class="btn btn-primary">Delete &raquo;</a></p>
                         </td>
                     </tr>
                 }

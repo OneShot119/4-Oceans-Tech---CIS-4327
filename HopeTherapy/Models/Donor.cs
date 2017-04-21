@@ -16,11 +16,11 @@ namespace HopeTherapy.Models
         public int DonorID { get; set; }
 
         [Required(ErrorMessage = "First Name is required")]
-        [DisplayName("First Name - Required")]
+        [DisplayName("First Name")]
         public string FirstName { get; set; }
 
         [Required(ErrorMessage = "Last Name is required")]
-        [DisplayName("Last Name - Required")]
+        [DisplayName("Last Name")]
         public string LastName { get; set; }
 
         [DisplayName("Street Address")]
@@ -38,11 +38,11 @@ namespace HopeTherapy.Models
         public string ZipCode { get; set; }
 
         [Required(ErrorMessage = "County is required")]
-        [DisplayName("County *")]
+        [DisplayName("County")]
         public string County { get; set; }
 
         [Required(ErrorMessage = "Gender is required")]
-        [DisplayName("Gender *")]
+        [DisplayName("Gender")]
         public string Gender { get; set; }
 
         [DisplayName("Cell Phone")]
@@ -75,7 +75,7 @@ namespace HopeTherapy.Models
         [DataType(DataType.Date)]
         [Required(ErrorMessage = "Donation Date is required")]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        [DisplayName("Donation Date *")]
+        [DisplayName("Donation Date ")]
         public DateTime DonationDate
         {
             get { return _date; }

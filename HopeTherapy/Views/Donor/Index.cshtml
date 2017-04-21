@@ -35,12 +35,12 @@
 
                 <div class="row">
                     <div class="col-sm-3">
-                        @Html.DisplayNameFor(i => i.FirstName)<text>:</text><br>
+                        @Html.DisplayNameFor(i => i.FirstName)<text style="color:red">*</text><text>:</text><br>
                         @Html.TextBoxFor(i => i.FirstName, new { @class = "form-control", placeholder = "First Name", required = "required" })
                         @Html.ValidationMessageFor(i => i.FirstName)
                     </div>
                     <div class="col-sm-3">
-                        @Html.DisplayNameFor(i => i.LastName)<text>:</text><br>
+                        @Html.DisplayNameFor(i => i.LastName)<text style="color:red">*</text><text>:</text><br>
                         @Html.TextBoxFor(i => i.LastName, new { @class = "form-control", placeholder = "Last Name", required = "required" })
                         @Html.ValidationMessageFor(i => i.LastName)
                     </div>
@@ -72,7 +72,7 @@
 
                 <div class="row">
                     <div class="col-sm-3">
-                        @Html.DisplayNameFor(i => i.County)<text>:</text><br>
+                        @Html.DisplayNameFor(i => i.County)<text style="color:red">*</text><text>:</text><br>
                         @Html.TextBoxFor(i => i.County, new { @class = "form-control", placeholder = "County", required = "required" })
                         @Html.ValidationMessageFor(i => i.County)
                     </div>
@@ -150,7 +150,7 @@
 
                 <div class="row">
                     <div class="col-sm-3">
-                        @Html.DisplayNameFor(i => i.DonationDate)<text>:</text><br>
+                        @Html.DisplayNameFor(i => i.DonationDate)<text style="color:red">*</text><text>:</text><br>
                         @Html.EditorFor(i => i.DonationDate, new { @class = "form-control", placeholder = "Donation Date", required = "required" })<br />
                         @Html.ValidationMessageFor(i => i.DonationDate)
                     </div>
@@ -176,7 +176,7 @@
 
                 <div class="row">
                     <div class="col-sm-12">
-                        <button type="submit" class="button button">Submit</button>
+                        <button type="submit" class="button btn-primary">Submit</button>
                     </div>
                 </div><br />
             </fieldset>

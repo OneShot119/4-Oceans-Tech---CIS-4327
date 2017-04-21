@@ -1,6 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Patua+One|Open+Sans);
 body {
-    background-color: #184B20;
+    background-color: #6a5750;
     padding-top: 50px;
     padding-bottom: 20px;
 }
@@ -8,7 +8,7 @@ body {
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    background-color: white;
+    background-color: #b5a397;
     font-family:Georgia;
     padding-left: 15px;
     padding-right: 15px;
@@ -29,7 +29,7 @@ textarea {
 }
 
 .field-validation-error{
-    color: #ff0000;
+    color: #935347;
     font-weight: bold;
 }
 .body {
@@ -72,17 +72,17 @@ thead th {
   font-family: 'Patua One', cursive;
   font-size: 28px;
   font-weight: 400;
-  color: #cac4c4;
+  color: #30231d;
   text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
   text-align: center;
   padding: 5px;
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzY0NmY3ZiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzRhNTU2NCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
   background-size: 100%;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #646f7f), color-stop(100%, #4a5564));
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #646f7f), color-stop(100%, #30231d));
   background-image: -moz-linear-gradient(#646f7f, #4a5564);
   background-image: -webkit-linear-gradient(#646f7f, #4a5564);
-  background-image: linear-gradient(#646f7f, #4a5564);
-  border-top: 1px solid #858d99;
+  background-image: linear-gradient(#aa863a, #b5a397);
+  border-top: 1px solid #aa863a;
 }
 thead th:first-child {
   -moz-border-radius-topleft: 5px;
@@ -122,18 +122,18 @@ tbody tr:last-child td:last-child {
 
 tbody:hover > tr:hover td {
   text-shadow: none;
-  color: #2d2d2d;
+  color: #7d4627;
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
 }
 a:link {
-    color: Blue;
+    color: #cac4c4;
 }
 
 
 /* visited link */
 a:visited {
-    color: darkblue;
+    color: #cac4c4;
 }
 
 /* mouse over link */
@@ -146,13 +146,18 @@ a:active {
     color: blue;
 }
 .btn-primary {
-  color: black;
-  background-color: #428bca;
-  border-color: #357ebd;
+  color: #cac4c4;
+  background-color: #935347;
+  border-color: #7d4627;
 }
 
 .btn-lg{
     width:175px;
+}
+.btn-primary:hover{
+      color: white;
+      background-color: #856046;
+      border-color: #7d4627;
 }
 
 textarea {
@@ -162,7 +167,7 @@ textarea {
         box-sizing: border-box;
         border: 2px solid #555555;
         border-radius: 6px;
-        background-color: white;
+        background-color : wheat;
         font-size: 16px;
         resize: none;
     }
@@ -176,7 +181,7 @@ textarea {
 }
 
 .button:hover {
-    background-color: #555555;
+    background-color: #7d4627;
     color: white;
 }
 
@@ -206,9 +211,11 @@ input[type=text],input[type=password], input[type=date], input[type=email] {
     box-sizing: border-box;
     border: 2px solid #555555;
     border-radius: 3px;
+    background-color : wheat;
 }
 select{
     height: 30px;
     width: 200px;
     border: 2px solid #555555;
+    background-color : wheat;
 }
