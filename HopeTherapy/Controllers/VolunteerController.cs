@@ -292,7 +292,10 @@ namespace HopeTherapy.Controllers
         }
         public ActionResult Delete(int id)
         {
-            String sql = "Delete from dbo.Volunteer where volunteerId =" + id;
+            String sql = "Delete from dbo.Days where Volunteer =" + id;
+            Utilities.Sql.ExecuteCommand(sql);
+
+            sql = "Delete from dbo.Volunteer where volunteerId =" + id;
             Utilities.Sql.ExecuteCommand(sql);
             return RedirectToAction("List", "Volunteer");
         }
