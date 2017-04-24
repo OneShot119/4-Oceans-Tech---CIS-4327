@@ -1,0 +1,27 @@
+﻿@model IEnumerable<HopeTherapy.Models.Volunteer>
+@{
+    ViewBag.Title = "Email";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<html>
+<head>
+</head>
+<body>
+    <br />
+    <p><a href="/Volunteer/List" class="btn btn-primary btn-lg">Go Back &laquo;</a></p>
+    <p><a href='@Url.Action("Logout", "User")' class="btn btn-primary btn-lg">Sign Out &raquo;</a></p>
+
+    <center><h1>Volunteer Mailing List</h1></center>
+
+    @foreach (var Volunteer in Model)
+    {
+        <a href='@Url.Action("Profile", "Volunteer", new { ID = @Volunteer.VolunteerID })' style="color:#935347">@Volunteer.FirstName @Volunteer.LastName</a>
+        <br />
+        @Volunteer.StreetAddress
+        <br />
+        @Volunteer.City <p>, </p> @Volunteer.States <p>, </p> @Volunteer.ZipCode
+        <br /><br />
+
+    }
+</body>
+</html>

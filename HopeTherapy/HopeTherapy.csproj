@@ -253,6 +253,7 @@
     <Content Include="Views\Shared\User\Login.cshtml" />
     <Content Include="Views\Volunteer\Email.cshtml" />
     <Content Include="Views\Donor\DEmail.cshtml" />
+    <Content Include="Views\Volunteer\VMail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
