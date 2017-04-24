@@ -233,6 +233,11 @@ namespace HopeTherapy.Controllers
                 {
                     Volunteers = Utilities.Sql.ExecuteQuery<Volunteer>("SELECT FirstName as FirstName, LastName as LastName, Email as Email, HoursPerMonth as HoursPerMonth, VolunteerID as VolunteerID from [dbo].[Volunteer] WHERE FirstName LIKE '%" + Search + "%' OR LastName LIKE '%" + Search + "%' OR Email LIKE '%" + Search + "%' OR StreetAddress LIKE '%" + Search + "%' OR City LIKE '%" + Search + "%' OR States LIKE '%" + Search + "%' OR ZipCode LIKE '%" + Search + "%' OR County LIKE '%" + Search + "%' OR CellPhoneNumber LIKE '%" + Search + "%' OR HomePhoneNumber LIKE '%" + Search + "%' OR WorkPhoneNumber LIKE '%" + Search + "%' OR Birthday LIKE '%" + Search + "%' OR Gender LIKE '%" + Search + "%' OR CompanyName LIKE '%" + Search + "%' OR Position LIKE '%" + Search + "%' OR CompanyAddress LIKE '%" + Search + "%' OR DateOrientation LIKE '%" + Search + "%' OR DateStarted LIKE '%" + Search + "%' OR HoursPerMonth LIKE '%" + Search + "%' OR AreaOfInterest LIKE '%" + Search + "%' OR Skills LIKE '%" + Search + "%';");
                 }
+                else if (Type == "Day")
+                {
+                    Volunteers = Utilities.Sql.ExecuteQuery<Volunteer>("SELECT FirstName as FirstName, LastName as LastName, Email as Email, HoursPerMonth as HoursPerMonth, VolunteerID as VolunteerID from [dbo].[Volunteer],[dbo].[Days] where Days.Volunteer = Volunteer.VolunteerID and Days.Day='" + Search + "';");
+
+                }
                 else
                 {
                 Volunteers = Utilities.Sql.ExecuteQuery<Volunteer>("select FirstName as FirstName, LastName as LastName, Email as Email, HoursPerMonth as HoursPerMonth, VolunteerID as VolunteerID from dbo.Volunteer;");
@@ -293,6 +298,17 @@ namespace HopeTherapy.Controllers
             else
             {
                 return RedirectToAction("List", new { Search = County, Type = "County" });
+            }
+        }
+        public ActionResult ListByDay(string Day)
+        {
+            if (!Request.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return RedirectToAction("List", new { Search = Day, Type = "Day" });
             }
         }
         public ActionResult ListByAll(string All)

@@ -39,25 +39,42 @@
                         <button type="submit" class="btn btn-primary">Search</button><br /><br />
                     }
                 </div>
-
-                <br />
-
-                <div class="col-sm-6">
-                    @using (Html.BeginForm("EmailList", "Volunteer", FormMethod.Post))
+                </div>
+            </center>
+            <center>
+            <div class="row">
+                <div class="col-sm-4">
+                    @using (Html.BeginForm("ListByDay", "Volunteer", FormMethod.Post))
                     {
-                        <label for="Email List"></label><br />
-                        <button type="submit" class="btn btn-primary">Email List</button><br /><br />
+                        <label for="Email List">Work Day</label><br />
+                        <select name="Day" id="Day">
+                            <option>Sunday</option>
+                            <option>Monday</option>
+                            <option>Tuesday</option>
+                            <option>Wednesday</option>
+                            <option>Thursday</option>
+                            <option>Friday</option>
+                            <option>Saturday</option>
+                        </select><br />
+                        <button type="submit" class="btn btn-primary">Search</button><br /><br />
                     }
                 </div>
+                    <div class="col-sm-4">
+                        @using (Html.BeginForm("EmailList", "Volunteer", FormMethod.Post))
+                        {
+                            <label for="Email List"></label><br />
+                            <button type="submit" class="btn btn-primary">Email List</button><br /><br />
+                        }
+                    </div>
 
-                <div class="col-sm-6">
-                    @using (Html.BeginForm("MailList", "Volunteer", FormMethod.Post))
-                    {
-                        <label for="Mail List"></label><br />
-                        <button type="submit" class="btn btn-primary">Mail List</button><br /><br />
-                    }
-                </div>
-
+                    <div class="col-sm-4">
+                        @using (Html.BeginForm("MailList", "Volunteer", FormMethod.Post))
+                        {
+                            <label for="Mail List"></label><br />
+                            <button type="submit" class="btn btn-primary">Mail List</button><br />
+                        }
+                    </div>
+                
             </div>
         </center>
         
