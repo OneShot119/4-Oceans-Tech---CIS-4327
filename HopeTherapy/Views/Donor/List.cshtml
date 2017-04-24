@@ -10,7 +10,7 @@
     </head>
         <body>
             <br />
-            <p><a href="/Home/Index" class="btn btn-primary btn-lg">Go Back &raquo;</a></p>
+            <p><a href="/Home/Index" class="btn btn-primary btn-lg">Go Back &laquo;</a></p>
             <p><a href='@Url.Action("Logout", "User")' class="btn btn-primary btn-lg">Sign Out &raquo;</a></p>
 
             <center><h1>Donor list</h1></center>
@@ -42,8 +42,26 @@
                         <button type="submit" class="btn btn-primary">Search</button><br /><br />
                     }
                 </div>
-            </center>
 
+                <br />
+
+                <div class="col-sm-6">
+                    @using (Html.BeginForm("EmailList", "Donor", FormMethod.Post))
+                    {
+                        <label for="Email List"></label><br />
+                        <button type="submit" class="btn btn-primary">Email List</button><br /><br />
+                    }
+                </div>
+
+                <div class="col-sm-6">
+                    @using (Html.BeginForm("MailList", "Donor", FormMethod.Post))
+                    {
+                        <label for="Mail List"></label><br />
+                        <button type="submit" class="btn btn-primary">Mail List</button><br /><br />
+                    }
+                </div>
+            </center>
+            <br />
                 <center><p><a href="/Donor/List" class="btn btn-primary btn-lg">View All Donors &raquo;</a></p></center>
 
                 @if (Utilities.IsNullOrEmpty(Model))
