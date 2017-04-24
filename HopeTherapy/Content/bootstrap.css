@@ -2091,8 +2091,8 @@ fieldset[disabled] .btn-default.active {
 
 .btn-primary {
   color: #ffffff;
-  background-color: #428bca;
-  border-color: #357ebd;
+  background-color: #935347;
+  border-color: #7d4627;
 }
 
 .btn-primary:hover,
@@ -2101,8 +2101,8 @@ fieldset[disabled] .btn-default.active {
 .btn-primary.active,
 .open .dropdown-toggle.btn-primary {
   color: #ffffff;
-  background-color: #3276b1;
-  border-color: #285e8e;
+  background-color: #935347;
+  border-color: #7d4627;
 }
 
 .btn-primary:active,
@@ -2126,8 +2126,8 @@ fieldset[disabled] .btn-primary:active,
 .btn-primary.disabled.active,
 .btn-primary[disabled].active,
 fieldset[disabled] .btn-primary.active {
-  background-color: #428bca;
-  border-color: #357ebd;
+  background-color: #935347;
+  border-color: ;
 }
 
 .btn-warning {
@@ -2296,7 +2296,7 @@ fieldset[disabled] .btn-info.active {
 
 .btn-link {
   font-weight: normal;
-  color: #428bca;
+  color: #935347;
   cursor: pointer;
   border-radius: 0;
 }
@@ -3932,7 +3932,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .nav-pills > li.active > a:hover,
 .nav-pills > li.active > a:focus {
   color: #ffffff;
-  background-color: #428bca;
+  background-color: #935347;
 }
 
 .nav-stacked > li {
@@ -4007,8 +4007,8 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .nav .caret {
-  border-top-color: #428bca;
-  border-bottom-color: #428bca;
+  border-top-color: #935347;
+  border-bottom-color: #935347;
 }
 
 .nav a:hover .caret {
@@ -4693,8 +4693,8 @@ textarea.input-group-sm > .input-group-btn > .btn {
   z-index: 2;
   color: #ffffff;
   cursor: default;
-  background-color: #428bca;
-  border-color: #428bca;
+  background-color: #935347;
+  border-color: #935347;
 }
 
 .pagination > .disabled > span,
@@ -4842,7 +4842,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .label-primary {
-  background-color: #428bca;
+  background-color: #935347;
 }
 
 .label-primary[href]:hover,
@@ -4986,7 +4986,7 @@ a.list-group-item.active > .badge,
 
 a.thumbnail:hover,
 a.thumbnail:focus {
-  border-color: #428bca;
+  border-color: #935347;
 }
 
 .thumbnail > img {

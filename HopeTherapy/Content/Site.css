@@ -142,7 +142,7 @@ a:hover {
 }
 
 /* selected link */
-.btn-primary:*{
+.btn-primary{
   color: #cac4c4;
   background-color: #935347;
   border-color: #7d4627;
@@ -159,7 +159,16 @@ a:hover {
       background-color: #856046;
       border-color: #7d4627;
 }
-
+.btn-primary:active{
+      color: white;
+      background-color: #856046;
+      border-color: #7d4627;
+}
+.btn-primary:focus{
+      color: white;
+      background-color: #856046;
+      border-color: #7d4627;
+}
 textarea {
         width: 40%;
         height: 90px;
