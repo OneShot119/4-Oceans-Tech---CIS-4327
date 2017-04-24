@@ -81,6 +81,7 @@
                                     <p style="color:#30231d">
                                         Donation Date: @Donor.DonationDate.Date.Month <text>/</text> @Donor.DonationDate.Date.Day <text>/</text> @Donor.DonationDate.Date.Year <br />
                                     </p>
+                                    @*VVV Delete this next line VVV*@
                                     <a href="@Url.Action("Delete", "Donor", new { ID = @Donor.DonorID })" class="btn btn-primary btn-md">Delete</a>
                                     @*<p><center><button class="btn btn-primary btn-lg" id="alertbtn" onclick="showAlert()">Delete &raquo;</button></center></p>
                                     <div class="alert" style="display:none" id="alert">

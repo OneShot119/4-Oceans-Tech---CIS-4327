@@ -142,10 +142,7 @@ a:hover {
 }
 
 /* selected link */
-a:active {
-    color: blue;
-}
-.btn-primary {
+.btn-primary:*{
   color: #cac4c4;
   background-color: #935347;
   border-color: #7d4627;
