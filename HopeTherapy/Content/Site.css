@@ -234,7 +234,7 @@ select{
     color: white;
     opacity: 1;
     margin-bottom: 5px;
-    border-radius: 3px;
+    border-radius: 15px;
 }
 
 .alert.success {background-color: #4CAF50;}

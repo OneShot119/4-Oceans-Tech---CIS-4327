@@ -98,14 +98,13 @@
                         </td>
                         <td>
                             <p style="color:#30231d">@Volunteer.HoursPerMonth</p>
-                            <a href="@Url.Action("Delete", "Volunteer", new { ID = @Volunteer.VolunteerID })" class="btn btn-primary btn-md">Delete</a>
-                            @*<p><center><button class="btn btn-primary btn-lg" id="alertbtn" onclick="showAlert()">Delete &raquo;</button></center></p>
-                            <div class="alert" style="display:none" id="alert">
+                            <p><center><button class="btn btn-primary btn-lg" id="alertbtn @Volunteer.VolunteerID" onclick="document.getElementById('@Volunteer.VolunteerID').style.display = 'block' ; this.style.display = 'none'">Delete &raquo;</button></center></p>
+                            <div class="alert @Volunteer.VolunteerID" style="display:none" id="@Volunteer.VolunteerID">
                                 This can not be undone!<br />
                                 <a href="@Url.Action("Delete", "Volunteer", new { ID = @Volunteer.VolunteerID })" class="btn btn-primary btn-md">Delete</a>
-                                <button class="btn btn-primary btn-md" id="closebtn" onclick="hideAlert()">Cancel</button><br />
+                                <button class="btn btn-primary btn-md" id="closebtn" onclick="document.getElementById('alertbtn @Volunteer.VolunteerID').style.display = 'block' ; document.getElementById('@Volunteer.VolunteerID').style.display = 'none'">Cancel</button><br />
                                 
-                            </div>*@
+                            </div>
                         </td>
                     </tr>
                 }
@@ -117,8 +116,6 @@
                 document.getElementById("alertbtn").style.display = "block";
             }
             function showAlert() {
-                document.getElementById("alert").style.display = "block";
-                document.getElementById("alertbtn").style.display = "none";
             }
         </script>
 </body>
