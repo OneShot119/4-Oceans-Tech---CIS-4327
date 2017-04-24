@@ -230,15 +230,15 @@ select{
 }
 .alert {
     padding: 5px;
-    background-color: #f44336;
     color: white;
     opacity: 1;
     margin-bottom: 5px;
     border-radius: 15px;
 }
 
-.alert.success {background-color: #4CAF50;}
-.alert.warning {background-color: #ff9800;}
+.alert-success{
+    background-color: #4CAF50;
+}
 
 .closebtn {
     margin-left: 15px;
