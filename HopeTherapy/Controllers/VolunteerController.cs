@@ -266,7 +266,7 @@ namespace HopeTherapy.Controllers
             else
             {
                 IEnumerable<Volunteer> Volunteers = null;
-                Volunteers = Utilities.Sql.ExecuteQuery<Volunteer>("select VolunteerID as VolunteerID, FirstName as FirstName, LastName as LastName, StreetAddress as StreetAddress, CITY as City, STATES as State, ZIPCODE as ZipCode from dbo.Volunteer where MailList = 'Y'");
+                Volunteers = Utilities.Sql.ExecuteQuery<Volunteer>("select VolunteerID as VolunteerID, FirstName as FirstName, LastName as LastName, StreetAddress as StreetAddress, CITY as City, STATES as States, ZIPCODE as ZipCode from dbo.Volunteer where MailList = 'Y'");
                 return View("VMail", Volunteers);
             }
         }
