@@ -90,6 +90,14 @@ namespace HopeTherapy.Models
 
         public string ServiceDonation { get; set; }
 
+        [Required(ErrorMessage = "Email List is required")]
+        [DisplayName("Email List? ")]
+        public string EmailList { get; set; }
+
+        [Required(ErrorMessage = "Mail List is required")]
+        [DisplayName("Mail List? ")]
+        public string MailList { get; set; }
+
         public string emailChain()
         {
             return (this.EmailAddress + ";");

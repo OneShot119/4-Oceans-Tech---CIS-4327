@@ -134,6 +134,7 @@ namespace HopeTherapy.Models
         [Required(ErrorMessage = "Mail List is required")]
         [DisplayName("Mail List? ")]
         public string MailList { get; set; }
+
         public Boolean Active { get; set; }
 
 

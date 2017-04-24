@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<HopeTherapy.Models.Volunteer>
 @{
-    ViewBag.Title = "Email";
+    ViewBag.Title = "VMail";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <html>
@@ -17,9 +17,8 @@
     {
         <a href='@Url.Action("Profile", "Volunteer", new { ID = @Volunteer.VolunteerID })' style="color:#935347">@Volunteer.FirstName @Volunteer.LastName</a>
         <br />
-        @Volunteer.StreetAddress
-        <br />
-        @Volunteer.City <p>, </p> @Volunteer.States <p>, </p> @Volunteer.ZipCode
+        <p> @Volunteer.StreetAddress </p>
+        <p> @Volunteer.City ,  @Volunteer.States ,  @Volunteer.ZipCode </p>
         <br /><br />
 
     }

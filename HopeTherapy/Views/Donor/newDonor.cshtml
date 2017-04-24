@@ -105,6 +105,22 @@
                         @Html.ValidationMessageFor(i => i.EmailAddress)
                     </div>
                 </div><br />
+
+                <div class="row">
+                    <div class="col-sm-3">
+                        @Html.DisplayNameFor(i => i.EmailList)<text style="color:red">*</text><text>:</text><br>
+                        @Html.RadioButtonFor(model => model.EmailList, "Y", true)@Html.Label("Yes")<br />
+                        @Html.RadioButtonFor(model => model.EmailList, "N", false)@Html.Label("No")<br />
+                        @Html.ValidationMessageFor(i => i.EmailList)
+                    </div>
+                    <div class="col-sm-3">
+                        @Html.DisplayNameFor(i => i.MailList)<text style="color:red">*</text><text>:</text><br>
+                        @Html.RadioButtonFor(model => model.MailList, "Y", true)@Html.Label("Yes")<br />
+                        @Html.RadioButtonFor(model => model.MailList, "N", false)@Html.Label("No")<br />
+                        @Html.ValidationMessageFor(i => i.MailList)
+                    </div>
+                </div><br />
+
                 <br /><br />
 
                 <legend>Employment Information</legend>
