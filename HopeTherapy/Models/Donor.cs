@@ -90,6 +90,10 @@ namespace HopeTherapy.Models
 
         public string ServiceDonation { get; set; }
 
+        public string emailChain()
+        {
+            return (this.EmailAddress + ";");
+        }
     }
 
 }

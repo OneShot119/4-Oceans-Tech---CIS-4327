@@ -204,5 +204,9 @@ namespace HopeTherapy.Models
             }
             return daynum;
         }
+        public string emailChain()
+        {
+            return (this.Email + ";");
+        }
     }
 }

@@ -233,6 +233,10 @@ namespace HopeTherapy.Controllers
                 {
                     Volunteers = Utilities.Sql.ExecuteQuery<Volunteer>("SELECT FirstName as FirstName, LastName as LastName, Email as Email, HoursPerMonth as HoursPerMonth, VolunteerID as VolunteerID from [dbo].[Volunteer] WHERE FirstName LIKE '%" + Search + "%' OR LastName LIKE '%" + Search + "%' OR Email LIKE '%" + Search + "%' OR StreetAddress LIKE '%" + Search + "%' OR City LIKE '%" + Search + "%' OR States LIKE '%" + Search + "%' OR ZipCode LIKE '%" + Search + "%' OR County LIKE '%" + Search + "%' OR CellPhoneNumber LIKE '%" + Search + "%' OR HomePhoneNumber LIKE '%" + Search + "%' OR WorkPhoneNumber LIKE '%" + Search + "%' OR Birthday LIKE '%" + Search + "%' OR Gender LIKE '%" + Search + "%' OR CompanyName LIKE '%" + Search + "%' OR Position LIKE '%" + Search + "%' OR CompanyAddress LIKE '%" + Search + "%' OR DateOrientation LIKE '%" + Search + "%' OR DateStarted LIKE '%" + Search + "%' OR HoursPerMonth LIKE '%" + Search + "%' OR AreaOfInterest LIKE '%" + Search + "%' OR Skills LIKE '%" + Search + "%';");
                 }
+                else if (Type == "MailList")
+                {
+                    Volunteers = Utilities.Sql.ExecuteQuery<Volunteer>("select VolunteerID as VolunteerID, FirstName as FirstName, LastName as LastName, StreetAddress as StreetAddress, CITY as City, STATES as State, ZIPCODE as ZipCode from dbo.Volunteer where MailList = 'Y'");
+                }
                 else
                 {
                 Volunteers = Utilities.Sql.ExecuteQuery<Volunteer>("select FirstName as FirstName, LastName as LastName, Email as Email, HoursPerMonth as HoursPerMonth, VolunteerID as VolunteerID from dbo.Volunteer;");
@@ -240,6 +244,35 @@ namespace HopeTherapy.Controllers
                 return View(Volunteers);
             }
         }
+
+        [HttpPost]
+        public ActionResult EmailList()
+        {
+            if (!Request.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                IEnumerable<Volunteer> Volunteers = null;
+                Volunteers = Utilities.Sql.ExecuteQuery<Volunteer>("select VolunteerID as VolunteerID, FirstName as FirstName, LastName as LastName, Email as Email from dbo.Volunteer where EmailList = 'Y'");
+
+                return View("Email", Volunteers);
+            }
+        }
+        [HttpPost]
+        public ActionResult MailList()
+        {
+            if (!Request.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return RedirectToAction("List", new { Search = "", Type = "MailList" });
+            }
+        }
+
         [HttpPost]
         public ActionResult ListByLastName(string LastName)
         {

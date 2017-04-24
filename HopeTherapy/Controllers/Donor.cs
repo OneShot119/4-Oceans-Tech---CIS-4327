@@ -187,8 +187,10 @@ namespace HopeTherapy.Controllers
                 else if (Type == "*")
                 {
                     Donors = Utilities.Sql.ExecuteQuery<Donor>("select D_CODE as DonorID, D_Fname as FirstName, D_Lname as LastName, D_EMAIL as EmailAddress, DONATION_DATE as DonationDate, DONATION_CURRENCY as CurrencyDonation, DONATION_ITEM as ItemDonation, DONATION_SERVICE as ServiceDonation from dbo.DONOR WHERE D_FNAME LIKE '%" + Search + "%' OR D_lname LIKE '%" + Search + "%' OR d_address LIKE '%" + Search + "%' OR d_city LIKE '%" + Search + "%' OR d_state LIKE '%" + Search + "%' OR d_zip LIKE '%" + Search + "%' OR d_county LIKE '%" + Search + "%' OR d_cell_phone LIKE '%" + Search + "%' OR d_home_phone LIKE '%" + Search + "%' OR d_work_phone LIKE '%" + Search + "%' OR d_email LIKE '%" + Search + "%' OR d_co_name LIKE '%" + Search + "%' OR d_position LIKE '%" + Search + "%' OR d_co_address LIKE '%" + Search + "%' OR d_co_city LIKE '%" + Search + "%' OR d_co_state LIKE '%" + Search + "%' OR d_co_zip LIKE '%" + Search + "%' OR donation_date LIKE '%" + Search + "%' OR donation_currency LIKE '%" + Search + "%' OR donation_item LIKE '%" + Search + "%' OR donation_service LIKE '%" + Search + "%';");
-
-
+               }
+                else if (Type == "MailList")
+                {
+                    Donors = Utilities.Sql.ExecuteQuery<Donor>("select D_CODE as DonorID, D_Fname as FirstName, D_Lname as LastName, D_address as StreetAddress, D_CITY as City, D_STATE as State, D_ZIP as ZipCode from dbo.DONOR where D_MailList = 'Y'");
                 }
                 else
                 {
@@ -197,6 +199,34 @@ namespace HopeTherapy.Controllers
                 return View(Donors);
             }
         }
+
+        [HttpPost]
+        public ActionResult MailList()
+        {
+            if (!Request.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return RedirectToAction("List", new { Search = "", Type = "MailList" });
+            }
+        }
+        [HttpPost]
+        public ActionResult EmailList()
+        {
+            if (!Request.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                IEnumerable<Donor> Donors = null;
+                Donors = Utilities.Sql.ExecuteQuery<Donor>("select D_CODE as DonorID, D_Fname as FirstName, D_Lname as LastName, D_EMAIL as EmailAddress from dbo.DONOR where D_EmailList = 'Y'");
+                return View("DEmail", Donors);
+            }
+        }
+
         [HttpPost]
         public ActionResult ListByLastName(string LastName)
         {
