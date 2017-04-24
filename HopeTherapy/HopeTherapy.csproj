@@ -254,6 +254,7 @@
     <Content Include="Views\Volunteer\Email.cshtml" />
     <Content Include="Views\Donor\DEmail.cshtml" />
     <Content Include="Views\Volunteer\VMail.cshtml" />
+    <Content Include="Views\Donor\DMail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
