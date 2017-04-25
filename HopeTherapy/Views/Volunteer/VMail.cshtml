@@ -15,10 +15,14 @@
 
     @foreach (var Volunteer in Model)
     {
+        @*
         <a href='@Url.Action("Profile", "Volunteer", new { ID = @Volunteer.VolunteerID })' style="color:#935347">@Volunteer.FirstName @Volunteer.LastName</a>
         <br />
-        <p> @Volunteer.StreetAddress </p>
-        <p> @Volunteer.City ,  @Volunteer.States ,  @Volunteer.ZipCode </p>
+        *@
+        
+        <h2>@Volunteer.FirstName @Volunteer.LastName</h2>
+        <h3> @Volunteer.StreetAddress </h3>
+        <h3> @Volunteer.City ,  @Volunteer.States ,  @Volunteer.ZipCode </h3>
         <br /><br />
 
     }

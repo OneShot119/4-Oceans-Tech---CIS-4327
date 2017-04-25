@@ -312,6 +312,10 @@ namespace HopeTherapy.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
+            else if (string.IsNullOrEmpty(Day))
+            {
+                return RedirectToAction("List", new { Search = "", Type = "" });
+            }
             else
             {
                 return RedirectToAction("List", new { Search = Day, Type = "Day" });
