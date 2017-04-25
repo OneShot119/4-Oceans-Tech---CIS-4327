@@ -43,7 +43,7 @@
             </center>
             <center>
             <div class="row">
-                <div class="col-sm-4">
+                <div class="col-sm-16">
                     @using (Html.BeginForm("ListByDay", "Volunteer", FormMethod.Post))
                     {
                         <label for="Email List">Work Day</label><br />
@@ -59,27 +59,33 @@
                         <button type="submit" class="btn btn-primary">Search</button><br /><br />
                     }
                 </div>
-                    <div class="col-sm-4">
-                        @using (Html.BeginForm("EmailList", "Volunteer", FormMethod.Post))
-                        {
-                            <label for="Email List"></label><br />
-                            <button type="submit" class="btn btn-primary">Email List</button><br /><br />
-                        }
-                    </div>
-
-                    <div class="col-sm-4">
-                        @using (Html.BeginForm("MailList", "Volunteer", FormMethod.Post))
-                        {
-                            <label for="Mail List"></label><br />
-                            <button type="submit" class="btn btn-primary">Mail List</button><br />
-                        }
-                    </div>
-                
             </div>
         </center>
         
         
-        <center><p><a href="/Volunteer/List" style="width:200px" class="btn btn-primary btn-lg" >View All Volunteers &raquo;</a></p></center>
+            <div class="row" style="text-align:center">
+                <div class="col">
+                    @using (Html.BeginForm("EmailList", "Volunteer", FormMethod.Post))
+                    {
+                        <label for="Email List"></label>
+                        <button type="submit" class="btn btn-primary">Email List</button>
+                    }
+                </div>
+
+                <div class="col">
+                    <a href="/Volunteer/List" class="btn btn-primary">View All Volunteers &raquo;</a>
+                </div>
+
+                <div class="col">
+                    @using (Html.BeginForm("MailList", "Volunteer", FormMethod.Post))
+                    {
+                        <label for="Mail List"></label>
+                        <button type="submit" class="btn btn-primary">Mail List</button>
+                    }
+                </div>
+             </div>
+        <br />
+        <br />
 
         @if (Utilities.IsNullOrEmpty(Model))
         {
@@ -97,7 +103,10 @@
                         <th>
                             Volunteer Email
                         </th>
-                        <th colspan="2">
+                        <th>
+                            Work Days
+                        </th>
+                        <th>
                             Hours per Month
                         </th>
                     </tr>
@@ -112,6 +121,12 @@
                         </td>
                         <td>
                             <a href="mailto:@Volunteer.Email" style="color:#935347">@Volunteer.Email</a>
+                        </td>
+                        <td>
+                            @foreach(var Day in Volunteer.Schedule())
+                            {
+                                <p>@Day</p>
+                            }
                         </td>
                         <td>
                             <p style="color:#30231d">@Volunteer.HoursPerMonth</p>

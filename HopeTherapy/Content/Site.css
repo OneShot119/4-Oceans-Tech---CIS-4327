@@ -98,7 +98,7 @@ thead th:last-child {
 tbody tr td {
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
-  color: Blue;
+  color: #935347;
   font-size: 26px;
   padding: 20px 20px 20px 20px;
   text-align: center;
@@ -254,4 +254,9 @@ select{
 
 .closebtn:hover {
     color: black;
+}
+.col{
+   position:relative;
+   margin:10px auto;
+   display:inline-block;
 }

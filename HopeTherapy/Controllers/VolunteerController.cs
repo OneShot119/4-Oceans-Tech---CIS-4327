@@ -242,6 +242,12 @@ namespace HopeTherapy.Controllers
                 {
                 Volunteers = Utilities.Sql.ExecuteQuery<Volunteer>("select FirstName as FirstName, LastName as LastName, Email as Email, HoursPerMonth as HoursPerMonth, VolunteerID as VolunteerID from dbo.Volunteer;");
                 }
+                foreach(var Volunteer in Volunteers)
+                {
+                    IEnumerable<String> schedule = Utilities.Sql.ExecuteQuery<String>("select * from dbo.Days WHERE Days.Volunteer = " + Volunteer.VolunteerID + ";");
+                    Volunteer.dayList = schedule;
+                    Volunteer.setDays();
+                }
                 return View(Volunteers);
             }
         }
