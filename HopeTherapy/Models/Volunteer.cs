@@ -209,5 +209,6 @@ namespace HopeTherapy.Models
         {
             return (this.Email + ";");
         }
+        public string searchCategory { get; set; }
     }
 }

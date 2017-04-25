@@ -236,7 +236,13 @@ namespace HopeTherapy.Controllers
                 else if (Type == "Day")
                 {
                     Volunteers = Utilities.Sql.ExecuteQuery<Volunteer>("SELECT FirstName as FirstName, LastName as LastName, Email as Email, HoursPerMonth as HoursPerMonth, VolunteerID as VolunteerID from [dbo].[Volunteer],[dbo].[Days] where Days.Volunteer = Volunteer.VolunteerID and Days.Day='" + Search + "';");
-
+                    if (Volunteers.Any()) { Volunteers.First().searchCategory = Search; }
+                    else
+                    {
+                        var volunteer = new Volunteer();
+                        volunteer.searchCategory = Search;
+                        Volunteers = new Volunteer[] { volunteer };
+                    }
                 }
                 else
                 {
