@@ -14,193 +14,190 @@
 
         <center><h1>Volunteer List</h1></center>
         <center>
-            <div class="row">
-                <div class="col-sm-4">
-                    @using (Html.BeginForm("ListByLastName", "Volunteer", FormMethod.Post))
+            <div class="col-sm-3">
+                @using (Html.BeginForm("ListByLastName", "Volunteer", FormMethod.Post))
+                {
+                    <label for="Search">Last Name:</label><br />
+                    <input type="text" name="LastName" id="LastName" /><br /><br />
+                    <button type="submit" class="btn btn-primary btn-lg">Search</button><br /><br />
+                }
+            </div>
+            <div class="col-sm-3">
+                @using (Html.BeginForm("ListByCounty", "Volunteer", FormMethod.Post))
+                {
+                    <label for="Search2">County:</label><br />
+                    <input type="text" name="County" id="County" /><br /><br />
+                    <button type="submit" class="btn btn-primary btn-lg">Search</button><br /><br />
+                }
+            </div>
+            <div class="col-sm-3">
+                @using (Html.BeginForm("ListByAll", "Volunteer", FormMethod.Post))
+                {
+                    <label for="Search2">Anything:</label><br />
+                    <input type="text" name="All" id="All" /><br /><br />
+                    <button type="submit" class="btn btn-primary btn-lg">Search</button><br /><br />
+                }
+            </div>
+
+            <div class="col-sm-3">
+                @using (Html.BeginForm("ListByDay", "Volunteer", FormMethod.Post))
+            {
+                    <label for="Email List">Work Day</label><br />
+                    if (Model.Any())
                     {
-                        <label for="Search">Last Name:</label><br />
-                        <input type="text" name="LastName" id="LastName" /><br />
-                        <button type="submit" class="btn btn-primary">Search</button><br /><br />
-                    }
-                </div>
-                <div class="col-sm-4">
-                    @using (Html.BeginForm("ListByCounty", "Volunteer", FormMethod.Post))
-                    {
-                        <label for="Search2">County:</label><br />
-                        <input type="text" name="County" id="County" /><br />
-                        <button type="submit" class="btn btn-primary">Search</button><br /><br />
-                    }
-                </div>
-                <div class="col-sm-4">
-                    @using (Html.BeginForm("ListByAll", "Volunteer", FormMethod.Post))
-                    {
-                        <label for="Search2">Anything:</label><br />
-                        <input type="text" name="All" id="All" /><br />
-                        <button type="submit" class="btn btn-primary">Search</button><br /><br />
-                    }
-                </div>
-                </div>
-            </center>
-        <center>
-            <div class="row">
-                <div class="col-sm-16">
-                    @using (Html.BeginForm("ListByDay", "Volunteer", FormMethod.Post))
-                    {
-                        <label for="Email List">Work Day</label><br />
-                        if (Model.Any())
+                        switch (@Model.First().searchCategory)
                         {
-                            switch (@Model.First().searchCategory)
-                            {
-                                case "Sunday":
-                                    <select name="Day" id="Day">
-                                        <option> </option>
-                                        <option selected>Sunday</option>
-                                        <option>Monday</option>
-                                        <option>Tuesday</option>
-                                        <option>Wednesday</option>
-                                        <option>Thursday</option>
-                                        <option>Friday</option>
-                                        <option>Saturday</option>
-                                    </select>
-                                    break;
-                                case "Monday":
-                                    <select name="Day" id="Day">
-                                        <option> </option>
-                                        <option>Sunday</option>
-                                        <option selected>Monday</option>
-                                        <option>Tuesday</option>
-                                        <option>Wednesday</option>
-                                        <option>Thursday</option>
-                                        <option>Friday</option>
-                                        <option>Saturday</option>
-                                    </select>
-                                    break;
-                                case "Tuesday":
-                                    <select name="Day" id="Day">
-                                        <option> </option>
-                                        <option>Sunday</option>
-                                        <option>Monday</option>
-                                        <option selected>Tuesday</option>
-                                        <option>Wednesday</option>
-                                        <option>Thursday</option>
-                                        <option>Friday</option>
-                                        <option>Saturday</option>
-                                    </select>
-                                    break;
-                                case "Wednesday":
-                                    <select name="Day" id="Day">
-                                        <option> </option>
-                                        <option>Sunday</option>
-                                        <option>Monday</option>
-                                        <option>Tuesday</option>
-                                        <option selected>Wednesday</option>
-                                        <option>Thursday</option>
-                                        <option>Friday</option>
-                                        <option>Saturday</option>
-                                    </select>
-                                    break;
-                                case "Thursday":
-                                    <select name="Day" id="Day">
-                                        <option> </option>
-                                        <option>Sunday</option>
-                                        <option>Monday</option>
-                                        <option>Tuesday</option>
-                                        <option>Wednesday</option>
-                                        <option selected>Thursday</option>
-                                        <option>Friday</option>
-                                        <option>Saturday</option>
-                                    </select>
-                                    break;
-                                case "Friday":
-                                    <select name="Day" id="Day">
-                                        <option> </option>
-                                        <option>Sunday</option>
-                                        <option>Monday</option>
-                                        <option>Tuesday</option>
-                                        <option>Wednesday</option>
-                                        <option>Thursday</option>
-                                        <option selected>Friday</option>
-                                        <option>Saturday</option>
-                                    </select>
-                                    break;
-                                case "Saturday":
-                                    <select name="Day" id="Day">
-                                        <option> </option>
-                                        <option>Sunday</option>
-                                        <option>Monday</option>
-                                        <option>Tuesday</option>
-                                        <option>Wednesday</option>
-                                        <option>Thursday</option>
-                                        <option>Friday</option>
-                                        <option selected>Saturday</option>
-                                    </select>
-                                    break;
-                                default:
-                                    <select name="Day" id="Day">
-                                        <option selected> </option>
-                                        <option>Sunday</option>
-                                        <option>Monday</option>
-                                        <option>Tuesday</option>
-                                        <option>Wednesday</option>
-                                        <option>Thursday</option>
-                                        <option>Friday</option>
-                                        <option>Saturday</option>
-                                    </select>
-                                    break;
-                            }
+                            case "Sunday":
+                                <select name="Day" id="Day">
+                                    <option> </option>
+                                    <option selected>Sunday</option>
+                                    <option>Monday</option>
+                                    <option>Tuesday</option>
+                                    <option>Wednesday</option>
+                                    <option>Thursday</option>
+                                    <option>Friday</option>
+                                    <option>Saturday</option>
+                                </select>
+                                break;
+                            case "Monday":
+                                <select name="Day" id="Day">
+                                    <option> </option>
+                                    <option>Sunday</option>
+                                    <option selected>Monday</option>
+                                    <option>Tuesday</option>
+                                    <option>Wednesday</option>
+                                    <option>Thursday</option>
+                                    <option>Friday</option>
+                                    <option>Saturday</option>
+                                </select>
+                                break;
+                            case "Tuesday":
+                                <select name="Day" id="Day">
+                                    <option> </option>
+                                    <option>Sunday</option>
+                                    <option>Monday</option>
+                                    <option selected>Tuesday</option>
+                                    <option>Wednesday</option>
+                                    <option>Thursday</option>
+                                    <option>Friday</option>
+                                    <option>Saturday</option>
+                                </select>
+                                break;
+                            case "Wednesday":
+                                <select name="Day" id="Day">
+                                    <option> </option>
+                                    <option>Sunday</option>
+                                    <option>Monday</option>
+                                    <option>Tuesday</option>
+                                    <option selected>Wednesday</option>
+                                    <option>Thursday</option>
+                                    <option>Friday</option>
+                                    <option>Saturday</option>
+                                </select>
+                                break;
+                            case "Thursday":
+                                <select name="Day" id="Day">
+                                    <option> </option>
+                                    <option>Sunday</option>
+                                    <option>Monday</option>
+                                    <option>Tuesday</option>
+                                    <option>Wednesday</option>
+                                    <option selected>Thursday</option>
+                                    <option>Friday</option>
+                                    <option>Saturday</option>
+                                </select>
+                                break;
+                            case "Friday":
+                                <select name="Day" id="Day">
+                                    <option> </option>
+                                    <option>Sunday</option>
+                                    <option>Monday</option>
+                                    <option>Tuesday</option>
+                                    <option>Wednesday</option>
+                                    <option>Thursday</option>
+                                    <option selected>Friday</option>
+                                    <option>Saturday</option>
+                                </select>
+                                break;
+                            case "Saturday":
+                                <select name="Day" id="Day">
+                                    <option> </option>
+                                    <option>Sunday</option>
+                                    <option>Monday</option>
+                                    <option>Tuesday</option>
+                                    <option>Wednesday</option>
+                                    <option>Thursday</option>
+                                    <option>Friday</option>
+                                    <option selected>Saturday</option>
+                                </select>
+                                break;
+                            default:
+                                <select name="Day" id="Day">
+                                    <option selected> </option>
+                                    <option>Sunday</option>
+                                    <option>Monday</option>
+                                    <option>Tuesday</option>
+                                    <option>Wednesday</option>
+                                    <option>Thursday</option>
+                                    <option>Friday</option>
+                                    <option>Saturday</option>
+                                </select>
+                                break;
                         }
-                        else
-                        {
-                            <select name="Day" id="Day">
-                                <option selected> </option>
-                                <option>Sunday</option>
-                                <option>Monday</option>
-                                <option>Tuesday</option>
-                                <option>Wednesday</option>
-                                <option>Thursday</option>
-                                <option>Friday</option>
-                                <option>Saturday</option>
-                            </select>
-                        }
-                        <br />
-                        <button type="submit" class="btn btn-primary">Search</button><br /><br />
                     }
-                </div>
+                    else
+                    {
+                        <select name="Day" id="Day">
+                            <option selected> </option>
+                            <option>Sunday</option>
+                            <option>Monday</option>
+                            <option>Tuesday</option>
+                            <option>Wednesday</option>
+                            <option>Thursday</option>
+                            <option>Friday</option>
+                            <option>Saturday</option>
+                        </select>
+                    }
+                    <br /><br />
+                    <button type="submit" class="btn btn-primary btn-lg">Search</button><br /><br />
+                }
+            </div>
+
+            <div class="col-sm-12">
+                <label for=""></label>
+            </div>
+
+            <div class="col-sm-4">
+                @using (Html.BeginForm("EmailList", "Volunteer", FormMethod.Post))
+                {
+                    <label for="Email List"></label>
+                    <button type="submit" class="btn btn-primary btn-lg">Email List</button>
+                }
+            </div>
+
+            <div class="col-sm-4">
+                <a href="/Volunteer/List" class="btn btn-primary btn-lg">View All Volunteers</a>
+            </div>
+
+            <div class="col-sm-4">
+                @using (Html.BeginForm("MailList", "Volunteer", FormMethod.Post))
+                {
+                    <label for="Mail List"></label>
+                    <button type="submit" class="btn btn-primary btn-lg">Mail List</button>
+                }
             </div>
         </center>
-        
-        
-            <div class="row" style="text-align:center">
-                <div class="col">
-                    @using (Html.BeginForm("EmailList", "Volunteer", FormMethod.Post))
-                    {
-                        <label for="Email List"></label>
-                        <button type="submit" class="btn btn-primary">Email List</button>
-                    }
-                </div>
 
-                <div class="col">
-                    <a href="/Volunteer/List" class="btn btn-primary">View All Volunteers &raquo;</a>
-                </div>
+        <div class="col-sm-12">
+            <label for=""></label>
+        </div>
 
-                <div class="col">
-                    @using (Html.BeginForm("MailList", "Volunteer", FormMethod.Post))
-                    {
-                        <label for="Mail List"></label>
-                        <button type="submit" class="btn btn-primary">Mail List</button>
-                    }
-                </div>
-             </div>
-        <br />
-        <br />
-
-        @if (Utilities.IsNullOrEmpty(Model) || Model.First().LastName==null)
+        @if (Utilities.IsNullOrEmpty(Model) || Model.First().LastName == null)
         {
             <center><h1>Sorry but there aren't any results.</h1></center>
         }
         else
         {
-
             <table border="1" style="margin: 0px auto;">
                 <thead style="font-size:23px">
                     <tr>
@@ -230,7 +227,7 @@
                             <a href="mailto:@Volunteer.Email" style="color:#935347">@Volunteer.Email</a>
                         </td>
                         <td>
-                            @foreach(var Day in Volunteer.Schedule())
+                            @foreach (var Day in Volunteer.Schedule())
                             {
                                 <p>@Day</p>
                             }
@@ -242,7 +239,7 @@
                                 This can not be undone!<br />
                                 <a href="@Url.Action("Delete", "Volunteer", new { ID = @Volunteer.VolunteerID })" class="btn btn-primary btn-md">Delete</a>
                                 <button class="btn btn-primary btn-md" id="closebtn" onclick="document.getElementById('alertbtn @Volunteer.VolunteerID').style.display = 'block' ; document.getElementById('@Volunteer.VolunteerID').style.display = 'none'">Cancel</button><br />
-                                
+
                             </div>
                         </td>
                     </tr>
@@ -257,7 +254,7 @@
             function showAlert() {
             }
         </script>
-</body>
+    </body>
 </html>
 
 

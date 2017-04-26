@@ -20,8 +20,8 @@
                 @using (Html.BeginForm("ListByLastName", "Donor", FormMethod.Post))
                 {
                     <label for="Search">Last Name</label><br />
-                        <input type="text" name="LastName" id="LastName" /><br />
-                        <button type="submit" class="btn btn-primary">Search</button><br /><br />
+                    <input type="text" name="LastName" id="LastName" /><br /><br />
+                    <button type="submit" class="btn btn-primary btn-lg">Search</button><br /><br />
                 }
             </div>
 
@@ -29,8 +29,8 @@
                 @using (Html.BeginForm("ListByCounty", "Donor", FormMethod.Post))
                 {
                     <label for="Search2">County</label><br />
-                        <input type="text" name="County" id="County" /><br />
-                        <button type="submit" class="btn btn-primary">Search</button><br /><br />
+                    <input type="text" name="County" id="County" /><br /><br />
+                    <button type="submit" class="btn btn-primary btn-lg">Search</button><br /><br />
                 }
             </div>
 
@@ -38,95 +38,97 @@
                 @using (Html.BeginForm("ListByAll", "Donor", FormMethod.Post))
                 {
                     <label for="Search2">All</label><br />
-                        <input type="text" name="All" id="All" /><br />
-                        <button type="submit" class="btn btn-primary">Search</button><br /><br />
+                    <input type="text" name="All" id="All" /><br /><br />
+                    <button type="submit" class="btn btn-primary btn-lg">Search</button><br /><br />
                 }
             </div>
 
-            <br />
-
-            <div class="row" style="text-align:center">
-                <div class="col">
-                    @using (Html.BeginForm("EmailList", "Donor", FormMethod.Post))
-                    {
-                        <label for="Email List"></label>
-                        <button type="submit" class="btn btn-primary">Email List</button>
-                    }
-                </div>
-
-                <div class="col">
-                    <a href="/Donor/List" class="btn btn-primary">View All Donors &raquo;</a>
-                </div>
-
-                <div class="col">
-                    @using (Html.BeginForm("MailList", "Donor", FormMethod.Post))
-                    {
-                        <label for="Mail List"></label>
-                        <button type="submit" class="btn btn-primary">Mail List</button>
-                    }
-                </div>
+            <div class="col-sm-12">
+                <label for=""></label>
             </div>
 
-        <br />
-
-        @if (Utilities.IsNullOrEmpty(Model))
-            {
-            <center><h1>Sorry but there aren't any results.</h1></center>
-        }
-        else
-        {
-            <table border="1" style="margin: 0px auto;">
-                <thead style="font-size:23px">
-                    <tr>
-                        <th>
-                            Donor Name
-                        </th>
-                        <th>
-                            Donor Email
-                        </th>
-                        <th>
-                            Donations
-                        </th>
-                    </tr>
-                </thead>
-                @foreach (var Donor in Model)
+            <div class="col-sm-4">
+                @using (Html.BeginForm("EmailList", "Donor", FormMethod.Post))
                 {
-                    <tr>
-                        <td>
-                            <a href='@Url.Action("Profile", "Donor", new { ID = Donor.DonorID })' style="color:#935347">@Donor.FirstName @Donor.LastName</a>
-                            <a href='@Url.Action("Edit", "Donor", new { ID = Donor.DonorID })'><Font color="#30231d">Edit</Font></a>
-
-                        </td>
-                        <td>
-                            <a href="mailto:@Donor.EmailAddress" style="color:#935347">@Donor.EmailAddress</a>
-                        </td>
-                        <td>
-                            <p style="color:#30231d">
-                                Donation Date: @Donor.DonationDate.Date.Month <text>/</text> @Donor.DonationDate.Date.Day <text>/</text> @Donor.DonationDate.Date.Year <br />
-                            </p>
-                            <p><center><button class="btn btn-primary btn-lg" id="alertbtn @Donor.DonorID" onclick="document.getElementById('@Donor.DonorID').style.display = 'block' ; this.style.display = 'none'">Delete &raquo;</button></center></p>
-                            <div class="alert @Donor.DonorID" style="display:none" id="@Donor.DonorID">
-                                This can not be undone!<br />
-                                <a href="@Url.Action("Delete", "Donor", new { ID = @Donor.DonorID })" class="btn btn-primary btn-md">Delete</a>
-                                <button class="btn btn-primary btn-md" id="closebtn" onclick="document.getElementById('alertbtn @Donor.DonorID').style.display = 'block' ; document.getElementById('@Donor.DonorID').style.display = 'none'">Cancel</button><br />
-
-                            </div>
-                        </td>
-                    </tr>
+                    <label for="Email List"></label>
+                    <button type="submit" class="btn btn-primary btn-lg">Email List</button>
                 }
+            </div>
 
-            </table>
-        }
-        <script>
-            function hideAlert() {
-                document.getElementById("alert").style.display = "none";
-                document.getElementById("alertbtn").style.display = "block";
+            <div class="col-sm-4">
+                <a href="/Donor/List" class="btn btn-primary btn-lg">View All Donors</a>
+            </div>
+
+            <div class="col-sm-4">
+                @using (Html.BeginForm("MailList", "Donor", FormMethod.Post))
+                {
+                    <label for="Mail List"></label>
+                    <button type="submit" class="btn btn-primary btn-lg">Mail List</button>
+                }
+            </div>
+            
+            <div class="col-sm-12">
+                <label for=""> </label>
+            </div>
+
+            @if (Utilities.IsNullOrEmpty(Model))
+            {
+                <center><h1>Sorry but there aren't any results.</h1></center>
             }
-            function showAlert() {
-                document.getElementById("alert").style.display = "block";
-                document.getElementById("alertbtn").style.display = "none";
+            else
+            {
+                <table border="1" style="margin: 0px auto;">
+                    <thead style="font-size:23px">
+                        <tr>
+                            <th>
+                                Donor Name
+                            </th>
+                            <th>
+                                Donor Email
+                            </th>
+                            <th>
+                                Donations
+                            </th>
+                        </tr>
+                    </thead>
+                    @foreach (var Donor in Model)
+                {
+                        <tr>
+                            <td>
+                                <a href='@Url.Action("Profile", "Donor", new { ID = Donor.DonorID })' style="color:#935347">@Donor.FirstName @Donor.LastName</a>
+                                <a href='@Url.Action("Edit", "Donor", new { ID = Donor.DonorID })'><Font color="#30231d">Edit</Font></a>
+
+                            </td>
+                            <td>
+                                <a href="mailto:@Donor.EmailAddress" style="color:#935347">@Donor.EmailAddress</a>
+                            </td>
+                            <td>
+                                <p style="color:#30231d">
+                                    Donation Date: @Donor.DonationDate.Date.Month <text>/</text> @Donor.DonationDate.Date.Day <text>/</text> @Donor.DonationDate.Date.Year <br />
+                                </p>
+                                <p><center><button class="btn btn-primary btn-lg" id="alertbtn @Donor.DonorID" onclick="document.getElementById('@Donor.DonorID').style.display = 'block' ; this.style.display = 'none'">Delete &raquo;</button></center></p>
+                                <div class="alert @Donor.DonorID" style="display:none" id="@Donor.DonorID">
+                                    This can not be undone!<br />
+                                    <a href="@Url.Action("Delete", "Donor", new { ID = @Donor.DonorID })" class="btn btn-primary btn-md">Delete</a>
+                                    <button class="btn btn-primary btn-md" id="closebtn" onclick="document.getElementById('alertbtn @Donor.DonorID').style.display = 'block' ; document.getElementById('@Donor.DonorID').style.display = 'none'">Cancel</button><br />
+
+                                </div>
+                            </td>
+                        </tr>
+                    }
+
+                </table>
             }
-        </script>
+            <script>
+                function hideAlert() {
+                    document.getElementById("alert").style.display = "none";
+                    document.getElementById("alertbtn").style.display = "block";
+                }
+                function showAlert() {
+                    document.getElementById("alert").style.display = "block";
+                    document.getElementById("alertbtn").style.display = "none";
+                }
+            </script>
     </body>
 
     </html> 
