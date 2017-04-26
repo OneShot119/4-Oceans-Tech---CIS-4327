@@ -163,9 +163,7 @@
                 }
             </div>
 
-            <div class="col-sm-12">
-                <label for=""></label>
-            </div>
+            <p>&nbsp;</p>
 
             <div class="col-sm-4">
                 @using (Html.BeginForm("EmailList", "Volunteer", FormMethod.Post))
@@ -176,7 +174,7 @@
             </div>
 
             <div class="col-sm-4">
-                <a href="/Volunteer/List" class="btn btn-primary btn-lg">View All Volunteers</a>
+                <a href="/Volunteer/List" class="btn btn-primary btn-lg">View All</a>
             </div>
 
             <div class="col-sm-4">
@@ -188,9 +186,7 @@
             </div>
         </center>
 
-        <div class="col-sm-12">
-            <label for=""></label>
-        </div>
+        <p>&nbsp;</p>
 
         @if (Utilities.IsNullOrEmpty(Model) || Model.First().LastName == null)
         {
