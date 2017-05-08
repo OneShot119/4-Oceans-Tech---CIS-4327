@@ -42,9 +42,9 @@
                     <button type="submit" class="btn btn-primary btn-lg">Search</button><br /><br />
                 }
             </div>
-
-            <p>&nbsp;</p>
-
+            <div class="col-sm-4">
+                <a href="/Donor/Donations" class="btn btn-primary btn-lg">View Donations</a>
+            </div>
             <div class="col-sm-4">
                 @using (Html.BeginForm("EmailList", "Donor", FormMethod.Post))
                 {
@@ -53,11 +53,8 @@
                 }
             </div>
 
-            <div class="col-sm-4">
-                <a href="/Donor/List" class="btn btn-primary btn-lg">View All</a>
-            </div>
 
-            <div class="col-sm-4">
+                 <div class="col-sm-4">
                 @using (Html.BeginForm("MailList", "Donor", FormMethod.Post))
                 {
                     <label for="Mail List"></label>
@@ -65,6 +62,10 @@
                 }
             </div>
 
+            <p>&nbsp;</p>
+            <div class="col-sm-4">
+                <a href="/Donor/List" class="btn btn-primary btn-lg">View All</a>
+            </div>
         </center>
 
         <p>&nbsp;</p>

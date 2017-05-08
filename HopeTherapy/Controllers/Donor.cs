@@ -1,13 +1,14 @@
-﻿using HopeTherapy.Models;
+﻿using HopeTherapy.DataAccess;
+using HopeTherapy.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
-using HopeTherapy.DataAccess;
-using System.Data.SqlClient;
-using System.Configuration;
 
 namespace HopeTherapy.Controllers
 {
@@ -67,11 +68,11 @@ namespace HopeTherapy.Controllers
             new SelectListItem {Text="West Virginia", Value="West Virginia"},
             new SelectListItem {Text="Wisconsin", Value="Wisconsin"},
             new SelectListItem {Text="Wyoming", Value="Wyoming"}
-        }; 
+        };
 
 
         // GET: Register
-           [HttpGet]
+        [HttpGet]
         public ActionResult NewDonor()
         {
             if (!Request.IsAuthenticated)
@@ -93,8 +94,20 @@ namespace HopeTherapy.Controllers
             }
             else
             {
-                var Donor = Utilities.Sql.ExecuteQuerySingleResult<Donor>("select D_CODE as DonorID, D_Fname as FirstName, D_Lname as LastName, D_address as StreetAddress, D_CITY as City, D_STATE as State, D_ZIP as ZipCode, D_County as County, D_CELL_PHONE as CellPhoneNumber, D_HOME_PHONE as HomePhoneNumber, D_WORK_PHONE as WorkPhoneNumber, D_EMAIL as EmailAddress, D_MailList as MailList, D_EmailList as EmailList, D_CO_NAME as CompanyName, D_POSITION as Position, D_CO_ADDRESS as CompanyAddress, D_CO_STATE as CompanyState, D_CO_CITY as CompanyCity, D_CO_ZIP as CompanyZip, DONATION_DATE as DonationDate, DONATION_CURRENCY as CurrencyDonation, DONATION_ITEM as ItemDonation, DONATION_SERVICE as ServiceDonation from dbo.DONOR Where D_CODE = " + ID + ";");
+                var Donor = Utilities.Sql.ExecuteQuerySingleResult<Donor>("select D_CODE as DonorID, D_Fname as FirstName, D_Lname as LastName, D_address as StreetAddress, D_CITY as City, D_STATE as State, D_ZIP as ZipCode, D_County as County, D_CELL_PHONE as CellPhoneNumber, D_HOME_PHONE as HomePhoneNumber, D_WORK_PHONE as WorkPhoneNumber, D_EMAIL as EmailAddress, D_MailList as MailList, D_EmailList as EmailList, D_CO_NAME as CompanyName, D_POSITION as Position, D_CO_ADDRESS as CompanyAddress, D_CO_STATE as CompanyState, D_CO_CITY as CompanyCity, D_CO_ZIP as CompanyZip from dbo.DONOR Where D_CODE = " + ID + ";");
                 Donor.StatesList = _StatesList;
+                IEnumerable<Donation> CDonations = null;
+                IEnumerable<Donation> Donations = null;
+                CDonations = Utilities.Sql.ExecuteQuery<Donation>("SELECT D_FNAME as donorFName, D_LNAME as donorLName, CurrencyDonation.dod as date, amount as donationAmount, D_CODE as donorID from [dbo].[donor],[dbo].[CurrencyDonation] where CurrencyDonation.donorID = Donor.D_CODE and Donor.D_CODE=" + ID + ";");
+                Donations = Utilities.Sql.ExecuteQuery<Donation>("SELECT D_FNAME as donorFName, D_LNAME as donorLName, ItemDonation.dod as date, Donation as donationItem, D_CODE as donorID from [dbo].[donor],[dbo].[ItemDonation] where ItemDonation.donorID = Donor.D_CODE and Donor.D_CODE=" + ID + "; ");
+                foreach (var CDonation in CDonations)
+                {
+                    Donor.CurrencyDonation += CDonation.donationAmount;
+                }
+                foreach (var Donation in Donations)
+                {
+                    Donor.ServiceDonation += (Donation.donationItem + System.Environment.NewLine);
+                }
                 return View(Donor);
             }
         }
@@ -115,9 +128,29 @@ namespace HopeTherapy.Controllers
                         "D_address = @StreetAddress, D_CITY = @City, D_STATE = @State, D_ZIP = @ZipCode, D_County = @County, " +
                         "D_CELL_PHONE = @CellPhoneNumber, D_HOME_PHONE = @HomePhoneNumber, D_WORK_PHONE = @WorkPhoneNumber, " +
                         "D_EMAIL = @EmailAddress, D_MailList = @MailList, D_EmailList = @EmailList, D_CO_NAME = @CompanyName, D_POSITION = @Position, D_CO_ADDRESS = @CompanyAddress, " +
-                        "D_CO_STATE = @CompanyState, D_CO_CITY = @CompanyCity, D_CO_ZIP = @CompanyZip, DONATION_DATE = @DonationDate, " +
-                        "DONATION_CURRENCY = @CurrencyDonation, DONATION_ITEM = @ItemDonation, DONATION_SERVICE = @ServiceDonation " +
+                        "D_CO_STATE = @CompanyState, D_CO_CITY = @CompanyCity, D_CO_ZIP = @CompanyZip " +
                         "WHERE D_CODE = @DonorID;";
+                    if (model.CurrencyDonation != 0)
+                    {
+                        String CSQL = "insert into CurrencyDonation values(" + model.CurrencyDonation + ", '" + DateTime.Today + "', " + model.DonorID + ");";
+                        Utilities.Sql.ExecuteCommand(CSQL, model);
+                    }
+                    IEnumerable<String> OldDonations = Utilities.Sql.ExecuteQuery<String>("SELECT donation from [dbo].[ItemDonation] where donorid=" + model.DonorID + "; ");
+
+                    using (StringReader reader = new StringReader(model.ServiceDonation))
+                    {
+                        string line;
+                        while ((line = reader.ReadLine()) != null)
+                        {
+                            if (String.IsNullOrWhiteSpace(line)==false && OldDonations.Contains<String>(line)==false)
+                            {
+                                String SSQL = "insert into ItemDonation (donation,dod,donorid) values('" + line + "', '" + model.DonationDate + "', " + model.DonorID + ");";
+                                Utilities.Sql.ExecuteCommand(SSQL, model);
+                            }
+                            
+                        }
+                    }
+
                     try
                     {
                         Utilities.Sql.ExecuteCommand(sql, model);
@@ -142,24 +175,48 @@ namespace HopeTherapy.Controllers
             }
             else
             {
-                    string sql = "INSERT INTO [dbo].[DONOR] (D_FNAME, D_LNAME, D_ADDRESS, D_CITY, D_STATE, D_ZIP, D_COUNTY, D_CELL_PHONE, " +
-                    "D_HOME_PHONE, D_WORK_PHONE, D_EMAIL, D_MailList, D_EmailList, D_CO_NAME, D_POSITION, D_CO_ADDRESS, D_CO_CITY, D_CO_STATE, D_CO_ZIP, " +
-                    "DONATION_DATE, DONATION_CURRENCY, DONATION_ITEM, DONATION_SERVICE )" +
-                    "VALUES(@FirstName, @LastName, @StreetAddress, @City, @State, @ZipCode, @County, " +
-                    "@CellPhoneNumber, @HomePhoneNumber, @WorkPhoneNumber, @EmailAddress, @MailList, @EmailList, @CompanyName, @Position, @CompanyAddress, @CompanyCity, @CompanyState, " +
-                    "@CompanyZip, @DonationDate, @CurrencyDonation, @ItemDonation, @ServiceDonation)";
+                string sql = "INSERT INTO [dbo].[DONOR] (D_FNAME, D_LNAME, D_ADDRESS, D_CITY, D_STATE, D_ZIP, D_COUNTY, D_CELL_PHONE, " +
+                "D_HOME_PHONE, D_WORK_PHONE, D_EMAIL, D_MailList, D_EmailList, D_CO_NAME, D_POSITION, D_CO_ADDRESS, D_CO_CITY, D_CO_STATE, D_CO_ZIP)" +
+                "VALUES(@FirstName, @LastName, @StreetAddress, @City, @State, @ZipCode, @County, " +
+                "@CellPhoneNumber, @HomePhoneNumber, @WorkPhoneNumber, @EmailAddress, @MailList, @EmailList, @CompanyName, @Position, @CompanyAddress, @CompanyCity, @CompanyState, " +
+                "@CompanyZip)";
 
-                    try
+                try
+                {
+                    Utilities.Sql.ExecuteCommand(sql, model);
+                }
+                catch (SqlException ex)
+                {
+
+                    throw;
+                }
+
+                String donorIdSql = "SELECT D_CODE FROM DONOR WHERE D_CODE = (SELECT max(D_CODE) FROM DONOR)";
+                string donorID = Utilities.Sql.ExecuteQuerySingleResult<String>(donorIdSql);
+                String CSQL = "insert into CurrencyDonation values(" + model.CurrencyDonation + ", '" + model.DonationDate + "', " + donorID + ");";
+                Utilities.Sql.ExecuteCommand(CSQL, model);
+                using (StringReader reader = new StringReader(model.ItemDonation))
+                {
+                    string line;
+                    while ((line = reader.ReadLine()) != null)
                     {
-                        Utilities.Sql.ExecuteCommand(sql, model);
+                        String ISQL = "insert into ItemDonation (donation,dod,donorid) values ('" + line + "', '" + model.DonationDate + "', " + donorID + ");";
+                        Utilities.Sql.ExecuteCommand(ISQL, model);
                     }
-                    catch (SqlException ex)
+                }
+
+                using (StringReader reader = new StringReader(model.ServiceDonation))
+                {
+                    string line;
+                    while ((line = reader.ReadLine()) != null)
                     {
-
-                        throw;
+                        String SSQL = "insert into ItemDonation (donation,dod,donorid) values('" + line + "', '" + model.DonationDate + "', " + donorID + ");";
+                        Utilities.Sql.ExecuteCommand(SSQL, model);
                     }
+                }
 
-                
+
+
 
                 return RedirectToAction("Index", "Home");
             }
@@ -269,19 +326,52 @@ namespace HopeTherapy.Controllers
             }
             else
             {
-                var Donor = Utilities.Sql.ExecuteQuerySingleResult<Donor>("select D_CODE as DonorID, D_Fname as FirstName, D_Lname as LastName, D_address as StreetAddress, D_CITY as City, D_STATE as State, D_ZIP as ZipCode, D_County as County, D_CELL_PHONE as CellPhoneNumber, D_HOME_PHONE as HomePhoneNumber, D_WORK_PHONE as WorkPhoneNumber, D_EMAIL as EmailAddress, D_MailList as MailList, D_EmailList as EmailList, D_CO_NAME as CompanyName, D_POSITION as Position, D_CO_ADDRESS as CompanyAddress, D_CO_STATE as CompanyState, D_CO_CITY as CompanyCity, D_CO_ZIP as CompanyZip, DONATION_DATE as DonationDate, DONATION_CURRENCY as CurrencyDonation, DONATION_ITEM as ItemDonation, DONATION_SERVICE as ServiceDonation from dbo.DONOR Where D_CODE = " + ID + ";");
+                var Donor = Utilities.Sql.ExecuteQuerySingleResult<Donor>("select D_CODE as DonorID, D_Fname as FirstName, D_Lname as LastName, D_address as StreetAddress, D_CITY as City, D_STATE as State, D_ZIP as ZipCode, D_County as County, D_CELL_PHONE as CellPhoneNumber, D_HOME_PHONE as HomePhoneNumber, D_WORK_PHONE as WorkPhoneNumber, D_EMAIL as EmailAddress, D_MailList as MailList, D_EmailList as EmailList, D_CO_NAME as CompanyName, D_POSITION as Position, D_CO_ADDRESS as CompanyAddress, D_CO_STATE as CompanyState, D_CO_CITY as CompanyCity, D_CO_ZIP as CompanyZip from dbo.DONOR Where D_CODE = " + ID + ";");
+                IEnumerable<Donation> CDonations = null;
+                IEnumerable<Donation> Donations = null;
+                CDonations = Utilities.Sql.ExecuteQuery<Donation>("SELECT D_FNAME as donorFName, D_LNAME as donorLName, CurrencyDonation.dod as date, amount as donationAmount, D_CODE as donorID from [dbo].[donor],[dbo].[CurrencyDonation] where CurrencyDonation.donorID = Donor.D_CODE and Donor.D_CODE="+ID+";");
+                Donations = Utilities.Sql.ExecuteQuery<Donation>("SELECT D_FNAME as donorFName, D_LNAME as donorLName, ItemDonation.dod as date, Donation as donationItem, D_CODE as donorID from [dbo].[donor],[dbo].[ItemDonation] where ItemDonation.donorID = Donor.D_CODE and Donor.D_CODE=" + ID +"; ");
+                foreach(var CDonation in CDonations)
+                {
+                    Donor.CurrencyDonation += CDonation.donationAmount;
+                }
+                foreach(var Donation in Donations)
+                {
+                    Donor.ServiceDonation += (Donation.donationItem + System.Environment.NewLine);
+                }
                 return View(Donor);
             }
         }
         public ActionResult Delete(int id)
         {
-            String sql = "Delete from dbo.DONOR where D_CODE =" + id;
+            string sql = "delete from dbo.CurrencyDonation where donorid =" + id;
+            Utilities.Sql.ExecuteCommand(sql);
+            sql = "delete from dbo.ItemDonation where donorid =" + id;
+            Utilities.Sql.ExecuteCommand(sql);
+
+            sql = "Delete from dbo.DONOR where D_CODE =" + id;
             Utilities.Sql.ExecuteCommand(sql);
             return RedirectToAction("List", "Donor");
+        }
+        public ActionResult Donations()
+        {
+            if (!Request.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                IEnumerable<Donation> CDonations = null;
+                IEnumerable<Donation> Donations = null;
+                CDonations = Utilities.Sql.ExecuteQuery<Donation>("SELECT D_FNAME as donorFName, D_LNAME as donorLName, CurrencyDonation.dod as date, amount as donationAmount, D_CODE as donorID from [dbo].[donor],[dbo].[CurrencyDonation] where CurrencyDonation.donorID = Donor.D_CODE;");
+                Donations = Utilities.Sql.ExecuteQuery<Donation>("SELECT D_FNAME as donorFName, D_LNAME as donorLName, ItemDonation.dod as date, Donation as donationItem, D_CODE as donorID from [dbo].[donor],[dbo].[ItemDonation] where ItemDonation.donorID = Donor.D_CODE;");
+                var TDonations = CDonations.Concat(Donations);
+                return View(TDonations);
+            }
+
         }
     }
 }
 
 
 
-    

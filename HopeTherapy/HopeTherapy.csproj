@@ -183,6 +183,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Donation.cs" />
     <Compile Include="Models\Schedules.cs" />
     <Compile Include="Models\Day.cs" />
     <Compile Include="Models\Donor.cs" />
@@ -255,6 +256,7 @@
     <Content Include="Views\Donor\DEmail.cshtml" />
     <Content Include="Views\Volunteer\VMail.cshtml" />
     <Content Include="Views\Donor\DMail.cshtml" />
+    <Content Include="Views\Donor\Donations.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

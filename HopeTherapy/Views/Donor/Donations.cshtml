@@ -1,0 +1,62 @@
+﻿@model IEnumerable<HopeTherapy.Models.Donation>
+
+    @{
+        ViewBag.Title = "Donations";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    <html>
+    <head>
+    </head>
+    <body>
+        <br />
+        <p><a href="/Home/Index" class="btn btn-primary btn-lg">Go Back &laquo;</a></p>
+        <p><a href='@Url.Action("Logout", "User")' class="btn btn-primary btn-lg">Sign Out &raquo;</a></p>
+
+        <center><h1>Donation List </h1></center>
+        <p>&nbsp;</p>
+
+        @if (Utilities.IsNullOrEmpty(Model))
+        {
+            <center><h1>Sorry but there aren't any results.</h1></center>
+        }
+        else
+        {
+            <table border="1" style="margin: 0px auto;">
+                <thead style="font-size:23px">
+                    <tr>
+                        <th>
+                           Donor Name
+                        </th>
+                        <th>
+                            Donation Date
+                        </th>
+                        <th>
+                            Donation
+                        </th>
+                    </tr>
+                </thead>
+                @foreach (var Donation in Model)
+                {
+                    <tr>
+                        <td>
+                            <p>@Donation.donorFName <span> </span> @Donation.donorLName</p>
+
+                        </td>
+                        <td>
+                           <p>@Donation.date.Date.Month <text>/</text> @Donation.date.Date.Day <text>/</text> @Donation.date.Date.Year <br /></p> 
+                        </td>
+                        <td>
+                            @if (Donation.donationAmount != 0)
+                            {
+                                <p>$@Donation.donationAmount</p>
+                            }
+                            
+                            <p>@Donation.donationItem</p>
+                        </td>
+                    </tr>
+                }
+            </table>
+        }
+    </body>
+</html>
+
