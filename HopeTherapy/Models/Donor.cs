@@ -12,7 +12,6 @@ namespace HopeTherapy.Models
     {
         private DateTime _date = DateTime.Now;
 
-
         public int DonorID { get; set; }
 
         [Required(ErrorMessage = "First Name is required")]
@@ -85,6 +84,8 @@ namespace HopeTherapy.Models
         //[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:c}")]
         //[DisplayName("Donation Currency")]
         public Double CurrencyDonation { get; set; }
+
+        public Double NewDonation { get; set; }
 
         public string ItemDonation { get; set; }
 

@@ -54,7 +54,7 @@
             </div>
 
 
-                 <div class="col-sm-4">
+            <div class="col-sm-4">
                 @using (Html.BeginForm("MailList", "Donor", FormMethod.Post))
                 {
                     <label for="Mail List"></label>
@@ -62,10 +62,17 @@
                 }
             </div>
 
+            <center>
             <p>&nbsp;</p>
-            <div class="col-sm-4">
-                <a href="/Donor/List" class="btn btn-primary btn-lg">View All</a>
+            <div class="row">
+                <div class="col-sm-4">
+
+                </div>
+                <div class="col-sm-4">
+                    <a href="/Donor/List" class="btn btn-primary btn-lg">View All</a>
+                </div>
             </div>
+            </center>
         </center>
 
         <p>&nbsp;</p>

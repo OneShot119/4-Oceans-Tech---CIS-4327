@@ -165,9 +165,9 @@
                     </div>
 
                     <div class="col-sm-3">
-                        Total Currency Donated:<br />
-                        <input type="text" value="$@Model.CurrencyDonation" readonly>
-                        <input type="text" style="display:none" id="new" value="0" name="CurrencyDonation">
+                        Total Currency Donated: <text>$</text> @Model.CurrencyDonation
+                        <br />
+                        <br /><input  type="text" style="display:none" id="new" value="0" name="NewDonation">
                         <button type="button" class="btn btn-primary" style="width:200px" onclick="display()">New Monetary Donation</button>
                     </div>
                 </div>

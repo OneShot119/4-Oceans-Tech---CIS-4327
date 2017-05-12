@@ -130,26 +130,41 @@ namespace HopeTherapy.Controllers
                         "D_EMAIL = @EmailAddress, D_MailList = @MailList, D_EmailList = @EmailList, D_CO_NAME = @CompanyName, D_POSITION = @Position, D_CO_ADDRESS = @CompanyAddress, " +
                         "D_CO_STATE = @CompanyState, D_CO_CITY = @CompanyCity, D_CO_ZIP = @CompanyZip " +
                         "WHERE D_CODE = @DonorID;";
-                    if (model.CurrencyDonation != 0)
+                    //if (model.CurrencyDonation != 0)
+                    try
                     {
-                        String CSQL = "insert into CurrencyDonation values(" + model.CurrencyDonation + ", '" + DateTime.Today + "', " + model.DonorID + ");";
-                        Utilities.Sql.ExecuteCommand(CSQL, model);
-                    }
-                    IEnumerable<String> OldDonations = Utilities.Sql.ExecuteQuery<String>("SELECT donation from [dbo].[ItemDonation] where donorid=" + model.DonorID + "; ");
-
-                    using (StringReader reader = new StringReader(model.ServiceDonation))
-                    {
-                        string line;
-                        while ((line = reader.ReadLine()) != null)
                         {
-                            if (String.IsNullOrWhiteSpace(line)==false && OldDonations.Contains<String>(line)==false)
-                            {
-                                String SSQL = "insert into ItemDonation (donation,dod,donorid) values('" + line + "', '" + model.DonationDate + "', " + model.DonorID + ");";
-                                Utilities.Sql.ExecuteCommand(SSQL, model);
-                            }
-                            
+                            String CSQL = "insert into CurrencyDonation values(" + model.NewDonation + ", '" + DateTime.Today + "', " + model.DonorID + ");";
+                            Utilities.Sql.ExecuteCommand(CSQL, model);
                         }
                     }
+                    catch (Exception ex)
+                    {
+
+                    }
+
+                    IEnumerable<String> OldDonations = Utilities.Sql.ExecuteQuery<String>("SELECT donation from [dbo].[ItemDonation] where donorid=" + model.DonorID + "; ");
+                    try
+                    {
+                        using (StringReader reader = new StringReader(model.ServiceDonation))
+                        {
+                            string line;
+                            while ((line = reader.ReadLine()) != null)
+                            {
+                                if (String.IsNullOrWhiteSpace(line) == false && OldDonations.Contains<String>(line) == false)
+                                {
+                                    String SSQL = "insert into ItemDonation (donation,dod,donorid) values('" + line + "', '" + model.DonationDate + "', " + model.DonorID + ");";
+                                    Utilities.Sql.ExecuteCommand(SSQL, model);
+                                }
+
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
+
 
                     try
                     {
@@ -195,26 +210,40 @@ namespace HopeTherapy.Controllers
                 string donorID = Utilities.Sql.ExecuteQuerySingleResult<String>(donorIdSql);
                 String CSQL = "insert into CurrencyDonation values(" + model.CurrencyDonation + ", '" + model.DonationDate + "', " + donorID + ");";
                 Utilities.Sql.ExecuteCommand(CSQL, model);
-                using (StringReader reader = new StringReader(model.ItemDonation))
+                try
                 {
-                    string line;
-                    while ((line = reader.ReadLine()) != null)
+                    using (StringReader reader = new StringReader(model.ItemDonation))
                     {
-                        String ISQL = "insert into ItemDonation (donation,dod,donorid) values ('" + line + "', '" + model.DonationDate + "', " + donorID + ");";
-                        Utilities.Sql.ExecuteCommand(ISQL, model);
+                        string line;
+                        while ((line = reader.ReadLine()) != null)
+                        {
+                            String ISQL = "insert into ItemDonation (donation,dod,donorid) values ('" + line + "', '" + model.DonationDate + "', " + donorID + ");";
+                            Utilities.Sql.ExecuteCommand(ISQL, model);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    
+                }
+
+                try
+                {
+                    using (StringReader reader = new StringReader(model.ServiceDonation))
+                    {
+                        string line;
+                        while ((line = reader.ReadLine()) != null)
+                        {
+                            String SSQL = "insert into ItemDonation (donation,dod,donorid) values('" + line + "', '" + model.DonationDate + "', " + donorID + ");";
+                            Utilities.Sql.ExecuteCommand(SSQL, model);
+                        }
                     }
                 }
 
-                using (StringReader reader = new StringReader(model.ServiceDonation))
+                catch (Exception ex)
                 {
-                    string line;
-                    while ((line = reader.ReadLine()) != null)
-                    {
-                        String SSQL = "insert into ItemDonation (donation,dod,donorid) values('" + line + "', '" + model.DonationDate + "', " + donorID + ");";
-                        Utilities.Sql.ExecuteCommand(SSQL, model);
-                    }
+                    
                 }
-
 
 
 
