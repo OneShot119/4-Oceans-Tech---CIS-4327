@@ -167,7 +167,11 @@
                     <div class="col-sm-3">
                         Total Currency Donated: <text>$</text> @Model.CurrencyDonation
                         <br />
-                        <br /><input  type="text" style="display:none" id="new" value="0" name="NewDonation">
+                        <div class="block" id="new" style="display:none">
+                          <label id="sign">$</label>
+                          <input type="text" value="0" name="NewDonation">
+                        </div>
+                        
                         <button type="button" class="btn btn-primary" style="width:200px" onclick="display()">New Monetary Donation</button>
                     </div>
                 </div>

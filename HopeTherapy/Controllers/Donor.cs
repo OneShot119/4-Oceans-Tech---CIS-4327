@@ -366,7 +366,7 @@ namespace HopeTherapy.Controllers
                 }
                 foreach(var Donation in Donations)
                 {
-                    Donor.ServiceDonation += (Donation.donationItem + System.Environment.NewLine);
+                    Donor.ServiceDonation += (Donation.donationItem +" - "+ Donation.date.Month +"/"+ Donation.date.Day + "/" + Donation.date.Year+ System.Environment.NewLine);
                 }
                 return View(Donor);
             }
@@ -390,14 +390,44 @@ namespace HopeTherapy.Controllers
             }
             else
             {
-                IEnumerable<Donation> CDonations = null;
-                IEnumerable<Donation> Donations = null;
-                CDonations = Utilities.Sql.ExecuteQuery<Donation>("SELECT D_FNAME as donorFName, D_LNAME as donorLName, CurrencyDonation.dod as date, amount as donationAmount, D_CODE as donorID from [dbo].[donor],[dbo].[CurrencyDonation] where CurrencyDonation.donorID = Donor.D_CODE;");
-                Donations = Utilities.Sql.ExecuteQuery<Donation>("SELECT D_FNAME as donorFName, D_LNAME as donorLName, ItemDonation.dod as date, Donation as donationItem, D_CODE as donorID from [dbo].[donor],[dbo].[ItemDonation] where ItemDonation.donorID = Donor.D_CODE;");
-                var TDonations = CDonations.Concat(Donations);
-                return View(TDonations);
+                return View(findDonations());
             }
 
+        }
+        public IEnumerable<Donation> findDonations()
+        {
+
+            IEnumerable<Donation> CDonations = null;
+            IEnumerable<Donation> Donations = null;
+            CDonations = Utilities.Sql.ExecuteQuery<Donation>("SELECT D_FNAME as donorFName, D_LNAME as donorLName, CurrencyDonation.dod as date, amount as donationAmount, D_CODE as donorID from [dbo].[donor],[dbo].[CurrencyDonation] where CurrencyDonation.donorID = Donor.D_CODE;");
+            Donations = Utilities.Sql.ExecuteQuery<Donation>("SELECT D_FNAME as donorFName, D_LNAME as donorLName, ItemDonation.dod as date, Donation as donationItem, D_CODE as donorID from [dbo].[donor],[dbo].[ItemDonation] where ItemDonation.donorID = Donor.D_CODE;");
+            var TDonations = CDonations.Concat(Donations);
+            return TDonations;
+        }
+        public IEnumerable<Donation> findDonations(DateTime first, DateTime second)
+        {
+            IEnumerable<Donation> CDonations = null;
+            IEnumerable<Donation> Donations = null;
+            CDonations = Utilities.Sql.ExecuteQuery<Donation>("SELECT D_FNAME as donorFName, D_LNAME as donorLName, CurrencyDonation.dod as date, amount as donationAmount, D_CODE as donorID from [dbo].[donor],[dbo].[CurrencyDonation] where CurrencyDonation.donorID = Donor.D_CODE and dod between '"+first+"' and '"+second+"';");
+            Donations = Utilities.Sql.ExecuteQuery<Donation>("SELECT D_FNAME as donorFName, D_LNAME as donorLName, ItemDonation.dod as date, Donation as donationItem, D_CODE as donorID from [dbo].[donor],[dbo].[ItemDonation] where ItemDonation.donorID = Donor.D_CODE and dod between '" + first + "' and '" + second + "';");
+            var TDonations = CDonations.Concat(Donations);
+            return TDonations;
+        }
+        [HttpPost]
+        public ActionResult SearchDate(DateTime first, DateTime second)
+        {
+            if (!Request.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                var search = new DonationSeach();
+                search.first = first;
+                search.second = second;
+                search.values = true;
+                return View("Donations", findDonations(first, second));
+            }
         }
     }
 }
