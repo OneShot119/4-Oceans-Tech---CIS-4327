@@ -11,26 +11,30 @@
         <br />
         <p><a href="/Donor/List" class="btn btn-primary btn-lg">Go Back &laquo;</a></p>
         <p><a href='@Url.Action("Logout", "User")' class="btn btn-primary btn-lg">Sign Out &raquo;</a></p>
-
-        <div class="col-sm-4">
-            @using (Html.BeginForm("SearchDate", "Donor", FormMethod.Post))
+        <center>
+            <h1>Donation List</h1>
+                <div class="col-sm-4" style="width:100%">
+                    @using (Html.BeginForm("SearchDate", "Donor", FormMethod.Post))
             {
-                <label for="Search">Donations between:</label><br />
-                <input type="date" name="first" id="first" /><br /><br />
-                <input type="date" name="second" id="second" /><br /><br />
-                <button type="submit" class="btn btn-primary btn-lg">Search</button><br /><br />
-            }
-        </div>
-        <br />
-        <br />
-        <br />
+                        <label for="Search">Donations between:</label><br />
+                        <input type="date" name="first" id="first" /><span>  and   </span>
+                        <input type="date" name="second" id="second" /><br /><br />
+                        <button type="submit" class="btn btn-primary btn-lg">Search</button><br /><br />
+                    }
+                </div>
+            <center>
+                <p>&nbsp;</p>
+                <div class="row">
+                    <div class="col-sm-4">
 
-        <br />
+                    </div>
+                    <div class="col-sm-4">
+                        <a href="/Donor/Donations" class="btn btn-primary btn-lg">View All</a>
+                    </div>
+                </div>
+            </center>
+            </center>
 
-
-
-
-        <center><h1>Donation List </h1></center>
         <p>&nbsp;</p>
 
         @if (Utilities.IsNullOrEmpty(Model))
