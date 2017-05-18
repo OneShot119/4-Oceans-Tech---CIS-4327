@@ -257,7 +257,7 @@ select{
    margin:10px auto;
    display:inline-block;
 }
-label{
+specialLabel{
   display: inline-block;
   width: 140px;
   text-align: right;

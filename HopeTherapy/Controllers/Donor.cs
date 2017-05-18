@@ -432,6 +432,47 @@ namespace HopeTherapy.Controllers
                 return View("Donations", findDonations(first, second));
             }
         }
+        public IEnumerable<Donation> donationsBefore(DateTime date){
+            IEnumerable<Donation> CDonations = null;
+            IEnumerable<Donation> Donations = null;
+            CDonations = Utilities.Sql.ExecuteQuery<Donation>("SELECT D_FNAME as donorFName, D_LNAME as donorLName, CurrencyDonation.dod as date, amount as donationAmount, D_CODE as donorID from [dbo].[donor],[dbo].[CurrencyDonation] where CurrencyDonation.donorID = Donor.D_CODE and dod < '" + date + "';");
+            Donations = Utilities.Sql.ExecuteQuery<Donation>("SELECT D_FNAME as donorFName, D_LNAME as donorLName, ItemDonation.dod as date, Donation as donationItem, D_CODE as donorID from [dbo].[donor],[dbo].[ItemDonation] where ItemDonation.donorID = Donor.D_CODE and dod < '" + date + "';");
+            var TDonations = CDonations.Concat(Donations);
+            return TDonations;
+        }
+        public IEnumerable<Donation> donationsAfter(DateTime date)
+        {
+            IEnumerable<Donation> CDonations = null;
+            IEnumerable<Donation> Donations = null;
+            CDonations = Utilities.Sql.ExecuteQuery<Donation>("SELECT D_FNAME as donorFName, D_LNAME as donorLName, CurrencyDonation.dod as date, amount as donationAmount, D_CODE as donorID from [dbo].[donor],[dbo].[CurrencyDonation] where CurrencyDonation.donorID = Donor.D_CODE and dod > '" + date + "';");
+            Donations = Utilities.Sql.ExecuteQuery<Donation>("SELECT D_FNAME as donorFName, D_LNAME as donorLName, ItemDonation.dod as date, Donation as donationItem, D_CODE as donorID from [dbo].[donor],[dbo].[ItemDonation] where ItemDonation.donorID = Donor.D_CODE and dod > '" + date + "';");
+            var TDonations = CDonations.Concat(Donations);
+            return TDonations;
+        }
+        public ActionResult listDonationsBefore(DateTime date)
+        {
+            if (!Request.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return View("Donations", donationsBefore(date));
+            }
+
+        }
+        public ActionResult listDonationsAfter(DateTime date)
+        {
+            if (!Request.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return View("Donations", donationsAfter(date));
+            }
+
+        }
     }
 }
 
