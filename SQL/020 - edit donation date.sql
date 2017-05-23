@@ -1,0 +1,1 @@
+EXEC sp_rename 'donor.donation_date', 'd_most_recent', 'COLUMN'

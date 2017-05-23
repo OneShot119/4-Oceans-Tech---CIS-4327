@@ -135,7 +135,7 @@ namespace HopeTherapy.Controllers
                     try
                     {
                         {
-                            String CSQL = "insert into CurrencyDonation values(" + model.NewDonation + ", '" + DateTime.Today + "', " + model.DonorID + ");";
+                            String CSQL = "insert into CurrencyDonation values(" + model.NewDonation + ", '" + model.DonationDate + "', " + model.DonorID + ");";
                             Utilities.Sql.ExecuteCommand(CSQL, model);
                         }
                     }
@@ -147,6 +147,7 @@ namespace HopeTherapy.Controllers
 
 
                     IEnumerable<String> OldDonations = Utilities.Sql.ExecuteQuery<String>("SELECT donation from [dbo].[ItemDonation] where donorid=" + model.DonorID + "; ");
+                    List<String> newDonations = new List<string>();
                     try
                     {
                         using (StringReader reader = new StringReader(model.ServiceDonation))
@@ -156,6 +157,7 @@ namespace HopeTherapy.Controllers
                             {
                                 if (String.IsNullOrWhiteSpace(line) == false && OldDonations.Contains<String>(line) == false)
                                 {
+                                    newDonations.Add(line);
                                     String SSQL = "insert into ItemDonation (donation,dod,donorid) values('" + line + "', '" + model.DonationDate + "', " + model.DonorID + ");";
                                     Utilities.Sql.ExecuteCommand(SSQL, model);
                                 }
@@ -177,7 +179,12 @@ namespace HopeTherapy.Controllers
                     {
                         throw;
                     }
-
+                    DateTime mRD = Utilities.Sql.ExecuteQuerySingleResult<DateTime>("SELECT D_MOST_RECENT from [dbo].[DONOR] where d_CODE=" + model.DonorID + "; ");
+                    if ((model.NewDonation!=0 || newDonations.Any<String>()) && mRD < model.DonationDate)
+                    {
+                        String DateSQL = "update donor set d_most_recent = '"+model.DonationDate+"' where d_code = "+ model.DonorID+"; ";
+                        Utilities.Sql.ExecuteCommand(DateSQL, model);
+                    }
                 }
 
                 return RedirectToAction("List", "Donor");
@@ -265,21 +272,21 @@ namespace HopeTherapy.Controllers
                 IEnumerable<Donor> Donors = null;
                 if (Type == "LastName")
                 {
-                    Donors = Utilities.Sql.ExecuteQuery<Donor>("select D_CODE as DonorID, D_Fname as FirstName, D_Lname as LastName, D_EMAIL as EmailAddress, DONATION_DATE as DonationDate, DONATION_CURRENCY as CurrencyDonation, DONATION_ITEM as ItemDonation, DONATION_SERVICE as ServiceDonation from dbo.DONOR WHERE D_LName LIKE '%" + Search + "%';");
+                    Donors = Utilities.Sql.ExecuteQuery<Donor>("select D_CODE as DonorID, D_Fname as FirstName, D_Lname as LastName, D_EMAIL as EmailAddress, d_most_recent as DonationDate, DONATION_CURRENCY as CurrencyDonation, DONATION_ITEM as ItemDonation, DONATION_SERVICE as ServiceDonation from dbo.DONOR WHERE D_LName LIKE '%" + Search + "%';");
 
                 }
                 else if (Type == "County")
                 {
-                    Donors = Utilities.Sql.ExecuteQuery<Donor>("select D_CODE as DonorID, D_Fname as FirstName, D_Lname as LastName, D_EMAIL as EmailAddress, DONATION_DATE as DonationDate, DONATION_CURRENCY as CurrencyDonation, DONATION_ITEM as ItemDonation, DONATION_SERVICE as ServiceDonation from dbo.DONOR WHERE D_COUNTY LIKE '%" + Search + "%';");
+                    Donors = Utilities.Sql.ExecuteQuery<Donor>("select D_CODE as DonorID, D_Fname as FirstName, D_Lname as LastName, D_EMAIL as EmailAddress, d_most_recent as DonationDate, DONATION_CURRENCY as CurrencyDonation, DONATION_ITEM as ItemDonation, DONATION_SERVICE as ServiceDonation from dbo.DONOR WHERE D_COUNTY LIKE '%" + Search + "%';");
 
                 }
                 else if (Type == "*")
                 {
-                    Donors = Utilities.Sql.ExecuteQuery<Donor>("select D_CODE as DonorID, D_Fname as FirstName, D_Lname as LastName, D_EMAIL as EmailAddress, DONATION_DATE as DonationDate, DONATION_CURRENCY as CurrencyDonation, DONATION_ITEM as ItemDonation, DONATION_SERVICE as ServiceDonation from dbo.DONOR WHERE D_FNAME LIKE '%" + Search + "%' OR D_lname LIKE '%" + Search + "%' OR d_address LIKE '%" + Search + "%' OR d_city LIKE '%" + Search + "%' OR d_state LIKE '%" + Search + "%' OR d_zip LIKE '%" + Search + "%' OR d_county LIKE '%" + Search + "%' OR d_cell_phone LIKE '%" + Search + "%' OR d_home_phone LIKE '%" + Search + "%' OR d_work_phone LIKE '%" + Search + "%' OR d_email LIKE '%" + Search + "%' OR d_co_name LIKE '%" + Search + "%' OR d_position LIKE '%" + Search + "%' OR d_co_address LIKE '%" + Search + "%' OR d_co_city LIKE '%" + Search + "%' OR d_co_state LIKE '%" + Search + "%' OR d_co_zip LIKE '%" + Search + "%' OR donation_date LIKE '%" + Search + "%' OR donation_currency LIKE '%" + Search + "%' OR donation_item LIKE '%" + Search + "%' OR donation_service LIKE '%" + Search + "%';");
+                    Donors = Utilities.Sql.ExecuteQuery<Donor>("select D_CODE as DonorID, D_Fname as FirstName, D_Lname as LastName, D_EMAIL as EmailAddress, d_most_recent as DonationDate, DONATION_CURRENCY as CurrencyDonation, DONATION_ITEM as ItemDonation, DONATION_SERVICE as ServiceDonation from dbo.DONOR WHERE D_FNAME LIKE '%" + Search + "%' OR D_lname LIKE '%" + Search + "%' OR d_address LIKE '%" + Search + "%' OR d_city LIKE '%" + Search + "%' OR d_state LIKE '%" + Search + "%' OR d_zip LIKE '%" + Search + "%' OR d_county LIKE '%" + Search + "%' OR d_cell_phone LIKE '%" + Search + "%' OR d_home_phone LIKE '%" + Search + "%' OR d_work_phone LIKE '%" + Search + "%' OR d_email LIKE '%" + Search + "%' OR d_co_name LIKE '%" + Search + "%' OR d_position LIKE '%" + Search + "%' OR d_co_address LIKE '%" + Search + "%' OR d_co_city LIKE '%" + Search + "%' OR d_co_state LIKE '%" + Search + "%' OR d_co_zip LIKE '%" + Search + "%' OR d_most_recent LIKE '%" + Search + "%' OR donation_currency LIKE '%" + Search + "%' OR donation_item LIKE '%" + Search + "%' OR donation_service LIKE '%" + Search + "%';");
                 }
                 else
                 {
-                    Donors = Utilities.Sql.ExecuteQuery<Donor>("select D_CODE as DonorID, D_Fname as FirstName, D_Lname as LastName, D_EMAIL as EmailAddress, DONATION_DATE as DonationDate, DONATION_CURRENCY as CurrencyDonation, DONATION_ITEM as ItemDonation, DONATION_SERVICE as ServiceDonation from dbo.DONOR;");
+                    Donors = Utilities.Sql.ExecuteQuery<Donor>("select D_CODE as DonorID, D_Fname as FirstName, D_Lname as LastName, D_EMAIL as EmailAddress, d_most_recent as DonationDate, DONATION_CURRENCY as CurrencyDonation, DONATION_ITEM as ItemDonation, DONATION_SERVICE as ServiceDonation from dbo.DONOR;");
                 }
                 return View(Donors);
             }
