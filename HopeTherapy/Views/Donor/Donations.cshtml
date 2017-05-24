@@ -13,7 +13,7 @@
         <p><a href='@Url.Action("Logout", "User")' class="btn btn-primary btn-lg">Sign Out &raquo;</a></p>
         <center>
             <h1>Donation List</h1>
-            <div class="col-sm-4" style="width:100%">
+            <div class="col-sm-4" style="width:33.33%">
                 @using (Html.BeginForm("listDonationsBefore", "Donor", FormMethod.Post))
                 {
                     <label for="Search">Donations before:</label><br />
@@ -22,8 +22,16 @@
                 }
 
             </div>
-
-            <div class="col-sm-4" style="width:100%">
+            <div class="col-sm-4" style="width:33.33%">
+                @using (Html.BeginForm("SearchDate", "Donor", FormMethod.Post))
+                {
+                    <label for="Search">Donations between:</label><br />
+                    <input type="date" name="first" id="first" /><p>&nbsp; and</p>    
+                            <input type="date" name="second" id="second" /><br /><br />
+                            <button type="submit" class="btn btn-primary btn-lg">Search</button><br /><br />
+                }
+            </div>
+            <div class="col-sm-4" style="width:33.33%">
                 @using (Html.BeginForm("listDonationsAfter", "Donor", FormMethod.Post))
                 {
                     <label for="Search">Donations after:</label><br />
@@ -32,25 +40,14 @@
                 }
 
             </div>
-            <center>
-                <p>&nbsp;</p>
-                <div class="row">
-                    <div class="col-sm-4" style="width:100%">
-                        @using (Html.BeginForm("SearchDate", "Donor", FormMethod.Post))
-                        {
-                            <label for="Search">Donations between:</label><br />
-                            <input type="date" name="first" id="first" /><span>  and   </span>
-                            <input type="date" name="second" id="second" /><br /><br />
-                            <button type="submit" class="btn btn-primary btn-lg">Search</button><br /><br />
-                        }
-                    </div>
-                </div>
-            </center>
+
+
+                    
 
             <center>
                 <p>&nbsp;</p>
                 <div class="row">
-                    <div class="col-sm-4">
+                    <div class="col-sm-4" style="width:100%">
                         <a href="/Donor/Donations" class="btn btn-primary btn-lg">View All</a>
                     </div>
                 </div>

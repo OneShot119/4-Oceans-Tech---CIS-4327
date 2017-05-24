@@ -110,9 +110,9 @@
                             </td>
                             <td>
                                 <p style="color:#30231d">
-                                    Donation Date: @Donor.DonationDate.Date.Month <text>/</text> @Donor.DonationDate.Date.Day <text>/</text> @Donor.DonationDate.Date.Year <br />
+                                    Most Recent Donation: @Donor.DonationDate.Date.Month <text>/</text> @Donor.DonationDate.Date.Day <text>/</text> @Donor.DonationDate.Date.Year <br />
                                 </p>
-                                <p><center><button class="btn btn-primary btn-lg" id="alertbtn @Donor.DonorID" onclick="document.getElementById('@Donor.DonorID').style.display = 'block' ; this.style.display = 'none'">Delete &raquo;</button></center></p>
+                                <p><center><button class="btn btn-primary btn-lg" id="alertbtn @Donor.DonorID" onclick="document.getElementById('@Donor.DonorID').style.display = 'block' ; this.style.display = 'none'">Delete Donor &raquo;</button></center></p>
                                 <div class="alert @Donor.DonorID" style="display:none" id="@Donor.DonorID">
                                     This can not be undone!<br />
                                     <a href="@Url.Action("Delete", "Donor", new { ID = @Donor.DonorID })" class="btn btn-primary btn-md">Delete</a>
