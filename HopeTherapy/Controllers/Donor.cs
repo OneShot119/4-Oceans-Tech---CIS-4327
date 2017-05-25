@@ -15,60 +15,6 @@ namespace HopeTherapy.Controllers
     public class DonorController : Controller
     {
 
-        private static readonly IEnumerable<SelectListItem> _StatesList = new List<SelectListItem>
-        {
-            new SelectListItem {Text="", Value=""},
-            new SelectListItem {Text="Alabama", Value="Alabama"},
-            new SelectListItem {Text="Alaska", Value="Alaska"},
-            new SelectListItem {Text="Arizona", Value="Arizona"},
-            new SelectListItem {Text="Arkansas", Value="Arkansas"},
-            new SelectListItem {Text="California", Value="California"},
-            new SelectListItem {Text="Colorado", Value="Colorado"},
-            new SelectListItem {Text="Connecticut", Value="Connecticut"},
-            new SelectListItem {Text="Delaware", Value="Delaware"},
-            new SelectListItem {Text="District Of Columbia", Value="District Of Columbia"},
-            new SelectListItem {Text="Florida", Value="Florida"},
-            new SelectListItem {Text="Georgia", Value="Georgia"},
-            new SelectListItem {Text="Hawaii", Value="Hawaii"},
-            new SelectListItem {Text="Idaho", Value="Idaho"},
-            new SelectListItem {Text="Illinois", Value="Illinois"},
-            new SelectListItem {Text="Indiana", Value="Indiana"},
-            new SelectListItem {Text="Iowa", Value="Iowa"},
-            new SelectListItem {Text="Kansas", Value="Kansas"},
-            new SelectListItem {Text="Kentucky", Value="Kentucky"},
-            new SelectListItem {Text="Louisiana", Value="Louisiana"},
-            new SelectListItem {Text="Maine", Value="Maine"},
-            new SelectListItem {Text="Maryland", Value="Maryland"},
-            new SelectListItem {Text="Massachusetts", Value="Massachusetts"},
-            new SelectListItem {Text="Michigan", Value="Michigan"},
-            new SelectListItem {Text="Minnesota", Value="Minnesota"},
-            new SelectListItem {Text="Mississippi", Value="Mississippi"},
-            new SelectListItem {Text="Missouri", Value="Missouri"},
-            new SelectListItem {Text="Montana", Value="Montana"},
-            new SelectListItem {Text="Nebraska", Value="Nebraska"},
-            new SelectListItem {Text="Nevada", Value="Nevada"},
-            new SelectListItem {Text="New Hampshire", Value="New Hampshire"},
-            new SelectListItem {Text="New Jersey", Value="New Jersey"},
-            new SelectListItem {Text="New Mexico", Value="New Mexico"},
-            new SelectListItem {Text="New York", Value="New York"},
-            new SelectListItem {Text="North Carolina", Value="North Carolina"},
-            new SelectListItem {Text="North Dakota", Value="North Dakota"},
-            new SelectListItem {Text="Ohio", Value="Ohio"},
-            new SelectListItem {Text="Oklahoma", Value="Oklahoma"},
-            new SelectListItem {Text="Oregon", Value="Oregon"},
-            new SelectListItem {Text="Pennsylvania", Value="Pennsylvania"},
-            new SelectListItem {Text="Rhode Island", Value="Rhode Island"},
-            new SelectListItem {Text="South Carolina", Value="South Carolina"},
-            new SelectListItem {Text="South Dakota", Value="South Dakota"},
-            new SelectListItem {Text="Tennessee", Value="Tennessee"},
-            new SelectListItem {Text="Texas", Value="Texas"},
-            new SelectListItem {Text="Utah", Value="Utah"},
-            new SelectListItem {Text="Vermont", Value="Vermont"},
-            new SelectListItem {Text="Virginia", Value="Virginia"},
-            new SelectListItem {Text="West Virginia", Value="West Virginia"},
-            new SelectListItem {Text="Wisconsin", Value="Wisconsin"},
-            new SelectListItem {Text="Wyoming", Value="Wyoming"}
-        };
 
 
         // GET: Register
@@ -80,7 +26,7 @@ namespace HopeTherapy.Controllers
                 return RedirectToAction("Index", "Home");
             }
             var model = new Donor();
-            model.StatesList = _StatesList;
+            model.StatesList = Utilities.states();
             return View(model);
 
         }
@@ -95,7 +41,7 @@ namespace HopeTherapy.Controllers
             else
             {
                 var Donor = Utilities.Sql.ExecuteQuerySingleResult<Donor>("select D_CODE as DonorID, D_Fname as FirstName, D_Lname as LastName, D_address as StreetAddress, D_CITY as City, D_STATE as State, D_ZIP as ZipCode, D_County as County, D_CELL_PHONE as CellPhoneNumber, D_HOME_PHONE as HomePhoneNumber, D_WORK_PHONE as WorkPhoneNumber, D_EMAIL as EmailAddress, D_MailList as MailList, D_EmailList as EmailList, D_CO_NAME as CompanyName, D_POSITION as Position, D_CO_ADDRESS as CompanyAddress, D_CO_STATE as CompanyState, D_CO_CITY as CompanyCity, D_CO_ZIP as CompanyZip from dbo.DONOR Where D_CODE = " + ID + ";");
-                Donor.StatesList = _StatesList;
+                Donor.StatesList = Utilities.states(); 
                 IEnumerable<Donation> CDonations = null;
                 IEnumerable<Donation> Donations = null;
                 CDonations = Utilities.Sql.ExecuteQuery<Donation>("SELECT D_FNAME as donorFName, D_LNAME as donorLName, CurrencyDonation.dod as date, amount as donationAmount, D_CODE as donorID from [dbo].[donor],[dbo].[CurrencyDonation] where CurrencyDonation.donorID = Donor.D_CODE and Donor.D_CODE=" + ID + ";");
