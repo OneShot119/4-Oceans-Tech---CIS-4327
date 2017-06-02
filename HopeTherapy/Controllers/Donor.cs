@@ -263,7 +263,8 @@ namespace HopeTherapy.Controllers
             {
                 IEnumerable<Donor> Donors = null;
                 Donors = Utilities.Sql.ExecuteQuery<Donor>("select D_CODE as DonorID, D_Fname as FirstName, D_Lname as LastName, D_EMAIL as EmailAddress from dbo.DONOR where D_EmailList = 'Y'");
-                return View("DEmail", Donors);
+                List<Donor> Dlist = Donors.ToList<Donor>();
+                return View("DEmail", Dlist);
             }
         }
 
