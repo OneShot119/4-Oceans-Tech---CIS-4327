@@ -13,16 +13,17 @@
         <p><a href='@Url.Action("Logout", "User")' class="btn btn-primary btn-lg">Sign Out &raquo;</a></p>
         <center>
             <h1>Donation List</h1>
-            <div class="col-sm-4" style="width:33.33%">
+            <div class="col-sm-4">
+                
                 @using (Html.BeginForm("listDonationsBefore", "Donor", FormMethod.Post))
                 {
                     <label for="Search">Donations before:</label><br />
-                    <input type="date" name="date" id="date" />
+                    <input type="date" name="date" id="date" /><br /><br />
                     <button type="submit" class="btn btn-primary btn-lg">Search</button><br /><br />
                 }
 
             </div>
-            <div class="col-sm-4" style="width:33.33%">
+            <div class="col-sm-4">
                 @using (Html.BeginForm("SearchDate", "Donor", FormMethod.Post))
                 {
                     <label for="Search">Donations between:</label><br />
@@ -31,11 +32,11 @@
                             <button type="submit" class="btn btn-primary btn-lg">Search</button><br /><br />
                 }
             </div>
-            <div class="col-sm-4" style="width:33.33%">
+            <div class="col-sm-4">
                 @using (Html.BeginForm("listDonationsAfter", "Donor", FormMethod.Post))
                 {
                     <label for="Search">Donations after:</label><br />
-                    <input type="date" name="date" id="date" />
+                    <input type="date" name="date" id="date" /><br /><br />
                     <button type="submit" class="btn btn-primary btn-lg">Search</button><br /><br />
                 }
 
