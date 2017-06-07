@@ -147,10 +147,10 @@ namespace HopeTherapy.Controllers
             else
             {
                 string sql = "INSERT INTO [dbo].[DONOR] (D_FNAME, D_LNAME, D_ADDRESS, D_CITY, D_STATE, D_ZIP, D_COUNTY, D_CELL_PHONE, " +
-                "D_HOME_PHONE, D_WORK_PHONE, D_EMAIL, D_MailList, D_EmailList, D_CO_NAME, D_POSITION, D_CO_ADDRESS, D_CO_CITY, D_CO_STATE, D_CO_ZIP)" +
+                "D_HOME_PHONE, D_WORK_PHONE, D_EMAIL, D_MailList, D_EmailList, D_CO_NAME, D_POSITION, D_CO_ADDRESS, D_CO_CITY, D_CO_STATE, D_CO_ZIP, d_most_recent)" +
                 "VALUES(@FirstName, @LastName, @StreetAddress, @City, @State, @ZipCode, @County, " +
                 "@CellPhoneNumber, @HomePhoneNumber, @WorkPhoneNumber, @EmailAddress, @MailList, @EmailList, @CompanyName, @Position, @CompanyAddress, @CompanyCity, @CompanyState, " +
-                "@CompanyZip)";
+                "@CompanyZip, @DonationDate)";
 
                 try
                 {
