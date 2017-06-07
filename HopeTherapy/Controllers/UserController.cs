@@ -49,6 +49,7 @@ namespace HopeTherapy.Controllers
                     if (user.IsValid(user.UserName, user.Password))
                     {
                         FormsAuthentication.SetAuthCookie(user.UserName, user.RememberMe);
+                        Session["UserName"] = user.UserName;
                         return RedirectToAction("Index", "Home");
                     }
                     else

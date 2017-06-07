@@ -74,6 +74,7 @@ namespace HopeTherapy.Controllers
                 var user = new User();
                 user.UserName = model.Username;
                 user.Password = model.Password;
+                Session["UserName"] = model.Username;
                 FormsAuthentication.SetAuthCookie(user.UserName, true);
                 return RedirectToAction("Index", "Home");
             }
