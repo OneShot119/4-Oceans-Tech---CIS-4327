@@ -76,7 +76,7 @@ namespace HopeTherapy.Controllers
                         "D_EMAIL = @EmailAddress, D_MailList = @MailList, D_EmailList = @EmailList, D_CO_NAME = @CompanyName, D_POSITION = @Position, D_CO_ADDRESS = @CompanyAddress, " +
                         "D_CO_STATE = @CompanyState, D_CO_CITY = @CompanyCity, D_CO_ZIP = @CompanyZip " +
                         "WHERE D_CODE = @DonorID;";
-                    if (model.CurrencyDonation != 0)
+                    if (model.NewDonation != 0)
                     {
                     try
                     {
