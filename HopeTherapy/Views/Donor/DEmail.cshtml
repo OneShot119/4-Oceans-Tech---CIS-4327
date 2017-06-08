@@ -13,13 +13,13 @@
 
     <center><h1>Email Donors</h1></center>
 
-    <center><a href="mailto: @foreach (var Donor in Model) {@Donor.emailChain()}" class="btn btn-primary btn-lg">Send Email</a></center>
+    
     <br />
     <center>
      @if (Model.Any())
-       
-                 {
-                     foreach (var donor in Model)
+     { 
+        <a href="mailto: @foreach (var Donor in Model) {@Donor.emailChain()}" class="btn btn-primary btn-lg">Send Email</a>
+        foreach (var donor in Model)
                      {
                 <div class="col-sm-4" style="width:33.33%">
                     <p>@donor.EmailAddress</p>
@@ -28,7 +28,7 @@
      }
         else
         {
-            <h2>Sorry, nobody in the Email list.</h2>
+            <h2>Sorry, nobody is in the Email list.</h2>
         }
     </center>
     @for (var i = 0; i < (int)Math.Ceiling((double)Model.Count / 3); i++)

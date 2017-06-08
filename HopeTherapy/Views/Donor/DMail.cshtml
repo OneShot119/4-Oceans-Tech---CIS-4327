@@ -12,26 +12,30 @@
     <p><a href='@Url.Action("Logout", "User")' class="btn btn-primary btn-lg">Sign Out &raquo;</a></p>
 
     <center><h1>Donor Mailing List</h1></center>
-
-    @foreach (var Donor in Model)
+    @if (Model.Any())
     {
-        @*
-        <a href='@Url.Action("Profile", "Donor", new { ID = @Donor.DonorID })' style="color:#935347">@Donor.FirstName @Donor.LastName</a>
+        foreach (var Donor in Model)
+        {
+            <div class="col-sm-4">
+                <h2>@Donor.FirstName @Donor.LastName</h2>
+                <h3> @Donor.StreetAddress </h3>
+                <h3> @Donor.City ,  @Donor.State ,  @Donor.ZipCode </h3>
+                <br /><br />
+            </div>
+        }
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+    }
+    else
+    {
         <br />
-        *@
-        <div class="col-sm-4">
-            <h2>@Donor.FirstName @Donor.LastName</h2>
-            <h3> @Donor.StreetAddress </h3>
-            <h3> @Donor.City ,  @Donor.State ,  @Donor.ZipCode </h3>
-            <br /><br />
-        </div>
-     }
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
+        <center><h2>Sorry, nobody is in the Mail list.</h2></center>
+    }
+
 </body>
 </html>
