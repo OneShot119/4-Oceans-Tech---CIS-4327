@@ -36,7 +36,6 @@ namespace HopeTherapy.Models
         // [RegularExpression("^[0 - 9]{5}(-[0-9]{4})?$", ErrorMessage = "5 characters required")]
         public string ZipCode { get; set; }
 
-        [Required(ErrorMessage = "County is required")]
         [DisplayName("County")]
         public string County { get; set; }
 

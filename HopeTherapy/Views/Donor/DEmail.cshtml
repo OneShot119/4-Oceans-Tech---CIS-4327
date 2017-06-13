@@ -19,12 +19,7 @@
      @if (Model.Any())
      { 
         <a href="mailto: @foreach (var Donor in Model) {@Donor.emailChain()}" class="btn btn-primary btn-lg">Send Email</a>
-        foreach (var donor in Model)
-                     {
-                <div class="col-sm-4" style="width:33.33%">
-                    <p>@donor.EmailAddress</p>
-                </div>
-            }
+
      }
         else
         {

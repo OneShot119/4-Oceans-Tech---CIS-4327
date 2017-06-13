@@ -72,8 +72,8 @@
 
                 <div class="row">
                     <div class="col-sm-3">
-                        @Html.DisplayNameFor(i => i.County)<text style="color:red">*</text><text>:</text><br>
-                        @Html.TextBoxFor(i => i.County, new { @class = "form-control", placeholder = "County", required = "required" })
+                        @Html.DisplayNameFor(i => i.County)<text>:</text><br>
+                        @Html.TextBoxFor(i => i.County, new { @class = "form-control", placeholder = "County"})
                         @Html.ValidationMessageFor(i => i.County)
                     </div>
 

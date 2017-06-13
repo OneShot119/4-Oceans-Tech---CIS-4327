@@ -16,12 +16,6 @@
     @if (Model.Any())
     {
         <center><a href="mailto: @foreach (var Volunteer in Model) {@Volunteer.emailChain()}" class="btn btn-primary btn-lg">Send Email</a></center>
-        foreach (var volunteer in Model)
-        {
-            <div class="col-sm-4" style="width:33.33%">
-                <p>@volunteer.Email</p>
-            </div>
-        }
     }
     else
     {
