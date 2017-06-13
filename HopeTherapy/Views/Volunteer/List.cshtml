@@ -6,8 +6,20 @@
 
     <html>
     <head>
+        <script>
+            function setList() {
+                var list=document.getElementById('Day');
+                selectItemByValue(list, "@ViewBag.SearchDay");
+            function selectItemByValue(elmnt, value) {
+                for (var i = 0; i < elmnt.options.length; i++) {
+                    if (elmnt.options[i].value == value)
+                        elmnt.selectedIndex = i;
+                    }
+                }
+            }
+        </script>
     </head>
-    <body>
+    <body onload="setList()">
         <br />
         <p><a href="/Home/Index" class="btn btn-primary btn-lg">Go Back &laquo;</a></p>
         <p><a href='@Url.Action("Logout", "User")' class="btn btn-primary btn-lg">Sign Out &raquo;</a></p>
@@ -41,85 +53,8 @@
 
             <div class="col-sm-3">
                 @using (Html.BeginForm("ListByDay", "Volunteer", FormMethod.Post))
-            {
-                    <label for="Email List">Work Day</label><br />
-                    if (Model.Any())
-                    {
-                        switch (@Model.First().searchCategory)
-                        {
-                            case "Sunday":
-                                <select name="Day" id="Day">
-                                    <option> </option>
-                                    <option selected>Sunday</option>
-                                    <option>Monday</option>
-                                    <option>Tuesday</option>
-                                    <option>Wednesday</option>
-                                    <option>Thursday</option>
-                                    <option>Friday</option>
-                                    <option>Saturday</option>
-                                </select>
-                                break;
-                            case "Monday":
-                                <select name="Day" id="Day">
-                                    <option> </option>
-                                    <option>Sunday</option>
-                                    <option selected>Monday</option>
-                                    <option>Tuesday</option>
-                                    <option>Wednesday</option>
-                                    <option>Thursday</option>
-                                    <option>Friday</option>
-                                    <option>Saturday</option>
-                                </select>
-                                break;
-                            case "Tuesday":
-                                <select name="Day" id="Day">
-                                    <option> </option>
-                                    <option>Sunday</option>
-                                    <option>Monday</option>
-                                    <option selected>Tuesday</option>
-                                    <option>Wednesday</option>
-                                    <option>Thursday</option>
-                                    <option>Friday</option>
-                                    <option>Saturday</option>
-                                </select>
-                                break;
-                            case "Wednesday":
-                                <select name="Day" id="Day">
-                                    <option> </option>
-                                    <option>Sunday</option>
-                                    <option>Monday</option>
-                                    <option>Tuesday</option>
-                                    <option selected>Wednesday</option>
-                                    <option>Thursday</option>
-                                    <option>Friday</option>
-                                    <option>Saturday</option>
-                                </select>
-                                break;
-                            case "Thursday":
-                                <select name="Day" id="Day">
-                                    <option> </option>
-                                    <option>Sunday</option>
-                                    <option>Monday</option>
-                                    <option>Tuesday</option>
-                                    <option>Wednesday</option>
-                                    <option selected>Thursday</option>
-                                    <option>Friday</option>
-                                    <option>Saturday</option>
-                                </select>
-                                break;
-                            case "Friday":
-                                <select name="Day" id="Day">
-                                    <option> </option>
-                                    <option>Sunday</option>
-                                    <option>Monday</option>
-                                    <option>Tuesday</option>
-                                    <option>Wednesday</option>
-                                    <option>Thursday</option>
-                                    <option selected>Friday</option>
-                                    <option>Saturday</option>
-                                </select>
-                                break;
-                            case "Saturday":
+                {
+                    <label>Work Day</label><br />
                                 <select name="Day" id="Day">
                                     <option> </option>
                                     <option>Sunday</option>
@@ -128,37 +63,10 @@
                                     <option>Wednesday</option>
                                     <option>Thursday</option>
                                     <option>Friday</option>
-                                    <option selected>Saturday</option>
-                                </select>
-                                break;
-                            default:
-                                <select name="Day" id="Day">
-                                    <option selected> </option>
-                                    <option>Sunday</option>
-                                    <option>Monday</option>
-                                    <option>Tuesday</option>
-                                    <option>Wednesday</option>
-                                    <option>Thursday</option>
-                                    <option>Friday</option>
                                     <option>Saturday</option>
                                 </select>
-                                break;
-                        }
-                    }
-                    else
-                    {
-                        <select name="Day" id="Day">
-                            <option selected> </option>
-                            <option>Sunday</option>
-                            <option>Monday</option>
-                            <option>Tuesday</option>
-                            <option>Wednesday</option>
-                            <option>Thursday</option>
-                            <option>Friday</option>
-                            <option>Saturday</option>
-                        </select>
-                    }
-                    <br /><br />
+                    <br />
+                    <br />
                     <button type="submit" class="btn btn-primary btn-lg">Search</button><br /><br />
                 }
             </div>
