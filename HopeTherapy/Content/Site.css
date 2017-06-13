@@ -262,3 +262,7 @@ specialLabel{
   width: 140px;
   text-align: right;
 }
+.pagination > li > a, .pagination > li > span{
+    background-color:#935347;
+    border: 2.3px solid #CAC4BC;
+}

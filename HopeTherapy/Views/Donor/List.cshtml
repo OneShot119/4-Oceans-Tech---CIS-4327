@@ -1,4 +1,5 @@
-﻿@model IEnumerable<HopeTherapy.Models.Donor>
+﻿@model PagedList.IPagedList<HopeTherapy.Models.Donor>
+@using PagedList.Mvc;
 @{
     ViewBag.Title = "Donors";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -110,7 +111,7 @@
                             </td>
                             <td>
                                 <p style="color:#30231d">
-                                    Most Recent Donation: @Donor.DonationDate.Date.Month <text>/</text> @Donor.DonationDate.Date.Day <text>/</text> @Donor.DonationDate.Date.Year <br />
+                                    Most Recent Donation:<br /> @Donor.DonationDate.Date.Month <text>/</text> @Donor.DonationDate.Date.Day <text>/</text> @Donor.DonationDate.Date.Year <br />
                                 </p>
                                 <p><center><button class="btn btn-primary btn-lg" id="alertbtn @Donor.DonorID" onclick="document.getElementById('@Donor.DonorID').style.display = 'block' ; this.style.display = 'none'">Delete Donor &raquo;</button></center></p>
                                 <div class="alert @Donor.DonorID" style="display:none" id="@Donor.DonorID">
@@ -125,6 +126,9 @@
 
                 </table>
             }
+                <br />
+                @Html.PagedListPager(Model, page => Url.Action("List",
+                     new { page, Search = ViewBag.SearchString, Type = ViewBag.SearchType }))
             <script>
                 function hideAlert() {
                     document.getElementById("alert").style.display = "none";
@@ -138,4 +142,3 @@
     </body>
 
     </html> 
-
