@@ -98,6 +98,9 @@ namespace HopeTherapy.Models
         [DisplayName("Mail List? ")]
         public string MailList { get; set; }
 
+        [DisplayName("Notes")]
+        public string Notes { get; set; }
+
         public string emailChain()
         {
             return (this.EmailAddress + ";");

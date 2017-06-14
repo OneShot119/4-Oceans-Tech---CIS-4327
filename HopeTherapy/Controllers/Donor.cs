@@ -41,7 +41,7 @@ namespace HopeTherapy.Controllers
             }
             else
             {
-                var Donor = Utilities.Sql.ExecuteQuerySingleResult<Donor>("select D_CODE as DonorID, D_Fname as FirstName, D_Lname as LastName, D_address as StreetAddress, D_CITY as City, D_STATE as State, D_ZIP as ZipCode, D_County as County, D_CELL_PHONE as CellPhoneNumber, D_HOME_PHONE as HomePhoneNumber, D_WORK_PHONE as WorkPhoneNumber, D_EMAIL as EmailAddress, D_MailList as MailList, D_EmailList as EmailList, D_CO_NAME as CompanyName, D_POSITION as Position, D_CO_ADDRESS as CompanyAddress, D_CO_STATE as CompanyState, D_CO_CITY as CompanyCity, D_CO_ZIP as CompanyZip from dbo.DONOR Where D_CODE = " + ID + ";");
+                var Donor = Utilities.Sql.ExecuteQuerySingleResult<Donor>("select D_CODE as DonorID, D_Fname as FirstName, D_Lname as LastName, D_address as StreetAddress, D_CITY as City, D_STATE as State, D_ZIP as ZipCode, D_County as County, D_CELL_PHONE as CellPhoneNumber, D_HOME_PHONE as HomePhoneNumber, D_WORK_PHONE as WorkPhoneNumber, D_EMAIL as EmailAddress, D_MailList as MailList, D_EmailList as EmailList, D_CO_NAME as CompanyName, D_POSITION as Position, D_CO_ADDRESS as CompanyAddress, D_CO_STATE as CompanyState, D_CO_CITY as CompanyCity, D_CO_ZIP as CompanyZip, notes as Notes from dbo.DONOR Where D_CODE = " + ID + ";");
                 Donor.StatesList = Utilities.states(); 
                 IEnumerable<Donation> CDonations = null;
                 IEnumerable<Donation> Donations = null;
@@ -75,7 +75,7 @@ namespace HopeTherapy.Controllers
                         "D_address = @StreetAddress, D_CITY = @City, D_STATE = @State, D_ZIP = @ZipCode, D_County = @County, " +
                         "D_CELL_PHONE = @CellPhoneNumber, D_HOME_PHONE = @HomePhoneNumber, D_WORK_PHONE = @WorkPhoneNumber, " +
                         "D_EMAIL = @EmailAddress, D_MailList = @MailList, D_EmailList = @EmailList, D_CO_NAME = @CompanyName, D_POSITION = @Position, D_CO_ADDRESS = @CompanyAddress, " +
-                        "D_CO_STATE = @CompanyState, D_CO_CITY = @CompanyCity, D_CO_ZIP = @CompanyZip " +
+                        "D_CO_STATE = @CompanyState, D_CO_CITY = @CompanyCity, D_CO_ZIP = @CompanyZip, notes = @Notes " +
                         "WHERE D_CODE = @DonorID;";
                     if (model.NewDonation != 0)
                     {
@@ -148,10 +148,10 @@ namespace HopeTherapy.Controllers
             else
             {
                 string sql = "INSERT INTO [dbo].[DONOR] (D_FNAME, D_LNAME, D_ADDRESS, D_CITY, D_STATE, D_ZIP, D_COUNTY, D_CELL_PHONE, " +
-                "D_HOME_PHONE, D_WORK_PHONE, D_EMAIL, D_MailList, D_EmailList, D_CO_NAME, D_POSITION, D_CO_ADDRESS, D_CO_CITY, D_CO_STATE, D_CO_ZIP, d_most_recent)" +
+                "D_HOME_PHONE, D_WORK_PHONE, D_EMAIL, D_MailList, D_EmailList, D_CO_NAME, D_POSITION, D_CO_ADDRESS, D_CO_CITY, D_CO_STATE, D_CO_ZIP, d_most_recent, notes)" +
                 "VALUES(@FirstName, @LastName, @StreetAddress, @City, @State, @ZipCode, @County, " +
                 "@CellPhoneNumber, @HomePhoneNumber, @WorkPhoneNumber, @EmailAddress, @MailList, @EmailList, @CompanyName, @Position, @CompanyAddress, @CompanyCity, @CompanyState, " +
-                "@CompanyZip, @DonationDate)";
+                "@CompanyZip, @DonationDate, @notes)";
 
                 try
                 {
@@ -319,7 +319,7 @@ namespace HopeTherapy.Controllers
             }
             else
             {
-                var Donor = Utilities.Sql.ExecuteQuerySingleResult<Donor>("select D_CODE as DonorID, D_Fname as FirstName, D_Lname as LastName, D_address as StreetAddress, D_CITY as City, D_STATE as State, D_ZIP as ZipCode, D_County as County, D_CELL_PHONE as CellPhoneNumber, D_HOME_PHONE as HomePhoneNumber, D_WORK_PHONE as WorkPhoneNumber, D_EMAIL as EmailAddress, D_MailList as MailList, D_EmailList as EmailList, D_CO_NAME as CompanyName, D_POSITION as Position, D_CO_ADDRESS as CompanyAddress, D_CO_STATE as CompanyState, D_CO_CITY as CompanyCity, D_CO_ZIP as CompanyZip, D_most_recent as DonationDate from dbo.DONOR Where D_CODE = " + ID + ";");
+                var Donor = Utilities.Sql.ExecuteQuerySingleResult<Donor>("select D_CODE as DonorID, D_Fname as FirstName, D_Lname as LastName, D_address as StreetAddress, D_CITY as City, D_STATE as State, D_ZIP as ZipCode, D_County as County, D_CELL_PHONE as CellPhoneNumber, D_HOME_PHONE as HomePhoneNumber, D_WORK_PHONE as WorkPhoneNumber, D_EMAIL as EmailAddress, D_MailList as MailList, D_EmailList as EmailList, D_CO_NAME as CompanyName, D_POSITION as Position, D_CO_ADDRESS as CompanyAddress, D_CO_STATE as CompanyState, D_CO_CITY as CompanyCity, D_CO_ZIP as CompanyZip, D_most_recent as DonationDate, notes as Notes from dbo.DONOR Where D_CODE = " + ID + ";");
                 IEnumerable<Donation> CDonations = null;
                 IEnumerable<Donation> Donations = null;
                 CDonations = Utilities.Sql.ExecuteQuery<Donation>("SELECT D_FNAME as donorFName, D_LNAME as donorLName, CurrencyDonation.dod as date, amount as donationAmount, D_CODE as donorID from [dbo].[donor],[dbo].[CurrencyDonation] where CurrencyDonation.donorID = Donor.D_CODE and Donor.D_CODE="+ID+";");

@@ -196,7 +196,6 @@
     <Compile Include="Models\Schedules.cs" />
     <Compile Include="Models\Day.cs" />
     <Compile Include="Models\Donor.cs" />
-    <Compile Include="Models\DonorShow.cs" />
     <Compile Include="Models\Email.cs" />
     <Compile Include="Models\Register.cs" />
     <Compile Include="Models\User.cs" />
