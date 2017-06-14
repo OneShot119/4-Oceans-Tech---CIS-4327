@@ -265,4 +265,9 @@ specialLabel{
 .pagination > li > a, .pagination > li > span{
     background-color:#935347;
     border: 2.3px solid #CAC4BC;
+    border-radius: 7px;
+}
+.pagination > .active > a{
+    background-color:#aa863a;
+    border: 2.3px solid #CAC4BC;
 }
