@@ -14,13 +14,34 @@
     <center><h1>Donor Mailing List</h1></center>
     @if (Model.Any())
     {
-        foreach (var Donor in Model)
+        var current = 0;
+        var address = Model.ElementAt(current);
+        while (address != null)
         {
-            <div class="col-sm-4">
-                <h2>@Donor.FirstName @Donor.LastName</h2>
-                <h3> @Donor.StreetAddress </h3>
-                <h3> @Donor.City ,  @Donor.State ,  @Donor.ZipCode </h3>
-                <br /><br />
+            <div class="row">
+                @for (var i = 0; i < 3; i++)
+                {
+                    if (address != null)
+                    {
+                        <div class="col-sm-4">
+                            <h2>@address.FirstName @address.LastName</h2>
+                            <h3> @address.StreetAddress </h3>
+                            <h3> @address.City ,  @address.State ,  @address.ZipCode </h3>
+                            <br /><br />
+                        </div>
+                        current += 1;
+                        if (Model.Count() <= current)
+                        {
+                            address = null;
+                        }
+                        else
+                        {
+                            address = Model.ElementAt(current);
+                        }
+                    }
+
+
+                }
             </div>
         }
         <p>&nbsp;</p>
