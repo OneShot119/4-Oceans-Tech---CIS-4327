@@ -16,7 +16,7 @@
     {
         var current = 0;
         var address = Model.ElementAt(current);
-        while (address != null)
+        while (address != null || Model.Count() <= current)
         {
             <div class="row">
                 @for (var i = 0; i < 3; i++)
