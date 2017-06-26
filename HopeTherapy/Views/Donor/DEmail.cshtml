@@ -19,21 +19,41 @@
      @if (Model.Any())
      { 
         <a href="mailto: @foreach (var Donor in Model) {@Donor.emailChain()}" class="btn btn-primary btn-lg">Send Email</a>
+         var current = 0;
+         var address = Model.ElementAt(current);
+         while (address != null || Model.Count() < current)
+         {
+            <div class="row">
+                @for (var i = 0; i < 3; i++)
+                {
+                    if (address != null)
+                    {
+                        <div class="col-sm-4">
+                            <h2>@address.FirstName @address.LastName</h2>
+                            <h3> @address.EmailAddress </h3>
+                            <br /><br />
+                        </div>
+                        current += 1;
+                        if (Model.Count() <= current)
+                        {
+                            address = null;
+                        }
+                        else
+                        {
+                            address = Model.ElementAt(current);
+                        }
+                    }
 
+
+                }
+            </div>
+         }
      }
-        else
-        {
+     else
+     {
             <h2>Sorry, nobody is in the Email list.</h2>
         }
     </center>
-    @for (var i = 0; i < (int)Math.Ceiling((double)Model.Count / 3); i++)
-        {
-            <br />
-        }
-    @if (Model.Count % 3 != 0)
-    {
-       <br />
-    }
 
 </body>
 </html>
